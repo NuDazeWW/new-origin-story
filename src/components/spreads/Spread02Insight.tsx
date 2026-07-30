@@ -75,7 +75,7 @@ export default function Spread02Insight({ isActive = false }: Spread02Props) {
       clearTimeout(t2);
       cancelAnimationFrame(rafRef.current);
     };
-  }, [isActive, textVisible]);
+  }, [isActive]);
 
   const slide = (delay: number): React.CSSProperties => ({
     opacity: textVisible ? 1 : 0,
