@@ -45,9 +45,12 @@ export default function Spread02Insight({ isActive = false }: Spread02Props) {
   const [conclusionVisible, setConclusionVisible] = useState(false);
   const [lineProgress, setLineProgress] = useState(0);
   const rafRef = useRef<number>(0);
+  const startedRef = useRef(false);
 
   useEffect(() => {
-    if (!isActive || textVisible) return;
+    if (!isActive || startedRef.current) return;
+    startedRef.current = true;
+
 
     const t1 = setTimeout(() => setTextVisible(true), 150);
     const t2 = setTimeout(() => {
