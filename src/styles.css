@@ -142,3 +142,477 @@
     color: var(--color-foreground);
   }
 }
+
+/* ============================================================
+   DIS ORIGIN — Investor Publication design system
+   ============================================================ */
+
+:root {
+  --dis-signal-black: #05080F;
+  --dis-deep-slate: #0E1624;
+  --dis-midnight-slate: #111A29;
+  --dis-steel-blue: #1B2A3D;
+  --dis-oxford-blue: #14243A;
+  --dis-platinum: #E6EBF1;
+  --dis-electric-blue: #1EA7FF;
+  --dis-arctic-gray: #6B7582;
+  --dis-fog: #A6AFB8;
+  --dis-aurora-blue: #22D3EE;
+  --dis-violet: #7B61FF;
+  --dis-neon-teal: #00FFC2;
+  --dis-data-purple: #C471FF;
+  --dis-ice-white: #F4F8FF;
+
+  --background: #05080F;
+  --foreground: #E6EBF1;
+  --card: #0E1624;
+  --card-foreground: #E6EBF1;
+  --popover: #0E1624;
+  --popover-foreground: #E6EBF1;
+  --primary: #1EA7FF;
+  --primary-foreground: #05080F;
+  --secondary: #1B2A3D;
+  --secondary-foreground: #E6EBF1;
+  --muted: #111A29;
+  --muted-foreground: #6B7582;
+  --accent: #1EA7FF;
+  --accent-foreground: #05080F;
+  --destructive: #ff4444;
+  --border: rgba(30, 167, 255, 0.1);
+  --input: rgba(30, 167, 255, 0.1);
+  --ring: #1EA7FF;
+}
+
+html {
+  background: #05080F;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #05080F;
+  color: #E6EBF1;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    box-sizing: border-box;
+  }
+
+  html {
+    background: #05080F;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: #05080F;
+    color: #E6EBF1;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  a[href] {
+    cursor: pointer;
+  }
+}
+
+/* ============================================================
+   HORIZONTAL MAGAZINE SCROLL SYSTEM
+   Each "spread" is a full-viewport section in a horizontal track
+   ============================================================ */
+
+.publication-track {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+}
+
+.spread {
+  min-width: 100vw;
+  width: 100vw;
+  height: 100vh;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ============================================================
+   EDITORIAL TYPOGRAPHY SYSTEM
+   ============================================================ */
+
+.dis-headline-xl {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: clamp(3rem, 7vw, 7rem);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  color: #E6EBF1;
+}
+
+.dis-headline-lg {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: clamp(2rem, 4.5vw, 4.5rem);
+  font-weight: 400;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  color: #E6EBF1;
+}
+
+.dis-headline-md {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: clamp(1.5rem, 3vw, 3rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: #E6EBF1;
+}
+
+.dis-headline-italic {
+  font-style: italic;
+  color: #1EA7FF;
+}
+
+.dis-label {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #1EA7FF;
+}
+
+.dis-label-muted {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #6B7582;
+}
+
+.dis-body {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(0.875rem, 1.1vw, 1rem);
+  font-weight: 400;
+  line-height: 1.65;
+  color: #A6AFB8;
+}
+
+.dis-body-bright {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(0.875rem, 1.1vw, 1rem);
+  font-weight: 400;
+  line-height: 1.65;
+  color: #E6EBF1;
+}
+
+.dis-stat-number {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  font-weight: 400;
+  line-height: 1;
+  color: #1EA7FF;
+}
+
+.dis-stat-label {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #6B7582;
+  margin-top: 0.25rem;
+}
+
+.dis-chapter-num {
+  font-family: 'DM Mono', 'Courier New', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  color: #1EA7FF;
+  opacity: 0.7;
+}
+
+/* ============================================================
+   MAGAZINE LAYOUT UTILITIES
+   ============================================================ */
+
+/* Full-bleed image panel */
+.spread-image-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 62%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.spread-image-panel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Left editorial text column */
+.spread-text-panel {
+  position: relative;
+  z-index: 10;
+  width: 42%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem 3rem 4rem 4rem;
+}
+
+/* Gradient bleed from left panel into image */
+.spread-gradient-bleed {
+  position: absolute;
+  top: 0;
+  left: 38%;
+  width: 20%;
+  height: 100%;
+  background: linear-gradient(to right, var(--bg-color, #05080F), transparent);
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* Horizontal rule / accent line */
+.dis-rule {
+  width: 2.5rem;
+  height: 1px;
+  background: #1EA7FF;
+  margin-bottom: 1.25rem;
+}
+
+/* Chapter marker */
+.dis-chapter-marker {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.dis-chapter-marker::before {
+  content: '';
+  display: block;
+  width: 2rem;
+  height: 1px;
+  background: #1EA7FF;
+}
+
+/* Watermark logo overlay */
+.dis-watermark {
+  position: absolute;
+  opacity: 0.04;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Page number / folio */
+.dis-folio {
+  position: absolute;
+  bottom: 2rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  color: #6B7582;
+  text-transform: uppercase;
+}
+
+/* ============================================================
+   ANIMATION UTILITIES
+   ============================================================ */
+
+.reveal-up {
+  opacity: 0;
+  transform: translateY(2rem);
+  transition: opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1),
+              transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.reveal-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-2rem);
+  transition: opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1),
+              transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.reveal-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-fade {
+  opacity: 0;
+  transition: opacity 1s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.reveal-fade.is-visible {
+  opacity: 1;
+}
+
+/* Stagger delays */
+.delay-100 { transition-delay: 0.1s; }
+.delay-200 { transition-delay: 0.2s; }
+.delay-300 { transition-delay: 0.3s; }
+.delay-400 { transition-delay: 0.4s; }
+.delay-500 { transition-delay: 0.5s; }
+.delay-600 { transition-delay: 0.6s; }
+.delay-700 { transition-delay: 0.7s; }
+
+/* Image parallax container */
+.parallax-img {
+  width: 110%;
+  height: 110%;
+  object-fit: cover;
+  object-position: center;
+  transform: translateX(0) translateY(0);
+  transition: transform 0.1s linear;
+  will-change: transform;
+}
+
+/* ============================================================
+   NAV
+   ============================================================ */
+
+.dis-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 2.5rem;
+  background: linear-gradient(to bottom, rgba(5,8,15,0.95) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.dis-nav > * {
+  pointer-events: auto;
+}
+
+/* ============================================================
+   PROGRESS BAR
+   ============================================================ */
+
+.dis-progress-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(to right, #1EA7FF, #00FFC2);
+  z-index: 200;
+  transition: width 0.3s ease;
+}
+
+/* ============================================================
+   SPREAD NAVIGATION ARROWS
+   ============================================================ */
+
+.spread-nav-btn {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 150;
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid rgba(30, 167, 255, 0.2);
+  background: rgba(5, 8, 15, 0.7);
+  backdrop-filter: blur(8px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  color: #E6EBF1;
+}
+
+.spread-nav-btn:hover {
+  border-color: rgba(30, 167, 255, 0.6);
+  background: rgba(30, 167, 255, 0.1);
+}
+
+.spread-nav-btn.prev { left: 1.5rem; }
+.spread-nav-btn.next { right: 1.5rem; }
+
+/* ============================================================
+   COVER SPREAD SPECIFIC
+   ============================================================ */
+
+.cover-masthead {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 38%;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 2.5rem;
+  background: linear-gradient(to right, rgba(5,8,15,0.97) 70%, transparent 100%);
+}
+
+.cover-image-fill {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ============================================================
+   TIMELINE (INSIGHT SPREAD)
+   ============================================================ */
+
+.timeline-line {
+  position: absolute;
+  left: 0.5rem;
+  top: 0;
+  width: 1px;
+  background: rgba(30, 167, 255, 0.15);
+  transition: height 1.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.timeline-line.is-drawn {
+  background: linear-gradient(to bottom, #1EA7FF, rgba(30, 167, 255, 0.1));
+}
+
+.timeline-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: rgba(30, 167, 255, 0.2);
+  border: 1px solid rgba(30, 167, 255, 0.3);
+  transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+.timeline-dot.is-active {
+  background: #1EA7FF;
+  border-color: #1EA7FF;
+  box-shadow: 0 0 12px rgba(30, 167, 255, 0.5);
+}
+
+

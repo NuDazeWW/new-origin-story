@@ -1,24 +1,41 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+import Publication from "@/components/Publication";
+import Spread00Cover from "@/components/spreads/Spread00Cover";
+import Spread01Problem from "@/components/spreads/Spread01Problem";
+import Spread02Insight from "@/components/spreads/Spread02Insight";
+
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+      { title: "DIS ORIGIN — The Readiness Terminal" },
+      {
+        name: "description",
+        content:
+          "Decision Intelligence Systems: the intelligence infrastructure layer for the $90B sports sponsorship market.",
+      },
+      { property: "og:title", content: "DIS ORIGIN — The Readiness Terminal" },
+      {
+        property: "og:description",
+        content:
+          "An investor publication from Decision Intelligence Systems — building the readiness standard for sponsorship.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
+  component: Home,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+function Home() {
+  const [currentSpread, setCurrentSpread] = useState(0);
+
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <Publication spreadCount={3} onSpreadChange={setCurrentSpread}>
+      <Spread00Cover />
+      <Spread01Problem isActive={currentSpread === 1} />
+      <Spread02Insight isActive={currentSpread === 2} />
+    </Publication>
   );
 }
