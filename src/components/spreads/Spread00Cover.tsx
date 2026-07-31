@@ -6,7 +6,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 
 import coverAsset from "@/assets/dis-cover.png.asset.json";
-import logoAsset from "@/assets/dis-logo.png.asset.json";
+
 import { Page, Folio } from "@/components/print/Page";
 import { Settle } from "@/components/print/Editorial";
 
