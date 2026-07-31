@@ -999,3 +999,44 @@ body {
 @media (max-width: 1000px) {
   .well__recto > .fig { flex: 0 0 auto; min-height: 30vh; }
 }
+
+/* --- timeline overlaid on a plate -------------------------- */
+
+.tl-plate {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 6rem 3rem 2.2rem;
+  background: linear-gradient(
+    to top,
+    rgba(5, 8, 15, 0.92) 0%,
+    rgba(5, 8, 15, 0.72) 42%,
+    rgba(5, 8, 15, 0) 100%
+  );
+  pointer-events: auto;
+}
+
+.tl-plate .ed-kicker {
+  display: block;
+  margin-bottom: 1.5rem;
+  color: rgba(230, 235, 241, 0.55);
+}
+
+.tl-plate .tl__axis {
+  transform-origin: left center;
+  background: rgba(230, 235, 241, 0.38);
+}
+
+.tl-plate .tl__tick { background: rgba(230, 235, 241, 0.55); }
+.tl-plate .tl__mark--key .tl__tick { background: var(--spot); }
+.tl-plate .tl__year { color: #E6EBF1; }
+.tl-plate .tl__mark--key .tl__year { color: var(--spot); }
+.tl-plate .tl__label { color: rgba(230, 235, 241, 0.6); }
+.tl-plate .tl__detail { color: rgba(230, 235, 241, 0.82); max-width: 22ch; }
+
+.tl-plate .tl__marks { gap: 2rem; }
+.tl-plate .tl__mark { padding-right: 1rem; }
+
+@media (max-width: 900px) {
+  .tl-plate { padding: 4rem 1.5rem 1.4rem; }
+  .tl-plate .tl__marks { gap: 0.75rem; }
+}
