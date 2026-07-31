@@ -26,6 +26,7 @@ export default function Spread00Cover() {
           animate={reduce ? undefined : { scale: 1 }}
           transition={{ duration: 24, ease: "linear" }}
         />
+        <div className="cover-head" />
         <div className="cover-foot" />
       </div>
 
@@ -44,7 +45,7 @@ export default function Spread00Cover() {
           <div style={{ height: "1px", background: "var(--rule)", width: "100%", maxWidth: "520px", margin: "1.1rem 0 0.9rem" }} />
           <Settle delay={0.14}>
             <p
-              className="ed-body"
+              className="ed-body text-readable"
               style={{
                 maxWidth: "46ch",
                 color: "var(--ink-text)",
@@ -63,10 +64,10 @@ export default function Spread00Cover() {
         {/* Display headline */}
         <div style={{ padding: "0 4.5rem 1.6rem" }}>
           <Settle delay={0.24}>
-            <span className="ed-kicker">Origin · 01</span>
+            <span className="ed-kicker text-readable">Origin · 01</span>
           </Settle>
           <Settle delay={0.32}>
-            <h1 className="ed-head" style={{ marginTop: "0.7rem", maxWidth: "16ch" }}>
+            <h1 className="ed-head text-readable--strong" style={{ marginTop: "0.7rem", maxWidth: "16ch" }}>
               The Readiness Terminal<span style={{ fontSize: "0.4em", verticalAlign: "super" }}>™</span>
             </h1>
           </Settle>
