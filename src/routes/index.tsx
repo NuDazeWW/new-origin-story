@@ -35,10 +35,13 @@ function Home() {
   const [currentSpread, setCurrentSpread] = useState(0);
 
   return (
-    <Publication spreadCount={3} onSpreadChange={setCurrentSpread}>
+    <Publication spreadCount={6} onSpreadChange={setCurrentSpread}>
       <Spread00Cover />
       <Spread01Problem isActive={currentSpread === 1} />
       <Spread02Insight isActive={currentSpread === 2} />
+      <Spread03Solution isActive={currentSpread === 3} />
+      <Spread04Structure isActive={currentSpread === 4} />
+      <Spread05Moat isActive={currentSpread === 5} />
     </Publication>
   );
 }
