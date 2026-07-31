@@ -5,6 +5,9 @@ import Publication from "@/components/Publication";
 import Spread00Cover from "@/components/spreads/Spread00Cover";
 import Spread01Problem from "@/components/spreads/Spread01Problem";
 import Spread02Insight from "@/components/spreads/Spread02Insight";
+import Spread03Solution from "@/components/spreads/Spread03Solution";
+import Spread04Structure from "@/components/spreads/Spread04Structure";
+import Spread05Moat from "@/components/spreads/Spread05Moat";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -32,10 +35,13 @@ function Home() {
   const [currentSpread, setCurrentSpread] = useState(0);
 
   return (
-    <Publication spreadCount={3} onSpreadChange={setCurrentSpread}>
+    <Publication spreadCount={6} onSpreadChange={setCurrentSpread}>
       <Spread00Cover />
       <Spread01Problem isActive={currentSpread === 1} />
       <Spread02Insight isActive={currentSpread === 2} />
+      <Spread03Solution isActive={currentSpread === 3} />
+      <Spread04Structure isActive={currentSpread === 4} />
+      <Spread05Moat isActive={currentSpread === 5} />
     </Publication>
   );
 }
