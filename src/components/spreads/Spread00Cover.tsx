@@ -45,7 +45,13 @@ export default function Spread00Cover() {
           <Settle delay={0.14}>
             <p
               className="ed-body"
-              style={{ maxWidth: "46ch", color: "var(--ink-text)", textAlign: "center" }}
+              style={{
+                maxWidth: "46ch",
+                color: "var(--ink-text)",
+                textAlign: "center",
+                fontSize: "clamp(1rem, 1.1vw, 1.2rem)",
+                lineHeight: 1.6,
+              }}
             >
               Building the intelligence infrastructure layer for the $90B sponsorship market.
             </p>
