@@ -54,7 +54,9 @@ export default function Spread00Cover() {
                 lineHeight: 1.6,
               }}
             >
-              Building the intelligence infrastructure layer for the $90B sponsorship market.
+              Building the intelligence infrastructure layer for the
+              <br />
+              $90B sponsorship market.
             </p>
           </Settle>
         </div>
