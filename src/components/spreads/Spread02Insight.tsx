@@ -1,10 +1,13 @@
 /**
  * SPREAD 02 — The Insight
- * Dark stock. Photograph runs full bleed across the top; the FICO precedent is
- * drawn as an editorial chart rather than a diagram.
+ * Dark stock. Photograph runs full bleed across the top with the FICO precedent
+ * printed over the plate; it builds left to right, once, on first view.
  */
 
-import coverAsset from "@/assets/dis-cover.png.asset.json";
+import { useRef } from "react";
+import { motion, useInView, useReducedMotion } from "framer-motion";
+
+import evidenceAsset from "@/assets/dis-evidence.png.asset.json";
 import { Page, PageBody, RunningHead, Folio } from "@/components/print/Page";
 import { Body, Figure, Settle } from "@/components/print/Editorial";
 
@@ -30,6 +33,51 @@ const MARKS = [
   },
 ];
 
+const EASE = [0.22, 0.61, 0.36, 1] as const;
+
+function PrecedentTimeline() {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, amount: 0.4 });
+  const reduce = useReducedMotion();
+  const run = reduce ? true : inView;
+
+  return (
+    <div className="tl-plate" ref={ref}>
+      <span className="ed-kicker">The Precedent</span>
+      <div className="tl">
+        <motion.div
+          className="tl__axis"
+          initial={reduce ? false : { scaleX: 0 }}
+          animate={run ? { scaleX: 1 } : { scaleX: 0 }}
+          transition={{ duration: 1.1, ease: EASE }}
+        />
+        <div className="tl__marks">
+          {MARKS.map((m, i) => (
+            <motion.div
+              key={m.year}
+              className={`tl__mark${m.key ? " tl__mark--key" : ""}`}
+              initial={reduce ? false : { opacity: 0, y: 10 }}
+              animate={run ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+              transition={{ duration: 0.55, delay: 0.28 + i * 0.34, ease: EASE }}
+            >
+              <motion.span
+                className="tl__tick"
+                initial={reduce ? false : { scaleY: 0 }}
+                animate={run ? { scaleY: 1 } : { scaleY: 0 }}
+                transition={{ duration: 0.32, delay: 0.22 + i * 0.34, ease: EASE }}
+                style={{ transformOrigin: "top center" }}
+              />
+              <div className="tl__year">{m.year}</div>
+              <div className="tl__label">{m.label}</div>
+              <div className="tl__detail">{m.detail}</div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function Spread02Insight({ isActive = false }: { isActive?: boolean }) {
   void isActive;
 
@@ -39,16 +87,17 @@ export default function Spread02Insight({ isActive = false }: { isActive?: boole
 
       <PageBody>
         <div style={{ display: "flex", flexDirection: "column", width: "100%", minHeight: 0 }}>
-          {/* Full-bleed photograph, top register */}
+          {/* Full-bleed photograph carrying the precedent chart */}
           <div className="fig-fill" style={{ flex: "1 1 auto", minHeight: 0, padding: "1rem 4.5rem 0" }}>
             <Figure
-              src={coverAsset.url}
-              alt="Light trails tracing a single line through the dark"
+              src={evidenceAsset.url}
+              alt="Fragments of evidence resolving into a single decision line"
               label="Fig. 02.A"
               caption="Every mature market converges on one trusted measure."
               credit="Photograph — DIS Field Archive"
               tone="full"
-              objectPosition="center 60%"
+              objectPosition="center 50%"
+              overlay={<PrecedentTimeline />}
             />
           </div>
 
@@ -57,8 +106,8 @@ export default function Spread02Insight({ isActive = false }: { isActive?: boole
             style={{
               flex: "0 0 auto",
               display: "grid",
-              gridTemplateColumns: "1.15fr 1fr 1fr",
-              gap: "2.25rem",
+              gridTemplateColumns: "1fr 1fr",
+              gap: "3.5rem",
               padding: "1.3rem 4.5rem 0",
               alignItems: "start",
               borderTop: "1px solid var(--rule)",
@@ -66,7 +115,7 @@ export default function Spread02Insight({ isActive = false }: { isActive?: boole
             }}
           >
             <Settle>
-              <p className="ed-quote">
+              <p className="ed-quote" style={{ fontSize: "clamp(1.25rem, 2vw, 2.05rem)" }}>
                 “Credit has FICO. Public markets have ratings agencies. Real estate has the
                 appraisal. Partnership readiness has nothing.”
               </p>
@@ -83,24 +132,6 @@ export default function Spread02Insight({ isActive = false }: { isActive?: boole
                 cap by being a software company; it got there by becoming infrastructure the entire
                 market depends on.
               </Body>
-            </Settle>
-
-            {/* Editorial chart */}
-            <Settle delay={0.24}>
-              <span className="ed-kicker">The Precedent</span>
-              <div className="tl">
-                <div className="tl__axis" />
-                <div className="tl__marks">
-                  {MARKS.map((m) => (
-                    <div key={m.year} className={`tl__mark${m.key ? " tl__mark--key" : ""}`}>
-                      <span className="tl__tick" />
-                      <div className="tl__year">{m.year}</div>
-                      <div className="tl__label">{m.label}</div>
-                      <div className="tl__detail">{m.detail}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
             </Settle>
           </div>
         </div>
