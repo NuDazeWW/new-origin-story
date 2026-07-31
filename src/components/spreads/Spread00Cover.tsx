@@ -26,6 +26,7 @@ export default function Spread00Cover() {
           animate={reduce ? undefined : { scale: 1 }}
           transition={{ duration: 24, ease: "linear" }}
         />
+        <div className="cover-head" />
         <div className="cover-foot" />
       </div>
 
