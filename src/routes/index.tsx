@@ -5,6 +5,9 @@ import Publication from "@/components/Publication";
 import Spread00Cover from "@/components/spreads/Spread00Cover";
 import Spread01Problem from "@/components/spreads/Spread01Problem";
 import Spread02Insight from "@/components/spreads/Spread02Insight";
+import Spread03Solution from "@/components/spreads/Spread03Solution";
+import Spread04Structure from "@/components/spreads/Spread04Structure";
+import Spread05Moat from "@/components/spreads/Spread05Moat";
 
 export const Route = createFileRoute("/")({
   head: () => ({
