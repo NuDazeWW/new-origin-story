@@ -1382,3 +1382,168 @@ body {
   .pstack { padding: 0; }
   .pstack__shim { display: none; }
 }
+
+/* ============================================================
+   TERMINAL SHOWCASE — spread 04, device spotlight
+   ============================================================ */
+
+.term {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: minmax(180px, 236px) minmax(0, 1fr) minmax(180px, 236px);
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 0.9rem 1.1rem;
+  padding: 0.4rem 4rem 0.8rem;
+  align-items: center;
+}
+
+.term__head {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.term__stage {
+  position: relative;
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.term__img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  filter: saturate(1.02) contrast(1.03);
+}
+
+/* dim everything except the live device */
+.term__spot {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  transition: background 0.9s cubic-bezier(0.22, 0.61, 0.36, 1);
+  mix-blend-mode: multiply;
+}
+
+.term__bloom {
+  position: absolute;
+  width: 26%;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle, color-mix(in oklab, var(--edge) 32%, transparent) 0%, transparent 68%);
+  transition: left 0.9s cubic-bezier(0.22, 0.61, 0.36, 1), top 0.9s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.term__dot {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--edge);
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--edge) 22%, transparent);
+  opacity: 0.35;
+  transition: opacity 0.5s ease, box-shadow 0.5s ease;
+}
+
+.term__dot--on {
+  opacity: 1;
+  box-shadow: 0 0 0 8px color-mix(in oklab, var(--edge) 18%, transparent), 0 0 22px var(--edge);
+}
+
+.term__col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.75rem;
+  height: 100%;
+  min-height: 0;
+}
+
+/* the light-box */
+.lbox {
+  position: relative;
+  text-align: left;
+  width: 100%;
+  padding: 0.85rem 0.95rem;
+  background: color-mix(in oklab, var(--layer-1) 82%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--edge-hair);
+  cursor: default;
+  transition: transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1),
+    border-color 0.5s ease, box-shadow 0.55s ease, background 0.5s ease;
+}
+
+.lbox__num {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.22em;
+  color: var(--ink-dim, #6B7582);
+  transition: color 0.5s ease;
+}
+
+.lbox__title {
+  margin-top: 0.28rem;
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: clamp(0.92rem, 1.05vw, 1.12rem);
+  line-height: 1.16;
+  color: var(--ink-text);
+}
+
+.lbox__text {
+  margin-top: 0.36rem;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 0.72rem;
+  line-height: 1.55;
+  color: var(--ink-body);
+  opacity: 0.72;
+  transition: opacity 0.5s ease;
+}
+
+.lbox__lead {
+  position: absolute;
+  top: 1.35rem;
+  height: 1px;
+  width: 1.1rem;
+  background: linear-gradient(to right, var(--edge), transparent);
+  opacity: 0.25;
+  transition: opacity 0.5s ease, width 0.5s ease;
+}
+
+.lbox--l .lbox__lead { right: -1.1rem; }
+.lbox--r .lbox__lead { left: -1.1rem; background: linear-gradient(to left, var(--edge), transparent); }
+
+.lbox--on {
+  background: color-mix(in oklab, var(--layer-3) 88%, transparent);
+  border-color: color-mix(in oklab, var(--edge) 55%, transparent);
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--edge) 22%, transparent),
+    0 26px 60px -30px rgba(0, 0, 0, 1),
+    0 0 34px -12px color-mix(in oklab, var(--edge) 60%, transparent);
+}
+
+.lbox--on .lbox__num { color: var(--edge); }
+.lbox--on .lbox__text { opacity: 1; }
+.lbox--on .lbox__lead { opacity: 1; width: 1.8rem; }
+.lbox--l.lbox--on { transform: translateX(6px); }
+.lbox--r.lbox--on { transform: translateX(-6px); }
+
+@media (max-width: 1000px) {
+  .term { grid-template-columns: 1fr; grid-template-rows: auto auto auto; padding: 0.6rem 1.2rem 1rem; }
+  .term__col { flex-direction: row; flex-wrap: wrap; }
+  .lbox__lead { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lbox, .term__bloom, .term__spot { transition: none; }
+}
