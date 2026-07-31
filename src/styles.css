@@ -616,3 +616,386 @@ body {
 }
 
 
+
+/* ============================================================
+   PRINT SHELL — magazine page primitives
+   ============================================================ */
+
+.pg {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--stock);
+  color: var(--ink-text);
+}
+
+.pg--ink {
+  --stock: #05080F;
+  --ink-text: #E6EBF1;
+  --ink-body: #A6AFB8;
+  --ink-muted: #6B7582;
+  --rule: rgba(230, 235, 241, 0.16);
+  --spot: #1EA7FF;
+}
+
+.pg--paper {
+  --stock: #E6EBF1;
+  --ink-text: #05080F;
+  --ink-body: #2B3644;
+  --ink-muted: #6B7582;
+  --rule: rgba(5, 8, 15, 0.18);
+  --spot: #1EA7FF;
+}
+
+.pg__margin {
+  padding: 1.4rem 4.5rem;
+  flex-shrink: 0;
+}
+
+.pg__body {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+  display: flex;
+}
+
+.run-head,
+.folio {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.run-head {
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.folio {
+  padding-top: 0.7rem;
+  border-top: 1px solid var(--rule);
+}
+
+/* --- editorial type ------------------------------------- */
+
+.ed-kicker {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--spot);
+}
+
+.ed-head {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(1.9rem, 3.4vw, 3.4rem);
+  line-height: 1.04;
+  letter-spacing: -0.015em;
+  color: var(--ink-text);
+}
+
+.ed-head--sm {
+  font-size: clamp(1.5rem, 2.4vw, 2.4rem);
+}
+
+.ed-quote {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1.15rem, 1.7vw, 1.7rem);
+  line-height: 1.28;
+  color: var(--ink-text);
+}
+
+.ed-body {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(0.78rem, 0.86vw, 0.92rem);
+  line-height: 1.72;
+  color: var(--ink-body);
+}
+
+.ed-body + .ed-body {
+  margin-top: 0.85rem;
+}
+
+.ed-drop::first-letter {
+  float: left;
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 3.5em;
+  line-height: 0.76;
+  padding-right: 0.1em;
+  margin-top: 0.06em;
+  color: var(--ink-text);
+}
+
+.ed-cols-2 {
+  column-count: 2;
+  column-gap: 2.25rem;
+  column-rule: 1px solid var(--rule);
+}
+
+/* --- figures --------------------------------------------- */
+
+.fig {
+  margin: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.fig__frame {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  background: #05080F;
+}
+
+.fig__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  will-change: transform;
+}
+
+.fig__img--print {
+  filter: saturate(0.72) contrast(1.06);
+}
+
+.fig__cap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding-top: 0.55rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.56rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.fig__label {
+  color: var(--spot);
+}
+
+.fig__text {
+  text-transform: none;
+  letter-spacing: 0.04em;
+  font-style: italic;
+}
+
+.fig__credit {
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+
+.fig:hover .fig__credit {
+  opacity: 1;
+}
+
+/* --- stats ------------------------------------------------ */
+
+.stat + .stat {
+  margin-top: 1.6rem;
+}
+
+.stat__value {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: clamp(2rem, 3.4vw, 3.4rem);
+  line-height: 1;
+  color: var(--ink-text);
+}
+
+.stat__label {
+  margin-top: 0.4rem;
+  padding-top: 0.4rem;
+  border-top: 1px solid var(--rule);
+  font-family: 'DM Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.stat__note {
+  margin-top: 0.35rem;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: opacity 0.4s ease, max-height 0.4s ease;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 0.68rem;
+  line-height: 1.5;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ink-body);
+}
+
+.stat:hover .stat__note {
+  opacity: 1;
+  max-height: 6rem;
+}
+
+/* --- timeline (editorial chart) --------------------------- */
+
+.tl {
+  position: relative;
+  padding-top: 1.2rem;
+}
+
+.tl__axis {
+  position: absolute;
+  top: 0.6rem;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--rule);
+}
+
+.tl__marks {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.tl__mark {
+  position: relative;
+  flex: 1;
+}
+
+.tl__tick {
+  position: absolute;
+  top: -1.2rem;
+  left: 0;
+  width: 1px;
+  height: 0.75rem;
+  background: var(--rule);
+}
+
+.tl__mark--key .tl__tick {
+  background: var(--spot);
+  height: 1.1rem;
+  top: -1.6rem;
+}
+
+.tl__year {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: clamp(1.1rem, 1.5vw, 1.6rem);
+  line-height: 1;
+  color: var(--ink-text);
+}
+
+.tl__mark--key .tl__year {
+  color: var(--spot);
+}
+
+.tl__label {
+  margin-top: 0.35rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.54rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.tl__detail {
+  margin-top: 0.4rem;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: opacity 0.4s ease, max-height 0.4s ease;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 0.68rem;
+  line-height: 1.5;
+  color: var(--ink-body);
+}
+
+.tl__mark:hover .tl__detail {
+  opacity: 1;
+  max-height: 8rem;
+}
+
+/* --- spread compositions ---------------------------------- */
+
+.well {
+  display: grid;
+  grid-template-columns: 1fr 4.5rem 1.05fr;
+  width: 100%;
+  min-height: 0;
+}
+
+.well__verso {
+  padding: 1.4rem 0 1.4rem 4.5rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.well__recto {
+  position: relative;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 1.4rem 4.5rem 1.4rem 0;
+}
+
+.cover-foot {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 55%;
+  background: linear-gradient(to top, rgba(5, 8, 15, 0.94) 12%, rgba(5, 8, 15, 0) 100%);
+  pointer-events: none;
+}
+
+.cover-lockup {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.cover-lockup__mark {
+  width: 2.6rem;
+  height: 2.6rem;
+  object-fit: contain;
+}
+
+.cover-lockup__name {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--ink-text);
+  transition: letter-spacing 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.cover-lockup:hover .cover-lockup__name {
+  letter-spacing: 0.42em;
+}
+
+@media (max-width: 1000px) {
+  .pg__margin { padding: 1rem 1.5rem; }
+  .well { grid-template-columns: 1fr; }
+  .well__verso { padding: 1rem 1.5rem; }
+  .well__recto { padding: 0 1.5rem 1rem; min-height: 32vh; }
+  .pg__body { overflow-y: auto; }
+  .ed-cols-2 { column-count: 1; }
+}
+
+/* fill corrections */
+.well__verso { justify-content: center; }
+.well__recto > .fig { flex: 1; min-height: 0; }
+.fig-fill { display: flex; flex-direction: column; min-height: 0; }
+.fig-fill > .fig { flex: 1; min-height: 0; }
+@media (max-width: 1000px) {
+  .well__recto > .fig { flex: 0 0 auto; min-height: 30vh; }
+}

@@ -191,26 +191,6 @@ export default function Publication({ children, spreadCount, onSpreadChange }: P
         </button>
       )}
 
-      {/* Spread counter top-right */}
-      <div
-        style={{
-          position: "fixed",
-          top: "1.75rem",
-          right: "2.5rem",
-          zIndex: 150,
-          display: "flex",
-          alignItems: "center",
-          gap: "0.5rem",
-        }}
-      >
-        <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.6rem", letterSpacing: "0.15em", color: "#1EA7FF", opacity: 0.8 }}>
-          {String(currentSpread + 1).padStart(2, "0")}
-        </span>
-        <span style={{ width: "1.5rem", height: "1px", background: "rgba(30,167,255,0.3)" }} />
-        <span style={{ fontFamily: "'DM Mono', monospace", fontSize: "0.6rem", letterSpacing: "0.15em", color: "#6B7582" }}>
-          {String(spreadCount).padStart(2, "0")}
-        </span>
-      </div>
     </div>
   );
 }
