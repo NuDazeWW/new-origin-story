@@ -2,8 +2,12 @@
  * Depth treatments — the three visual registers the publication rotates through.
  *
  *  A · Plate      solid panels offset at real depth, one rim-lit edge
- *  B · Blueprint  hairline outlines, corner ticks, measurement rules
+ *  B · Blueprint  hairline outlines that draw themselves, corner ticks, rules
  *  C · Strata     frosted translucent panels floating over imagery
+ *
+ * Every treatment sits inside a parallax carrier: layers drift a few pixels
+ * against the reader's pointer, front planes further than back ones, so the
+ * page has real depth without ever asking to be played with.
  *
  * None of them hardcode colour: everything resolves from the tonal ramp and the
  * three accent roles declared on `.pg` in styles.css.
@@ -12,6 +16,8 @@
 import type { CSSProperties, ReactNode } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
+import { useParallax } from "./parallax";
+
 export const EASE = [0.22, 0.61, 0.36, 1] as const;
 
 export type Accent = "spot" | "live" | "future" | "none";
@@ -19,6 +25,31 @@ export type Accent = "spot" | "live" | "future" | "none";
 function accentVar(accent: Accent) {
   if (accent === "none") return undefined;
   return { "--edge": `var(--${accent})` } as CSSProperties;
+}
+
+/* --------------------------------------------------------------- carrier */
+
+/**
+ * Wraps a layer so it drifts against the pointer. Kept as a separate element
+ * from the layer itself so CSS hover transforms stay intact.
+ */
+export function Carrier({
+  depth = 1,
+  max = 10,
+  className = "",
+  children,
+}: {
+  depth?: number;
+  max?: number;
+  className?: string;
+  children: ReactNode;
+}) {
+  const { x, y } = useParallax(depth, max);
+  return (
+    <motion.div className={`lyr ${className}`.trim()} style={{ x, y }}>
+      {children}
+    </motion.div>
+  );
 }
 
 /* ---------------------------------------------------------------- A · Plate */
@@ -42,16 +73,18 @@ export function Plate({
   const reduce = useReducedMotion();
 
   return (
-    <motion.div
-      className={`plate plate--d${depth}${accent !== "none" ? " plate--lit" : ""} ${className}`.trim()}
-      style={{ ...accentVar(accent), ...style }}
-      initial={reduce ? false : { opacity: 0, y: 18, scale: 0.985 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.78, delay, ease: EASE }}
-    >
-      {children}
-    </motion.div>
+    <Carrier depth={0.4 + depth * 0.35}>
+      <motion.div
+        className={`plate plate--d${depth}${accent !== "none" ? " plate--lit" : ""} ${className}`.trim()}
+        style={{ ...accentVar(accent), ...style }}
+        initial={reduce ? false : { opacity: 0, y: 18, scale: 0.985 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.78, delay, ease: EASE }}
+      >
+        {children}
+      </motion.div>
+    </Carrier>
   );
 }
 
@@ -70,36 +103,48 @@ export function PlateStack({
   className?: string;
 }) {
   const reduce = useReducedMotion();
+  const back = useParallax(0.35, 10);
+  const front = useParallax(1.15, 10);
 
   return (
-    <motion.figure
-      className={`pstack ${className}`.trim()}
-      initial={reduce ? false : { opacity: 0, y: 22 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.25 }}
-      transition={{ duration: 0.9, delay, ease: EASE }}
-    >
-      <span className="pstack__shim pstack__shim--2" aria-hidden />
-      <span className="pstack__shim pstack__shim--1" aria-hidden />
-      <div className="pstack__frame">
-        <motion.img
-          src={src}
-          alt={alt}
-          className="pstack__img"
-          loading="lazy"
-          initial={reduce ? undefined : { scale: 1.05 }}
-          animate={reduce ? undefined : { scale: 1 }}
-          transition={{ duration: 20, ease: "linear" }}
+    <Carrier depth={0.5}>
+      <motion.figure
+        className={`pstack ${className}`.trim()}
+        initial={reduce ? false : { opacity: 0, y: 22 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.25 }}
+        transition={{ duration: 0.9, delay, ease: EASE }}
+      >
+        <motion.span
+          className="pstack__shim pstack__shim--2"
+          style={{ x: back.x, y: back.y }}
+          aria-hidden
         />
-      </div>
-      {caption ? <figcaption className="pstack__cap">{caption}</figcaption> : null}
-    </motion.figure>
+        <motion.span
+          className="pstack__shim pstack__shim--1"
+          style={{ x: back.x, y: back.y }}
+          aria-hidden
+        />
+        <motion.div className="pstack__frame" style={{ x: front.x, y: front.y }}>
+          <motion.img
+            src={src}
+            alt={alt}
+            className="pstack__img"
+            loading="lazy"
+            initial={reduce ? undefined : { scale: 1.05 }}
+            animate={reduce ? undefined : { scale: 1 }}
+            transition={{ duration: 20, ease: "linear" }}
+          />
+        </motion.div>
+        {caption ? <figcaption className="pstack__cap">{caption}</figcaption> : null}
+      </motion.figure>
+    </Carrier>
   );
 }
 
 /* ------------------------------------------------------------ B · Blueprint */
 
-/** An outlined module with corner ticks. Draws itself in on first view. */
+/** An outlined module with corner ticks. Draws its own outline on first view. */
 export function Blueprint({
   children,
   accent = "none",
@@ -118,28 +163,53 @@ export function Blueprint({
   const reduce = useReducedMotion();
 
   return (
-    <motion.div
-      className={`bp${dim ? " bp--dim" : ""}${accent !== "none" ? " bp--lit" : ""} ${className}`.trim()}
-      style={{ ...accentVar(accent), ...style }}
-      initial={reduce ? false : { opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.5, delay, ease: EASE }}
-    >
-      <motion.span
-        className="bp__rule bp__rule--x"
-        initial={reduce ? false : { scaleX: 0 }}
-        whileInView={{ scaleX: 1 }}
+    <Carrier depth={0.55} max={8}>
+      <motion.div
+        className={`bp${dim ? " bp--dim" : ""}${accent !== "none" ? " bp--lit" : ""} ${className}`.trim()}
+        style={{ ...accentVar(accent), ...style }}
+        initial={reduce ? false : { opacity: 0 }}
+        whileInView={{ opacity: 1 }}
         viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.7, delay: delay + 0.05, ease: EASE }}
-        aria-hidden
-      />
-      <span className="bp__tick bp__tick--tl" aria-hidden />
-      <span className="bp__tick bp__tick--tr" aria-hidden />
-      <span className="bp__tick bp__tick--bl" aria-hidden />
-      <span className="bp__tick bp__tick--br" aria-hidden />
-      {children}
-    </motion.div>
+        transition={{ duration: 0.5, delay, ease: EASE }}
+      >
+        {/* the outline draws itself around the module, once, on first view */}
+        <svg className="bp__draw" aria-hidden preserveAspectRatio="none" viewBox="0 0 100 100">
+          <motion.rect
+            x="0.4"
+            y="0.4"
+            width="99.2"
+            height="99.2"
+            pathLength={1}
+            vectorEffect="non-scaling-stroke"
+            initial={reduce ? false : { pathLength: 0, opacity: 0.9 }}
+            whileInView={{ pathLength: 1, opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 1.05, delay: delay + 0.04, ease: EASE }}
+          />
+        </svg>
+
+        <motion.span
+          className="bp__rule bp__rule--x"
+          initial={reduce ? false : { scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.7, delay: delay + 0.05, ease: EASE }}
+          aria-hidden
+        />
+        {(["tl", "tr", "bl", "br"] as const).map((corner, i) => (
+          <motion.span
+            key={corner}
+            className={`bp__tick bp__tick--${corner}`}
+            initial={reduce ? false : { opacity: 0, scale: 0.4 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.22, delay: delay + 0.85 + i * 0.06, ease: "backOut" }}
+            aria-hidden
+          />
+        ))}
+        {children}
+      </motion.div>
+    </Carrier>
   );
 }
 
@@ -156,7 +226,15 @@ export function Dimension({ label, delay = 0 }: { label: string; delay?: number 
         transition={{ duration: 0.8, delay, ease: EASE }}
         aria-hidden
       />
-      <span className="bp-dim__label">{label}</span>
+      <motion.span
+        className="bp-dim__label"
+        initial={reduce ? false : { opacity: 0, y: 4 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.4, delay: delay + 0.5, ease: EASE }}
+      >
+        {label}
+      </motion.span>
     </div>
   );
 }
@@ -182,16 +260,18 @@ export function Strata({
   const reduce = useReducedMotion();
 
   return (
-    <motion.div
-      className={`strata strata--l${lift} ${className}`.trim()}
-      style={{ ...accentVar(accent), ...style }}
-      initial={reduce ? false : { opacity: 0, y: 26 + lift * 8 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.25 }}
-      transition={{ duration: 0.95, delay, ease: EASE }}
-    >
-      {children}
-    </motion.div>
+    <Carrier depth={0.7 + lift * 0.45} max={12}>
+      <motion.div
+        className={`strata strata--l${lift} ${className}`.trim()}
+        style={{ ...accentVar(accent), ...style }}
+        initial={reduce ? false : { opacity: 0, y: 26 + lift * 8 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.25 }}
+        transition={{ duration: 0.95, delay, ease: EASE }}
+      >
+        {children}
+      </motion.div>
+    </Carrier>
   );
 }
 
@@ -206,15 +286,17 @@ export function StrataBed({
   objectPosition?: string;
 }) {
   const reduce = useReducedMotion();
+  const { x, y } = useParallax(-0.5, 14);
+
   return (
     <div className="strata-bed" aria-hidden={false}>
       <motion.img
         src={src}
         alt={alt}
         className="strata-bed__img"
-        style={{ objectPosition }}
+        style={{ objectPosition, x, y }}
         initial={reduce ? undefined : { scale: 1.08 }}
-        animate={reduce ? undefined : { scale: 1 }}
+        animate={reduce ? undefined : { scale: 1.04 }}
         transition={{ duration: 24, ease: "linear" }}
       />
       <span className="strata-bed__scrim" aria-hidden />

@@ -1179,20 +1179,51 @@ body {
   color: var(--ink-muted);
 }
 
+/* --- parallax carrier -------------------------------------- */
+
+.lyr {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  will-change: transform;
+}
+
+.lyr > * { flex: 1 1 auto; min-width: 0; }
+
 /* --- B · blueprint ---------------------------------------- */
 
 .bp {
   position: relative;
   padding: 1.35rem 1.4rem;
-  border: 1px solid var(--edge-draw);
+  border: 1px solid color-mix(in oklab, var(--edge-draw) 45%, transparent);
   background: transparent;
   min-height: 0;
   transition: border-color 0.45s ease, background 0.45s ease;
 }
 
 .bp--dim { border-color: var(--edge-hair); }
-.bp--lit { border-color: color-mix(in oklab, var(--edge) 65%, transparent); }
+.bp--lit { border-color: color-mix(in oklab, var(--edge) 30%, transparent); }
 .bp:hover { background: rgba(17, 26, 41, 0.5); }
+
+/* the self-drawing outline that sits over the resting hairline */
+.bp__draw {
+  position: absolute;
+  inset: -1px;
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
+  overflow: visible;
+  pointer-events: none;
+}
+
+.bp__draw rect {
+  fill: none;
+  stroke: var(--edge-draw);
+  stroke-width: 1;
+}
+
+.bp--dim .bp__draw rect { stroke: var(--edge-hair); }
+.bp--lit .bp__draw rect { stroke: color-mix(in oklab, var(--edge) 80%, transparent); }
+
 
 .bp__rule {
   position: absolute;
