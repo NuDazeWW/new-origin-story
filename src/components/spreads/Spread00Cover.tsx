@@ -30,12 +30,6 @@ export default function Spread00Cover() {
       <div style={{ position: "relative", zIndex: 2, display: "flex", flexDirection: "column", height: "100%" }}>
         {/* Masthead */}
         <div className="pg__margin">
-          <Settle>
-            <div className="cover-lockup">
-              <img src={logoAsset.url} alt="" className="cover-lockup__mark" />
-              <span className="cover-lockup__name">Decision Intelligence Systems</span>
-            </div>
-          </Settle>
           <div style={{ height: "1px", background: "var(--rule)", margin: "1.1rem 0 0.9rem" }} />
           <Settle delay={0.12}>
             <p
