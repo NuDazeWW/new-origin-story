@@ -990,3 +990,12 @@ body {
   .pg__body { overflow-y: auto; }
   .ed-cols-2 { column-count: 1; }
 }
+
+/* fill corrections */
+.well__verso { justify-content: center; }
+.well__recto > .fig { flex: 1; min-height: 0; }
+.fig-fill { display: flex; flex-direction: column; min-height: 0; }
+.fig-fill > .fig { flex: 1; min-height: 0; }
+@media (max-width: 1000px) {
+  .well__recto > .fig { flex: 0 0 auto; min-height: 30vh; }
+}

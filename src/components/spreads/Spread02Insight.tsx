@@ -40,7 +40,7 @@ export default function Spread02Insight({ isActive = false }: { isActive?: boole
       <PageBody>
         <div style={{ display: "flex", flexDirection: "column", width: "100%", minHeight: 0 }}>
           {/* Full-bleed photograph, top register */}
-          <div style={{ flex: "0 0 46%", minHeight: 0, padding: "1rem 4.5rem 0" }}>
+          <div className="fig-fill" style={{ flex: "0 0 46%", minHeight: 0, padding: "1rem 4.5rem 0" }}>
             <Figure
               src={coverAsset.url}
               alt="Light trails tracing a single line through the dark"
