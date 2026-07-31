@@ -64,10 +64,10 @@ export default function Spread00Cover() {
         {/* Display headline */}
         <div style={{ padding: "0 4.5rem 1.6rem" }}>
           <Settle delay={0.24}>
-            <span className="ed-kicker">Origin · 01</span>
+            <span className="ed-kicker text-readable">Origin · 01</span>
           </Settle>
           <Settle delay={0.32}>
-            <h1 className="ed-head" style={{ marginTop: "0.7rem", maxWidth: "16ch" }}>
+            <h1 className="ed-head text-readable--strong" style={{ marginTop: "0.7rem", maxWidth: "16ch" }}>
               The Readiness Terminal<span style={{ fontSize: "0.4em", verticalAlign: "super" }}>™</span>
             </h1>
           </Settle>
