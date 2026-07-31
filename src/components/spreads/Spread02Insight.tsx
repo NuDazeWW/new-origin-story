@@ -92,9 +92,8 @@ export default function Spread02Insight({ isActive = false }: { isActive?: boole
             <Figure
               src={evidenceAsset.url}
               alt="Fragments of evidence resolving into a single decision line"
-              label="Fig. 02.A"
               caption="Every mature market converges on one trusted measure."
-              credit="Photograph — DIS Field Archive"
+              captionClassName="fig__cap--center"
               tone="full"
               objectPosition="center 50%"
               overlay={<PrecedentTimeline />}

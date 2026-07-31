@@ -783,6 +783,12 @@ body {
   color: var(--ink-muted);
 }
 
+.fig__cap--center {
+  justify-content: center;
+  text-align: center;
+  font-size: calc(0.56rem + 3px);
+}
+
 .fig__label {
   color: var(--spot);
 }
