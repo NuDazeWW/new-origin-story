@@ -45,7 +45,7 @@ export default function Spread00Cover() {
           <div style={{ height: "1px", background: "var(--rule)", width: "100%", maxWidth: "520px", margin: "1.1rem 0 0.9rem" }} />
           <Settle delay={0.14}>
             <p
-              className="ed-body"
+              className="ed-body text-readable"
               style={{
                 maxWidth: "46ch",
                 color: "var(--ink-text)",
