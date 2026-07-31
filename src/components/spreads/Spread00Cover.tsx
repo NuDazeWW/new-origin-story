@@ -1,11 +1,13 @@
 /**
  * SPREAD 00 — Cover
- * Dark stock. The photograph carries the page; typography is the masthead.
+ * Dark stock. The photograph carries the page; the DIS lockup sits as a
+ * centered magazine masthead, with the headline anchored at the bottom.
  */
 
 import { motion, useReducedMotion } from "framer-motion";
 
 import coverAsset from "@/assets/dis-cover.png.asset.json";
+import logoAsset from "@/assets/dis-logo-masthead.png.asset.json";
 
 import { Page, Folio } from "@/components/print/Page";
 import { Settle } from "@/components/print/Editorial";
@@ -28,13 +30,22 @@ export default function Spread00Cover() {
       </div>
 
       <div style={{ position: "relative", zIndex: 2, display: "flex", flexDirection: "column", height: "100%" }}>
-        {/* Masthead */}
-        <div className="pg__margin">
-          <div style={{ height: "1px", background: "var(--rule)", margin: "1.1rem 0 0.9rem" }} />
-          <Settle delay={0.12}>
+        {/* Magazine masthead — centered DIS lockup */}
+        <div className="pg__margin" style={{ display: "flex", flexDirection: "column", alignItems: "center", paddingTop: "1.4rem" }}>
+          <div style={{ width: "100%", maxWidth: "520px" }}>
+            <Settle delay={0.08}>
+              <img
+                src={logoAsset.url}
+                alt="Decision Intelligence Systems"
+                style={{ width: "100%", height: "auto", display: "block" }}
+              />
+            </Settle>
+          </div>
+          <div style={{ height: "1px", background: "var(--rule)", width: "100%", maxWidth: "520px", margin: "1.1rem 0 0.9rem" }} />
+          <Settle delay={0.14}>
             <p
               className="ed-body"
-              style={{ maxWidth: "38ch", color: "var(--ink-text)" }}
+              style={{ maxWidth: "46ch", color: "var(--ink-text)", textAlign: "center" }}
             >
               Building the intelligence infrastructure layer for the $90B sponsorship market.
             </p>
@@ -65,3 +76,4 @@ export default function Spread00Cover() {
     </Page>
   );
 }
+
