@@ -1080,7 +1080,7 @@ body {
   --live: #00FFC2;
   --future: #7B61FF;
   --edge: var(--spot);
-  --glass: rgba(17, 26, 41, 0.62);
+  --glass: rgba(9, 14, 24, 0.9);
 }
 
 /* --- A · plates ------------------------------------------- */
@@ -1298,8 +1298,8 @@ body {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(to right, rgba(5, 8, 15, 0.92) 0%, rgba(5, 8, 15, 0.55) 48%, rgba(5, 8, 15, 0.2) 100%),
-    linear-gradient(to top, rgba(5, 8, 15, 0.9) 0%, rgba(5, 8, 15, 0) 55%);
+    linear-gradient(to right, rgba(5, 8, 15, 0.95) 0%, rgba(5, 8, 15, 0.72) 48%, rgba(5, 8, 15, 0.45) 100%),
+    linear-gradient(to top, rgba(5, 8, 15, 0.92) 0%, rgba(5, 8, 15, 0.25) 60%);
 }
 
 .strata {
