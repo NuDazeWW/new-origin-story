@@ -16,6 +16,7 @@ export function Figure({
   className = "",
   objectPosition = "center",
   tone = "print",
+  overlay,
 }: {
   src: string;
   alt: string;
@@ -25,6 +26,7 @@ export function Figure({
   className?: string;
   objectPosition?: string;
   tone?: "print" | "full";
+  overlay?: ReactNode;
 }) {
   const reduce = useReducedMotion();
 
@@ -40,7 +42,9 @@ export function Figure({
           animate={reduce ? undefined : { scale: 1 }}
           transition={{ duration: 18, ease: "linear" }}
         />
+        {overlay}
       </div>
+
       <figcaption className="fig__cap">
         <span className="fig__label">{label}</span>
         <span className="fig__text">{caption}</span>
