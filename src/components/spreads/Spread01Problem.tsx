@@ -11,7 +11,7 @@ import { Body, Figure, Lede, Settle, Stat } from "@/components/print/Editorial";
 export default function Spread01Problem({ isActive = false }: { isActive?: boolean }) {
   return (
     <Page stock="paper">
-      <RunningHead chapter="01 / The Problem" issue="DIS Origin · No. 01" />
+      <RunningHead chapter="01 / The Problem" issue="DIS Origin" />
 
       <PageBody>
         <div className="well">

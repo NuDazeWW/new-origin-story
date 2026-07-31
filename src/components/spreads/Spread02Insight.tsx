@@ -83,7 +83,7 @@ export default function Spread02Insight({ isActive = false }: { isActive?: boole
 
   return (
     <Page stock="ink">
-      <RunningHead chapter="02 / The Insight" issue="DIS Origin · No. 01" />
+      <RunningHead chapter="02 / The Insight" issue="DIS Origin" />
 
       <PageBody>
         <div style={{ display: "flex", flexDirection: "column", width: "100%", minHeight: 0 }}>
