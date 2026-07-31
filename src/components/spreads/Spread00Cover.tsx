@@ -49,7 +49,7 @@ export default function Spread00Cover() {
                 maxWidth: "46ch",
                 color: "var(--ink-text)",
                 textAlign: "center",
-                fontSize: "clamp(1rem, 1.1vw, 1.2rem)",
+                fontSize: "clamp(1.1rem, 1.2vw, 1.3rem)",
                 lineHeight: 1.6,
               }}
             >
