@@ -52,7 +52,7 @@ export default function Spread00Cover() {
         {/* Display headline */}
         <div style={{ padding: "0 4.5rem 1.6rem" }}>
           <Settle delay={0.24}>
-            <span className="ed-kicker">Origin · Issue No. 01</span>
+            <span className="ed-kicker">Origin · 01</span>
           </Settle>
           <Settle delay={0.32}>
             <h1 className="ed-head" style={{ marginTop: "0.7rem", maxWidth: "16ch" }}>
