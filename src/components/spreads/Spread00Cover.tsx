@@ -32,7 +32,7 @@ export default function Spread00Cover() {
       <div style={{ position: "relative", zIndex: 2, display: "flex", flexDirection: "column", height: "100%" }}>
         {/* Magazine masthead — centered DIS lockup */}
         <div className="pg__margin" style={{ display: "flex", flexDirection: "column", alignItems: "center", paddingTop: "1.4rem" }}>
-          <div style={{ width: "100%", maxWidth: "420px" }}>
+          <div style={{ width: "100%", maxWidth: "520px" }}>
             <Settle delay={0.08}>
               <img
                 src={logoAsset.url}
@@ -41,11 +41,11 @@ export default function Spread00Cover() {
               />
             </Settle>
           </div>
-          <div style={{ height: "1px", background: "var(--rule)", width: "100%", margin: "1.1rem 0 0.9rem" }} />
+          <div style={{ height: "1px", background: "var(--rule)", width: "100%", maxWidth: "520px", margin: "1.1rem 0 0.9rem" }} />
           <Settle delay={0.14}>
             <p
               className="ed-body"
-              style={{ maxWidth: "38ch", color: "var(--ink-text)", textAlign: "center" }}
+              style={{ maxWidth: "46ch", color: "var(--ink-text)", textAlign: "center" }}
             >
               Building the intelligence infrastructure layer for the $90B sponsorship market.
             </p>
