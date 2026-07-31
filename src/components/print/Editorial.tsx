@@ -12,6 +12,7 @@ export function Figure({
   alt,
   label,
   caption,
+  captionClassName = "",
   credit,
   className = "",
   objectPosition = "center",
@@ -20,8 +21,9 @@ export function Figure({
 }: {
   src: string;
   alt: string;
-  label: string;
+  label?: string;
   caption: string;
+  captionClassName?: string;
   credit?: string;
   className?: string;
   objectPosition?: string;
@@ -45,8 +47,8 @@ export function Figure({
         {overlay}
       </div>
 
-      <figcaption className="fig__cap">
-        <span className="fig__label">{label}</span>
+      <figcaption className={`fig__cap ${captionClassName}`.trim()}>
+        {label ? <span className="fig__label">{label}</span> : null}
         <span className="fig__text">{caption}</span>
         {credit ? <span className="fig__credit">{credit}</span> : null}
       </figcaption>
