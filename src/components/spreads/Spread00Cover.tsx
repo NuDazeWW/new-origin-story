@@ -32,8 +32,8 @@ export default function Spread00Cover() {
 
       <div style={{ position: "relative", zIndex: 2, display: "flex", flexDirection: "column", height: "100%" }}>
         {/* Magazine masthead — centered DIS lockup */}
-        <div className="pg__margin" style={{ display: "flex", flexDirection: "column", alignItems: "center", paddingTop: "1.4rem" }}>
-          <div style={{ width: "100%", maxWidth: "520px" }}>
+        <div className="pg__margin" style={{ display: "flex", flexDirection: "column", alignItems: "center", paddingTop: "0.6rem" }}>
+          <div style={{ width: "100%", maxWidth: "420px" }}>
             <Settle delay={0.08}>
               <img
                 src={logoAsset.url}
@@ -42,7 +42,7 @@ export default function Spread00Cover() {
               />
             </Settle>
           </div>
-          <div style={{ height: "1px", background: "var(--rule)", width: "100%", maxWidth: "520px", margin: "1.1rem 0 0.9rem" }} />
+          <div style={{ height: "1px", background: "var(--rule)", width: "100%", maxWidth: "420px", margin: "0.8rem 0 0.7rem" }} />
           <Settle delay={0.14}>
             <p
               className="ed-body text-readable"
@@ -59,19 +59,19 @@ export default function Spread00Cover() {
           </Settle>
         </div>
 
-        <div style={{ flex: 1 }} />
-
-        {/* Display headline */}
-        <div style={{ padding: "0 4.5rem 1.6rem" }}>
+        {/* Display headline — moved up into the dark register */}
+        <div style={{ padding: "0.8rem 4.5rem 0" }}>
           <Settle delay={0.24}>
             <span className="ed-kicker text-readable">Origin · 01</span>
           </Settle>
           <Settle delay={0.32}>
-            <h1 className="ed-head text-readable--strong" style={{ marginTop: "0.7rem", maxWidth: "16ch" }}>
+            <h1 className="ed-head text-readable--strong" style={{ marginTop: "0.5rem", maxWidth: "16ch" }}>
               The Readiness Terminal<span style={{ fontSize: "0.4em", verticalAlign: "super" }}>™</span>
             </h1>
           </Settle>
         </div>
+
+        <div style={{ flex: 1 }} />
 
         <Settle delay={0.42}>
           <Folio
