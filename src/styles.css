@@ -1838,14 +1838,15 @@ body {
 .fly__edge--out {
   background: conic-gradient(
     from -40deg,
-    rgba(230, 235, 241, 0.5),
-    rgba(230, 235, 241, 0.14) 22%,
-    rgba(230, 235, 241, 0.62) 44%,
-    rgba(230, 235, 241, 0.08) 68%,
-    rgba(230, 235, 241, 0.36) 100%
+    rgba(255, 255, 255, 0.82),
+    rgba(230, 235, 241, 0.2) 22%,
+    rgba(255, 255, 255, 0.9) 44%,
+    rgba(230, 235, 241, 0.12) 68%,
+    rgba(255, 255, 255, 0.58) 100%
   );
   mask: radial-gradient(circle closest-side at 50% 50%, transparent 0 98.4%, #000 98.8% 100%);
 }
+
 
 .fly__edge--in {
   background: conic-gradient(
