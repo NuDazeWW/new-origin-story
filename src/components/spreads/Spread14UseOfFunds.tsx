@@ -51,14 +51,15 @@ export default function Spread14UseOfFunds({ isActive = false }: { isActive?: bo
               {ALLOCATIONS.map((a, i) => (
                 <motion.div
                   key={a.label}
-                  className="fund-segment"
+                  className={`fund-segment${a.pct < 14 ? " fund-segment--narrow" : ""}`}
                   style={{ width: `${a.pct}%`, backgroundColor: a.color }}
+                  title={`${a.label} — ${a.pct}%`}
                   initial={reduce ? false : { opacity: 0, scaleX: 0 }}
                   whileInView={{ opacity: 1, scaleX: 1 }}
                   viewport={{ once: true, amount: 0.4 }}
                   transition={{ duration: 0.9, delay: 0.2 + i * 0.1, ease: EASE }}
                 >
-                  <span className="fund-segment__label">{a.label}</span>
+                  {a.pct >= 14 && <span className="fund-segment__label">{a.label}</span>}
                   <span className="fund-segment__value">{a.pct}%</span>
                 </motion.div>
               ))}
