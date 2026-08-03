@@ -142,7 +142,7 @@ export default function Publication({ children, spreadCount, onSpreadChange }: P
           width: `${progress}%`,
           background: "linear-gradient(to right, #1EA7FF, #00FFC2)",
           zIndex: 200,
-          transition: "width 0.5s cubic-bezier(0.23, 1, 0.32, 1)",
+          transition: STATIC_REVIEW_MODE ? "none" : "width 0.5s cubic-bezier(0.23, 1, 0.32, 1)",
         }}
       />
 
@@ -171,7 +171,7 @@ export default function Publication({ children, spreadCount, onSpreadChange }: P
               border: "none",
               padding: 0,
               cursor: "pointer",
-              transition: "all 0.3s cubic-bezier(0.23, 1, 0.32, 1)",
+              transition: STATIC_REVIEW_MODE ? "none" : "all 0.3s cubic-bezier(0.23, 1, 0.32, 1)",
             }}
             aria-label={`Go to spread ${i + 1}`}
           />
