@@ -41,7 +41,7 @@ export default function FlywheelObject({
       style={{ ...(drift ? { x: drift.x, y: drift.y } : null) }}
       initial={reduce ? false : { opacity: 0.08 }}
       animate={{ opacity: on ? 1 : 0.08 }}
-      transition={{ duration: 1.5, ease: [0.22, 0.61, 0.36, 1] }}
+      transition={{ duration: 2, ease: [0.22, 0.61, 0.36, 1] }}
     >
       {/* contact + cast shadow, then the pool of light the object throws down */}
       <span className="fly__cast" aria-hidden />

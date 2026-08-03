@@ -16,7 +16,7 @@ import { useParallax } from "@/components/print/parallax";
 import FlywheelObject from "@/components/print/FlywheelObject";
 import { ACTORS } from "@/components/print/flywheelActors";
 
-const CYCLE = 4500;
+const CYCLE = 5000;
 
 /** Restrained editorial glyphs — circular framing, hairline weight. */
 function Glyph({ kind }: { kind: "gain" | "why" | "dis" | "traction" }) {
