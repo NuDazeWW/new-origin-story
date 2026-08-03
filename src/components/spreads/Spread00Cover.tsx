@@ -6,6 +6,8 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 
+import { STATIC_REVIEW_MODE } from "@/reviewMode";
+
 import coverAsset from "@/assets/dis-cover.png.asset.json";
 import lockupAsset from "@/assets/dis-lockup-cover.png.asset.json";
 
@@ -22,7 +24,7 @@ export default function Spread00Cover() {
           src={coverAsset.url}
           alt="A race car at speed under floodlights, light trails curving toward the horizon"
           style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
-          initial={reduce ? undefined : { scale: 1.05 }}
+          initial={STATIC_REVIEW_MODE || reduce ? undefined : { scale: 1.05 }}
           animate={reduce ? undefined : { scale: 1 }}
           transition={{ duration: 24, ease: "linear" }}
         />

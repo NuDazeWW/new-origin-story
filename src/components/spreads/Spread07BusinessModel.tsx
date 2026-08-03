@@ -6,6 +6,8 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 
+import { STATIC_REVIEW_MODE } from "@/reviewMode";
+
 import { Page, PageBody, RunningHead, Folio } from "@/components/print/Page";
 import { Settle } from "@/components/print/Editorial";
 import { EASE } from "@/components/print/Layers";
@@ -38,8 +40,8 @@ export default function Spread07BusinessModel({ isActive = false }: { isActive?:
             <div className="bm-field__demand" />
             <motion.div
               className="bm-field__seam"
-              initial={reduce ? false : { scaleY: 0 }}
-              whileInView={{ scaleY: 1 }}
+              initial={STATIC_REVIEW_MODE || reduce ? false : { scaleY: 0 }}
+              whileInView={{ scaleY: 1 }} animate={STATIC_REVIEW_MODE ? { scaleY: 1 } : undefined}
               viewport={{ once: true, amount: 0.4 }}
               transition={{ duration: 1.2, ease: EASE }}
             />
@@ -48,9 +50,6 @@ export default function Spread07BusinessModel({ isActive = false }: { isActive?:
           <div className="bm-col bm-col--supply">
             <Settle>
               <span className="ed-kicker" style={{ color: "var(--dis-aurora-blue)" }}>Free Supply</span>
-              <h2 className="ed-head" style={{ color: "var(--ink-text)" }}>
-                Scored free to drive ubiquity.
-              </h2>
             </Settle>
             <Settle delay={0.12}>
               <p className="sec-lede" style={{ color: "var(--ink-body)", maxWidth: "42ch" }}>
@@ -59,8 +58,8 @@ export default function Spread07BusinessModel({ isActive = false }: { isActive?:
             </Settle>
             <motion.div
               className="bm-list"
-              initial={reduce ? false : { opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={STATIC_REVIEW_MODE || reduce ? false : { opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }} animate={STATIC_REVIEW_MODE ? { opacity: 1, y: 0 } : undefined}
               viewport={{ once: true, amount: 0.4 }}
               transition={{ duration: 0.8, delay: 0.4, ease: EASE }}
             >
@@ -76,14 +75,11 @@ export default function Spread07BusinessModel({ isActive = false }: { isActive?:
           <div className="bm-col bm-col--demand">
             <Settle>
               <span className="ed-kicker" style={{ color: "var(--dis-violet)" }}>Paid Demand</span>
-              <h2 className="ed-head" style={{ color: "var(--ink-text)" }}>
-                Paid for the intelligence that de-risks capital.
-              </h2>
             </Settle>
             <motion.div
               className="bm-list"
-              initial={reduce ? false : { opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={STATIC_REVIEW_MODE || reduce ? false : { opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }} animate={STATIC_REVIEW_MODE ? { opacity: 1, y: 0 } : undefined}
               viewport={{ once: true, amount: 0.4 }}
               transition={{ duration: 0.8, delay: 0.5, ease: EASE }}
             >

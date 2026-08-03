@@ -8,6 +8,8 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 
+import { STATIC_REVIEW_MODE } from "@/reviewMode";
+
 import { Page, PageBody, RunningHead, Folio } from "@/components/print/Page";
 import { Settle } from "@/components/print/Editorial";
 import { EASE } from "@/components/print/Layers";
@@ -25,13 +27,6 @@ const PROFILES = [
     bio: "Veteran broadcaster. His endorsement changes every recruitment conversation in the paddock.",
     primary: false,
   },
-];
-
-const UNRESOLVED = [
-  { name: "Dave", title: "[Title TBD]" },
-  { name: "Chantal", title: "[Title TBD]" },
-  { name: "David Brody", title: "[Title TBD]" },
-  { name: "Bobbie", title: "[Title TBD]" },
 ];
 
 export default function Spread11WhyUs({ isActive = false }: { isActive?: boolean }) {
@@ -57,8 +52,8 @@ export default function Spread11WhyUs({ isActive = false }: { isActive?: boolean
                 <motion.div
                   key={p.name}
                   className={`why-profile ${p.primary ? "why-profile--primary" : ""}`}
-                  initial={reduce ? false : { opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={STATIC_REVIEW_MODE || reduce ? false : { opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }} animate={STATIC_REVIEW_MODE ? { opacity: 1, y: 0 } : undefined}
                   viewport={{ once: true, amount: 0.5 }}
                   transition={{ duration: 0.8, delay: 0.14 + i * 0.16, ease: EASE }}
                 >
@@ -69,23 +64,11 @@ export default function Spread11WhyUs({ isActive = false }: { isActive?: boolean
               ))}
             </div>
 
-            <motion.div
-              className="why-council"
-              initial={reduce ? false : { opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.6, ease: EASE }}
-            >
-              <span className="why-council__label">Council in Formation</span>
-              <div className="why-council__grid">
-                {UNRESOLVED.map((slot) => (
-                  <span key={slot.name} className="why-council__slot">
-                    <span className="why-council__name">{slot.name}</span>
-                    <span className="why-council__title">{slot.title}</span>
-                  </span>
-                ))}
-              </div>
-            </motion.div>
+            {/*
+              Unresolved council slots (Dave, Chantal, David Brody, Bobbie) are
+              not rendered: the approved brief supplies only [Title TBD] and
+              [Bio placeholder]. See src/content/unresolved.ts.
+            */}
           </div>
 
           <div className="why-atmosphere" aria-hidden>

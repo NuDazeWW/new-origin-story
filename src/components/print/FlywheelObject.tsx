@@ -10,6 +10,8 @@
 
 import { motion, type MotionValue } from "framer-motion";
 
+import { STATIC_REVIEW_MODE } from "@/reviewMode";
+
 import ParticleRing from "./ParticleRing";
 import type { FlywheelActor } from "./flywheelActors";
 
@@ -39,7 +41,7 @@ export default function FlywheelObject({
     <motion.div
       className="fly__obj"
       style={{ ...(drift ? { x: drift.x, y: drift.y } : null) }}
-      initial={reduce ? false : { opacity: 0.08 }}
+      initial={STATIC_REVIEW_MODE || reduce ? false : { opacity: 0.08 }}
       animate={{ opacity: on ? 1 : 0.08 }}
       transition={{ duration: 2, ease: [0.22, 0.61, 0.36, 1] }}
     >
@@ -48,7 +50,7 @@ export default function FlywheelObject({
       <motion.span
         className="fly__pool"
         aria-hidden
-        initial={reduce ? false : { opacity: 0 }}
+        initial={STATIC_REVIEW_MODE || reduce ? false : { opacity: 0 }}
         animate={{ opacity: on ? 1 : 0 }}
         transition={{ duration: 1.8, delay: 0.5 }}
       />
@@ -91,7 +93,7 @@ export default function FlywheelObject({
       <motion.span
         className="fly__spec"
         aria-hidden
-        initial={reduce ? false : { opacity: 0 }}
+        initial={STATIC_REVIEW_MODE || reduce ? false : { opacity: 0 }}
         animate={{ opacity: on ? 1 : 0 }}
         transition={{ duration: 1.4, delay: 0.35 }}
       />
@@ -124,7 +126,7 @@ export default function FlywheelObject({
         <motion.span
           className="fly__hub-lamp"
           aria-hidden
-          initial={reduce ? false : { opacity: 0 }}
+          initial={STATIC_REVIEW_MODE || reduce ? false : { opacity: 0 }}
           animate={{ opacity: on ? 1 : 0 }}
           transition={{ duration: 1.1, ease: "easeOut" }}
         />

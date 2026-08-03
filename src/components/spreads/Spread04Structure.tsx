@@ -6,6 +6,8 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 
+import { STATIC_REVIEW_MODE } from "@/reviewMode";
+
 import governedAsset from "@/assets/dis-governed.png.asset.json";
 import { Page, PageBody, RunningHead, Folio } from "@/components/print/Page";
 import { Settle } from "@/components/print/Editorial";
@@ -133,8 +135,8 @@ export default function Spread04Structure({ isActive = false }: { isActive?: boo
 
             {/* spine */}
             <motion.span
-              initial={reduce ? false : { scaleY: 0 }}
-              whileInView={{ scaleY: 1 }}
+              initial={STATIC_REVIEW_MODE || reduce ? false : { scaleY: 0 }}
+              whileInView={{ scaleY: 1 }} animate={STATIC_REVIEW_MODE ? { scaleY: 1 } : undefined}
               viewport={{ once: true }}
               transition={{ duration: 0.45, delay: 0.3, ease: EASE }}
               style={{
@@ -173,8 +175,8 @@ export default function Spread04Structure({ isActive = false }: { isActive?: boo
 
             {/* firewall */}
             <motion.div
-              initial={reduce ? false : { opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+              initial={STATIC_REVIEW_MODE || reduce ? false : { opacity: 0 }}
+              whileInView={{ opacity: 1 }} animate={STATIC_REVIEW_MODE ? { opacity: 1 } : undefined}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.6, ease: EASE }}
               style={{ display: "flex", alignItems: "center", gap: "0.7rem" }}

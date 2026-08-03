@@ -6,43 +6,60 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 
+import { STATIC_REVIEW_MODE } from "@/reviewMode";
+
 import { Page, PageBody, RunningHead, Folio } from "@/components/print/Page";
 import { Settle } from "@/components/print/Editorial";
 import { EASE } from "@/components/print/Layers";
 
+/**
+ * Entity identifiers and functional labels only — the approved source brief
+ * supplies no descriptive copy for these entities, so none is rendered.
+ */
 const PINS = [
   {
     id: "parent",
     label: "Parent",
     title: "NicoleIsNine Holdings",
-    detail: "Holding company. Coordinates the standard, the platform, and the arm's-length agency.",
-    left: "4.5rem",
-    top: "62%",
+    right: "16%",
+    top: "12%",
   },
   {
     id: "standard",
     label: "The Standard",
     title: "PRSC LLC",
-    detail: "Independent standard setter. The Council that defines and governs readiness.",
-    right: "18%",
-    top: "20%",
+    right: "16%",
+    top: "31%",
   },
   {
     id: "platform",
-    label: "The Platform",
+    label: "The Platform · SAFE converts here",
     title: "DIS Inc.",
-    detail: "Where the SAFE converts. Owns the platform, the data, the subscriptions.",
-    right: "18%",
-    top: "46%",
+    right: "16%",
+    top: "50%",
   },
   {
     id: "agency",
-    label: "Firewall",
+    label: "Arm's-length agency",
     title: "NuDaze Worldwide",
-    detail: "Arm's-length agency. Operational separation keeps the score trustworthy.",
-    right: "18%",
+    right: "16%",
     top: "72%",
   },
+  {
+    id: "firewall",
+    label: "Independence Firewall",
+    title: "",
+    left: "42%",
+    top: "88%",
+  },
+];
+
+/** Approved investment-protection statements — verbatim, SLIDE 5. */
+const STATEMENTS = [
+  "Value accrues cleanly to DIS equity — the platform, the data, the subscriptions",
+  "The independence that makes the score trustworthy is structurally enforced — not promised",
+  "The IP originates with the Founder and assigns directly to the Council, never through the agency",
+  "The SAFE converts into DIS equity only — clean, unencumbered, no cross-entity complications",
 ];
 
 export default function Spread05Structure({ isActive = false }: { isActive?: boolean }) {
@@ -69,15 +86,25 @@ export default function Spread05Structure({ isActive = false }: { isActive?: boo
           <div className="struct-title">
             <Settle>
               <span className="ed-kicker" style={{ color: "var(--dis-electric-blue)" }}>The Structure That Protects Your Investment</span>
-              <h2 className="ed-head" style={{ color: "var(--ink-text)" }}>
-                Independence is not a compliance cost.
+              <h2 className="ed-head" style={{ color: "var(--ink-text)", fontSize: "clamp(1.3rem, 2vw, 2rem)", maxWidth: "24ch" }}>
+                The rule that protects your investment: independence is not a compliance cost here — it is the source of the moat.
               </h2>
             </Settle>
-            <Settle delay={0.12}>
-              <p className="sec-lede" style={{ color: "var(--ink-body)", maxWidth: "36ch" }}>
-                It is the source of the moat. Value accrues cleanly to DIS equity — the platform, the data, the subscriptions.
-              </p>
-            </Settle>
+          </div>
+
+          <div className="struct-claims">
+            {STATEMENTS.map((s, i) => (
+              <motion.p
+                key={s}
+                className="struct-claim"
+                initial={STATIC_REVIEW_MODE || reduce ? false : { opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }} animate={STATIC_REVIEW_MODE ? { opacity: 1, y: 0 } : undefined}
+                viewport={{ once: true, amount: 0.4 }}
+                transition={{ duration: 0.7, delay: 0.18 + i * 0.12, ease: EASE }}
+              >
+                {s}
+              </motion.p>
+            ))}
           </div>
 
           {PINS.map((p, i) => (
@@ -85,14 +112,13 @@ export default function Spread05Structure({ isActive = false }: { isActive?: boo
               key={p.id}
               className="struct-pin"
               style={{ left: p.left, right: p.right, top: p.top }}
-              initial={reduce ? false : { opacity: 0, y: 18 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={STATIC_REVIEW_MODE || reduce ? false : { opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }} animate={STATIC_REVIEW_MODE ? { opacity: 1, y: 0 } : undefined}
               viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 0.8, delay: 0.2 + i * 0.14, ease: EASE }}
             >
               <span className="struct-pin__label">{p.label}</span>
-              <span className="struct-pin__title">{p.title}</span>
-              <span className="struct-pin__detail">{p.detail}</span>
+              {p.title ? <span className="struct-pin__title">{p.title}</span> : null}
             </motion.div>
           ))}
 
@@ -109,8 +135,8 @@ export default function Spread05Structure({ isActive = false }: { isActive?: boo
                 fill="none"
                 stroke="url(#safeRoute)"
                 strokeWidth="1.5"
-                initial={reduce ? false : { pathLength: 0 }}
-                whileInView={{ pathLength: 1 }}
+                initial={STATIC_REVIEW_MODE || reduce ? false : { pathLength: 0 }}
+                whileInView={{ pathLength: 1 }} animate={STATIC_REVIEW_MODE ? { pathLength: 1 } : undefined}
                 viewport={{ once: true, amount: 0.4 }}
                 transition={{ duration: 1.6, delay: 0.6, ease: EASE }}
               />
@@ -119,8 +145,8 @@ export default function Spread05Structure({ isActive = false }: { isActive?: boo
                 cy="220"
                 r="5"
                 fill="#00FFC2"
-                initial={reduce ? false : { opacity: 0, scale: 0 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={STATIC_REVIEW_MODE || reduce ? false : { opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1 }} animate={STATIC_REVIEW_MODE ? { opacity: 1, scale: 1 } : undefined}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: 1.8, ease: EASE }}
               />
@@ -129,8 +155,8 @@ export default function Spread05Structure({ isActive = false }: { isActive?: boo
             <div className="struct-route__label">
               <motion.span
                 className="struct-route__pill"
-                initial={reduce ? false : { opacity: 0, y: 12 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={STATIC_REVIEW_MODE || reduce ? false : { opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }} animate={STATIC_REVIEW_MODE ? { opacity: 1, y: 0 } : undefined}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 2, ease: EASE }}
               >

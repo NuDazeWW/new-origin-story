@@ -7,6 +7,8 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 
+import { STATIC_REVIEW_MODE } from "@/reviewMode";
+
 import { Page, PageBody, RunningHead, Folio } from "@/components/print/Page";
 import { Settle } from "@/components/print/Editorial";
 import { EASE } from "@/components/print/Layers";
@@ -14,7 +16,7 @@ import { EASE } from "@/components/print/Layers";
 const ROWS = [
   { label: "PRSC Readiness Score dashboard", status: "LIVE", color: "teal" },
   { label: "Readiness Terminal front-end prototype", status: "LIVE", color: "teal" },
-  { label: "Founding Vanguard™ cohort", status: "UNDERWAY", color: "blue" },
+  { label: "Founding Vanguard™ cohort", status: "UNDERWAY AT WATKINS GLEN", color: "blue" },
   { label: "Vanguard Participation Agreement", status: "EXECUTED", color: "teal" },
   { label: "Trademark filings", status: "FILED", color: "blue" },
   { label: "Four-entity governance structure", status: "IN PLACE", color: "blue" },
@@ -52,8 +54,8 @@ export default function Spread09Traction({ isActive = false }: { isActive?: bool
               <motion.div
                 key={r.label}
                 className="traction-row"
-                initial={reduce ? false : { opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={STATIC_REVIEW_MODE || reduce ? false : { opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }} animate={STATIC_REVIEW_MODE ? { opacity: 1, x: 0 } : undefined}
                 viewport={{ once: true, amount: 0.5 }}
                 transition={{ duration: 0.6, delay: 0.3 + i * 0.1, ease: EASE }}
               >

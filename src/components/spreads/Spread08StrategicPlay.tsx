@@ -6,16 +6,18 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 
+import { STATIC_REVIEW_MODE } from "@/reviewMode";
+
 import { Page, PageBody, RunningHead, Folio } from "@/components/print/Page";
 import { Settle } from "@/components/print/Editorial";
 import { EASE } from "@/components/print/Layers";
 
 const STEPS = [
-  { num: "1", label: "Stand up authority", detail: "Governance, Standard, IP", done: true, left: "36%", top: "42%" },
-  { num: "2", label: "Land one anchor mandate", detail: "Series requires the score", done: false, left: "48%", top: "32%" },
-  { num: "3", label: "Score the supply side free", detail: "Reach ubiquity", done: false, left: "60%", top: "38%" },
-  { num: "4", label: "Monetize the demand side", detail: "Subscriptions, intelligence", done: false, left: "72%", top: "30%" },
-  { num: "5", label: "Publish benchmarks", detail: "Extend horizontally", done: false, left: "84%", top: "24%" },
+  { num: "1", label: "Stand up authority", detail: "Governance, Standard, IP", done: true, left: "34%", top: "58%" },
+  { num: "2", label: "Land one anchor mandate", detail: "Series requires the score", done: false, left: "45%", top: "46%" },
+  { num: "3", label: "Score the supply side free", detail: "Reach ubiquity", done: false, left: "56%", top: "62%" },
+  { num: "4", label: "Monetize the demand side", detail: "Subscriptions, intelligence", done: false, left: "67%", top: "40%" },
+  { num: "5", label: "Publish benchmarks", detail: "Extend horizontally", done: false, left: "78%", top: "26%" },
 ];
 
 const ANCHORS = ["Trans Am Series (active)", "Racing Team Alliance (pending)", "IMSA WeatherTech (in progress)"];
@@ -64,8 +66,8 @@ export default function Spread08StrategicPlay({ isActive = false }: { isActive?:
                 stroke="url(#playLine)"
                 strokeWidth="2"
                 strokeDasharray="6 4"
-                initial={reduce ? false : { pathLength: 0 }}
-                whileInView={{ pathLength: 1 }}
+                initial={STATIC_REVIEW_MODE || reduce ? false : { pathLength: 0 }}
+                whileInView={{ pathLength: 1 }} animate={STATIC_REVIEW_MODE ? { pathLength: 1 } : undefined}
                 viewport={{ once: true, amount: 0.4 }}
                 transition={{ duration: 2, delay: 0.4, ease: EASE }}
               />
@@ -78,8 +80,8 @@ export default function Spread08StrategicPlay({ isActive = false }: { isActive?:
                 key={s.num}
                 className="play-step"
                 style={{ left: s.left, top: s.top }}
-                initial={reduce ? false : { opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={STATIC_REVIEW_MODE || reduce ? false : { opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }} animate={STATIC_REVIEW_MODE ? { opacity: 1, y: 0 } : undefined}
                 viewport={{ once: true, amount: 0.5 }}
                 transition={{ duration: 0.6, delay: 0.6 + i * 0.2, ease: EASE }}
               >
@@ -93,8 +95,8 @@ export default function Spread08StrategicPlay({ isActive = false }: { isActive?:
 
           <motion.div
             className="play-pipeline"
-            initial={reduce ? false : { opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={STATIC_REVIEW_MODE || reduce ? false : { opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }} animate={STATIC_REVIEW_MODE ? { opacity: 1, y: 0 } : undefined}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 1.8, ease: EASE }}
           >

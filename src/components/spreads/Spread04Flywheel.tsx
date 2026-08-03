@@ -9,6 +9,8 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 
+import { STATIC_REVIEW_MODE } from "@/reviewMode";
+
 import { Page, PageBody, RunningHead, Folio } from "@/components/print/Page";
 import { Settle } from "@/components/print/Editorial";
 import { EASE } from "@/components/print/Layers";
@@ -133,7 +135,7 @@ export default function Spread04Flywheel({ isActive = false }: { isActive?: bool
                     onMouseEnter={() => setHeld(i)}
                     onMouseLeave={() => setHeld(null)}
                     onFocus={() => setHeld(i)}
-                    initial={reduce ? false : { opacity: 0 }}
+                    initial={STATIC_REVIEW_MODE || reduce ? false : { opacity: 0 }}
                     animate={{ opacity: lit || reduce ? 1 : 0 }}
                     transition={{ duration: 0.9, delay: reduce ? 0 : 0.9 + i * 0.11, ease: EASE }}
                   >
@@ -161,7 +163,7 @@ export default function Spread04Flywheel({ isActive = false }: { isActive?: bool
           <motion.aside
             className="fly__rail"
             style={{ ["--edge" as string]: `var(--${actor.accent})` }}
-            initial={reduce ? false : { opacity: 0 }}
+            initial={STATIC_REVIEW_MODE || reduce ? false : { opacity: 0 }}
             animate={{ opacity: lit || reduce ? 1 : 0 }}
             transition={{ duration: 0.9, delay: reduce ? 0 : 1.5, ease: EASE }}
           >
@@ -173,7 +175,7 @@ export default function Spread04Flywheel({ isActive = false }: { isActive?: bool
             <AnimatePresence mode="wait" initial={false}>
               <motion.div
                 key={actor.index}
-                initial={reduce ? false : { opacity: 0 }}
+                initial={STATIC_REVIEW_MODE || reduce ? false : { opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={reduce ? undefined : { opacity: 0 }}
                 transition={{ duration: 0.7, ease: "linear" }}
@@ -204,7 +206,7 @@ export default function Spread04Flywheel({ isActive = false }: { isActive?: bool
           {/* ---------- quote band ---------- */}
           <motion.div
             className="fly__quote"
-            initial={reduce ? false : { opacity: 0 }}
+            initial={STATIC_REVIEW_MODE || reduce ? false : { opacity: 0 }}
             animate={{ opacity: lit || reduce ? 1 : 0 }}
             transition={{ duration: 1, delay: reduce ? 0 : 1.7, ease: EASE }}
           >

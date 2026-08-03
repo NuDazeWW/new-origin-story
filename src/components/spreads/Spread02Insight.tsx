@@ -7,6 +7,8 @@
 import { useRef } from "react";
 import { motion, useInView, useReducedMotion } from "framer-motion";
 
+import { STATIC_REVIEW_MODE } from "@/reviewMode";
+
 import evidenceAsset from "@/assets/dis-evidence.png.asset.json";
 import { Page, PageBody, RunningHead, Folio } from "@/components/print/Page";
 import { Body, Figure, Settle } from "@/components/print/Editorial";
@@ -47,7 +49,7 @@ function PrecedentTimeline() {
       <div className="tl">
         <motion.div
           className="tl__axis"
-          initial={reduce ? false : { scaleX: 0 }}
+          initial={STATIC_REVIEW_MODE || reduce ? false : { scaleX: 0 }}
           animate={run ? { scaleX: 1 } : { scaleX: 0 }}
           transition={{ duration: 1.1, ease: EASE }}
         />
@@ -56,13 +58,13 @@ function PrecedentTimeline() {
             <motion.div
               key={m.year}
               className={`tl__mark${m.key ? " tl__mark--key" : ""}`}
-              initial={reduce ? false : { opacity: 0, y: 10 }}
+              initial={STATIC_REVIEW_MODE || reduce ? false : { opacity: 0, y: 10 }}
               animate={run ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
               transition={{ duration: 0.55, delay: 0.28 + i * 0.34, ease: EASE }}
             >
               <motion.span
                 className="tl__tick"
-                initial={reduce ? false : { scaleY: 0 }}
+                initial={STATIC_REVIEW_MODE || reduce ? false : { scaleY: 0 }}
                 animate={run ? { scaleY: 1 } : { scaleY: 0 }}
                 transition={{ duration: 0.32, delay: 0.22 + i * 0.34, ease: EASE }}
                 style={{ transformOrigin: "top center" }}

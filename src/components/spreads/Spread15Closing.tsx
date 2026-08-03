@@ -7,6 +7,8 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 
+import { STATIC_REVIEW_MODE } from "@/reviewMode";
+
 import disLogo from "@/assets/dis-emblem-closing.png.asset.json";
 import { Page, PageBody, RunningHead, Folio } from "@/components/print/Page";
 import { Settle } from "@/components/print/Editorial";
@@ -24,8 +26,8 @@ export default function Spread15Closing({ isActive = false }: { isActive?: boole
         <div className="close-stage">
           <motion.div
             className="close-horizon"
-            initial={reduce ? false : { opacity: 0, scaleX: 0 }}
-            whileInView={{ opacity: 1, scaleX: 1 }}
+            initial={STATIC_REVIEW_MODE || reduce ? false : { opacity: 0, scaleX: 0 }}
+            whileInView={{ opacity: 1, scaleX: 1 }} animate={STATIC_REVIEW_MODE ? { opacity: 1, scaleX: 1 } : undefined}
             viewport={{ once: true, amount: 0.4 }}
             transition={{ duration: 2, ease: EASE }}
             aria-hidden
@@ -33,8 +35,8 @@ export default function Spread15Closing({ isActive = false }: { isActive?: boole
 
           <motion.div
             className="close-mark"
-            initial={reduce ? false : { opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={STATIC_REVIEW_MODE || reduce ? false : { opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }} animate={STATIC_REVIEW_MODE ? { opacity: 1, y: 0 } : undefined}
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 1, delay: 0.4, ease: EASE }}
           >
@@ -71,16 +73,11 @@ export default function Spread15Closing({ isActive = false }: { isActive?: boole
             </Settle>
           </div>
 
-          <motion.div
-            className="close-footer"
-            initial={reduce ? false : { opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.8, ease: EASE }}
-          >
-            <span>shirley@prscstandards.com · +1 [Contact Number] · [Office Location]</span>
-            <span className="close-footer__confidential">Confidential — Investor Materials Only</span>
-          </motion.div>
+          {/*
+            Contact block intentionally not rendered: the approved brief supplies
+            only unresolved tokens ([DIS Contact Info], [Confidential Notice]).
+            See src/content/unresolved.ts.
+          */}
         </div>
       </PageBody>
 

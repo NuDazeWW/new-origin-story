@@ -6,6 +6,8 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 
+import { STATIC_REVIEW_MODE } from "@/reviewMode";
+
 import { Page, PageBody, RunningHead, Folio } from "@/components/print/Page";
 import { Settle } from "@/components/print/Editorial";
 import { EASE } from "@/components/print/Layers";
@@ -31,8 +33,8 @@ export default function Spread10Vanguard({ isActive = false }: { isActive?: bool
               <motion.div
                 key={i}
                 className="van-aperture"
-                initial={reduce ? false : { opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={STATIC_REVIEW_MODE || reduce ? false : { opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }} animate={STATIC_REVIEW_MODE ? { opacity: 1, scale: 1 } : undefined}
                 viewport={{ once: true, amount: 0.4 }}
                 transition={{ duration: 0.5, delay: i * 0.03, ease: EASE }}
               />
@@ -43,13 +45,8 @@ export default function Spread10Vanguard({ isActive = false }: { isActive?: bool
             <Settle>
               <span className="ed-kicker" style={{ color: "var(--dis-electric-blue)" }}>The Founding Vanguard™</span>
               <h2 className="ed-head" style={{ color: "var(--ink-text)" }}>
-                25 founding participants. The first benchmark. The first dataset.
+                25 founding participants. The first readiness benchmark. The first readiness-to-outcome dataset.
               </h2>
-            </Settle>
-            <Settle delay={0.12}>
-              <p className="sec-lede" style={{ color: "var(--ink-body)", maxWidth: "34ch" }}>
-                The beta is the proof of concept and the data moat, built simultaneously.
-              </p>
             </Settle>
           </div>
 
@@ -58,8 +55,8 @@ export default function Spread10Vanguard({ isActive = false }: { isActive?: bool
               <motion.div
                 key={t.num}
                 className="van-tranche"
-                initial={reduce ? false : { opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={STATIC_REVIEW_MODE || reduce ? false : { opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }} animate={STATIC_REVIEW_MODE ? { opacity: 1, x: 0 } : undefined}
                 viewport={{ once: true, amount: 0.5 }}
                 transition={{ duration: 0.7, delay: 0.4 + i * 0.15, ease: EASE }}
               >
