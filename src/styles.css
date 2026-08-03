@@ -3144,8 +3144,9 @@ body {
   z-index: 2;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 2rem;
+  justify-content: flex-start;
+  gap: 1.2rem;
+  min-height: 0;
 }
 
 .why-primary {
@@ -3153,8 +3154,8 @@ body {
 }
 
 .why-profile {
-  margin-top: 1.8rem;
-  padding-top: 1.2rem;
+  margin-top: 1rem;
+  padding-top: 0.85rem;
   border-top: 1px solid var(--rule);
 }
 
