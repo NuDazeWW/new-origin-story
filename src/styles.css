@@ -1813,8 +1813,8 @@ body {
       rgba(212, 230, 250, 0.96) 330deg,
       rgba(158, 182, 210, 0.92) 360deg
     );
-  mask: radial-gradient(circle closest-side at 50% 50%, transparent 0 86%, #000 88.5% 99.5%, transparent 100%);
-  opacity: 1;
+  mask: radial-gradient(circle closest-side at 50% 50%, transparent 0 90.5%, #000 92% 99.5%, transparent 100%);
+  opacity: 0.95;
 }
 
 /* refractive glass body sitting inside the frame */
@@ -1864,15 +1864,15 @@ body {
   background: conic-gradient(
     from -66deg,
     transparent 0deg,
-    rgba(255, 255, 255, 0.72) 16deg,
-    rgba(255, 255, 255, 0.06) 46deg,
-    transparent 70deg,
-    transparent 250deg,
-    rgba(255, 255, 255, 0.24) 288deg,
-    transparent 320deg
+    rgba(255, 255, 255, 0.62) 16deg,
+    rgba(255, 255, 255, 0.05) 44deg,
+    transparent 66deg,
+    transparent 252deg,
+    rgba(255, 255, 255, 0.2) 288deg,
+    transparent 318deg
   );
   filter: blur(2.5px);
-  mask: radial-gradient(circle closest-side at 50% 50%, transparent 0 74%, #000 77% 98.5%, transparent 100%);
+  mask: radial-gradient(circle closest-side at 50% 50%, transparent 0 84%, #000 88% 99.2%, transparent 100%);
 }
 
 /* surface irregularity so the band is not mathematically perfect */
