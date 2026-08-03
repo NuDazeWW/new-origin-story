@@ -15,7 +15,7 @@ No more than two dark spreads adjacent; six of eleven read light, photographic, 
 
 ## Palette discipline
 
-Only the DIS side of the palette. Colour arrives as paper changes, large fields, split compositions, tinted photography, translucent material, oversized type, and edge rules — never as card borders, badges, status chips, or category rainbows. Section signal colours: 05 Electric Blue, 06 Electric/Cyber/Data Purple by moat layer, 07 Cyber–Aurora vs Violet–Data Purple with Ice White at the exchange, 08 daylight silver, 09 four proof-status inks on Platinum, 10 Aurora/Violet, 11 Fog/Steel, 12 Steel–Electric vs Fog–Cyber, 13 Ice White $2.5M with Electric→Aurora→Violet closes, 14 proportional bands, 15 one Electric horizon.
+Only the DIS side of the palette. Colour arrives as paper changes, large fields, split compositions, tinted photography, translucent material, oversized type, and edge rules — never as card borders, badges, status chips, or category rainbows. Section signal colours: 05 Electric Blue, 06 Electric/Cyber/Data Purple by moat layer, 07 Cyber–Aurora vs Violet–Data Purple with Ice White at the exchange, 08 daylight silver, 09 restrained Electric Blue and Neon Teal status ink with Data Purple used once, 10 Aurora/Violet, 11 Fog/Steel, 12 Steel–Electric vs Fog–Cyber, 13 Ice White $2.5M with Electric→Aurora→Violet closes, 14 proportional bands, 15 one Electric horizon.
 
 ## Section builds
 
@@ -39,11 +39,11 @@ Only the DIS side of the palette. Colour arrives as paper changes, large fields,
 
 **14 — Use of Funds.** Ice White annual-report spread. The seven allocations form one continuous proportional capital field — a single uninterrupted span divided by material and tone, not seven detached bars and not a bar chart. Proportions are mathematically exact at 42/18/14/10/6/4/6; the total $2,500,000 and the largest allocation lead the page. Labels are typeset directly into or beside the field, with exact values repeated in a semantic table for assistive technology and print. No donut.
 
-**15 — Closing Card.** Signal Black full bleed, one restrained light horizon, approved DIS mark, Ice White type. The quietest spread. No invented contact or confidential notice beyond the supplied lines.
+**15 — Closing Card.** Signal Black full bleed, one restrained light horizon, approved DIS mark, Ice White type. PRSCSTANDARDS.COM is rendered. If DIS contact information or a confidential notice has not been supplied, no placeholder text is shown; both are reported as content dependencies. The quietest spread.
 
 ## Technical notes
 
-- New spread components in `src/components/spreads/`, section CSS appended to `src/styles.css` under section-scoped roots so earlier spreads cannot be affected. Existing `Page`/`PageBody`/`RunningHead`/`Folio` and the `Settle`, `Plate`, `Blueprint`, `Strata`, `useParallax` primitives are reused.
+- New spread components in `src/components/spreads/`, section CSS appended to `src/styles.css` under section-scoped roots so earlier spreads cannot be affected. Existing `Page`/`PageBody`/`RunningHead`/`Folio` and motion utilities are reused. `Plate`, `Blueprint`, `Strata`, and other visual primitives are reused only when they support the new editorial direction; they are not forced into a spread if doing so would recreate a diagram, card, grid, or dashboard aesthetic being replaced.
 - `pg--paper` gains light variants (platinum, ice) as additional stock values rather than new page shells.
 - `src/routes/index.tsx` registers Sections 07–15 and passes `isActive` per spread; the progress count derives from the spread collection instead of a hardcoded `spreadCount`, so `Publication` takes the children length.
 - Imagery: supplied assets only, wired through the existing `*.asset.json` import pattern. No stock, no generated portraits or logos.
