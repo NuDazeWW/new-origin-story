@@ -7,7 +7,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 
 import coverAsset from "@/assets/dis-cover.png.asset.json";
-import logoAsset from "@/assets/dis-logo-masthead.png.asset.json";
+import lockupAsset from "@/assets/dis-lockup-cover.png.asset.json";
 
 import { Page, Folio } from "@/components/print/Page";
 import { Settle } from "@/components/print/Editorial";
@@ -33,15 +33,35 @@ export default function Spread00Cover() {
       <div style={{ position: "relative", zIndex: 2, display: "flex", flexDirection: "column", height: "100%" }}>
         {/* Magazine masthead — centered DIS lockup */}
         <div className="pg__margin" style={{ display: "flex", flexDirection: "column", alignItems: "center", paddingTop: "0.6rem" }}>
-          <div style={{ width: "100%", maxWidth: "420px" }}>
+          <div style={{ width: "100%", maxWidth: "420px", position: "relative" }}>
             <Settle delay={0.08}>
               <img
-                src={logoAsset.url}
+                src={lockupAsset.url}
                 alt="Decision Intelligence Systems"
                 style={{ width: "100%", height: "auto", display: "block" }}
               />
+              <span
+                aria-hidden
+                style={{
+                  position: "absolute",
+                  left: "54%",
+                  width: "40%",
+                  top: "56%",
+                  textAlign: "center",
+                  fontFamily: "'Space Grotesk', sans-serif",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.22em",
+                  fontSize: "clamp(0.5rem, 0.62vw, 0.68rem)",
+                  fontWeight: 400,
+                  color: "var(--ink-text)",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                Decision Intelligence Systems
+              </span>
             </Settle>
           </div>
+
           <div style={{ height: "1px", background: "var(--rule)", width: "100%", maxWidth: "420px", margin: "0.8rem 0 0.7rem" }} />
           <Settle delay={0.14}>
             <p
