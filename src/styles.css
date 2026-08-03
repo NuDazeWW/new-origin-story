@@ -4578,13 +4578,13 @@ body {
   .van2-header,
   .roles2-header,
   .ask2-head,
-  .fund2-header { left: 2.5rem; }
+  .fund3-header { left: 2.5rem; }
 
   .roles2-plane--near { left: 2.5rem; }
   .roles2-plane--far { right: 2.5rem; }
   .van2-movement--1 { left: 2.5rem; }
   .van2-movement--3 { right: 2.5rem; }
-  .ask2-band, .ask2-statement, .fund2-field, .fund2-annos { left: 2.5rem; right: 2.5rem; }
+  .ask2-band, .ask2-statement { left: 2.5rem; right: 2.5rem; }
 }
 
 @media (max-width: 800px) {
@@ -4602,9 +4602,8 @@ body {
   .ask2-progression,
   .ask2-band,
   .ask2-statement,
-  .fund2-header,
-  .fund2-field,
-  .fund2-annos {
+  .fund3-header,
+  .fund3-object {
     position: relative;
     left: auto;
     right: auto;
@@ -4618,7 +4617,7 @@ body {
 
   .why2-content { max-width: none; padding: 2rem 1.5rem; }
   .why2-support { margin-left: 0; }
-  .fund2-field { height: 60vh; }
+  .fund3-object { height: 55vh; }
   .roles2-plane--far { text-align: left; }
   .roles2-plane--far .roles2-plane__list { align-items: flex-start; }
   .ask2-progression { height: 60vh; }
