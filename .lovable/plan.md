@@ -1,60 +1,46 @@
-## One magazine, three treatments
+# Section 04 · The Ecosystem Flywheel
 
-No single look. The three directions become a **rhythm**, assigned by what each section has to do. A real magazine varies its treatment page to page while the chrome stays constant — that's what makes it feel edited rather than templated.
+A second page inside section 04 / The Solution, immediately after the Readiness Terminal spread. Same ink stock, same running head and folio chrome, same interaction grammar as the Terminal page: it plays on its own, and hovering pins it.
 
-Constant across all 15: Signal Black → Midnight Slate → Oxford Blue tonal foundation, Platinum headlines, Fog body copy, DM Serif Display for display type, Space Grotesk / DM Mono for chrome, running heads and folios in the same position every page. Never a white page.
+## The page
 
-### The three treatments
+```text
+        04 / The Solution                             DIS Origin
+        THE ECOSYSTEM FLYWHEEL
+        Every Actor. One Standard. Compounding Value.
+        subheadline ------------------------------------------
 
-**A · Stacked Plates** — offset solid panels at real depth, images inset into stacked outlined frames, one rim-lit edge per card. Best for hierarchy and lists.
+                 01 Teams & Drivers
+        06 Partners            ·            02 Brands
+                    ┌──────────────────┐
+                    │  PRSC READINESS  │        [ detail panel ]
+                    │      SCORE™      │        What they gain
+                    └──────────────────┘        Why the score matters
+        05 Operators           ·            03 Series          Why DIS
+                 04 Manufacturers                     Traction
 
-**B · Outline Architecture** — hairline blueprint outlines, corner ticks, measurement rules, photography behind a foreground outline grid. Best for structure, systems, and anything that must read as engineered.
+        The flywheel does not require universal adoption to start...
+        Vol. I · Decision Intelligence Systems              04 · ii
+```
 
-**C · Glass Strata** — frosted translucent panels floating over full-bleed imagery, teal/blue edge lighting, receding layers. Best for emotional and cinematic beats.
+- Center: a lit disc holding **The PRSC Readiness Score™** with the line "The shared reference point that makes the ecosystem legible." Radial hairlines and a slow, continuous rotation of the outer ring only — type stays upright.
+- Six slices radiate outward at 60-degree intervals, each a wedge of hairline outline plus a numbered label chip (01–06) sitting on the rim.
+- Right-hand light-box carries the active slice's four-part copy verbatim: *What they gain*, *Why the score matters*, *Why DIS*, *Traction*. Traction reads as a small monospace status chip.
+- Full-width anchor line beneath the diagram, in the editorial serif register.
 
-### Assignment
+## Motion and light
 
-| # | Section | Treatment | Why |
-|---|---|---|---|
-| 1 | Cover | C | Existing cover stays; glass logic already fits it |
-| 2 | The Problem | C | Emotional weight, full-bleed paddock imagery |
-| 3 | The Insight | A | Already built as plates + overlaid timeline |
-| 4 | The Solution | C | Terminal dashboard render deserves cinematic strata |
-| 5 | The Structure | B | Entity architecture is literally a blueprint |
-| 6 | The Four-Part Moat | A | Four peers — stacked plate grid |
-| 7 | The Business Model | B | Revenue mechanics, outlined and measured |
-| 8 | The Strategic Play | B | Five-step sequence on a drawn spine |
-| 9 | Traction & Proof | A | Evidence tiles, one lit per proof point |
-| 10 | The Founding Vanguard™ | C | Aspirational, photographic |
-| 11 | Why Us | A | Credential plates behind a portrait |
-| 12 | Roles This Round Funds | B | Org outline, dim boxes for unfilled roles |
-| 13 | The Ask | A | One dominant plate, terms as marginalia |
-| 14 | Use of Funds | B | Allocation bars as measured outlines |
-| 15 | Closing Card | C | Full-bleed, single line, glass fade |
+- **Build:** ring draws itself clockwise on first view, then the six wedges fade and extend outward in sequence, then the center disc blooms. All once, on entry, under 1.6s total.
+- **Cycle:** the lit slice advances every ~4s while the page is the active spread — the wedge fills, its rim label brightens, a bloom travels to its position, and the detail panel cross-fades.
+- **Hover:** hovering any slice or its label pins the cycle to it and lifts that wedge slightly outward; leaving resumes the cycle. Nothing requires interaction.
+- Accent roles rotate across the six slices using the existing `--spot` / `--live` / `--future` tokens so the wheel is not monochrome.
+- Pointer parallax via the existing carrier: the ring drifts a few pixels against the detail panel for depth.
+- Everything above is disabled under reduced motion (static, first slice lit).
 
-Sequence check: C C A C B A B B A C A B A B C — no treatment repeats more than twice, and every chapter turn changes texture.
+## Technical notes
 
-### Accent logic
-
-Electric Blue `#1EA7FF` carries structure and the single lit path. Neon Teal `#00FFC2` marks live/status states only (traction, active moats, filled roles). Violet `#7B61FF` is reserved for future-state — roadmap steps not yet reached, roles this round funds. Arctic Gray and Fog carry everything unlit, so the accents mean something by scarcity.
-
-### Motion
-
-Each treatment gets its own signature so the change of texture is felt, not just seen:
-- **A** — plates settle in from behind, back to front, rim light igniting last
-- **B** — outlines draw themselves, corner ticks snap in, dimension rules extend
-- **C** — strata drift apart on scroll at differing rates, edge light blooms
-
-Shared: reveal once on first view, hover lifts a single layer or clarifies a label, nothing ever requires interaction, full reduced-motion fallback renders everything in place.
-
-### Technical
-
-- Extend `src/components/print/` with `Plate`, `Blueprint`, and `Strata` primitives plus a shared `Layer` depth wrapper; `Page`, `RunningHead`, `Folio`, `Figure` stay as-is
-- New tokens in `src/styles.css` for the tonal layer ramp, hairline outline colors, glass blur/tint, and the three accent roles
-- One spread component per section in `src/components/spreads/`, each importing its treatment primitive
-- Copy comes verbatim from `DIS_Investor_LookBook_Production_Brief.docx`; imagery from your uploaded set, with new generation only where nothing fits
-- Verified with Playwright at desktop and narrow widths
-
-### Build order
-
-Sections 4, 5, 6 first — one of each treatment — so all three primitives get proven against real content before the remaining nine are built. Sections 1–3 get retrofitted onto the shared primitives at the end, with no visual change to the cover.
+- New `src/components/spreads/Spread04Flywheel.tsx`, taking `isActive` like the other spreads; wired into `src/routes/index.tsx` after `Spread03Solution`, `spreadCount` 6 → 7. Later spreads keep their existing folios; this page is folio `04 · ii`.
+- Diagram is one inline SVG (ring, radial spokes, six wedge paths, `pathLength` draw animations via Framer Motion) with absolutely positioned HTML label chips so type stays crisp and selectable.
+- New CSS in `src/styles.css` under the existing print/depth section: `.fly`, `.fly__hub`, `.fly__slice`, `.fly__chip`, `.fly__panel`, reusing `--layer-*`, `--edge`, and the existing `.lbox`/`.tag` conventions. No hardcoded hex.
+- Reuses `Page`, `RunningHead`, `Folio`, `PageBody`, `Eyebrow`, `Settle`, `Carrier`, and `EASE` — no new primitives.
+- Copy used exactly as supplied.
