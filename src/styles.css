@@ -1683,7 +1683,7 @@ body {
 
 .fly__title {
   font-family: 'DM Serif Display', Georgia, serif;
-  font-size: clamp(1.6rem, 2.85vw, 2.3rem);
+  font-size: clamp(1.7rem, 3vw, 2.45rem);
   line-height: 1.04;
   letter-spacing: 0.004em;
   text-transform: uppercase;
