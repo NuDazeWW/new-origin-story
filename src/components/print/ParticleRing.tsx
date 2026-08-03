@@ -1,18 +1,30 @@
 /**
  * Circulating intelligence — one capped canvas layer.
  *
- * Particles drift slowly around the ring band and briefly intensify near the
- * live channel, then recede. Device pixel ratio is capped and the renderer
- * stops entirely when the spread is not active or reduced motion is set, so it
- * costs nothing off screen.
+ * The field is organised, not scattered: particles are distributed into a
+ * handful of angular clusters separated by gaps, so the band reads as a broken
+ * circulating stream rather than an evenly spaced loading ring. Density and
+ * brightness rise near the live channel. Device pixel ratio is capped and the
+ * renderer stops entirely when the spread is inactive or reduced motion is set.
  */
 
 import { useEffect, useRef } from "react";
 
-const COUNT = 132;
+const COUNT = 210;
 const DPR_CAP = 1.5;
+const CLUSTERS = 7;
 
-type P = { a: number; r: number; v: number; s: number; o: number; w: boolean };
+type P = {
+  a: number;
+  r: number;
+  v: number;
+  s: number;
+  o: number;
+  /** sharp white point */
+  w: boolean;
+  /** phase for gentle radial breathing */
+  ph: number;
+};
 
 export default function ParticleRing({
   activeAngle,
@@ -46,43 +58,72 @@ export default function ParticleRing({
     };
     size();
 
-    const parts: P[] = Array.from({ length: COUNT }, () => ({
-      a: Math.random() * Math.PI * 2,
-      // sit inside the inner circumference of the glass band
-      r: 0.385 + Math.random() * 0.062,
-      v: 0.00014 + Math.random() * 0.00026,
-      s: 0.55 + Math.random() * 1.25,
-      o: 0.2 + Math.random() * 0.45,
-      w: Math.random() < 0.22,
+    /* irregular cluster centres with unequal widths — the gaps matter as much
+       as the clusters. One cluster is pinned near twelve o'clock (actor 01). */
+    const live0 = ((activeAngle - 90) * Math.PI) / 180;
+    const seeds = Array.from({ length: CLUSTERS }, (_, i) => ({
+      c: i === 0 ? live0 : (i / CLUSTERS) * Math.PI * 2 + (Math.random() - 0.5) * 0.5,
+      w: i === 0 ? 0.42 : 0.2 + Math.random() * 0.42,
+      n: i === 0 ? 1.9 : 0.5 + Math.random() * 0.9,
     }));
+    const weight = seeds.reduce((t, s) => t + s.n, 0);
+
+    const parts: P[] = [];
+    for (const s of seeds) {
+      const n = Math.max(4, Math.round((COUNT * s.n) / weight));
+      for (let i = 0; i < n; i++) {
+        // gaussian-ish spread inside the cluster
+        const g = (Math.random() + Math.random() + Math.random()) / 3 - 0.5;
+        parts.push({
+          a: s.c + g * 2 * s.w,
+          // a narrow band just inside the glass aperture
+          r: 0.315 + Math.random() * 0.055 + (Math.random() < 0.14 ? 0.05 : 0),
+          v: 0.00016 + Math.random() * 0.00022,
+          s: Math.random() < 0.16 ? 1.5 + Math.random() * 0.9 : 0.5 + Math.random() * 0.85,
+          o: 0.24 + Math.random() * 0.52,
+          w: Math.random() < 0.14,
+          ph: Math.random() * Math.PI * 2,
+        });
+      }
+    }
 
     let raf = 0;
+    let t = 0;
     const draw = () => {
+      t += 1;
       ctx.clearRect(0, 0, w, h);
       const cx = w / 2;
       const cy = h / 2;
-      // live channel direction, in canvas radians (0 = twelve o'clock)
       const live = ((angleRef.current - 90) * Math.PI) / 180;
 
       for (const p of parts) {
+        // shared directional flow around the circumference
         p.a += p.v;
-        const x = cx + Math.cos(p.a) * p.r * w;
-        const y = cy + Math.sin(p.a) * p.r * h;
+        const rr = p.r + Math.sin(p.ph + t * 0.004) * 0.004;
+        const x = cx + Math.cos(p.a) * rr * w;
+        const y = cy + Math.sin(p.a) * rr * h;
 
         // proximity to the live channel, 0..1
         let d = Math.abs(((p.a - live + Math.PI * 3) % (Math.PI * 2)) - Math.PI);
-        d = 1 - Math.min(1, d / 0.6);
-        // broken field: a slow angular modulation keeps the ring from reading
-        // as an evenly spaced row of dots
-        const gap = 0.55 + 0.45 * Math.abs(Math.sin(p.a * 3.4 + p.r * 40));
-        const alpha = p.o * gap * (0.7 + d * 1.5);
+        d = 1 - Math.min(1, d / 0.75);
+        const twinkle = 0.82 + 0.18 * Math.sin(p.ph + t * 0.03);
+        const alpha = p.o * twinkle * (0.62 + d * 1.35);
+        const rad = p.s * (1 + d * 0.5);
 
-        ctx.beginPath();
-        ctx.arc(x, y, p.s * (1 + d * 0.55), 0, Math.PI * 2);
-        ctx.fillStyle = p.w
-          ? `rgba(255, 255, 255, ${Math.min(0.95, alpha * 1.15)})`
-          : `rgba(150, 200, 245, ${Math.min(0.8, alpha)})`;
-        ctx.fill();
+        if (p.w) {
+          ctx.beginPath();
+          ctx.arc(x, y, rad * 0.85, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(255, 255, 255, ${Math.min(0.98, alpha * 1.25)})`;
+          ctx.fill();
+        } else {
+          // faint actor-colour transition toward the live channel
+          const g = Math.round(178 + d * 30);
+          const b = Math.round(232 + d * 18);
+          ctx.beginPath();
+          ctx.arc(x, y, rad, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(${Math.round(126 + d * 40)}, ${g}, ${b}, ${Math.min(0.82, alpha)})`;
+          ctx.fill();
+        }
       }
       raf = requestAnimationFrame(draw);
     };
@@ -95,6 +136,7 @@ export default function ParticleRing({
       cancelAnimationFrame(raf);
       ro.disconnect();
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [running]);
 
   return <canvas ref={ref} className="fly__particles" aria-hidden />;
