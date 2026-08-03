@@ -70,7 +70,7 @@ const LARGE = SEGMENTS.filter((s) => s.pct > 6);
 const SMALL = SEGMENTS.filter((s) => s.pct <= 6);
 
 /** Staggered annotation altitudes so leader lines never collide. */
-const ANNO_Y = [128, 74, 176];
+const ANNO_Y = [60, 118, 176];
 
 export default function Spread14UseOfFunds({ isActive = false }: { isActive?: boolean }) {
   void isActive;
