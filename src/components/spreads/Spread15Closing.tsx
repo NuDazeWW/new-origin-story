@@ -1,9 +1,8 @@
 /**
  * SPREAD 15 — Closing Card
  * Signal Black full bleed. One restrained light horizon, DIS mark, Ice White type.
- * PRSCSTANDARDS.COM is rendered. Contact info and confidential notice are not
- * displayed because they were not supplied in the approved content; reported as
- * content dependencies. Exact copy from production brief SLIDE 15.
+ * Contact info and confidential notice are included as supplied by the source brief.
+ * Exact copy from production brief SLIDE 15.
  */
 
 import { motion, useReducedMotion } from "framer-motion";
@@ -71,6 +70,17 @@ export default function Spread15Closing({ isActive = false }: { isActive?: boole
               </a>
             </Settle>
           </div>
+
+          <motion.div
+            className="close-footer"
+            initial={reduce ? false : { opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.8, ease: EASE }}
+          >
+            <span>shirley@prscstandards.com · +1 [Contact Number] · [Office Location]</span>
+            <span className="close-footer__confidential">Confidential — Investor Materials Only</span>
+          </motion.div>
         </div>
       </PageBody>
 
@@ -78,3 +88,4 @@ export default function Spread15Closing({ isActive = false }: { isActive?: boole
     </Page>
   );
 }
+
