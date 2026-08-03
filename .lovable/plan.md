@@ -98,7 +98,7 @@ Desktop is authoritative. Tablet tightens margins but keeps the wheel/sidebar re
 - New `src/components/spreads/Spread04Flywheel.tsx` — scene, stages, capsules, sidebar, quote band; `isActive` driven.
 - New `src/components/print/FlywheelObject.tsx` — the layered product render (ring assembly, hub, channels).
 - New `src/components/print/ParticleRing.tsx` — capped canvas particle layer.
-- `src/styles.css` — new `.fly*` block beside the depth/print section: atmosphere, ring layers, hub layers, channels, capsules, ghost word, sidebar, quote band. All colour from existing tokens (`--layer-*`, `--edge`, `--spot`, `--live`, `--future`); no hardcoded hex.
+- `src/styles.css` — new `.fly*` block beside the depth/print section: atmosphere, ring layers, hub layers, channels, capsules, ghost word, sidebar, quote band. Brand tokens (`--layer-*`, `--edge`, `--spot`, `--live`, `--future`) as the base, plus component-scoped material variables where the render needs them.
 - `src/routes/index.tsx` — insert after `Spread03Solution`, `spreadCount` 6 → 7; later spreads and shared components untouched.
 - Reuses `Page`, `RunningHead`, `Folio`, `PageBody`, `Eyebrow`, `Settle`, `EASE`, `Carrier`, `useParallax`.
 
