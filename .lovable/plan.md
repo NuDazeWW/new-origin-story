@@ -37,7 +37,7 @@ Only the DIS side of the palette. Colour arrives as paper changes, large fields,
 
 **13 — The Ask.** Oxford Blue / Signal Black. $2.5M as an Ice White typographic event. Three closes as a rising progression in space and light (Electric → Aurora → restrained Violet), each carrying amount, date, trigger, and proof. Terms sit as a quiet legal band; closing statement as the last line.
 
-**14 — Use of Funds.** Ice White annual-report spread. Seven proportional bands, widths mathematically exact to 42/18/14/10/6/4/6, total $2,500,000 led with the total and the largest allocation. A semantic table is included for assistive technology and print. No donut.
+**14 — Use of Funds.** Ice White annual-report spread. The seven allocations form one continuous proportional capital field — a single uninterrupted span divided by material and tone, not seven detached bars and not a bar chart. Proportions are mathematically exact at 42/18/14/10/6/4/6; the total $2,500,000 and the largest allocation lead the page. Labels are typeset directly into or beside the field, with exact values repeated in a semantic table for assistive technology and print. No donut.
 
 **15 — Closing Card.** Signal Black full bleed, one restrained light horizon, approved DIS mark, Ice White type. The quietest spread. No invented contact or confidential notice beyond the supplied lines.
 
