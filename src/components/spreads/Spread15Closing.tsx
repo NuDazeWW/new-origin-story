@@ -7,7 +7,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 
-import disLogo from "@/assets/dis-logo-masthead.png.asset.json";
+import disLogo from "@/assets/dis-emblem-closing.png.asset.json";
 import { Page, PageBody, RunningHead, Folio } from "@/components/print/Page";
 import { Settle } from "@/components/print/Editorial";
 import { EASE } from "@/components/print/Layers";
