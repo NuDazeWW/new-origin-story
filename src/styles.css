@@ -3244,35 +3244,40 @@ body {
 
 .roles-stage {
   background: var(--dis-ice-white);
+  padding: 4.5rem 4.5rem 3.5rem;
 }
 
-.roles-header {
-  position: absolute;
-  left: 4.5rem;
-  top: 12%;
-  z-index: 2;
-  max-width: 40ch;
-}
-
-.roles-planes {
-  position: absolute;
-  left: 4.5rem;
-  right: 4.5rem;
-  top: 44%;
-  bottom: 14%;
-  z-index: 2;
+.roles-content {
+  height: 100%;
   display: flex;
+  flex-direction: column;
   gap: 2rem;
 }
 
-.roles-plane {
+.roles-header {
+  z-index: 2;
+  max-width: 52ch;
+}
+
+.roles-header .ed-head {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+}
+
+.roles-planes {
   flex: 1;
-  padding: 1.8rem 2rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  min-height: 0;
+}
+
+.roles-plane {
+  padding: 1.6rem 1.8rem;
   border: 1px solid var(--rule);
-  background: rgba(230, 235, 241, 0.45);
+  background: rgba(230, 235, 241, 0.55);
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: 1rem;
   min-height: 0;
 }
 
@@ -3308,7 +3313,7 @@ body {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 0.5rem;
   overflow: hidden;
 }
 
@@ -3317,6 +3322,7 @@ body {
   font-size: clamp(0.85rem, 1vw, 1.05rem);
   color: var(--ink-text);
 }
+
 
 /* --- SECTION 13 · Ask -------------------------------------- */
 
