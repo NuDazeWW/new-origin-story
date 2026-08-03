@@ -54,3 +54,14 @@ Only the DIS side of the palette. Colour arrives as paper changes, large fields,
 ## Final QA
 
 Playwright sweep of every spread at 1280×720, large desktop, tablet landscape/portrait, mobile, reduced motion, and keyboard-only; checks that 01–04 and the flywheel are unchanged, that each banned composition is absent, that no adjacent spreads share a dominant silhouette, that totals and percentages are exact, that navigation reaches every spread, and that no overflow or collisions exist. Ends with a contact sheet of Sections 05–15 for holistic review, then stop.
+
+## Appendix — Content lock
+
+The section descriptions above are art direction, not copy. Every line rendered on a spread comes from the approved source brief, verbatim.
+
+1. Before implementation, every approved line in the source brief is mapped to its destination spread.
+2. No paraphrasing, shortening, expansion, or generated supporting copy.
+3. Statuses, financial terms, dates, names, and role titles are never converted into alternative wording.
+4. Missing approved content stays unresolved in the content source and is reported at the end of the pass.
+5. Missing content is never filled with fabricated investor language.
+
