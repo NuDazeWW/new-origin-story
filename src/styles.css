@@ -1802,16 +1802,16 @@ body {
   background:
     conic-gradient(
       from -32deg,
-      var(--steel-lo) 0deg,
-      var(--steel-hi) 26deg,
-      var(--steel-mid) 62deg,
-      var(--steel-dk) 108deg,
-      var(--steel-mid) 152deg,
-      rgba(206, 224, 244, 0.7) 196deg,
-      var(--steel-lo) 236deg,
-      var(--steel-dk) 292deg,
-      var(--steel-mid) 330deg,
-      var(--steel-lo) 360deg
+      rgba(158, 182, 210, 0.92) 0deg,
+      rgba(248, 252, 255, 1) 24deg,
+      rgba(206, 226, 248, 0.98) 58deg,
+      rgba(96, 118, 146, 0.9) 106deg,
+      rgba(198, 220, 244, 0.96) 150deg,
+      rgba(255, 255, 255, 0.98) 194deg,
+      rgba(150, 176, 206, 0.92) 236deg,
+      rgba(78, 98, 124, 0.9) 292deg,
+      rgba(212, 230, 250, 0.96) 330deg,
+      rgba(158, 182, 210, 0.92) 360deg
     );
   mask: radial-gradient(circle closest-side at 50% 50%, transparent 0 86%, #000 88.5% 99.5%, transparent 100%);
   opacity: 1;
@@ -1820,18 +1820,19 @@ body {
 /* refractive glass body sitting inside the frame */
 .fly__glass {
   background:
-    radial-gradient(circle at 40% 28%, rgba(214, 232, 248, 0.3), transparent 62%),
+    radial-gradient(circle at 38% 24%, rgba(232, 244, 255, 0.5), transparent 58%),
     conic-gradient(
       from 200deg,
-      rgba(26, 42, 68, 0.96),
-      rgba(74, 108, 152, 0.86) 30%,
-      rgba(22, 36, 58, 0.96) 58%,
-      rgba(88, 124, 170, 0.8) 84%,
-      rgba(26, 42, 68, 0.96) 100%
+      rgba(34, 56, 88, 0.96),
+      rgba(126, 166, 212, 0.92) 30%,
+      rgba(28, 46, 74, 0.96) 58%,
+      rgba(146, 186, 232, 0.88) 84%,
+      rgba(34, 56, 88, 0.96) 100%
     );
   mask: radial-gradient(circle closest-side at 50% 50%, transparent 0 73%, #000 75.5% 87.5%, transparent 99%);
   backdrop-filter: blur(2px);
 }
+
 
 /* two hairline edges, unequal weight and brightness */
 .fly__edge--out {
