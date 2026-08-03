@@ -184,7 +184,7 @@ export default function Spread04Flywheel({ isActive = false }: { isActive?: bool
                 transition={{ duration: 0.7, ease: "linear" }}
               >
                 {rail.map((r) => (
-                  <section className="fly__sec" key={r.k}>
+                  <section className={`fly__sec fly__sec--${r.k}`} key={r.k}>
                     <div className="fly__sec-head">
                       <Glyph kind={r.k} />
                       <span className="fly__sec-label">{r.label}</span>
@@ -192,6 +192,7 @@ export default function Spread04Flywheel({ isActive = false }: { isActive?: bool
                     <p className="fly__sec-text">{r.text}</p>
                   </section>
                 ))}
+
 
                 <section className="fly__sec fly__sec--tr">
                   <div className="fly__sec-head">
