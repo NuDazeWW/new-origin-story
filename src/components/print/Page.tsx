@@ -1,12 +1,12 @@
 /**
  * Print shell primitives — the shared "printed page" chrome used by every spread.
- * Stock (ink / paper) is set on the Page wrapper and inherited via CSS variables,
+ * Stock (ink / paper / platinum / ice) is set on the Page wrapper and inherited via CSS variables,
  * so no child primitive hardcodes a colour.
  */
 
 import type { ReactNode } from "react";
 
-export type Stock = "ink" | "paper";
+export type Stock = "ink" | "paper" | "platinum" | "ice" | "slate";
 
 export function Page({
   stock = "ink",

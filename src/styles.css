@@ -648,6 +648,33 @@ body {
   --spot: #1EA7FF;
 }
 
+.pg--platinum {
+  --stock: #E6EBF1;
+  --ink-text: #05080F;
+  --ink-body: #2B3644;
+  --ink-muted: #6B7582;
+  --rule: rgba(5, 8, 15, 0.14);
+  --spot: #1EA7FF;
+}
+
+.pg--ice {
+  --stock: #F4F8FF;
+  --ink-text: #05080F;
+  --ink-body: #2B3644;
+  --ink-muted: #6B7582;
+  --rule: rgba(5, 8, 15, 0.12);
+  --spot: #1EA7FF;
+}
+
+.pg--slate {
+  --stock: #0E1624;
+  --ink-text: #E6EBF1;
+  --ink-body: #A6AFB8;
+  --ink-muted: #6B7582;
+  --rule: rgba(230, 235, 241, 0.14);
+  --spot: #1EA7FF;
+}
+
 .pg__margin {
   padding: 1.4rem 4.5rem;
   flex-shrink: 0;
@@ -2468,4 +2495,1299 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .fly__chan, .fly__cap { transition: none; }
+}
+
+/* ============================================================
+   SECTIONS 05–15 — COMPLETE PUBLICATION PASS
+   ============================================================ */
+
+/* --- shared stage shell ----------------------------------- */
+
+.struct-stage,
+.moat-stage,
+.bm-stage,
+.play-stage,
+.traction-stage,
+.van-stage,
+.why-stage,
+.roles-stage,
+.ask-stage,
+.fund-stage,
+.close-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* --- SECTION 05 · Structure -------------------------------- */
+
+.struct-bed {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.struct-bed__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.35) contrast(1.08) brightness(0.62);
+}
+
+.struct-bed__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(5, 8, 15, 0.96) 0%, rgba(5, 8, 15, 0.78) 40%, rgba(5, 8, 15, 0.52) 100%);
+}
+
+.struct-bed__seam {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 48%, rgba(30, 167, 255, 0.07) 50%, transparent 52%);
+}
+
+.struct-title {
+  position: absolute;
+  left: 4.5rem;
+  top: 12%;
+  z-index: 2;
+  max-width: 34ch;
+}
+
+.struct-pin {
+  position: absolute;
+  z-index: 2;
+  max-width: 22ch;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.struct-pin__label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--dis-electric-blue);
+}
+
+.struct-pin__title {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-weight: 500;
+  font-size: clamp(0.82rem, 0.95vw, 1rem);
+  color: var(--ink-text);
+}
+
+.struct-pin__detail {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(0.7rem, 0.75vw, 0.82rem);
+  line-height: 1.5;
+  color: var(--ink-body);
+}
+
+.struct-route {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.struct-route__svg {
+  width: 100%;
+  height: 100%;
+}
+
+.struct-route__label {
+  position: absolute;
+  right: 18%;
+  bottom: 30%;
+}
+
+.struct-route__pill {
+  display: inline-block;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid rgba(30, 167, 255, 0.45);
+  background: rgba(5, 8, 15, 0.6);
+  backdrop-filter: blur(6px);
+  font-family: 'DM Mono', monospace;
+  font-size: 0.52rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--dis-electric-blue);
+  white-space: nowrap;
+}
+
+/* --- SECTION 06 · Moat ------------------------------------- */
+
+.moat-stage {
+  background: var(--dis-platinum);
+}
+
+.moat-substrate {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  opacity: 0.14;
+}
+
+.moat-substrate__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.6) contrast(1.1);
+}
+
+.moat-substrate__grain {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+  opacity: 0.6;
+  mix-blend-mode: multiply;
+}
+
+.moat-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  padding: 5.5rem 4.5rem 4rem;
+}
+
+.moat-quote {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 38ch;
+}
+
+.moat-strata {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  padding-left: 1rem;
+}
+
+.moat-stratum {
+  position: relative;
+  z-index: 2;
+  border: 1px solid rgba(5, 8, 15, 0.12);
+  background: rgba(244, 248, 255, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 24px 60px -20px rgba(5, 8, 15, 0.22);
+  width: 88%;
+}
+
+.moat-stratum--methodology { align-self: flex-start; width: 92%; }
+.moat-stratum--governance { align-self: flex-end; width: 86%; }
+.moat-stratum--benchmark { align-self: flex-start; width: 78%; }
+.moat-stratum--outcome { align-self: flex-end; width: 90%; }
+
+.moat-stratum--live { border-top: 2px solid var(--dis-neon-teal); }
+.moat-stratum--spot { border-top: 2px solid var(--dis-electric-blue); }
+.moat-stratum--future { border-top: 2px solid var(--dis-violet); }
+
+.moat-stratum__inner {
+  padding: 1.2rem 1.4rem;
+}
+
+.moat-stratum__edge {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(135deg, rgba(255,255,255,0.6) 0%, transparent 40%);
+}
+
+.moat-stratum__label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.moat-stratum__title {
+  margin-top: 0.45rem;
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: clamp(1.05rem, 1.25vw, 1.35rem);
+  color: var(--ink-text);
+}
+
+.moat-stratum__detail {
+  margin-top: 0.4rem;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(0.72rem, 0.8vw, 0.85rem);
+  line-height: 1.55;
+  color: var(--ink-body);
+}
+
+.moat-stratum__shadow {
+  position: absolute;
+  left: 6%;
+  right: -6%;
+  bottom: -12px;
+  height: 24px;
+  background: rgba(5, 8, 15, 0.14);
+  filter: blur(12px);
+  z-index: -1;
+}
+
+.moat-light {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(100deg, transparent 40%, rgba(30, 167, 255, 0.06) 50%, transparent 60%);
+  mix-blend-mode: overlay;
+}
+
+
+/* --- SECTION 07 · Business Model --------------------------- */
+
+.bm-field {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.bm-field__supply {
+  position: absolute;
+  left: -10%;
+  top: -10%;
+  width: 70%;
+  height: 120%;
+  background: radial-gradient(ellipse at 20% 50%, rgba(34, 211, 238, 0.14) 0%, transparent 60%);
+}
+
+.bm-field__demand {
+  position: absolute;
+  right: -10%;
+  top: -10%;
+  width: 70%;
+  height: 120%;
+  background: radial-gradient(ellipse at 80% 50%, rgba(123, 97, 255, 0.14) 0%, transparent 60%);
+}
+
+.bm-field__seam {
+  position: absolute;
+  left: 48%;
+  top: 0;
+  width: 4%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(230, 235, 241, 0) 0%, rgba(230, 235, 241, 0.15) 50%, rgba(230, 235, 241, 0) 100%);
+  transform-origin: top center;
+}
+
+.bm-col {
+  position: absolute;
+  top: 18%;
+  z-index: 2;
+  max-width: 34ch;
+}
+
+.bm-col--supply { left: 4.5rem; }
+.bm-col--demand { right: 4.5rem; text-align: right; }
+
+.bm-col--demand .bm-list,
+.bm-col--demand .bm-list ul {
+  align-items: flex-end;
+}
+
+.bm-list {
+  margin-top: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.bm-list__head {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 0.82rem;
+  color: var(--ink-text);
+}
+
+.bm-list__sub {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.bm-list ul {
+  margin: 0.3rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.bm-list li {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(0.74rem, 0.82vw, 0.88rem);
+  line-height: 1.5;
+  color: var(--ink-body);
+}
+
+.bm-seam-label {
+  position: absolute;
+  left: 50%;
+  top: 52%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.bm-seam-label__text {
+  display: inline-block;
+  padding: 0.4rem 0.85rem;
+  border: 1px solid rgba(230, 235, 241, 0.3);
+  background: rgba(5, 8, 15, 0.5);
+  backdrop-filter: blur(8px);
+  font-family: 'DM Mono', monospace;
+  font-size: 0.52rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--dis-ice-white);
+  white-space: nowrap;
+}
+
+/* --- SECTION 08 · Strategic Play --------------------------- */
+
+.play-field {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.play-field__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.85) contrast(1.05);
+}
+
+.play-field__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(244, 248, 255, 0.92) 0%, rgba(244, 248, 255, 0.55) 35%, rgba(244, 248, 255, 0.2) 70%, transparent 100%);
+}
+
+.play-header {
+  position: absolute;
+  left: 4.5rem;
+  top: 14%;
+  z-index: 2;
+  max-width: 36ch;
+}
+
+.play-line {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.play-steps {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+.play-step {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  max-width: 16ch;
+}
+
+.play-step__num {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  color: var(--dis-steel-blue);
+}
+
+.play-step__label {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-weight: 500;
+  font-size: clamp(0.78rem, 0.9vw, 0.95rem);
+  color: var(--ink-text);
+}
+
+.play-step__detail {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(0.68rem, 0.75vw, 0.8rem);
+  color: var(--ink-body);
+}
+
+.play-step__done {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--dis-neon-teal);
+  box-shadow: 0 0 10px rgba(0, 255, 194, 0.5);
+  margin-top: 0.3rem;
+}
+
+.play-pipeline {
+  position: absolute;
+  left: 4.5rem;
+  right: 4.5rem;
+  bottom: 12%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 1.2rem;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.play-pipeline__label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.play-pipeline__item {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(0.72rem, 0.8vw, 0.86rem);
+  color: var(--ink-text);
+}
+
+.play-pipeline__divider {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--rule);
+}
+
+/* --- SECTION 09 · Traction --------------------------------- */
+
+.traction-stage {
+  background: var(--dis-ice-white);
+}
+
+.traction-head {
+  position: absolute;
+  left: 4.5rem;
+  top: 12%;
+  z-index: 2;
+}
+
+.traction-hero {
+  margin-top: 0.6rem;
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: clamp(4rem, 10vw, 9rem);
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  color: var(--ink-text);
+}
+
+.traction-ledger {
+  position: absolute;
+  right: 4.5rem;
+  top: 18%;
+  bottom: 18%;
+  width: 34%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+.traction-row {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.traction-row__line {
+  width: 1.2rem;
+  height: 1px;
+  background: var(--rule);
+  flex-shrink: 0;
+}
+
+.traction-row__label {
+  flex: 1;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(0.76rem, 0.85vw, 0.9rem);
+  color: var(--ink-text);
+}
+
+.traction-row__status {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.traction-row__status--blue { color: var(--dis-electric-blue); }
+.traction-row__status--teal { color: #00997a; }
+.traction-row__status--purple { color: var(--dis-data-purple); }
+
+/* --- SECTION 10 · Vanguard --------------------------------- */
+
+.van-stage {
+  background: var(--dis-midnight-slate);
+}
+
+.van-field {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 62vh;
+  height: 62vh;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 1.2rem;
+  opacity: 0.55;
+}
+
+.van-aperture {
+  border: 1px solid rgba(230, 235, 241, 0.14);
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(230, 235, 241, 0.08), transparent 60%);
+  box-shadow: inset 0 0 24px rgba(0, 0, 0, 0.35);
+}
+
+.van-header {
+  position: absolute;
+  left: 4.5rem;
+  top: 14%;
+  z-index: 2;
+  max-width: 32ch;
+}
+
+.van-tranches {
+  position: absolute;
+  right: 4.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  max-width: 26ch;
+}
+
+.van-tranche {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding-left: 1rem;
+  border-left: 1px solid var(--rule);
+}
+
+.van-tranche__num {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  color: var(--dis-aurora-blue);
+}
+
+.van-tranche__title {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-weight: 500;
+  font-size: clamp(0.85rem, 1vw, 1.05rem);
+  color: var(--ink-text);
+}
+
+.van-tranche__question {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-style: italic;
+  font-size: clamp(0.92rem, 1.1vw, 1.15rem);
+  color: var(--ink-body);
+}
+
+/* --- SECTION 11 · Why Us ----------------------------------- */
+
+.why-stage {
+  background: var(--dis-platinum);
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 2rem;
+  padding: 5rem 4.5rem 4rem;
+}
+
+.why-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.why-primary {
+  max-width: 46ch;
+}
+
+.why-profile {
+  margin-top: 1.8rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--rule);
+}
+
+.why-profile--primary {
+  border-top: 1px solid var(--dis-electric-blue);
+}
+
+.why-profile__role {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.52rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.why-profile__name {
+  margin-top: 0.3rem;
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: clamp(1.4rem, 2vw, 2rem);
+  color: var(--ink-text);
+}
+
+.why-profile__bio {
+  margin-top: 0.4rem;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(0.76rem, 0.85vw, 0.9rem);
+  line-height: 1.6;
+  color: var(--ink-body);
+  max-width: 38ch;
+}
+
+.why-council {
+  margin-top: auto;
+}
+
+.why-council__label {
+  display: block;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: 0.6rem;
+}
+
+.why-council__grid {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.why-council__slot {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  padding: 0.4rem 0.85rem;
+  border: 1px dashed var(--rule);
+}
+
+.why-council__name {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(0.76rem, 0.85vw, 0.9rem);
+  color: var(--ink-text);
+}
+
+.why-council__title {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.5rem;
+  color: var(--ink-muted);
+}
+
+.why-atmosphere {
+  position: relative;
+  overflow: hidden;
+  border-left: 1px solid var(--rule);
+  opacity: 0.35;
+}
+
+.why-atmosphere__gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(30, 167, 255, 0.08) 0%, transparent 50%, rgba(123, 97, 255, 0.06) 100%);
+}
+
+
+/* --- SECTION 12 · Roles ------------------------------------ */
+
+.roles-stage {
+  background: var(--dis-ice-white);
+  padding: 4.5rem 4.5rem 3.5rem;
+}
+
+.roles-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.roles-header {
+  z-index: 2;
+  max-width: 52ch;
+}
+
+.roles-header .ed-head {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+}
+
+.roles-planes {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  min-height: 0;
+}
+
+.roles-plane {
+  padding: 1.6rem 1.8rem;
+  border: 1px solid var(--rule);
+  background: rgba(230, 235, 241, 0.55);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-height: 0;
+}
+
+.roles-plane--one { border-left: 3px solid var(--dis-electric-blue); }
+.roles-plane--two { border-left: 3px solid var(--dis-aurora-blue); }
+
+.roles-plane__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid var(--rule);
+  flex-shrink: 0;
+}
+
+.roles-plane__label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.roles-plane__amount {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: clamp(1.6rem, 2.5vw, 2.5rem);
+  line-height: 1;
+}
+
+.roles-plane__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  overflow: hidden;
+}
+
+.roles-plane__role {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(0.85rem, 1vw, 1.05rem);
+  color: var(--ink-text);
+}
+
+
+/* --- SECTION 13 · Ask -------------------------------------- */
+
+.ask-stage {
+  background: var(--dis-oxford-blue);
+  padding: 4rem 4.5rem 3.5rem;
+}
+
+.ask-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.ask-beams {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.ask-beam {
+  position: absolute;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  opacity: 0.25;
+  transform-origin: top center;
+  filter: blur(2px);
+}
+
+.ask-head {
+  z-index: 2;
+}
+
+.ask-hero {
+  margin-top: 0.4rem;
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: clamp(5rem, 12vw, 11rem);
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+}
+
+.ask-closes {
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: auto;
+}
+
+.ask-close {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 1.2rem 1.4rem;
+  border: 1px solid rgba(230, 235, 241, 0.12);
+  background: rgba(5, 8, 15, 0.35);
+  min-height: 0;
+}
+
+.ask-close__label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.ask-close__amount {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: clamp(1.5rem, 2.2vw, 2.4rem);
+  color: var(--dis-ice-white);
+}
+
+.ask-close__date {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.55rem;
+  color: var(--ink-muted);
+}
+
+.ask-close__trigger {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(0.72rem, 0.8vw, 0.85rem);
+  color: var(--ink-body);
+  margin-top: 0.2rem;
+}
+
+.ask-terms {
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--rule);
+}
+
+.ask-terms__line {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(0.72rem, 0.8vw, 0.85rem);
+  color: var(--ink-body);
+}
+
+.ask-terms__close {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-style: italic;
+  font-size: clamp(0.95rem, 1.2vw, 1.25rem);
+  color: var(--ink-text);
+}
+
+
+/* --- SECTION 14 · Use of Funds ----------------------------- */
+
+.fund-stage {
+  background: var(--dis-ice-white);
+  padding: 4rem 4.5rem 3.5rem;
+}
+
+.fund-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.fund-header {
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.fund-total {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(1rem, 1.2vw, 1.3rem);
+  color: var(--ink-text);
+}
+
+.fund-total strong {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(1.4rem, 1.8vw, 1.8rem);
+}
+
+.fund-field {
+  z-index: 2;
+  height: 3.5rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  border: 1px solid var(--rule);
+  margin-top: 0.5rem;
+}
+
+.fund-segment {
+  position: relative;
+  height: 100%;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  transform-origin: left center;
+  overflow: hidden;
+}
+
+.fund-segment__label {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(0.62rem, 0.72vw, 0.78rem);
+  color: rgba(255, 255, 255, 0.92);
+  white-space: nowrap;
+}
+
+.fund-segment__value {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.55rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.fund-table {
+  z-index: 2;
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(0.72rem, 0.8vw, 0.86rem);
+  margin-top: auto;
+}
+
+.fund-table th,
+.fund-table td {
+  padding: 0.5rem 0.8rem;
+  text-align: left;
+  border-bottom: 1px solid var(--rule);
+}
+
+.fund-table th {
+  font-weight: 500;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.6rem;
+}
+
+.fund-table td {
+  color: var(--ink-body);
+}
+
+.fund-table td:nth-child(2),
+.fund-table td:nth-child(3) {
+  font-family: 'DM Mono', monospace;
+  text-align: right;
+}
+
+.fund-table__total td {
+  color: var(--ink-text);
+  font-weight: 500;
+  border-top: 2px solid var(--ink-text);
+}
+
+
+/* --- SECTION 15 · Closing ---------------------------------- */
+
+.close-stage {
+  background: var(--dis-signal-black);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 4.5rem;
+  text-align: center;
+}
+
+.close-horizon {
+  position: absolute;
+  left: 15%;
+  right: 15%;
+  top: 42%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(30, 167, 255, 0.55), transparent);
+  transform-origin: center center;
+  filter: blur(1px);
+}
+
+.close-mark {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 1.5rem;
+}
+
+.close-mark__img {
+  height: clamp(2.5rem, 5vw, 4rem);
+  width: auto;
+  opacity: 0.9;
+}
+
+.close-text {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 60ch;
+}
+
+.close-lead {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(0.85rem, 1vw, 1.1rem);
+  margin-bottom: 1rem;
+}
+
+.close-hero {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: clamp(1.6rem, 3vw, 3rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.4rem;
+}
+
+.close-url {
+  display: inline-block;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--dis-electric-blue);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(30, 167, 255, 0.35);
+  padding-bottom: 0.2rem;
+}
+
+.close-url:hover {
+  color: var(--dis-aurora-blue);
+  border-bottom-color: var(--dis-aurora-blue);
+}
+
+.close-footer {
+  position: relative;
+  z-index: 2;
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.close-footer__confidential {
+  color: var(--dis-electric-blue);
+}
+
+
+/* --- responsive for sections 05–15 ------------------------- */
+
+@media (max-width: 1100px) {
+  .struct-title,
+  .moat-quote,
+  .bm-col--supply,
+  .play-header,
+  .traction-head,
+  .van-header,
+  .why-primary,
+  .roles-header,
+  .ask-head,
+  .fund-header {
+    left: 2.5rem;
+  }
+
+  .bm-col--demand,
+  .traction-ledger,
+  .van-tranches {
+    right: 2.5rem;
+  }
+
+  .struct-pin {
+    max-width: 16ch;
+  }
+
+  .traction-ledger {
+    width: 42%;
+  }
+
+  .ask-closes,
+  .roles-planes,
+  .fund-field,
+  .fund-table,
+  .play-pipeline,
+  .ask-terms {
+    left: 2.5rem;
+    right: 2.5rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .struct-title,
+  .moat-quote,
+  .bm-col--supply,
+  .play-header,
+  .traction-head,
+  .van-header,
+  .why-primary,
+  .roles-header,
+  .ask-head,
+  .fund-header {
+    position: relative;
+    left: auto;
+    top: auto;
+    padding: 1.5rem 1.5rem 0;
+    max-width: none;
+  }
+
+  .struct-pin,
+  .moat-stratum,
+  .bm-col--demand,
+  .bm-seam-label,
+  .play-line,
+  .play-steps,
+  .play-pipeline,
+  .traction-ledger,
+  .van-field,
+  .van-tranches,
+  .why-field,
+  .why-council,
+  .roles-planes,
+  .ask-beams,
+  .ask-closes,
+  .ask-terms,
+  .fund-field,
+  .fund-table {
+    position: relative;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+    width: auto;
+    transform: none;
+    padding: 1rem 1.5rem;
+  }
+
+  .struct-route,
+  .moat-substrate,
+  .bm-field,
+  .play-field,
+  .why-field {
+    opacity: 0.2;
+  }
+
+  .moat-stage,
+  .bm-stage,
+  .play-stage,
+  .traction-stage,
+  .van-stage,
+  .why-stage,
+  .roles-stage,
+  .ask-stage,
+  .fund-stage,
+  .close-stage {
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .bm-col--demand {
+    text-align: left;
+  }
+
+  .bm-col--demand .bm-list,
+  .bm-col--demand .bm-list ul {
+    align-items: flex-start;
+  }
+
+  .play-pipeline {
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+
+  .play-step {
+    position: relative;
+    left: auto !important;
+    top: auto !important;
+    max-width: none;
+  }
+
+  .van-field {
+    width: 80vw;
+    height: 80vw;
+    margin: 1rem auto;
+  }
+
+  .ask-closes,
+  .roles-planes {
+    flex-direction: column;
+  }
+
+  .fund-field {
+    height: auto;
+    flex-direction: column;
+  }
+
+  .fund-segment {
+    width: 100% !important;
+    height: 2.5rem;
+  }
 }
