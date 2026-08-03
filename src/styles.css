@@ -2679,8 +2679,8 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 1rem;
-  padding-left: 1rem;
+  gap: 0;
+  padding-left: 0.5rem;
 }
 
 .moat-stratum {
@@ -2694,17 +2694,17 @@ body {
   width: 88%;
 }
 
-.moat-stratum--methodology { align-self: flex-start; width: 92%; }
-.moat-stratum--governance { align-self: flex-end; width: 86%; }
-.moat-stratum--benchmark { align-self: flex-start; width: 78%; }
-.moat-stratum--outcome { align-self: flex-end; width: 90%; }
+.moat-stratum--methodology { align-self: flex-start; width: 94%; z-index: 5; }
+.moat-stratum--governance { align-self: flex-end; width: 86%; margin-top: -0.9rem; z-index: 4; }
+.moat-stratum--benchmark { align-self: flex-start; width: 76%; margin-top: -0.7rem; z-index: 3; }
+.moat-stratum--outcome { align-self: flex-end; width: 90%; margin-top: -0.9rem; z-index: 2; }
 
 .moat-stratum--live { border-top: 2px solid var(--dis-neon-teal); }
 .moat-stratum--spot { border-top: 2px solid var(--dis-electric-blue); }
 .moat-stratum--future { border-top: 2px solid var(--dis-violet); }
 
 .moat-stratum__inner {
-  padding: 1.2rem 1.4rem;
+  padding: 0.85rem 1.15rem;
 }
 
 .moat-stratum__edge {
