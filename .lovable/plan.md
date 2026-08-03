@@ -15,7 +15,7 @@ No more than two dark spreads adjacent; six of eleven read light, photographic, 
 
 ## Palette discipline
 
-Only the DIS side of the palette. Colour arrives as paper changes, large fields, split compositions, tinted photography, translucent material, oversized type, and edge rules — never as card borders, badges, status chips, or category rainbows. Section signal colours: 05 Electric Blue, 06 Electric/Cyber/Data Purple by moat layer, 07 Cyber–Aurora vs Violet–Data Purple with Ice White at the exchange, 08 daylight silver, 09 four proof-status inks on Platinum, 10 Aurora/Violet, 11 Fog/Steel, 12 Steel–Electric vs Fog–Cyber, 13 Ice White $2.5M with Electric→Aurora→Violet closes, 14 proportional bands, 15 one Electric horizon.
+Only the DIS side of the palette. Colour arrives as paper changes, large fields, split compositions, tinted photography, translucent material, oversized type, and edge rules — never as card borders, badges, status chips, or category rainbows. Section signal colours: 05 Electric Blue, 06 Electric/Cyber/Data Purple by moat layer, 07 Cyber–Aurora vs Violet–Data Purple with Ice White at the exchange, 08 daylight silver, 09 restrained Electric Blue and Neon Teal status ink with Data Purple used once, 10 Aurora/Violet, 11 Fog/Steel, 12 Steel–Electric vs Fog–Cyber, 13 Ice White $2.5M with Electric→Aurora→Violet closes, 14 proportional bands, 15 one Electric horizon.
 
 ## Section builds
 
