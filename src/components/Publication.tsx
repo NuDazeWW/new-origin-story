@@ -104,9 +104,12 @@ export default function Publication({ children, spreadCount, onSpreadChange }: P
           width: `${spreadCount * 100}vw`,
           height: "100vh",
           transform: `translateX(-${currentSpread * 100}vw)`,
-          transition: isTransitioning
-            ? "transform 0.7s cubic-bezier(0.77, 0, 0.175, 1)"
-            : "transform 0.7s cubic-bezier(0.77, 0, 0.175, 1)",
+          transition: STATIC_REVIEW_MODE
+            ? "none"
+            : isTransitioning
+              ? "transform 0.7s cubic-bezier(0.77, 0, 0.175, 1)"
+              : "transform 0.7s cubic-bezier(0.77, 0, 0.175, 1)",
+          animation: STATIC_REVIEW_MODE ? "none" : undefined,
           willChange: "transform",
         }}
       >
@@ -120,6 +123,8 @@ export default function Publication({ children, spreadCount, onSpreadChange }: P
               flexShrink: 0,
               position: "relative",
               overflow: "hidden",
+              // Static review mode: guarantee exactly one spread is present.
+              visibility: STATIC_REVIEW_MODE && i !== currentSpread ? "hidden" : "visible",
             }}
           >
             {child}
