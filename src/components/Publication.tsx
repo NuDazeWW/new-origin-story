@@ -6,6 +6,8 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 
+import { STATIC_REVIEW_MODE } from "@/reviewMode";
+
 interface PublicationProps {
   children: React.ReactNode[];
   spreadCount: number;
