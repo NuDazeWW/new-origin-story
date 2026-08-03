@@ -18,13 +18,8 @@ import { ACTORS } from "@/components/print/flywheelActors";
 
 const CYCLE = 4500;
 
-/**
- * TEMPORARY visual-QA pin — Pass 1 only.
- * Holds the composition on Actor 01 so the static frame can be calibrated and
- * screenshotted deterministically. Removed when Pass 2 motion is approved.
- * All interaction code below is intact and unmodified.
- */
-const QA_PIN_ACTOR_01 = true;
+/* Pass 2 — motion restored: arrival illumination, then a 4.5s actor cycle. */
+
 
 /** Restrained editorial glyphs — circular framing, hairline weight. */
 function Glyph({ kind }: { kind: "gain" | "why" | "dis" | "traction" }) {
