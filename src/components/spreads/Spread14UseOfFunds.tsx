@@ -1,9 +1,12 @@
 /**
  * SPREAD 14 — Use of Funds
- * CORRECTION PASS 02: one large continuous proportional capital field. The seven
- * allocations occupy exact proportional page area (42/18/14/10/6/4/6). The
- * spreadsheet table is preserved for assistive technology and print only.
- * Exact copy from production brief SLIDE 14.
+ * CORRECTION PASS 02A: one sculptural capital object. The full $2,500,000 is a
+ * single extruded slab in perspective, divided along one continuous measurement
+ * axis at exact proportions (42/18/14/10/6/4/6). No treemap, no legend, no
+ * visible table, no cards. The four larger allocations carry type directly on
+ * the object; the three smallest use direct leader-line annotations attached to
+ * their exact physical region.
+ * Exact copy and financial data from production brief SLIDE 14.
  */
 
 import { motion, useReducedMotion } from "framer-motion";
@@ -26,90 +29,248 @@ const ALLOCATIONS = [
 
 const TOTAL = 2500000;
 
-/**
- * Exact proportional geometry.
- * Left mass: 60% of width → 42 (70% height) + 18 (30% height).
- * Right mass: 40% of width → 14 (35%) + 10 (25%) + 6 (15%) + 4 (10%) + 6 (15%).
- * Every region's area equals its percentage of the whole field.
- */
-const LEFT = [ALLOCATIONS[0], ALLOCATIONS[1]];
-const RIGHT = ALLOCATIONS.slice(2);
+/* ---- object geometry (single slab, one measurement axis) ---- */
+const X0 = 60;
+const AXIS = 1120; // px of axis == 100% == $2,500,000
+const BASE_Y = 470; // front-bottom edge
+const FACE_H = 208; // extruded face height
+const SHEAR = 46; // horizontal rake of the vertical extrusion
+const DEPTH_X = 54; // top-surface depth
+const DEPTH_Y = 58;
+
+const TOP_Y = BASE_Y - FACE_H;
+const BACK_Y = TOP_Y - DEPTH_Y;
+
+type Seg = {
+  a: number;
+  b: number;
+  mid: number;
+  width: number;
+} & (typeof ALLOCATIONS)[number];
+
+const SEGMENTS: Seg[] = (() => {
+  let cursor = X0;
+  return ALLOCATIONS.map((alloc) => {
+    const width = (alloc.pct / 100) * AXIS;
+    const seg = { ...alloc, a: cursor, b: cursor + width, mid: cursor + width / 2, width };
+    cursor += width;
+    return seg;
+  });
+})();
+
+const face = (s: Seg) =>
+  `${s.a},${BASE_Y} ${s.b},${BASE_Y} ${s.b + SHEAR},${TOP_Y} ${s.a + SHEAR},${TOP_Y}`;
+
+const top = (s: Seg) =>
+  `${s.a + SHEAR},${TOP_Y} ${s.b + SHEAR},${TOP_Y} ${s.b + SHEAR + DEPTH_X},${BACK_Y} ${
+    s.a + SHEAR + DEPTH_X
+  },${BACK_Y}`;
+
+const LARGE = SEGMENTS.filter((s) => s.pct > 6);
+const SMALL = SEGMENTS.filter((s) => s.pct <= 6);
+
+/** Staggered annotation altitudes so leader lines never collide. */
+const ANNO_Y = [128, 74, 176];
 
 export default function Spread14UseOfFunds({ isActive = false }: { isActive?: boolean }) {
   void isActive;
   const reduce = useReducedMotion();
-
-  const region = (a: typeof ALLOCATIONS[number], i: number, side: "left" | "right") => {
-    const compact = a.pct <= 6;
-    return (
-      <motion.div
-        key={a.label}
-        className={`fund2-region${compact ? " fund2-region--compact" : ""}`}
-        style={{
-          flexGrow: a.pct,
-          backgroundColor: a.color,
-        }}
-        initial={STATIC_REVIEW_MODE || reduce ? false : { opacity: 0, y: 18 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        animate={STATIC_REVIEW_MODE ? { opacity: 1, y: 0 } : undefined}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.8, delay: 0.2 + (side === "left" ? i : i + 2) * 0.09, ease: EASE }}
-      >
-        <div className="fund2-region__grade" aria-hidden />
-        {!compact && (
-          <div className="fund2-region__type">
-            <span className="fund2-region__pct">{a.pct}%</span>
-            <span className="fund2-region__label">{a.label}</span>
-            <span className="fund2-region__amount">${a.amount.toLocaleString()}</span>
-          </div>
-        )}
-      </motion.div>
-    );
-  };
+  const still = STATIC_REVIEW_MODE || reduce;
 
   return (
     <Page stock="ice">
       <RunningHead chapter="14 / Use of Funds" issue="DIS Origin" />
 
       <PageBody>
-        <div className="fund-stage fund2-stage">
-          <div className="fund2-header">
+        <div className="fund-stage fund3-stage">
+          <div className="fund3-header">
             <Settle>
               <span className="ed-kicker" style={{ color: "var(--dis-steel-blue)" }}>Use of Funds</span>
-              <h2 className="fund2-total">$2,500,000</h2>
+              <h2 className="fund3-total">$2,500,000</h2>
             </Settle>
             <Settle delay={0.12}>
-              <p className="fund2-head">Capital deployed with discipline.</p>
+              <p className="fund3-head">Capital deployed with discipline — one instrument, seven measured lengths.</p>
             </Settle>
           </div>
 
-          <div
-            className="fund2-field"
-            role="img"
-            aria-label={`Capital allocation field totalling $${TOTAL.toLocaleString()}`}
-          >
-            <div className="fund2-mass fund2-mass--left">
-              {LEFT.map((a, i) => region(a, i, "left"))}
-            </div>
-            <div className="fund2-mass fund2-mass--right">
-              {RIGHT.map((a, i) => region(a, i, "right"))}
-            </div>
-          </div>
+          <div className="fund3-object">
+            <svg
+              className="fund3-svg"
+              viewBox="0 0 1280 560"
+              preserveAspectRatio="xMidYMid meet"
+              role="img"
+              aria-label={`Single capital object totalling $${TOTAL.toLocaleString()}, divided along one axis: ${ALLOCATIONS.map(
+                (a) => `${a.label} ${a.pct} percent, $${a.amount.toLocaleString()}`,
+              ).join("; ")}`}
+            >
+              <defs>
+                {SEGMENTS.map((s, i) => (
+                  <linearGradient key={`gf-${i}`} id={`fund3-gf-${i}`} x1="0" y1="0" x2="0.35" y2="1">
+                    <stop offset="0%" stopColor={s.color} stopOpacity="1" />
+                    <stop offset="58%" stopColor={s.color} stopOpacity="0.9" />
+                    <stop offset="100%" stopColor="#05080F" stopOpacity="0.55" />
+                  </linearGradient>
+                ))}
+                {SEGMENTS.map((s, i) => (
+                  <linearGradient key={`gt-${i}`} id={`fund3-gt-${i}`} x1="0" y1="1" x2="1" y2="0">
+                    <stop offset="0%" stopColor={s.color} stopOpacity="0.95" />
+                    <stop offset="100%" stopColor="#E6EBF1" stopOpacity="0.72" />
+                  </linearGradient>
+                ))}
+                <linearGradient id="fund3-spec" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.4" />
+                  <stop offset="34%" stopColor="#FFFFFF" stopOpacity="0.05" />
+                  <stop offset="100%" stopColor="#05080F" stopOpacity="0.14" />
+                </linearGradient>
+                <linearGradient id="fund3-reflect" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="#05080F" stopOpacity="0.18" />
+                  <stop offset="100%" stopColor="#05080F" stopOpacity="0" />
+                </linearGradient>
+                <filter id="fund3-contact" x="-20%" y="-120%" width="140%" height="360%">
+                  <feGaussianBlur stdDeviation="14" />
+                </filter>
+                <clipPath id="fund3-slab">
+                  <polygon
+                    points={`${X0},${BASE_Y} ${X0 + AXIS},${BASE_Y} ${X0 + AXIS + SHEAR},${TOP_Y} ${
+                      X0 + SHEAR
+                    },${TOP_Y}`}
+                  />
+                </clipPath>
+              </defs>
 
-          {/* External annotations for regions too small to carry readable type. */}
-          <div className="fund2-annos">
-            {ALLOCATIONS.filter((a) => a.pct <= 6).map((a) => (
-              <span key={a.label} className="fund2-anno">
-                <span className="fund2-anno__swatch" style={{ background: a.color }} />
-                <span className="fund2-anno__pct">{a.pct}%</span>
-                <span className="fund2-anno__label">{a.label}</span>
-                <span className="fund2-anno__amount">${a.amount.toLocaleString()}</span>
-              </span>
-            ))}
+              {/* cast + contact shadow */}
+              <ellipse
+                cx={X0 + AXIS / 2 + 30}
+                cy={BASE_Y + 26}
+                rx={AXIS / 2 - 10}
+                ry={16}
+                fill="#05080F"
+                opacity="0.34"
+                filter="url(#fund3-contact)"
+              />
+
+              <motion.g
+                initial={still ? false : { opacity: 0, y: 22 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                animate={still ? { opacity: 1, y: 0 } : undefined}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 1.1, ease: EASE }}
+              >
+                {/* extruded front faces along the single measurement axis */}
+                {SEGMENTS.map((s, i) => (
+                  <g key={s.label}>
+                    <polygon points={face(s)} fill={`url(#fund3-gf-${i})`} />
+                    <polygon points={top(s)} fill={`url(#fund3-gt-${i})`} />
+                    <line
+                      x1={s.b}
+                      y1={BASE_Y}
+                      x2={s.b + SHEAR + DEPTH_X}
+                      y2={BACK_Y}
+                      stroke="#05080F"
+                      strokeOpacity="0.3"
+                      strokeWidth="0.75"
+                    />
+                  </g>
+                ))}
+
+                {/* controlled reflection across the whole object */}
+                <polygon
+                  points={`${X0},${BASE_Y} ${X0 + AXIS},${BASE_Y} ${X0 + AXIS + SHEAR},${TOP_Y} ${
+                    X0 + SHEAR
+                  },${TOP_Y}`}
+                  fill="url(#fund3-spec)"
+                  style={{ mixBlendMode: "screen" }}
+                />
+                <g clipPath="url(#fund3-slab)">
+                  <polygon
+                    points={`${X0 + SHEAR * 0.35},${BASE_Y} ${X0 + AXIS * 0.42},${BASE_Y} ${
+                      X0 + AXIS * 0.42 + SHEAR
+                    },${TOP_Y} ${X0 + SHEAR},${TOP_Y}`}
+                    fill="#FFFFFF"
+                    opacity="0.07"
+                  />
+                </g>
+
+                {/* silhouette */}
+                <polygon
+                  points={`${X0},${BASE_Y} ${X0 + AXIS},${BASE_Y} ${X0 + AXIS + SHEAR},${TOP_Y} ${
+                    X0 + AXIS + SHEAR + DEPTH_X
+                  },${BACK_Y} ${X0 + SHEAR + DEPTH_X},${BACK_Y} ${X0 + SHEAR},${TOP_Y}`}
+                  fill="none"
+                  stroke="#05080F"
+                  strokeOpacity="0.34"
+                  strokeWidth="1"
+                />
+
+                {/* surface reflection below the object */}
+                <polygon
+                  points={`${X0},${BASE_Y} ${X0 + AXIS},${BASE_Y} ${X0 + AXIS - SHEAR * 0.5},${
+                    BASE_Y + 62
+                  } ${X0 - SHEAR * 0.5},${BASE_Y + 62}`}
+                  fill="url(#fund3-reflect)"
+                />
+
+                {/* typography carried directly on the four larger lengths */}
+                {LARGE.map((s) => (
+                  <g key={`t-${s.label}`}>
+                    <text
+                      className="fund3-onpct"
+                      x={s.a + SHEAR * 0.55 + 16}
+                      y={BASE_Y - 118}
+                    >
+                      {s.pct}%
+                    </text>
+                    <text
+                      className="fund3-onlabel"
+                      x={s.a + SHEAR * 0.4 + 16}
+                      y={BASE_Y - 86}
+                    >
+                      {s.label}
+                    </text>
+                    <text
+                      className="fund3-onamount"
+                      x={s.a + SHEAR * 0.35 + 16}
+                      y={BASE_Y - 64}
+                    >
+                      ${s.amount.toLocaleString()}
+                    </text>
+                  </g>
+                ))}
+
+                {/* direct annotations attached to the three smallest regions */}
+                {SMALL.map((s, i) => {
+                  const anchorX = s.mid + SHEAR + DEPTH_X * 0.5;
+                  const anchorY = BACK_Y + DEPTH_Y * 0.45;
+                  const y = ANNO_Y[i];
+                  const textX = anchorX + 26;
+                  return (
+                    <g key={`a-${s.label}`}>
+                      <circle cx={anchorX} cy={anchorY} r="2.4" fill="#05080F" opacity="0.7" />
+                      <path
+                        d={`M${anchorX},${anchorY} L${anchorX},${y + 12} L${textX - 8},${y + 12}`}
+                        fill="none"
+                        stroke="#05080F"
+                        strokeOpacity="0.45"
+                        strokeWidth="0.9"
+                      />
+                      <text className="fund3-annopct" x={textX} y={y}>
+                        {s.pct}%
+                      </text>
+                      <text className="fund3-annolabel" x={textX} y={y + 18}>
+                        {s.label}
+                      </text>
+                      <text className="fund3-annoamount" x={textX} y={y + 34}>
+                        ${s.amount.toLocaleString()}
+                      </text>
+                    </g>
+                  );
+                })}
+              </motion.g>
+            </svg>
           </div>
 
           {/* Semantic data retained for assistive technology and print output. */}
-          <table className="fund2-table">
+          <table className="fund3-table">
             <caption>Use of funds allocation table</caption>
             <thead>
               <tr>
