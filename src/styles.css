@@ -3602,10 +3602,11 @@ body {
 }
 
 .close-mark__img {
-  height: clamp(2.5rem, 5vw, 4rem);
+  height: clamp(4rem, 8vw, 6.5rem);
   width: auto;
-  opacity: 0.9;
+  opacity: 0.95;
 }
+
 
 .close-text {
   position: relative;
