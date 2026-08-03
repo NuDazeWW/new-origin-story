@@ -4460,21 +4460,22 @@ body {
   max-width: 68ch;
 }
 
-/* --- SECTION 14 · proportional capital field --------------- */
+/* --- SECTION 14 · sculptural capital object ---------------- */
 
-.fund2-stage {
+.fund3-stage {
   padding: 0;
   background: var(--dis-ice-white);
 }
 
-.fund2-header {
+.fund3-header {
   position: absolute;
   left: 4.5rem;
-  top: 3.2rem;
+  top: 2.6rem;
   z-index: 3;
+  max-width: 34ch;
 }
 
-.fund2-total {
+.fund3-total {
   margin-top: 0.2rem;
   font-family: 'DM Serif Display', Georgia, serif;
   font-size: clamp(2.2rem, 3.8vw, 3.4rem);
@@ -4483,117 +4484,69 @@ body {
   color: var(--ink-text);
 }
 
-.fund2-head {
+.fund3-head {
   margin-top: 0.35rem;
   font-family: 'Space Grotesk', system-ui, sans-serif;
-  font-size: clamp(0.82rem, 0.95vw, 0.98rem);
+  font-size: clamp(0.78rem, 0.9vw, 0.94rem);
   color: var(--ink-body);
 }
 
-.fund2-field {
+.fund3-object {
   position: absolute;
-  left: 4.5rem;
-  right: 4.5rem;
-  top: 11.5rem;
-  bottom: 4.4rem;
+  left: 0;
+  right: 0;
+  top: 7.5rem;
+  bottom: 2.2rem;
   z-index: 2;
-  display: flex;
-  gap: 0;
-  box-shadow: 0 34px 60px -28px rgba(5, 8, 15, 0.4);
 }
 
-.fund2-mass {
-  display: flex;
-  flex-direction: column;
-  min-height: 0;
+.fund3-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
-.fund2-mass--left { flex: 0 0 60%; }
-.fund2-mass--right { flex: 0 0 40%; }
-
-.fund2-region {
-  position: relative;
-  overflow: hidden;
-  min-height: 0;
-  flex-basis: 0;
-}
-
-.fund2-region__grade {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(128deg, rgba(255, 255, 255, 0.24) 0%, transparent 46%, rgba(5, 8, 15, 0.26) 100%);
-}
-
-.fund2-region__type {
-  position: absolute;
-  left: 1.1rem;
-  bottom: 0.9rem;
-  right: 1.1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.1rem;
-}
-
-.fund2-region__pct {
+.fund3-onpct {
   font-family: 'DM Serif Display', Georgia, serif;
-  font-size: clamp(1.2rem, 2vw, 1.85rem);
-  line-height: 1;
-  color: rgba(255, 255, 255, 0.96);
+  font-size: 34px;
+  fill: rgba(255, 255, 255, 0.97);
 }
 
-.fund2-region__label {
+.fund3-onlabel {
   font-family: 'Space Grotesk', system-ui, sans-serif;
-  font-size: clamp(0.74rem, 0.9vw, 0.95rem);
-  color: rgba(255, 255, 255, 0.94);
+  font-size: 15px;
+  letter-spacing: 0.01em;
+  fill: rgba(255, 255, 255, 0.95);
 }
 
-.fund2-region__amount {
+.fund3-onamount {
   font-family: 'DM Mono', monospace;
-  font-size: 0.56rem;
-  letter-spacing: 0.06em;
-  color: rgba(255, 255, 255, 0.78);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  fill: rgba(255, 255, 255, 0.8);
 }
 
-.fund2-annos {
-  position: absolute;
-  left: 4.5rem;
-  right: 4.5rem;
-  bottom: 1.7rem;
-  z-index: 3;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0 1.6rem;
+.fund3-annopct {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 20px;
+  fill: var(--ink-text);
 }
 
-.fund2-anno {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 0.4rem;
+.fund3-annolabel {
   font-family: 'Space Grotesk', system-ui, sans-serif;
-  font-size: 0.72rem;
-  color: var(--ink-body);
+  font-size: 12px;
+  fill: var(--ink-body);
 }
 
-.fund2-anno__swatch {
-  width: 0.5rem;
-  height: 0.5rem;
-  align-self: center;
-}
-
-.fund2-anno__pct {
+.fund3-annoamount {
   font-family: 'DM Mono', monospace;
-  font-size: 0.62rem;
-  color: var(--ink-text);
-}
-
-.fund2-anno__amount {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.58rem;
-  color: var(--ink-muted);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  fill: var(--ink-muted);
 }
 
 /* Semantic table: assistive technology and print only. */
-.fund2-table {
+.fund3-table {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -4606,7 +4559,7 @@ body {
 }
 
 @media print {
-  .fund2-table {
+  .fund3-table {
     position: static;
     width: 100%;
     height: auto;
@@ -4616,6 +4569,7 @@ body {
     border-collapse: collapse;
   }
 }
+
 
 /* --- responsive: correction pass 02 ----------------------- */
 
