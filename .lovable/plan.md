@@ -58,9 +58,32 @@ FlywheelScene
 
 Strong left editorial column, dominant central object, structured right editorial rail. Wheel raised ~13% above vertical centre, shifted 20–30px left of optical centre, generous gutter to the sidebar, nothing crowded against the viewport edge. Title breaks per the reference; the supporting statement is three stacked lines. The right rail is magazine typography — hairline separators between sections, never a panel or cards. LIVE keeps the reference's outlined treatment. Quote band matches the reference's three-part rhythm with vertical separators.
 
+**Proportion is optical, not numeric.** 760px is a starting estimate only. At 1536 × 1024 the diameter and position get tuned until the silhouette and negative space match the reference — the wheel must never crowd the title column, sidebar, running head, or quote band. A stated number is dropped whenever it conflicts with the approved rendering.
+
+## Two passes — static fidelity is approved before any motion
+
+**Pass 1 · static product render.** The full 1536 × 1024 composition with zero animation. Render, compare against the reference, and refine scale, silhouette, material separation, lighting, typography, and spacing. Particles, pulse sequencing, parallax, and sidebar transitions do not begin until this still frame passes. If the first static render reads as a clean web infographic, glassmorphism component, SVG wheel, dashboard visualization, or presentation diagram, the product object gets rebuilt before anything moves.
+
+More glow is not more depth. Depth comes from overlapping physical layers, occlusion, variable edge lighting, refractive surfaces, asymmetric highlights, localized reflections, material texture, contact and cast shadows, and controlled differences in sharpness. Having every planned layer present in the DOM is not the completion test.
+
+**Pass 2 · motion.** Added only once the static frame reads as a premium physical object; it must never compensate for weak material rendering. A beautiful still frame is the primary deliverable.
+
 ## Motion
 
 Arrival ≈2s: object nearly dark → hub illumination rises → one restrained pulse leaves the hub → travels a channel and around the ring → first capsule resolves → sidebar fades in last. Active cycle ≈4.5s, running only while this spread is active. A specular highlight travels the active pathway once, then is gone. Sidebar copy changes on a 700ms dissolve, no horizontal movement. Pointer parallax a few pixels, physical layers at different depths. Only opacity, transforms, mask position, and small canvas state animate — never layout. No bouncing, springs, rotating wheel, sliding panels, or attention-seeking loops. Reduced motion renders the fully composed static wheel with the first actor lit.
+
+## One actor configuration drives everything
+
+A single config array is the only source of actor geometry: index, exact supplied label, fixed angle, channel accent, active-state content, and accessibility label. Channel geometry, capsule placement, illumination, particle emphasis, and sidebar state all derive from it — no system positions itself independently. No actor-specific sidebar copy is invented. Until six approved sidebar states exist, capsules stay mounted labels (not fake buttons); semantic buttons appear only once activating a capsule swaps in real supplied content.
+
+## Material colour
+
+Brand tokens stay the chromatic foundation, but fidelity outranks token purity. Component-scoped material variables, derived colours, alpha values, `color-mix()`, gradient stops, texture maps, and neutral white/black optical values are allowed where needed for steel reflections, smoked glass, edge refraction, warm/cool metal variation, localized bloom, specular highlights, and surface noise. No unrelated brand colours are introduced.
+
+## Sidebar glyphs
+
+The small rail symbols may be simple SVG at that scale, treated as restrained editorial glyphs: fine optical weight, circular framing, spacing, and accents matched to the reference. No unmodified Lucide defaults. They stay subordinate to the typography and must not make the rail read as a feature list or dashboard.
+
 
 ## Performance and accessibility
 
