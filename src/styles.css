@@ -2658,30 +2658,53 @@ body {
   mix-blend-mode: multiply;
 }
 
-.moat-quote {
-  position: absolute;
-  left: 4.5rem;
-  top: 14%;
+.moat-content {
+  position: relative;
   z-index: 2;
-  max-width: 30ch;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  padding: 5.5rem 4.5rem 4rem;
+}
+
+.moat-quote {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 38ch;
+}
+
+.moat-strata {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  padding-left: 1rem;
 }
 
 .moat-stratum {
-  position: absolute;
+  position: relative;
   z-index: 2;
   border: 1px solid rgba(5, 8, 15, 0.12);
-  background: rgba(244, 248, 255, 0.76);
+  background: rgba(244, 248, 255, 0.82);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 24px 60px -20px rgba(5, 8, 15, 0.22);
+  width: 88%;
 }
+
+.moat-stratum--methodology { align-self: flex-start; width: 92%; }
+.moat-stratum--governance { align-self: flex-end; width: 86%; }
+.moat-stratum--benchmark { align-self: flex-start; width: 78%; }
+.moat-stratum--outcome { align-self: flex-end; width: 90%; }
 
 .moat-stratum--live { border-top: 2px solid var(--dis-neon-teal); }
 .moat-stratum--spot { border-top: 2px solid var(--dis-electric-blue); }
 .moat-stratum--future { border-top: 2px solid var(--dis-violet); }
 
 .moat-stratum__inner {
-  padding: 1.4rem 1.6rem;
+  padding: 1.2rem 1.4rem;
 }
 
 .moat-stratum__edge {
@@ -2733,6 +2756,7 @@ body {
   background: linear-gradient(100deg, transparent 40%, rgba(30, 167, 255, 0.06) 50%, transparent 60%);
   mix-blend-mode: overlay;
 }
+
 
 /* --- SECTION 07 · Business Model --------------------------- */
 
