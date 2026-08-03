@@ -43,7 +43,7 @@ Only the DIS side of the palette. Colour arrives as paper changes, large fields,
 
 ## Technical notes
 
-- New spread components in `src/components/spreads/`, section CSS appended to `src/styles.css` under section-scoped roots so earlier spreads cannot be affected. Existing `Page`/`PageBody`/`RunningHead`/`Folio` and the `Settle`, `Plate`, `Blueprint`, `Strata`, `useParallax` primitives are reused.
+- New spread components in `src/components/spreads/`, section CSS appended to `src/styles.css` under section-scoped roots so earlier spreads cannot be affected. Existing `Page`/`PageBody`/`RunningHead`/`Folio` and motion utilities are reused. `Plate`, `Blueprint`, `Strata`, and other visual primitives are reused only when they support the new editorial direction; they are not forced into a spread if doing so would recreate a diagram, card, grid, or dashboard aesthetic being replaced.
 - `pg--paper` gains light variants (platinum, ice) as additional stock values rather than new page shells.
 - `src/routes/index.tsx` registers Sections 07–15 and passes `isActive` per spread; the progress count derives from the spread collection instead of a hardcoded `spreadCount`, so `Publication` takes the children length.
 - Imagery: supplied assets only, wired through the existing `*.asset.json` import pattern. No stock, no generated portraits or logos.
