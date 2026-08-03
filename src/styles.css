@@ -1793,7 +1793,7 @@ body {
     rgba(30, 167, 255, 0.14) 100%
   );
   filter: blur(6px);
-  opacity: 1.6;
+  opacity: 0.9;
   mask: radial-gradient(circle closest-side at 50% 50%, transparent 0 66%, #000 74% 98%, transparent 100%);
 }
 
