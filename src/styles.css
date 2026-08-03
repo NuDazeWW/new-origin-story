@@ -1625,28 +1625,32 @@ body {
   filter: blur(70px);
 }
 
-/* cool upper-right leak */
+/* cool upper-right leak — localized, visible, not a global lift */
 .fly__leak--a {
-  top: -10%;
-  left: 46%;
-  width: 40%;
-  height: 46%;
-  background: radial-gradient(circle, rgba(30, 167, 255, 0.28), transparent 66%);
+  top: -12%;
+  left: 48%;
+  width: 34%;
+  height: 40%;
+  background: radial-gradient(circle, rgba(56, 178, 255, 0.42), rgba(30, 120, 210, 0.14) 48%, transparent 70%);
+  filter: blur(58px);
 }
 
-/* secondary lower-edge reflection + atmosphere behind the rail */
+/* blue atmosphere behind the rail + faint reflected light below the wheel */
 .fly__leak--b {
-  bottom: -4%;
-  right: 2%;
-  width: 40%;
-  height: 48%;
-  background: radial-gradient(circle, rgba(58, 108, 176, 0.2), transparent 68%);
+  bottom: -6%;
+  right: 0%;
+  width: 38%;
+  height: 52%;
+  background: radial-gradient(circle, rgba(64, 122, 196, 0.3), transparent 66%);
 }
 
 .fly__vig {
   position: absolute;
   inset: 0;
-  background: radial-gradient(66% 58% at 43% 44%, transparent 38%, rgba(2, 4, 8, 0.8) 100%);
+  background:
+    radial-gradient(ellipse 22% 7% at 43% 84%, rgba(122, 176, 232, 0.17), transparent 72%),
+    radial-gradient(ellipse 8% 3% at 43% 76.5%, rgba(190, 226, 255, 0.22), transparent 74%),
+    radial-gradient(66% 58% at 43% 44%, transparent 38%, rgba(2, 4, 8, 0.82) 100%);
 }
 
 .fly__ghost {
@@ -1660,8 +1664,8 @@ body {
   letter-spacing: -0.02em;
   white-space: nowrap;
   color: transparent;
-  -webkit-text-stroke: 1.4px rgba(214, 232, 248, 0.7);
-  opacity: 0.055;
+  -webkit-text-stroke: 1.6px rgba(206, 230, 252, 0.85);
+  opacity: 0.085;
 }
 
 .fly__grain {
