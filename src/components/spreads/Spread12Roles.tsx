@@ -1,8 +1,7 @@
 /**
  * SPREAD 12 — Roles This Round Funds
- * Platinum ground, two broad spatial planes — Initial Close and Second Close —
- * sequenced in depth. Roles are positions in a system, set typographically.
- * No table, no cards.
+ * Platinum / Ice White planes. Roles as positions in a system, sequenced by
+ * capital release. No table, no cards. Exact copy from production brief SLIDE 12.
  */
 
 import { motion, useReducedMotion } from "framer-motion";
@@ -44,7 +43,7 @@ export default function Spread12Roles({ isActive = false }: { isActive?: boolean
             </Settle>
             <Settle delay={0.12}>
               <p className="sec-lede" style={{ color: "var(--ink-body)", maxWidth: "42ch" }}>
-                Every hire has a milestone. Roles are positions in a system, sequenced by capital release.
+                Every hire has a milestone.
               </p>
             </Settle>
           </div>

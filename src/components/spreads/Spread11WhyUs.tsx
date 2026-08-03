@@ -1,9 +1,9 @@
 /**
  * SPREAD 11 — Why Us
- * Light, quiet, editorial. No verified portraits are available, so this spread
- * uses a typography-led treatment with environmental imagery as atmosphere only.
- * Shirley Johnson holds the primary narrative position; Allen Bestwick secondary.
- * The four unresolved council profiles appear as a deliberately unfinished roster.
+ * Light, quiet, editorial. No verified portraits are available; the supplied
+ * portrait is used as environmental atmosphere only, not as a labeled likeness.
+ * Shirley Johnson and Allen Bestwick are rendered as typography-led profiles.
+ * Unresolved council slots are deliberately unfinished. Exact copy from production brief SLIDE 11.
  */
 
 import { motion, useReducedMotion } from "framer-motion";
@@ -27,7 +27,12 @@ const PROFILES = [
   },
 ];
 
-const UNRESOLVED = ["Dave", "Chantal", "David Brody", "Bobbie"];
+const UNRESOLVED = [
+  { name: "Dave", title: "[Title TBD]" },
+  { name: "Chantal", title: "[Title TBD]" },
+  { name: "David Brody", title: "[Title TBD]" },
+  { name: "Bobbie", title: "[Title TBD]" },
+];
 
 export default function Spread11WhyUs({ isActive = false }: { isActive?: boolean }) {
   void isActive;
@@ -39,8 +44,7 @@ export default function Spread11WhyUs({ isActive = false }: { isActive?: boolean
 
       <PageBody>
         <div className="why-stage">
-          {/* environmental atmosphere */}
-          <div className="why-field" aria-hidden="false">
+          <div className="why-field">
             <img
               src="/05_leadership_portrait_direction.png"
               alt="Leadership atmosphere"
@@ -50,7 +54,6 @@ export default function Spread11WhyUs({ isActive = false }: { isActive?: boolean
             <div className="why-field__scrim" />
           </div>
 
-          {/* primary profile — typography-led */}
           <div className="why-primary">
             <Settle>
               <span className="ed-kicker" style={{ color: "var(--dis-steel-blue)" }}>Why Us</span>
@@ -75,7 +78,6 @@ export default function Spread11WhyUs({ isActive = false }: { isActive?: boolean
             ))}
           </div>
 
-          {/* unresolved council roster */}
           <motion.div
             className="why-council"
             initial={reduce ? false : { opacity: 0 }}
@@ -85,8 +87,8 @@ export default function Spread11WhyUs({ isActive = false }: { isActive?: boolean
           >
             <span className="why-council__label">Council in Formation</span>
             <div className="why-council__grid">
-              {UNRESOLVED.map((name) => (
-                <span key={name} className="why-council__slot">{name}</span>
+              {UNRESOLVED.map((slot) => (
+                <span key={slot.name} className="why-council__slot">{slot.name}</span>
               ))}
             </div>
           </motion.div>

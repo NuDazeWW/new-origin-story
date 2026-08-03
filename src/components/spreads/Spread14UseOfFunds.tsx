@@ -1,9 +1,7 @@
 /**
  * SPREAD 14 — Use of Funds
  * Ice White annual-report spread. The seven allocations form one continuous
- * proportional capital field. Proportions are mathematically exact at 42/18/14/10/6/4/6.
- * Labels are typeset directly into the field; exact values are repeated in a
- * semantic table for accessibility and print.
+ * proportional capital field. Exact copy from production brief SLIDE 14.
  */
 
 import { motion, useReducedMotion } from "framer-motion";
@@ -48,13 +46,12 @@ export default function Spread14UseOfFunds({ isActive = false }: { isActive?: bo
             </Settle>
           </div>
 
-          {/* continuous proportional field */}
           <div className="fund-field" role="img" aria-label={`Capital allocation field totalling $${TOTAL.toLocaleString()}`}>
             {ALLOCATIONS.map((a, i) => (
               <motion.div
                 key={a.label}
                 className="fund-segment"
-                style={{ width: `${a.pct}%`, backgroundColor: a.color }}
+                style={{ width: `${a.pct}%`, backgroundColor: a.color, flex: `0 0 ${a.pct}%` }}
                 initial={reduce ? false : { opacity: 0, scaleX: 0 }}
                 whileInView={{ opacity: 1, scaleX: 1 }}
                 viewport={{ once: true, amount: 0.4 }}
@@ -66,7 +63,6 @@ export default function Spread14UseOfFunds({ isActive = false }: { isActive?: bo
             ))}
           </div>
 
-          {/* semantic table for accessibility / print */}
           <table className="fund-table">
             <caption className="sr-only">Use of funds allocation table</caption>
             <thead>

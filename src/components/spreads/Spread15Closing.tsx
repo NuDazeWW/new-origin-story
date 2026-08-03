@@ -1,8 +1,9 @@
 /**
  * SPREAD 15 — Closing Card
- * Signal Black full bleed, one restrained light horizon, approved DIS mark, Ice
- * White type. PRSCSTANDARDS.COM is rendered. No placeholder contact or
- * confidential notice shown (content dependency reported separately).
+ * Signal Black full bleed. One restrained light horizon, DIS mark, Ice White type.
+ * PRSCSTANDARDS.COM is rendered. Contact info and confidential notice are not
+ * displayed because they were not supplied in the approved content; reported as
+ * content dependencies. Exact copy from production brief SLIDE 15.
  */
 
 import { motion, useReducedMotion } from "framer-motion";
@@ -22,7 +23,6 @@ export default function Spread15Closing({ isActive = false }: { isActive?: boole
 
       <PageBody>
         <div className="close-stage">
-          {/* restrained light horizon */}
           <motion.div
             className="close-horizon"
             initial={reduce ? false : { opacity: 0, scaleX: 0 }}
@@ -32,7 +32,6 @@ export default function Spread15Closing({ isActive = false }: { isActive?: boole
             aria-hidden
           />
 
-          {/* DIS mark */}
           <motion.div
             className="close-mark"
             initial={reduce ? false : { opacity: 0, y: 20 }}
@@ -48,7 +47,6 @@ export default function Spread15Closing({ isActive = false }: { isActive?: boole
             />
           </motion.div>
 
-          {/* closing copy */}
           <div className="close-text">
             <Settle delay={0.2}>
               <p className="close-lead" style={{ color: "var(--dis-fog)" }}>

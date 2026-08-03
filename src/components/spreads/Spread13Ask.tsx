@@ -1,7 +1,7 @@
 /**
  * SPREAD 13 — The Ask
  * Oxford Blue / Signal Black. $2.5M as an Ice White typographic event. Three
- * closes as a rising progression in space and light (Electric → Aurora → Violet).
+ * closes as a rising progression in space and light. Exact copy from production brief SLIDE 13.
  */
 
 import { motion, useReducedMotion } from "framer-motion";
@@ -44,13 +44,12 @@ export default function Spread13Ask({ isActive = false }: { isActive?: boolean }
 
       <PageBody>
         <div className="ask-stage">
-          {/* rising light beams */}
           <div className="ask-beams" aria-hidden>
             {CLOSES.map((c, i) => (
               <motion.div
                 key={c.label}
                 className="ask-beam"
-                style={{ background: c.color, left: `${20 + i * 28}%` }}
+                style={{ background: c.color, left: `${22 + i * 26}%` }}
                 initial={reduce ? false : { opacity: 0, scaleY: 0 }}
                 whileInView={{ opacity: 1, scaleY: 1 }}
                 viewport={{ once: true, amount: 0.4 }}
@@ -59,7 +58,6 @@ export default function Spread13Ask({ isActive = false }: { isActive?: boolean }
             ))}
           </div>
 
-          {/* headline */}
           <div className="ask-head">
             <Settle>
               <span className="ed-kicker" style={{ color: "var(--dis-electric-blue)" }}>The Ask</span>
@@ -72,7 +70,6 @@ export default function Spread13Ask({ isActive = false }: { isActive?: boolean }
             </Settle>
           </div>
 
-          {/* closes */}
           <div className="ask-closes">
             {CLOSES.map((c, i) => (
               <motion.div
@@ -91,7 +88,6 @@ export default function Spread13Ask({ isActive = false }: { isActive?: boolean }
             ))}
           </div>
 
-          {/* terms band */}
           <motion.div
             className="ask-terms"
             initial={reduce ? false : { opacity: 0, y: 20 }}
@@ -100,7 +96,7 @@ export default function Spread13Ask({ isActive = false }: { isActive?: boolean }
             transition={{ duration: 0.8, delay: 1.2, ease: EASE }}
           >
             <span className="ask-terms__line">
-              YC Post-Money SAFE · $15M post-money cap · 15% discount · Rule 506(b) · SAFE converts to DIS equity only.
+              TERMS: YC Post-Money SAFE · $15M post-money cap · 15% discount · Rule 506(b) · SAFE converts to DIS equity only.
             </span>
             <span className="ask-terms__close">
               The $15M cap is not a ceiling. It is the entry point for investors who want to be in the room when the standard gets set.
