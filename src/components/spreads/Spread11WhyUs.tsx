@@ -44,54 +44,53 @@ export default function Spread11WhyUs({ isActive = false }: { isActive?: boolean
 
       <PageBody>
         <div className="why-stage">
-          <div className="why-field">
-            <img
-              src="/05_leadership_portrait_direction.png"
-              alt="Leadership atmosphere"
-              className="why-field__img"
-              loading="lazy"
-            />
-            <div className="why-field__scrim" />
-          </div>
+          <div className="why-content">
+            <div className="why-primary">
+              <Settle>
+                <span className="ed-kicker" style={{ color: "var(--dis-steel-blue)" }}>Why Us</span>
+                <h2 className="ed-head" style={{ color: "var(--ink-text)" }}>
+                  The founder, the board, and the advisors.
+                </h2>
+              </Settle>
 
-          <div className="why-primary">
-            <Settle>
-              <span className="ed-kicker" style={{ color: "var(--dis-steel-blue)" }}>Why Us</span>
-              <h2 className="ed-head" style={{ color: "var(--ink-text)" }}>
-                The founder, the board, and the advisors.
-              </h2>
-            </Settle>
-
-            {PROFILES.map((p, i) => (
-              <motion.div
-                key={p.name}
-                className={`why-profile ${p.primary ? "why-profile--primary" : ""}`}
-                initial={reduce ? false : { opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ duration: 0.8, delay: 0.14 + i * 0.16, ease: EASE }}
-              >
-                <span className="why-profile__role">{p.role}</span>
-                <h3 className="why-profile__name">{p.name}</h3>
-                <p className="why-profile__bio">{p.bio}</p>
-              </motion.div>
-            ))}
-          </div>
-
-          <motion.div
-            className="why-council"
-            initial={reduce ? false : { opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.6, ease: EASE }}
-          >
-            <span className="why-council__label">Council in Formation</span>
-            <div className="why-council__grid">
-              {UNRESOLVED.map((slot) => (
-                <span key={slot.name} className="why-council__slot">{slot.name}</span>
+              {PROFILES.map((p, i) => (
+                <motion.div
+                  key={p.name}
+                  className={`why-profile ${p.primary ? "why-profile--primary" : ""}`}
+                  initial={reduce ? false : { opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.5 }}
+                  transition={{ duration: 0.8, delay: 0.14 + i * 0.16, ease: EASE }}
+                >
+                  <span className="why-profile__role">{p.role}</span>
+                  <h3 className="why-profile__name">{p.name}</h3>
+                  <p className="why-profile__bio">{p.bio}</p>
+                </motion.div>
               ))}
             </div>
-          </motion.div>
+
+            <motion.div
+              className="why-council"
+              initial={reduce ? false : { opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.6, ease: EASE }}
+            >
+              <span className="why-council__label">Council in Formation</span>
+              <div className="why-council__grid">
+                {UNRESOLVED.map((slot) => (
+                  <span key={slot.name} className="why-council__slot">
+                    <span className="why-council__name">{slot.name}</span>
+                    <span className="why-council__title">{slot.title}</span>
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+
+          <div className="why-atmosphere" aria-hidden>
+            <div className="why-atmosphere__gradient" />
+          </div>
         </div>
       </PageBody>
 

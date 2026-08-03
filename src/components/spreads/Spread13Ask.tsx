@@ -44,6 +44,53 @@ export default function Spread13Ask({ isActive = false }: { isActive?: boolean }
 
       <PageBody>
         <div className="ask-stage">
+          <div className="ask-content">
+            <div className="ask-head">
+              <Settle>
+                <span className="ed-kicker" style={{ color: "var(--dis-electric-blue)" }}>The Ask</span>
+                <h2 className="ask-hero" style={{ color: "var(--dis-ice-white)" }}>
+                  $2.5M
+                </h2>
+                <p className="sec-lede" style={{ color: "var(--dis-fog)", maxWidth: "42ch" }}>
+                  Investors fund a sequence of increasingly valuable proofs — not 24 months of uncertainty in one leap.
+                </p>
+              </Settle>
+            </div>
+
+            <div className="ask-closes">
+              {CLOSES.map((c, i) => (
+                <motion.div
+                  key={c.label}
+                  className="ask-close"
+                  initial={reduce ? false : { opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.5 }}
+                  transition={{ duration: 0.8, delay: 0.4 + i * 0.18, ease: EASE }}
+                >
+                  <span className="ask-close__label" style={{ color: c.color }}>{c.label}</span>
+                  <span className="ask-close__amount">{c.amount}</span>
+                  <span className="ask-close__date">{c.date}</span>
+                  <span className="ask-close__trigger">{c.trigger}</span>
+                </motion.div>
+              ))}
+            </div>
+
+            <motion.div
+              className="ask-terms"
+              initial={reduce ? false : { opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 1.2, ease: EASE }}
+            >
+              <span className="ask-terms__line">
+                TERMS: YC Post-Money SAFE · $15M post-money cap · 15% discount · Rule 506(b) · SAFE converts to DIS equity only.
+              </span>
+              <span className="ask-terms__close">
+                The $15M cap is not a ceiling. It is the entry point for investors who want to be in the room when the standard gets set.
+              </span>
+            </motion.div>
+          </div>
+
           <div className="ask-beams" aria-hidden>
             {CLOSES.map((c, i) => (
               <motion.div
@@ -57,51 +104,6 @@ export default function Spread13Ask({ isActive = false }: { isActive?: boolean }
               />
             ))}
           </div>
-
-          <div className="ask-head">
-            <Settle>
-              <span className="ed-kicker" style={{ color: "var(--dis-electric-blue)" }}>The Ask</span>
-              <h2 className="ask-hero" style={{ color: "var(--dis-ice-white)" }}>
-                $2.5M
-              </h2>
-              <p className="sec-lede" style={{ color: "var(--dis-fog)", maxWidth: "42ch" }}>
-                Investors fund a sequence of increasingly valuable proofs — not 24 months of uncertainty in one leap.
-              </p>
-            </Settle>
-          </div>
-
-          <div className="ask-closes">
-            {CLOSES.map((c, i) => (
-              <motion.div
-                key={c.label}
-                className="ask-close"
-                initial={reduce ? false : { opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ duration: 0.8, delay: 0.4 + i * 0.18, ease: EASE }}
-              >
-                <span className="ask-close__label" style={{ color: c.color }}>{c.label}</span>
-                <span className="ask-close__amount">{c.amount}</span>
-                <span className="ask-close__date">{c.date}</span>
-                <span className="ask-close__trigger">{c.trigger}</span>
-              </motion.div>
-            ))}
-          </div>
-
-          <motion.div
-            className="ask-terms"
-            initial={reduce ? false : { opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 1.2, ease: EASE }}
-          >
-            <span className="ask-terms__line">
-              TERMS: YC Post-Money SAFE · $15M post-money cap · 15% discount · Rule 506(b) · SAFE converts to DIS equity only.
-            </span>
-            <span className="ask-terms__close">
-              The $15M cap is not a ceiling. It is the entry point for investors who want to be in the room when the standard gets set.
-            </span>
-          </motion.div>
         </div>
       </PageBody>
 

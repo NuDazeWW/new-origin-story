@@ -32,61 +32,63 @@ export default function Spread14UseOfFunds({ isActive = false }: { isActive?: bo
 
       <PageBody>
         <div className="fund-stage">
-          <div className="fund-header">
-            <Settle>
-              <span className="ed-kicker" style={{ color: "var(--dis-steel-blue)" }}>Use of Funds</span>
-              <h2 className="ed-head" style={{ color: "var(--ink-text)" }}>
-                Capital deployed with discipline.
-              </h2>
-            </Settle>
-            <Settle delay={0.12}>
-              <p className="fund-total" style={{ color: "var(--ink-text)" }}>
-                Total: <strong>${TOTAL.toLocaleString()}</strong>
-              </p>
-            </Settle>
-          </div>
+          <div className="fund-content">
+            <div className="fund-header">
+              <Settle>
+                <span className="ed-kicker" style={{ color: "var(--dis-steel-blue)" }}>Use of Funds</span>
+                <h2 className="ed-head" style={{ color: "var(--ink-text)" }}>
+                  Capital deployed with discipline.
+                </h2>
+              </Settle>
+              <Settle delay={0.12}>
+                <p className="fund-total" style={{ color: "var(--ink-text)" }}>
+                  Total: <strong>${TOTAL.toLocaleString()}</strong>
+                </p>
+              </Settle>
+            </div>
 
-          <div className="fund-field" role="img" aria-label={`Capital allocation field totalling $${TOTAL.toLocaleString()}`}>
-            {ALLOCATIONS.map((a, i) => (
-              <motion.div
-                key={a.label}
-                className="fund-segment"
-                style={{ width: `${a.pct}%`, backgroundColor: a.color, flex: `0 0 ${a.pct}%` }}
-                initial={reduce ? false : { opacity: 0, scaleX: 0 }}
-                whileInView={{ opacity: 1, scaleX: 1 }}
-                viewport={{ once: true, amount: 0.4 }}
-                transition={{ duration: 0.9, delay: 0.2 + i * 0.1, ease: EASE }}
-              >
-                <span className="fund-segment__label">{a.label}</span>
-                <span className="fund-segment__value">{a.pct}%</span>
-              </motion.div>
-            ))}
-          </div>
-
-          <table className="fund-table">
-            <caption className="sr-only">Use of funds allocation table</caption>
-            <thead>
-              <tr>
-                <th>Allocation</th>
-                <th>Amount</th>
-                <th>Percentage</th>
-              </tr>
-            </thead>
-            <tbody>
-              {ALLOCATIONS.map((a) => (
-                <tr key={a.label}>
-                  <td>{a.label}</td>
-                  <td>${a.amount.toLocaleString()}</td>
-                  <td>{a.pct}%</td>
-                </tr>
+            <div className="fund-field" role="img" aria-label={`Capital allocation field totalling $${TOTAL.toLocaleString()}`}>
+              {ALLOCATIONS.map((a, i) => (
+                <motion.div
+                  key={a.label}
+                  className="fund-segment"
+                  style={{ width: `${a.pct}%`, backgroundColor: a.color }}
+                  initial={reduce ? false : { opacity: 0, scaleX: 0 }}
+                  whileInView={{ opacity: 1, scaleX: 1 }}
+                  viewport={{ once: true, amount: 0.4 }}
+                  transition={{ duration: 0.9, delay: 0.2 + i * 0.1, ease: EASE }}
+                >
+                  <span className="fund-segment__label">{a.label}</span>
+                  <span className="fund-segment__value">{a.pct}%</span>
+                </motion.div>
               ))}
-              <tr className="fund-table__total">
-                <td>Total</td>
-                <td>${TOTAL.toLocaleString()}</td>
-                <td>100%</td>
-              </tr>
-            </tbody>
-          </table>
+            </div>
+
+            <table className="fund-table">
+              <caption className="sr-only">Use of funds allocation table</caption>
+              <thead>
+                <tr>
+                  <th>Allocation</th>
+                  <th>Amount</th>
+                  <th>Percentage</th>
+                </tr>
+              </thead>
+              <tbody>
+                {ALLOCATIONS.map((a) => (
+                  <tr key={a.label}>
+                    <td>{a.label}</td>
+                    <td>${a.amount.toLocaleString()}</td>
+                    <td>{a.pct}%</td>
+                  </tr>
+                ))}
+                <tr className="fund-table__total">
+                  <td>Total</td>
+                  <td>${TOTAL.toLocaleString()}</td>
+                  <td>100%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </PageBody>
 
