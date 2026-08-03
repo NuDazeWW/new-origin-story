@@ -2059,84 +2059,112 @@ body {
   background: #05080f;
 }
 
-/* outer machined housing — warm on the lit side, cool opposite */
+/* outer machined housing — warm platinum one side, cool steel-blue opposite,
+   with alternating polished / brushed bands and narrow inset grooves */
 .fly__hub-metal {
-  background: conic-gradient(
-    from -50deg,
-    rgba(24, 34, 50, 1),
-    rgba(246, 240, 228, 0.72) 16deg,
-    rgba(186, 176, 158, 0.5) 40deg,
-    rgba(12, 19, 31, 1) 96deg,
-    rgba(6, 10, 18, 1) 150deg,
-    rgba(140, 176, 214, 0.55) 206deg,
-    rgba(30, 44, 64, 0.98) 250deg,
-    rgba(214, 226, 240, 0.6) 312deg,
-    rgba(24, 34, 50, 1) 360deg
-  );
+  background:
+    repeating-conic-gradient(
+      from 0deg,
+      rgba(255, 255, 255, 0.05) 0deg 1.4deg,
+      transparent 1.4deg 3.2deg
+    ),
+    conic-gradient(
+      from -50deg,
+      rgba(18, 26, 40, 1),
+      rgba(250, 242, 226, 0.8) 14deg,
+      rgba(168, 156, 136, 0.42) 36deg,
+      rgba(9, 15, 25, 1) 90deg,
+      rgba(4, 7, 13, 1) 148deg,
+      rgba(132, 172, 214, 0.5) 202deg,
+      rgba(22, 34, 52, 0.98) 246deg,
+      rgba(206, 222, 240, 0.55) 310deg,
+      rgba(18, 26, 40, 1) 360deg
+    );
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.34),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.75);
-  opacity: 0.96;
+    inset 0 1px 0 rgba(255, 255, 255, 0.38),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.7),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.8);
+  opacity: 0.97;
 }
 
-/* inset groove between housing and face */
+/* narrow inset groove — dark ring separating housing from the inner assembly */
 .fly__hub-groove {
-  inset: 7%;
-  background: radial-gradient(circle at 44% 30%, rgba(140, 158, 182, 0.32), rgba(4, 7, 13, 0.99) 66%);
+  inset: 6%;
+  background: radial-gradient(circle at 44% 30%, rgba(120, 140, 166, 0.24), rgba(3, 6, 11, 1) 62%);
   box-shadow:
-    inset 0 3px 6px rgba(0, 0, 0, 0.98),
-    0 1px 0 rgba(230, 235, 241, 0.18);
+    inset 0 3px 7px rgba(0, 0, 0, 1),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.9),
+    0 1px 0 rgba(230, 235, 241, 0.2);
 }
 
-/* second machined ring + bevel */
+/* second machined ring + polished bevel immediately around the face */
 .fly__hub-bevel {
-  inset: 11.5%;
+  inset: 12.5%;
   background: conic-gradient(
     from -34deg,
-    rgba(255, 250, 240, 0.5),
-    rgba(230, 235, 241, 0.03) 30%,
-    rgba(176, 206, 238, 0.34) 58%,
-    rgba(230, 235, 241, 0.02) 100%
+    rgba(255, 248, 234, 0.62),
+    rgba(140, 130, 116, 0.1) 18%,
+    rgba(230, 235, 241, 0.02) 34%,
+    rgba(166, 200, 236, 0.4) 56%,
+    rgba(230, 235, 241, 0.02) 76%,
+    rgba(210, 224, 240, 0.2) 92%,
+    rgba(255, 248, 234, 0.62) 100%
   );
   box-shadow:
-    inset 0 0 0 1px rgba(0, 0, 0, 0.6),
-    0 0 14px -4px rgba(255, 246, 230, 0.35);
+    inset 0 0 0 1px rgba(0, 0, 0, 0.72),
+    0 0 10px -4px rgba(255, 246, 230, 0.3);
 }
 
-/* illuminated score face — ice-white platinum */
+/* illuminated score face — platinum with real tonal variation, not flat pale */
 .fly__hub-glass {
   inset: 17.5%;
   background:
-    radial-gradient(circle at 44% 26%, rgba(255, 255, 255, 0.98), rgba(236, 243, 250, 0.94) 42%, rgba(198, 214, 232, 0.9) 74%, rgba(158, 178, 200, 0.92) 100%);
+    radial-gradient(circle at 38% 22%, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0) 46%),
+    radial-gradient(circle at 72% 84%, rgba(126, 154, 188, 0.5), rgba(126, 154, 188, 0) 52%),
+    radial-gradient(circle closest-side at 50% 50%, rgba(255, 255, 255, 0) 62%, rgba(74, 96, 126, 0.42) 100%),
+    linear-gradient(163deg, rgba(252, 250, 244, 1) 0%, rgba(230, 238, 247, 1) 44%, rgba(186, 203, 223, 1) 78%, rgba(154, 174, 198, 1) 100%);
   box-shadow:
-    inset 0 0 22px rgba(70, 92, 120, 0.45),
-    inset 0 2px 3px rgba(255, 255, 255, 0.9),
-    0 0 34px -6px rgba(214, 234, 255, 0.5);
+    inset 0 0 18px rgba(48, 68, 96, 0.5),
+    inset 0 2px 3px rgba(255, 255, 255, 0.95),
+    inset 0 -3px 6px rgba(52, 72, 100, 0.35),
+    0 0 26px -8px rgba(214, 234, 255, 0.42);
 }
 
-/* internal lamp — falloff from the face into the housing */
+/* etched-glass boundary at the face perimeter */
+.fly__hub-glass::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.6),
+    inset 0 0 0 2px rgba(10, 18, 30, 0.7);
+}
+
+/* internal lamp — localized falloff from the face into the housing */
 .fly__hub-lamp {
-  inset: 6%;
+  inset: 10%;
   background: radial-gradient(
-    circle at 50% 44%,
-    rgba(255, 252, 244, 0.5) 0%,
-    color-mix(in oklab, var(--edge) 26%, transparent) 44%,
-    transparent 74%
+    circle at 48% 40%,
+    rgba(255, 252, 244, 0.42) 0%,
+    color-mix(in oklab, var(--edge) 20%, transparent) 40%,
+    transparent 68%
   );
-  filter: blur(9px);
+  filter: blur(8px);
 }
 
-/* one crisp specular arc across the glass face */
+/* one crisp white specular interruption across the face and its bezel */
 .fly__hub-spec {
-  inset: 17.5%;
+  inset: 13%;
   background: conic-gradient(
-    from -78deg,
+    from -80deg,
     transparent 0deg,
-    rgba(255, 255, 255, 0.95) 10deg,
-    transparent 30deg
+    rgba(255, 255, 255, 0.98) 7deg,
+    rgba(255, 255, 255, 0.2) 14deg,
+    transparent 24deg
   );
-  filter: blur(1px);
-  mask: radial-gradient(circle closest-side at 50% 50%, transparent 0 90%, #000 93% 100%);
+  filter: blur(0.8px);
+  mask: radial-gradient(circle closest-side at 50% 50%, transparent 0 84%, #000 88% 100%);
 }
 
 .fly__hub-etch {
