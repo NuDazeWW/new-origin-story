@@ -6,6 +6,8 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 
+import { STATIC_REVIEW_MODE } from "@/reviewMode";
+
 import { Page, PageBody, RunningHead, Folio } from "@/components/print/Page";
 import { Settle } from "@/components/print/Editorial";
 import { EASE } from "@/components/print/Layers";
@@ -54,8 +56,8 @@ export default function Spread14UseOfFunds({ isActive = false }: { isActive?: bo
                   className={`fund-segment${a.pct < 14 ? " fund-segment--narrow" : ""}`}
                   style={{ width: `${a.pct}%`, backgroundColor: a.color }}
                   title={`${a.label} — ${a.pct}%`}
-                  initial={reduce ? false : { opacity: 0, scaleX: 0 }}
-                  whileInView={{ opacity: 1, scaleX: 1 }}
+                  initial={STATIC_REVIEW_MODE || reduce ? false : { opacity: 0, scaleX: 0 }}
+                  whileInView={{ opacity: 1, scaleX: 1 }} animate={STATIC_REVIEW_MODE ? { opacity: 1, scaleX: 1 } : undefined}
                   viewport={{ once: true, amount: 0.4 }}
                   transition={{ duration: 0.9, delay: 0.2 + i * 0.1, ease: EASE }}
                 >

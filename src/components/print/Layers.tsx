@@ -16,6 +16,8 @@
 import type { CSSProperties, ReactNode } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
+import { STATIC_REVIEW_MODE } from "@/reviewMode";
+
 import { useParallax } from "./parallax";
 
 export const EASE = [0.22, 0.61, 0.36, 1] as const;
@@ -77,8 +79,8 @@ export function Plate({
       <motion.div
         className={`plate plate--d${depth}${accent !== "none" ? " plate--lit" : ""} ${className}`.trim()}
         style={{ ...accentVar(accent), ...style }}
-        initial={reduce ? false : { opacity: 0, y: 18, scale: 0.985 }}
-        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        initial={STATIC_REVIEW_MODE || reduce ? false : { opacity: 0, y: 18, scale: 0.985 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }} animate={STATIC_REVIEW_MODE ? { opacity: 1, y: 0, scale: 1 } : undefined}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.78, delay, ease: EASE }}
       >
@@ -110,8 +112,8 @@ export function PlateStack({
     <Carrier depth={0.5}>
       <motion.figure
         className={`pstack ${className}`.trim()}
-        initial={reduce ? false : { opacity: 0, y: 22 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={STATIC_REVIEW_MODE || reduce ? false : { opacity: 0, y: 22 }}
+        whileInView={{ opacity: 1, y: 0 }} animate={STATIC_REVIEW_MODE ? { opacity: 1, y: 0 } : undefined}
         viewport={{ once: true, amount: 0.25 }}
         transition={{ duration: 0.9, delay, ease: EASE }}
       >
@@ -131,7 +133,7 @@ export function PlateStack({
             alt={alt}
             className="pstack__img"
             loading="lazy"
-            initial={reduce ? undefined : { scale: 1.05 }}
+            initial={STATIC_REVIEW_MODE || reduce ? undefined : { scale: 1.05 }}
             animate={reduce ? undefined : { scale: 1 }}
             transition={{ duration: 20, ease: "linear" }}
           />
@@ -167,8 +169,8 @@ export function Blueprint({
       <motion.div
         className={`bp${dim ? " bp--dim" : ""}${accent !== "none" ? " bp--lit" : ""} ${className}`.trim()}
         style={{ ...accentVar(accent), ...style }}
-        initial={reduce ? false : { opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        initial={STATIC_REVIEW_MODE || reduce ? false : { opacity: 0 }}
+        whileInView={{ opacity: 1 }} animate={STATIC_REVIEW_MODE ? { opacity: 1 } : undefined}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.5, delay, ease: EASE }}
       >
@@ -181,8 +183,8 @@ export function Blueprint({
             height="99.2"
             pathLength={1}
             vectorEffect="non-scaling-stroke"
-            initial={reduce ? false : { pathLength: 0, opacity: 0.9 }}
-            whileInView={{ pathLength: 1, opacity: 1 }}
+            initial={STATIC_REVIEW_MODE || reduce ? false : { pathLength: 0, opacity: 0.9 }}
+            whileInView={{ pathLength: 1, opacity: 1 }} animate={STATIC_REVIEW_MODE ? { pathLength: 1, opacity: 1 } : undefined}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 1.05, delay: delay + 0.04, ease: EASE }}
           />
@@ -190,8 +192,8 @@ export function Blueprint({
 
         <motion.span
           className="bp__rule bp__rule--x"
-          initial={reduce ? false : { scaleX: 0 }}
-          whileInView={{ scaleX: 1 }}
+          initial={STATIC_REVIEW_MODE || reduce ? false : { scaleX: 0 }}
+          whileInView={{ scaleX: 1 }} animate={STATIC_REVIEW_MODE ? { scaleX: 1 } : undefined}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.7, delay: delay + 0.05, ease: EASE }}
           aria-hidden
@@ -200,8 +202,8 @@ export function Blueprint({
           <motion.span
             key={corner}
             className={`bp__tick bp__tick--${corner}`}
-            initial={reduce ? false : { opacity: 0, scale: 0.4 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={STATIC_REVIEW_MODE || reduce ? false : { opacity: 0, scale: 0.4 }}
+            whileInView={{ opacity: 1, scale: 1 }} animate={STATIC_REVIEW_MODE ? { opacity: 1, scale: 1 } : undefined}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.22, delay: delay + 0.85 + i * 0.06, ease: "backOut" }}
             aria-hidden
@@ -220,16 +222,16 @@ export function Dimension({ label, delay = 0 }: { label: string; delay?: number 
     <div className="bp-dim">
       <motion.span
         className="bp-dim__line"
-        initial={reduce ? false : { scaleX: 0 }}
-        whileInView={{ scaleX: 1 }}
+        initial={STATIC_REVIEW_MODE || reduce ? false : { scaleX: 0 }}
+        whileInView={{ scaleX: 1 }} animate={STATIC_REVIEW_MODE ? { scaleX: 1 } : undefined}
         viewport={{ once: true }}
         transition={{ duration: 0.8, delay, ease: EASE }}
         aria-hidden
       />
       <motion.span
         className="bp-dim__label"
-        initial={reduce ? false : { opacity: 0, y: 4 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={STATIC_REVIEW_MODE || reduce ? false : { opacity: 0, y: 4 }}
+        whileInView={{ opacity: 1, y: 0 }} animate={STATIC_REVIEW_MODE ? { opacity: 1, y: 0 } : undefined}
         viewport={{ once: true }}
         transition={{ duration: 0.4, delay: delay + 0.5, ease: EASE }}
       >
@@ -264,8 +266,8 @@ export function Strata({
       <motion.div
         className={`strata strata--l${lift} ${className}`.trim()}
         style={{ ...accentVar(accent), ...style }}
-        initial={reduce ? false : { opacity: 0, y: 26 + lift * 8 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={STATIC_REVIEW_MODE || reduce ? false : { opacity: 0, y: 26 + lift * 8 }}
+        whileInView={{ opacity: 1, y: 0 }} animate={STATIC_REVIEW_MODE ? { opacity: 1, y: 0 } : undefined}
         viewport={{ once: true, amount: 0.25 }}
         transition={{ duration: 0.95, delay, ease: EASE }}
       >
@@ -295,7 +297,7 @@ export function StrataBed({
         alt={alt}
         className="strata-bed__img"
         style={{ objectPosition, x, y }}
-        initial={reduce ? undefined : { scale: 1.08 }}
+        initial={STATIC_REVIEW_MODE || reduce ? undefined : { scale: 1.08 }}
         animate={reduce ? undefined : { scale: 1.04 }}
         transition={{ duration: 24, ease: "linear" }}
       />

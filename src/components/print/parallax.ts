@@ -9,6 +9,8 @@
  */
 
 import { useEffect } from "react";
+
+import { STATIC_REVIEW_MODE } from "@/reviewMode";
 import { useMotionValue, useSpring, useReducedMotion, type MotionValue } from "framer-motion";
 
 type Listener = (x: number, y: number) => void;
@@ -49,7 +51,7 @@ export function useParallax(depth = 1, max = 10): { x: MotionValue<number>; y: M
   const y = useSpring(rawY, SPRING);
 
   useEffect(() => {
-    if (reduce || depth === 0) return;
+    if (reduce || STATIC_REVIEW_MODE || depth === 0) return;
     bind();
     const amp = max * depth;
     const listener: Listener = (nx, ny) => {

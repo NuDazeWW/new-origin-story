@@ -6,6 +6,8 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 
+import { STATIC_REVIEW_MODE } from "@/reviewMode";
+
 import { Page, PageBody, RunningHead, Folio } from "@/components/print/Page";
 import { Settle } from "@/components/print/Editorial";
 import { EASE } from "@/components/print/Layers";
@@ -62,8 +64,8 @@ export default function Spread13Ask({ isActive = false }: { isActive?: boolean }
                 <motion.div
                   key={c.label}
                   className="ask-close"
-                  initial={reduce ? false : { opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={STATIC_REVIEW_MODE || reduce ? false : { opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }} animate={STATIC_REVIEW_MODE ? { opacity: 1, y: 0 } : undefined}
                   viewport={{ once: true, amount: 0.5 }}
                   transition={{ duration: 0.8, delay: 0.4 + i * 0.18, ease: EASE }}
                 >
@@ -77,8 +79,8 @@ export default function Spread13Ask({ isActive = false }: { isActive?: boolean }
 
             <motion.div
               className="ask-terms"
-              initial={reduce ? false : { opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={STATIC_REVIEW_MODE || reduce ? false : { opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }} animate={STATIC_REVIEW_MODE ? { opacity: 1, y: 0 } : undefined}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 1.2, ease: EASE }}
             >
@@ -97,8 +99,8 @@ export default function Spread13Ask({ isActive = false }: { isActive?: boolean }
                 key={c.label}
                 className="ask-beam"
                 style={{ background: c.color, left: `${22 + i * 26}%` }}
-                initial={reduce ? false : { opacity: 0, scaleY: 0 }}
-                whileInView={{ opacity: 1, scaleY: 1 }}
+                initial={STATIC_REVIEW_MODE || reduce ? false : { opacity: 0, scaleY: 0 }}
+                whileInView={{ opacity: 1, scaleY: 1 }} animate={STATIC_REVIEW_MODE ? { opacity: 1, scaleY: 1 } : undefined}
                 viewport={{ once: true, amount: 0.4 }}
                 transition={{ duration: 1.2, delay: 0.2 + i * 0.2, ease: EASE }}
               />

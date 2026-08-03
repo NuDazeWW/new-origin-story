@@ -6,6 +6,8 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 
+import { STATIC_REVIEW_MODE } from "@/reviewMode";
+
 import { Page, PageBody, RunningHead, Folio } from "@/components/print/Page";
 import { Settle } from "@/components/print/Editorial";
 import { EASE } from "@/components/print/Layers";
@@ -44,7 +46,7 @@ export default function Spread12Roles({ isActive = false }: { isActive?: boolean
               </Settle>
               <Settle delay={0.12}>
                 <p className="sec-lede" style={{ color: "var(--ink-body)", maxWidth: "42ch" }}>
-                  Every hire has a milestone. Roles are positions in a system, sequenced by capital release.
+                  Every hire has a milestone.
                 </p>
               </Settle>
             </div>
@@ -52,8 +54,8 @@ export default function Spread12Roles({ isActive = false }: { isActive?: boolean
             <div className="roles-planes">
               <motion.div
                 className="roles-plane roles-plane--one"
-                initial={reduce ? false : { opacity: 0, x: -40 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={STATIC_REVIEW_MODE || reduce ? false : { opacity: 0, x: -40 }}
+                whileInView={{ opacity: 1, x: 0 }} animate={STATIC_REVIEW_MODE ? { opacity: 1, x: 0 } : undefined}
                 viewport={{ once: true, amount: 0.4 }}
                 transition={{ duration: 0.9, delay: 0.2, ease: EASE }}
               >
@@ -70,8 +72,8 @@ export default function Spread12Roles({ isActive = false }: { isActive?: boolean
 
               <motion.div
                 className="roles-plane roles-plane--two"
-                initial={reduce ? false : { opacity: 0, x: 40 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={STATIC_REVIEW_MODE || reduce ? false : { opacity: 0, x: 40 }}
+                whileInView={{ opacity: 1, x: 0 }} animate={STATIC_REVIEW_MODE ? { opacity: 1, x: 0 } : undefined}
                 viewport={{ once: true, amount: 0.4 }}
                 transition={{ duration: 0.9, delay: 0.45, ease: EASE }}
               >

@@ -7,37 +7,36 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 
+import { STATIC_REVIEW_MODE } from "@/reviewMode";
+
 import { Page, PageBody, RunningHead, Folio } from "@/components/print/Page";
 import { Settle } from "@/components/print/Editorial";
 import { EASE } from "@/components/print/Layers";
 
+/** Approved moat labels and statuses only — SLIDE 6. No generated descriptions. */
 const STRATA = [
   {
     id: "methodology",
     label: "In Place",
     title: "Trade-Secret Methodology",
-    detail: "The scoring mathematics never leaves the engine. It cannot be read off the output.",
     accent: "spot",
   },
   {
     id: "governance",
     label: "In Place",
     title: "Independent Governance",
-    detail: "A Council structurally separated from the agency and the platform it scores.",
     accent: "live",
   },
   {
     id: "benchmark",
     label: "Building via Vanguard",
     title: "Benchmark Database",
-    detail: "The reference set. The compounding data moat.",
     accent: "future",
   },
   {
     id: "outcome",
     label: "In Progress",
     title: "Outcome Intelligence",
-    detail: "Readiness-to-outcome correlation. The loop that closes every benchmark.",
     accent: "future",
   },
 ];
@@ -81,8 +80,8 @@ export default function Spread06Moat({ isActive = false }: { isActive?: boolean 
                 <motion.div
                   key={s.id}
                   className={`moat-stratum moat-stratum--${s.accent} moat-stratum--${s.id}`}
-                  initial={reduce ? false : { opacity: 0, y: 30, rotate: -0.5 }}
-                  whileInView={{ opacity: 1, y: 0, rotate: 0 }}
+                  initial={STATIC_REVIEW_MODE || reduce ? false : { opacity: 0, y: 30, rotate: -0.5 }}
+                  whileInView={{ opacity: 1, y: 0, rotate: 0 }} animate={STATIC_REVIEW_MODE ? { opacity: 1, y: 0, rotate: 0 } : undefined}
                   viewport={{ once: true, amount: 0.4 }}
                   transition={{ duration: 0.9, delay: 0.2 + i * 0.16, ease: EASE }}
                 >
@@ -91,7 +90,7 @@ export default function Spread06Moat({ isActive = false }: { isActive?: boolean 
                   <div className="moat-stratum__inner">
                     <span className="moat-stratum__label">{s.label}</span>
                     <h3 className="moat-stratum__title">{s.title}</h3>
-                    <p className="moat-stratum__detail">{s.detail}</p>
+                    
                   </div>
                 </motion.div>
               ))}

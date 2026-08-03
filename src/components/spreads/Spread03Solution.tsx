@@ -8,6 +8,8 @@
 import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
+import { STATIC_REVIEW_MODE } from "@/reviewMode";
+
 import terminalAsset from "@/assets/dis-terminal.png.asset.json";
 import { Page, PageBody, RunningHead, Folio } from "@/components/print/Page";
 import { Settle } from "@/components/print/Editorial";
@@ -95,8 +97,8 @@ export default function Spread03Solution({ isActive = false }: { isActive?: bool
         style={{ ["--edge" as string]: `var(--${f.accent})` }}
         onMouseEnter={() => setHeld(i)}
         onMouseLeave={() => setHeld(null)}
-        initial={reduce ? false : { opacity: 0, x: f.side === "l" ? -14 : 14 }}
-        whileInView={{ opacity: 1, x: 0 }}
+        initial={STATIC_REVIEW_MODE || reduce ? false : { opacity: 0, x: f.side === "l" ? -14 : 14 }}
+        whileInView={{ opacity: 1, x: 0 }} animate={STATIC_REVIEW_MODE ? { opacity: 1, x: 0 } : undefined}
         viewport={{ once: true, amount: 0.4 }}
         transition={{ duration: 0.7, delay: 0.18 + i * 0.09, ease: EASE }}
       >
@@ -147,8 +149,8 @@ export default function Spread03Solution({ isActive = false }: { isActive?: bool
                 maxHeight: "100%",
                 aspectRatio: "1792 / 1024",
               }}
-              initial={reduce ? false : { opacity: 0, scale: 0.97 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={STATIC_REVIEW_MODE || reduce ? false : { opacity: 0, scale: 0.97 }}
+              whileInView={{ opacity: 1, scale: 1 }} animate={STATIC_REVIEW_MODE ? { opacity: 1, scale: 1 } : undefined}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 1.1, ease: EASE }}
             >

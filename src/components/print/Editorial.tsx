@@ -7,6 +7,8 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
+import { STATIC_REVIEW_MODE } from "@/reviewMode";
+
 export function Figure({
   src,
   alt,
@@ -40,7 +42,7 @@ export function Figure({
           alt={alt}
           className={`fig__img fig__img--${tone}`}
           style={{ objectPosition }}
-          initial={reduce ? undefined : { scale: 1.06 }}
+          initial={STATIC_REVIEW_MODE || reduce ? undefined : { scale: 1.06 }}
           animate={reduce ? undefined : { scale: 1 }}
           transition={{ duration: 18, ease: "linear" }}
         />
@@ -130,7 +132,8 @@ export function Settle({
   className?: string;
 }) {
   const reduce = useReducedMotion();
-  if (reduce) return <div className={className}>{children}</div>;
+  // Static review mode renders the settled (final) state immediately.
+  if (STATIC_REVIEW_MODE || reduce) return <div className={className}>{children}</div>;
   return (
     <motion.div
       className={className}

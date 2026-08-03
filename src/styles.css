@@ -2598,6 +2598,29 @@ body {
   color: var(--ink-body);
 }
 
+.struct-claims {
+  position: absolute;
+  left: 4.5rem;
+  top: 50%;
+  z-index: 2;
+  max-width: 40ch;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.struct-claim {
+  margin: 0;
+  padding-left: 0.75rem;
+  border-left: 1px solid rgba(30, 167, 255, 0.35);
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(0.68rem, 0.78vw, 0.84rem);
+  line-height: 1.5;
+  color: var(--ink-body);
+}
+
+
+
 .struct-route {
   position: absolute;
   inset: 0;
@@ -2612,8 +2635,8 @@ body {
 
 .struct-route__label {
   position: absolute;
-  right: 18%;
-  bottom: 30%;
+  right: 42%;
+  bottom: 16%;
 }
 
 .struct-route__pill {
