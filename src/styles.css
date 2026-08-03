@@ -1778,7 +1778,7 @@ body {
   box-shadow:
     0 26px 60px -18px rgba(0, 0, 0, 0.95),
     0 8px 16px -8px rgba(0, 0, 0, 0.8);
-  mask: radial-gradient(circle at 50% 50%, transparent 0 72%, #000 74% 100%);
+  mask: radial-gradient(circle closest-side at 50% 50%, transparent 0 72%, #000 74% 100%);
 }
 
 /* refraction band — widest, softest layer, warm/cool variation */
@@ -1794,7 +1794,7 @@ body {
   );
   filter: blur(6px);
   opacity: 1.6;
-  mask: radial-gradient(circle at 50% 50%, transparent 0 66%, #000 74% 98%, transparent 100%);
+  mask: radial-gradient(circle closest-side at 50% 50%, transparent 0 66%, #000 74% 98%, transparent 100%);
 }
 
 /* machined frame — brushed steel, brightness varies round the rim */
@@ -1813,7 +1813,7 @@ body {
       var(--steel-mid) 330deg,
       var(--steel-lo) 360deg
     );
-  mask: radial-gradient(circle at 50% 50%, transparent 0 86%, #000 88.5% 99.5%, transparent 100%);
+  mask: radial-gradient(circle closest-side at 50% 50%, transparent 0 86%, #000 88.5% 99.5%, transparent 100%);
   opacity: 1;
 }
 
@@ -1829,7 +1829,7 @@ body {
       rgba(88, 124, 170, 0.8) 84%,
       rgba(26, 42, 68, 0.96) 100%
     );
-  mask: radial-gradient(circle at 50% 50%, transparent 0 73%, #000 75.5% 87.5%, transparent 99%);
+  mask: radial-gradient(circle closest-side at 50% 50%, transparent 0 73%, #000 75.5% 87.5%, transparent 99%);
   backdrop-filter: blur(2px);
 }
 
@@ -1843,7 +1843,7 @@ body {
     rgba(230, 235, 241, 0.08) 68%,
     rgba(230, 235, 241, 0.36) 100%
   );
-  mask: radial-gradient(circle at 50% 50%, transparent 0 98.4%, #000 98.8% 100%);
+  mask: radial-gradient(circle closest-side at 50% 50%, transparent 0 98.4%, #000 98.8% 100%);
 }
 
 .fly__edge--in {
@@ -1854,7 +1854,7 @@ body {
     rgba(230, 235, 241, 0.08) 54%,
     rgba(230, 235, 241, 0.24) 100%
   );
-  mask: radial-gradient(circle at 50% 50%, transparent 0 72.6%, #000 73.4% 74.8%, transparent 100%);
+  mask: radial-gradient(circle closest-side at 50% 50%, transparent 0 72.6%, #000 73.4% 74.8%, transparent 100%);
 }
 
 /* one long specular arc, asymmetric */
@@ -1870,7 +1870,7 @@ body {
     transparent 320deg
   );
   filter: blur(2.5px);
-  mask: radial-gradient(circle at 50% 50%, transparent 0 74%, #000 77% 98.5%, transparent 100%);
+  mask: radial-gradient(circle closest-side at 50% 50%, transparent 0 74%, #000 77% 98.5%, transparent 100%);
 }
 
 /* surface irregularity so the band is not mathematically perfect */
@@ -1878,7 +1878,7 @@ body {
   opacity: 0.3;
   mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='m'><feTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='2'/></filter><rect width='120' height='120' filter='url(%23m)' opacity='0.6'/></svg>");
-  mask: radial-gradient(circle at 50% 50%, transparent 0 73%, #000 76% 99.2%, transparent 100%);
+  mask: radial-gradient(circle closest-side at 50% 50%, transparent 0 73%, #000 76% 99.2%, transparent 100%);
 }
 
 /* travelling pulse in the band */
@@ -1890,7 +1890,7 @@ body {
     transparent 32deg
   );
   filter: blur(4px);
-  mask: radial-gradient(circle at 50% 50%, transparent 0 74%, #000 77% 98.5%, transparent 100%);
+  mask: radial-gradient(circle closest-side at 50% 50%, transparent 0 74%, #000 77% 98.5%, transparent 100%);
 }
 
 .fly__particles {
@@ -2018,7 +2018,7 @@ body {
     rgba(230, 235, 241, 0.28) 62%,
     rgba(230, 235, 241, 0.02) 100%
   );
-  mask: radial-gradient(circle at 50% 50%, transparent 0 96%, #000 97% 100%);
+  mask: radial-gradient(circle closest-side at 50% 50%, transparent 0 96%, #000 97% 100%);
 }
 
 /* smoked / etched glass face */
@@ -2050,7 +2050,7 @@ body {
     transparent 40deg
   );
   filter: blur(1.5px);
-  mask: radial-gradient(circle at 50% 50%, transparent 0 92%, #000 94% 100%);
+  mask: radial-gradient(circle closest-side at 50% 50%, transparent 0 92%, #000 94% 100%);
 }
 
 .fly__hub-etch {
