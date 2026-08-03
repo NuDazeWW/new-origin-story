@@ -3231,13 +3231,23 @@ body {
   position: relative;
   overflow: hidden;
   border-left: 1px solid var(--rule);
-  opacity: 0.35;
+  opacity: 0.9;
 }
 
 .why-atmosphere__gradient {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(30, 167, 255, 0.08) 0%, transparent 50%, rgba(123, 97, 255, 0.06) 100%);
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(5, 8, 15, 0.06) 0px,
+      rgba(5, 8, 15, 0.06) 1px,
+      transparent 1px,
+      transparent 22px
+    ),
+    radial-gradient(120% 70% at 78% 24%, rgba(30, 167, 255, 0.16) 0%, transparent 62%),
+    radial-gradient(90% 60% at 30% 92%, rgba(123, 97, 255, 0.12) 0%, transparent 70%),
+    linear-gradient(135deg, rgba(230, 235, 241, 0.9) 0%, rgba(244, 248, 255, 0.4) 100%);
 }
 
 
@@ -3245,14 +3255,14 @@ body {
 
 .roles-stage {
   background: var(--dis-ice-white);
-  padding: 4.5rem 4.5rem 3.5rem;
+  padding: 4rem 4.5rem 3.25rem;
 }
 
 .roles-content {
   height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .roles-header {
@@ -3261,7 +3271,11 @@ body {
 }
 
 .roles-header .ed-head {
-  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-size: clamp(1.7rem, 2.7vw, 2.35rem);
+}
+
+.roles-header .sec-lede {
+  margin-top: 1rem;
 }
 
 .roles-planes {
