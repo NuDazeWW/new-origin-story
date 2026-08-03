@@ -1806,57 +1806,60 @@ body {
 .fly__refract {
   background: conic-gradient(
     from -28deg,
-    rgba(30, 167, 255, 0.2),
-    rgba(214, 232, 248, 0.1) 12%,
+    rgba(30, 167, 255, 0.16),
+    rgba(214, 232, 248, 0.07) 12%,
     transparent 26%,
-    transparent 44%,
-    rgba(123, 97, 255, 0.16) 56%,
+    transparent 46%,
+    rgba(123, 97, 255, 0.12) 56%,
     transparent 70%,
-    rgba(30, 167, 255, 0.12) 88%,
-    rgba(30, 167, 255, 0.2) 100%
+    rgba(30, 167, 255, 0.09) 88%,
+    rgba(30, 167, 255, 0.16) 100%
   );
-  filter: blur(7px);
-  opacity: 0.7;
-  mask: radial-gradient(circle closest-side at 50% 50%, transparent 0 88%, #000 94% 99%, transparent 100%);
+  filter: blur(8px);
+  opacity: 0.5;
+  mask: radial-gradient(circle closest-side at 50% 50%, transparent 0 90%, #000 95% 99%, transparent 100%);
 }
 
-/* narrow dark machined frame — mostly shadowed steel, three lit zones */
+/* narrow dark rear housing — mostly shadowed steel, three small lit zones.
+   Radially only ~4.5% of the radius, so no thick metal donut remains. */
 .fly__metal {
   background: conic-gradient(
     from -34deg,
-    rgba(16, 24, 38, 1) 0deg,
-    rgba(226, 240, 255, 0.95) 14deg,
-    rgba(120, 146, 178, 0.7) 30deg,
-    rgba(10, 16, 27, 1) 62deg,
-    rgba(6, 10, 18, 1) 104deg,
-    rgba(150, 176, 206, 0.72) 138deg,
-    rgba(238, 248, 255, 0.9) 152deg,
-    rgba(30, 44, 64, 0.98) 186deg,
-    rgba(5, 8, 15, 1) 232deg,
-    rgba(96, 124, 158, 0.6) 286deg,
-    rgba(182, 208, 236, 0.82) 302deg,
-    rgba(14, 22, 36, 1) 330deg,
-    rgba(16, 24, 38, 1) 360deg
+    rgba(9, 14, 24, 1) 0deg,
+    rgba(226, 240, 255, 0.9) 11deg,
+    rgba(96, 120, 150, 0.5) 26deg,
+    rgba(7, 11, 20, 1) 54deg,
+    rgba(4, 7, 13, 1) 108deg,
+    rgba(112, 140, 172, 0.46) 136deg,
+    rgba(234, 246, 255, 0.82) 149deg,
+    rgba(16, 25, 40, 1) 176deg,
+    rgba(3, 6, 11, 1) 234deg,
+    rgba(70, 94, 124, 0.4) 288deg,
+    rgba(168, 198, 230, 0.66) 301deg,
+    rgba(8, 13, 22, 1) 326deg,
+    rgba(9, 14, 24, 1) 360deg
   );
-  mask: radial-gradient(circle closest-side at 50% 50%, transparent 0 92.4%, #000 93.4% 99.4%, transparent 100%);
-  opacity: 0.98;
+  mask: radial-gradient(circle closest-side at 50% 50%, transparent 0 94.2%, #000 95% 99.2%, transparent 100%);
+  opacity: 0.97;
 }
 
-/* translucent smoked glass band — the interior stays see-through */
+/* refractive transparent glass band — the interior reads through it */
 .fly__glass {
   background:
-    radial-gradient(circle at 34% 20%, rgba(214, 234, 255, 0.16), transparent 42%),
+    radial-gradient(circle at 33% 19%, rgba(214, 234, 255, 0.11), transparent 38%),
     conic-gradient(
       from 196deg,
-      rgba(9, 15, 26, 0.5),
-      rgba(52, 84, 122, 0.34) 24%,
-      rgba(7, 12, 21, 0.52) 46%,
-      rgba(126, 176, 226, 0.28) 62%,
-      rgba(8, 13, 22, 0.5) 78%,
-      rgba(58, 92, 132, 0.26) 92%,
-      rgba(9, 15, 26, 0.5) 100%
+      rgba(6, 10, 18, 0.2),
+      rgba(46, 78, 116, 0.16) 16%,
+      rgba(4, 7, 13, 0.24) 34%,
+      rgba(126, 176, 226, 0.15) 48%,
+      rgba(5, 9, 16, 0.26) 62%,
+      rgba(150, 196, 240, 0.1) 74%,
+      rgba(5, 9, 16, 0.24) 86%,
+      rgba(52, 88, 130, 0.13) 94%,
+      rgba(6, 10, 18, 0.2) 100%
     );
-  mask: radial-gradient(circle closest-side at 50% 50%, transparent 0 74%, #000 76% 92%, transparent 99%);
+  mask: radial-gradient(circle closest-side at 50% 50%, transparent 0 77%, #000 79.5% 93.6%, transparent 99%);
   backdrop-filter: blur(2px);
 }
 
@@ -1864,28 +1867,33 @@ body {
 .fly__edge--out {
   background: conic-gradient(
     from -40deg,
-    rgba(255, 255, 255, 0.95),
-    rgba(230, 235, 241, 0.1) 18%,
-    transparent 32%,
-    rgba(255, 255, 255, 0.88) 44%,
-    rgba(230, 235, 241, 0.08) 62%,
-    transparent 76%,
-    rgba(190, 220, 255, 0.6) 90%,
-    rgba(255, 255, 255, 0.95) 100%
+    rgba(255, 255, 255, 0.96),
+    rgba(230, 235, 241, 0.06) 15%,
+    transparent 30%,
+    rgba(255, 255, 255, 0.9) 43%,
+    rgba(230, 235, 241, 0.05) 58%,
+    transparent 74%,
+    rgba(190, 220, 255, 0.5) 89%,
+    rgba(255, 255, 255, 0.96) 100%
   );
-  mask: radial-gradient(circle closest-side at 50% 50%, transparent 0 98.6%, #000 99% 100%);
+  mask: radial-gradient(circle closest-side at 50% 50%, transparent 0 98.7%, #000 99.1% 100%);
 }
 
+/* interrupted inner metal edge — broken, not a continuous pale hoop */
 .fly__edge--in {
   background: conic-gradient(
     from 140deg,
-    rgba(230, 235, 241, 0.26),
-    rgba(30, 167, 255, 0.42) 22%,
-    transparent 42%,
-    rgba(230, 235, 241, 0.1) 62%,
+    rgba(230, 235, 241, 0.3),
+    rgba(56, 178, 255, 0.5) 12%,
+    transparent 24%,
+    transparent 40%,
+    rgba(214, 232, 248, 0.34) 50%,
+    transparent 60%,
+    transparent 76%,
+    rgba(190, 214, 240, 0.22) 86%,
     rgba(230, 235, 241, 0.3) 100%
   );
-  mask: radial-gradient(circle closest-side at 50% 50%, transparent 0 73.4%, #000 74% 75.2%, transparent 100%);
+  mask: radial-gradient(circle closest-side at 50% 50%, transparent 0 76.4%, #000 77% 78.6%, transparent 100%);
 }
 
 /* localized interruptions: one sharp white, one cool refractive */
@@ -1893,26 +1901,26 @@ body {
   background: conic-gradient(
     from -72deg,
     transparent 0deg,
-    rgba(255, 255, 255, 0.9) 9deg,
-    rgba(255, 255, 255, 0.12) 20deg,
-    transparent 34deg,
-    transparent 150deg,
-    rgba(150, 210, 255, 0.5) 166deg,
-    transparent 184deg,
-    transparent 288deg,
-    rgba(255, 255, 255, 0.24) 300deg,
-    transparent 314deg
+    rgba(255, 255, 255, 0.95) 8deg,
+    rgba(255, 255, 255, 0.1) 17deg,
+    transparent 28deg,
+    transparent 152deg,
+    rgba(140, 205, 255, 0.55) 165deg,
+    transparent 180deg,
+    transparent 292deg,
+    rgba(255, 255, 255, 0.2) 302deg,
+    transparent 313deg
   );
-  filter: blur(1.6px);
-  mask: radial-gradient(circle closest-side at 50% 50%, transparent 0 88%, #000 91% 99%, transparent 100%);
+  filter: blur(2px);
+  mask: radial-gradient(circle closest-side at 50% 50%, transparent 0 80%, #000 84% 98%, transparent 100%);
 }
 
 /* surface irregularity so the band is not mathematically perfect */
 .fly__ringgrain {
-  opacity: 0.26;
+  opacity: 0.3;
   mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='m'><feTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='2'/></filter><rect width='120' height='120' filter='url(%23m)' opacity='0.6'/></svg>");
-  mask: radial-gradient(circle closest-side at 50% 50%, transparent 0 74%, #000 77% 99%, transparent 100%);
+  mask: radial-gradient(circle closest-side at 50% 50%, transparent 0 77%, #000 80% 99%, transparent 100%);
 }
 
 /* travelling pulse in the band */
