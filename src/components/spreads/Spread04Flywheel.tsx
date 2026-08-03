@@ -53,7 +53,7 @@ export default function Spread04Flywheel({ isActive = false }: { isActive?: bool
 
   /* pulse cycle runs only while this spread is active */
   useEffect(() => {
-    if (QA_PIN_ACTOR_01) return;
+    
     if (!isActive || reduce || held !== null || !lit) return;
     const t = setInterval(() => setAuto((i) => (i + 1) % ACTORS.length), CYCLE);
     return () => clearInterval(t);
