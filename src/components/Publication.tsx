@@ -6,6 +6,8 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 
+import { STATIC_REVIEW_MODE } from "@/reviewMode";
+
 interface PublicationProps {
   children: React.ReactNode[];
   spreadCount: number;
@@ -23,6 +25,12 @@ export default function Publication({ children, spreadCount, onSpreadChange }: P
       if (isTransitioning) return;
       const clamped = Math.max(0, Math.min(spreadCount - 1, index));
       if (clamped === currentSpread) return;
+      // Static review mode: switch instantly, no transition lock, no tween.
+      if (STATIC_REVIEW_MODE) {
+        setCurrentSpread(clamped);
+        onSpreadChange?.(clamped);
+        return;
+      }
       setIsTransitioning(true);
       setCurrentSpread(clamped);
       onSpreadChange?.(clamped);
@@ -96,9 +104,12 @@ export default function Publication({ children, spreadCount, onSpreadChange }: P
           width: `${spreadCount * 100}vw`,
           height: "100vh",
           transform: `translateX(-${currentSpread * 100}vw)`,
-          transition: isTransitioning
-            ? "transform 0.7s cubic-bezier(0.77, 0, 0.175, 1)"
-            : "transform 0.7s cubic-bezier(0.77, 0, 0.175, 1)",
+          transition: STATIC_REVIEW_MODE
+            ? "none"
+            : isTransitioning
+              ? "transform 0.7s cubic-bezier(0.77, 0, 0.175, 1)"
+              : "transform 0.7s cubic-bezier(0.77, 0, 0.175, 1)",
+          animation: STATIC_REVIEW_MODE ? "none" : undefined,
           willChange: "transform",
         }}
       >
@@ -112,6 +123,8 @@ export default function Publication({ children, spreadCount, onSpreadChange }: P
               flexShrink: 0,
               position: "relative",
               overflow: "hidden",
+              // Static review mode: guarantee exactly one spread is present.
+              visibility: STATIC_REVIEW_MODE && i !== currentSpread ? "hidden" : "visible",
             }}
           >
             {child}
@@ -129,7 +142,7 @@ export default function Publication({ children, spreadCount, onSpreadChange }: P
           width: `${progress}%`,
           background: "linear-gradient(to right, #1EA7FF, #00FFC2)",
           zIndex: 200,
-          transition: "width 0.5s cubic-bezier(0.23, 1, 0.32, 1)",
+          transition: STATIC_REVIEW_MODE ? "none" : "width 0.5s cubic-bezier(0.23, 1, 0.32, 1)",
         }}
       />
 
@@ -158,7 +171,7 @@ export default function Publication({ children, spreadCount, onSpreadChange }: P
               border: "none",
               padding: 0,
               cursor: "pointer",
-              transition: "all 0.3s cubic-bezier(0.23, 1, 0.32, 1)",
+              transition: STATIC_REVIEW_MODE ? "none" : "all 0.3s cubic-bezier(0.23, 1, 0.32, 1)",
             }}
             aria-label={`Go to spread ${i + 1}`}
           />
