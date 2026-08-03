@@ -9,10 +9,10 @@
 
 import { useEffect, useRef } from "react";
 
-const COUNT = 84;
+const COUNT = 132;
 const DPR_CAP = 1.5;
 
-type P = { a: number; r: number; v: number; s: number; o: number };
+type P = { a: number; r: number; v: number; s: number; o: number; w: boolean };
 
 export default function ParticleRing({
   activeAngle,
@@ -48,10 +48,12 @@ export default function ParticleRing({
 
     const parts: P[] = Array.from({ length: COUNT }, () => ({
       a: Math.random() * Math.PI * 2,
-      r: 0.455 + Math.random() * 0.055,
-      v: 0.00016 + Math.random() * 0.00022,
-      s: 0.5 + Math.random() * 0.9,
-      o: 0.1 + Math.random() * 0.3,
+      // sit inside the inner circumference of the glass band
+      r: 0.385 + Math.random() * 0.062,
+      v: 0.00014 + Math.random() * 0.00026,
+      s: 0.55 + Math.random() * 1.25,
+      o: 0.2 + Math.random() * 0.45,
+      w: Math.random() < 0.22,
     }));
 
     let raf = 0;
@@ -69,12 +71,17 @@ export default function ParticleRing({
 
         // proximity to the live channel, 0..1
         let d = Math.abs(((p.a - live + Math.PI * 3) % (Math.PI * 2)) - Math.PI);
-        d = 1 - Math.min(1, d / 0.55);
-        const alpha = p.o * (0.42 + d * 1.35);
+        d = 1 - Math.min(1, d / 0.6);
+        // broken field: a slow angular modulation keeps the ring from reading
+        // as an evenly spaced row of dots
+        const gap = 0.55 + 0.45 * Math.abs(Math.sin(p.a * 3.4 + p.r * 40));
+        const alpha = p.o * gap * (0.7 + d * 1.5);
 
         ctx.beginPath();
-        ctx.arc(x, y, p.s * (1 + d * 0.5), 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(214, 232, 248, ${Math.min(0.9, alpha)})`;
+        ctx.arc(x, y, p.s * (1 + d * 0.55), 0, Math.PI * 2);
+        ctx.fillStyle = p.w
+          ? `rgba(255, 255, 255, ${Math.min(0.95, alpha * 1.15)})`
+          : `rgba(150, 200, 245, ${Math.min(0.8, alpha)})`;
         ctx.fill();
       }
       raf = requestAnimationFrame(draw);
