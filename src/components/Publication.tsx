@@ -25,6 +25,12 @@ export default function Publication({ children, spreadCount, onSpreadChange }: P
       if (isTransitioning) return;
       const clamped = Math.max(0, Math.min(spreadCount - 1, index));
       if (clamped === currentSpread) return;
+      // Static review mode: switch instantly, no transition lock, no tween.
+      if (STATIC_REVIEW_MODE) {
+        setCurrentSpread(clamped);
+        onSpreadChange?.(clamped);
+        return;
+      }
       setIsTransitioning(true);
       setCurrentSpread(clamped);
       onSpreadChange?.(clamped);
