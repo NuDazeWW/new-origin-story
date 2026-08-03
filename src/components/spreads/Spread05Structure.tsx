@@ -17,7 +17,7 @@ const PINS = [
     title: "NicoleIsNine Holdings",
     detail: "Holding company. Coordinates the standard, the platform, and the arm's-length agency.",
     left: "4.5rem",
-    top: "44%",
+    top: "62%",
   },
   {
     id: "standard",
