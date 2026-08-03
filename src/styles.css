@@ -3133,37 +3133,23 @@ body {
 
 .why-stage {
   background: var(--dis-platinum);
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 2rem;
+  padding: 5rem 4.5rem 4rem;
 }
 
-.why-field {
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 55%;
-  height: 100%;
-  overflow: hidden;
-  opacity: 0.35;
-}
-
-.why-field__img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: saturate(0.55) contrast(1.05);
-}
-
-.why-field__scrim {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to right, var(--dis-platinum) 0%, transparent 40%, transparent 100%);
+.why-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
 }
 
 .why-primary {
-  position: absolute;
-  left: 4.5rem;
-  top: 14%;
-  z-index: 2;
-  max-width: 36ch;
+  max-width: 46ch;
 }
 
 .why-profile {
@@ -3201,10 +3187,7 @@ body {
 }
 
 .why-council {
-  position: absolute;
-  left: 4.5rem;
-  bottom: 14%;
-  z-index: 2;
+  margin-top: auto;
 }
 
 .why-council__label {
@@ -3220,15 +3203,42 @@ body {
 .why-council__grid {
   display: flex;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .why-council__slot {
-  font-family: 'Space Grotesk', system-ui, sans-serif;
-  font-size: clamp(0.7rem, 0.8vw, 0.85rem);
-  color: var(--ink-body);
-  padding: 0.35rem 0.7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  padding: 0.4rem 0.85rem;
   border: 1px dashed var(--rule);
 }
+
+.why-council__name {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(0.76rem, 0.85vw, 0.9rem);
+  color: var(--ink-text);
+}
+
+.why-council__title {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.5rem;
+  color: var(--ink-muted);
+}
+
+.why-atmosphere {
+  position: relative;
+  overflow: hidden;
+  border-left: 1px solid var(--rule);
+  opacity: 0.35;
+}
+
+.why-atmosphere__gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(30, 167, 255, 0.08) 0%, transparent 50%, rgba(123, 97, 255, 0.06) 100%);
+}
+
 
 /* --- SECTION 12 · Roles ------------------------------------ */
 
