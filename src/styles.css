@@ -666,6 +666,15 @@ body {
   --spot: #1EA7FF;
 }
 
+.pg--slate {
+  --stock: #0E1624;
+  --ink-text: #E6EBF1;
+  --ink-body: #A6AFB8;
+  --ink-muted: #6B7582;
+  --rule: rgba(230, 235, 241, 0.14);
+  --spot: #1EA7FF;
+}
+
 .pg__margin {
   padding: 1.4rem 4.5rem;
   flex-shrink: 0;
