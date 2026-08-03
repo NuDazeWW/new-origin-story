@@ -31,7 +31,7 @@ Only the DIS side of the palette. Colour arrives as paper changes, large fields,
 
 **10 — The Founding Vanguard™.** Midnight Slate field of 25 sculptural apertures in a precision formation with real depth — not a grid, not a seating chart. All positions neutral (no filled/unfilled colour coding). The three tranches read as successive movements through the field with their questions as editorial captions.
 
-**11 — Why Us.** Light, quiet, portrait-led. Shirley Johnson holds the primary narrative position, Allen Bestwick secondary. No portrait is shown for anyone without a supplied verified image; no generated faces. The four unresolved council profiles appear as a deliberately unfinished "Council in formation" roster with no invented titles or bios. No blue wash over faces.
+**11 — Why Us.** Light, quiet, editorial. Before composing, portrait attributability is verified: only an image genuinely attributable to Shirley Johnson or Allen Bestwick may be used as their portrait — identity is never inferred from an art-direction or reference-model image, and no reference portrait is ever labelled as a real team member. Where a verified portrait is unavailable, that profile becomes a typography-led treatment and approved environmental imagery is used as atmosphere only. Shirley Johnson holds the primary narrative position, Allen Bestwick secondary. The four unresolved council profiles appear as a deliberately unfinished "Council in formation" roster with no invented titles or bios. No blue wash over faces.
 
 **12 — Roles This Round Funds.** Platinum ground, two broad spatial planes — Initial Close $850K in Steel/Electric, Second Close $900K in Fog/Cyber — sequenced in depth. Roles are positions in a system, set typographically. No table, no cards.
 
