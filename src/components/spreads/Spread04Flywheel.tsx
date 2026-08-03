@@ -16,7 +16,15 @@ import { useParallax } from "@/components/print/parallax";
 import FlywheelObject from "@/components/print/FlywheelObject";
 import { ACTORS } from "@/components/print/flywheelActors";
 
-const CYCLE = 5000;
+const CYCLE = 4500;
+
+/**
+ * TEMPORARY visual-QA pin — Pass 1 only.
+ * Holds the composition on Actor 01 so the static frame can be calibrated and
+ * screenshotted deterministically. Removed when Pass 2 motion is approved.
+ * All interaction code below is intact and unmodified.
+ */
+const QA_PIN_ACTOR_01 = true;
 
 /** Restrained editorial glyphs — circular framing, hairline weight. */
 function Glyph({ kind }: { kind: "gain" | "why" | "dis" | "traction" }) {
@@ -50,6 +58,7 @@ export default function Spread04Flywheel({ isActive = false }: { isActive?: bool
 
   /* pulse cycle runs only while this spread is active */
   useEffect(() => {
+    if (QA_PIN_ACTOR_01) return;
     if (!isActive || reduce || held !== null || !lit) return;
     const t = setInterval(() => setAuto((i) => (i + 1) % ACTORS.length), CYCLE);
     return () => clearInterval(t);
@@ -121,7 +130,7 @@ export default function Spread04Flywheel({ isActive = false }: { isActive?: bool
                 >
                   <motion.button
                     type="button"
-                    className={`fly__cap${i === idx ? " is-on" : ""}`}
+                    className={`fly__cap${a.lines[0].length > 14 ? " fly__cap--wide" : ""}${i === idx ? " is-on" : ""}`}
                     style={{ ["--edge" as string]: `var(--${a.accent})` }}
                     aria-label={a.aria}
                     aria-pressed={i === idx}
@@ -137,8 +146,12 @@ export default function Spread04Flywheel({ isActive = false }: { isActive?: bool
                       <span className="fly__cap-n">{a.index}</span>
                       <span className="fly__cap-name">
                         {a.lines[0]}
-                        <br />
-                        {a.lines[1]}
+                        {a.lines[1] ? (
+                          <>
+                            <br />
+                            {a.lines[1]}
+                          </>
+                        ) : null}
                       </span>
                     </span>
                     <span className="fly__cap-screw fly__cap-screw--l" aria-hidden />

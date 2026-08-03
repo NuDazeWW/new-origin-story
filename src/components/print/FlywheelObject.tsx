@@ -63,6 +63,7 @@ export default function FlywheelObject({
               className={`fly__chan${isOn ? " is-on" : ""}`}
               style={{ "--ang": `${a.angle}deg`, "--edge": `var(--${a.accent})` } as V}
             >
+              <span className="fly__chan-amb" />
               <span className="fly__chan-bloom" />
               <span className="fly__chan-core" />
               {isOn && running && !reduce ? (
