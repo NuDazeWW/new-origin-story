@@ -3555,6 +3555,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 4rem 4.5rem;
+  text-align: center;
 }
 
 .close-horizon {
@@ -3617,6 +3619,25 @@ body {
   color: var(--dis-aurora-blue);
   border-bottom-color: var(--dis-aurora-blue);
 }
+
+.close-footer {
+  position: relative;
+  z-index: 2;
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.close-footer__confidential {
+  color: var(--dis-electric-blue);
+}
+
 
 /* --- responsive for sections 05–15 ------------------------- */
 
