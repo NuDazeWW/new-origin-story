@@ -27,7 +27,7 @@ Only the DIS side of the palette. Colour arrives as paper changes, large fields,
 
 **08 — The Strategic Play.** Full-bleed daylight motorsport field, natural sky and silver preserved. A single luminous racing line runs the composition once on entry; the five steps are milestones along it — step 1 established, step 2 in focus, 3–5 receding to the horizon. Anchor pipeline set as a quiet type band, text only.
 
-**09 — Traction & Proof Points.** High-key Platinum evidence spread, Steel Blue type, generous negative space. "THE FIRST 90 DAYS" is the dominant element; the seven proof points are ledger entries with status set as typography (LIVE, UNDERWAY, EXECUTED, FILED, IN PLACE, CONFIRMED) in the four accent inks. No badges, no dashboard.
+**09 — Traction & Proof Points.** High-key Platinum evidence spread, Steel Blue type, generous negative space. "THE FIRST 90 DAYS" is the dominant element; the seven proof points are ledger entries with status set as typography (LIVE, UNDERWAY, EXECUTED, FILED, IN PLACE, CONFIRMED). Status ink is restrained: Electric Blue is primary, Neon Teal is used selectively for completed/live proof, and Data Purple appears on no more than one emerging item. At a distance the spread reads as Platinum and Steel Blue, never as a rainbow ledger. No badges, no dashboard.
 
 **10 — The Founding Vanguard™.** Midnight Slate field of 25 sculptural apertures in a precision formation with real depth — not a grid, not a seating chart. All positions neutral (no filled/unfilled colour coding). The three tranches read as successive movements through the field with their questions as editorial captions.
 
