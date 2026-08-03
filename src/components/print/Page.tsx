@@ -6,7 +6,7 @@
 
 import type { ReactNode } from "react";
 
-export type Stock = "ink" | "paper" | "platinum" | "ice";
+export type Stock = "ink" | "paper" | "platinum" | "ice" | "slate";
 
 export function Page({
   stock = "ink",
