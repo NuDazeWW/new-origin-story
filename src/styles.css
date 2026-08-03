@@ -2351,6 +2351,12 @@ body {
   border-bottom: 1px solid rgba(230, 235, 241, 0.14);
 }
 
+/* section-specific editorial accent hierarchy */
+.fly__sec--gain { --sec: #93a9ff; }
+.fly__sec--why { --sec: #cfae72; }
+.fly__sec--dis { --sec: #62cfc3; }
+.fly__sec--tr { --sec: #a98cf0; }
+
 .fly__sec-head {
   display: flex;
   align-items: center;
@@ -2358,20 +2364,20 @@ body {
 }
 
 .fly__glyph {
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
   flex-shrink: 0;
   fill: none;
-  stroke: var(--edge);
-  stroke-width: 0.9;
+  stroke: var(--sec, var(--edge));
+  stroke-width: 1.15;
   stroke-linecap: round;
   stroke-linejoin: round;
-  opacity: 0.9;
+  opacity: 1;
 }
 
 .fly__glyph-ring {
-  stroke: rgba(230, 235, 241, 0.22);
-  stroke-width: 0.6;
+  stroke: color-mix(in oklab, var(--sec, var(--edge)) 40%, rgba(230, 235, 241, 0.24));
+  stroke-width: 0.75;
 }
 
 .fly__sec-label {
@@ -2379,7 +2385,7 @@ body {
   font-size: 0.68rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: color-mix(in oklab, var(--edge) 34%, var(--ink-text));
+  color: color-mix(in oklab, var(--sec, var(--edge)) 72%, #e6ebf1);
 }
 
 .fly__sec-text {
