@@ -93,38 +93,62 @@ export default function Spread05Structure({ isActive = false }: { isActive?: boo
             </div>
           </div>
 
-          {/* ---------- Anchored entity labels + SAFE route ---------- */}
+          {/* ---------- Anchored entity structure + single SAFE route ---------- */}
           <div className="s5-marks">
-            {/* One restrained route: capital enters low-left and terminates at DIS only. */}
             <svg className="s5-route" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden>
               <defs>
-                <linearGradient id="s5SafeR1" x1="0" y1="1" x2="0.7" y2="0">
-                  <stop offset="0%" stopColor="rgba(30,167,255,0.12)" />
-                  <stop offset="30%" stopColor="rgba(30,167,255,0.7)" />
+                <linearGradient id="s5SafeR1" x1="0" y1="1" x2="1" y2="0">
+                  <stop offset="0%" stopColor="rgba(30,167,255,0.35)" />
+                  <stop offset="45%" stopColor="rgba(30,167,255,0.75)" />
                   <stop offset="100%" stopColor="rgba(0,255,194,0.95)" />
                 </linearGradient>
               </defs>
+
+              {/* Governance connector: parent descends the central column, then
+                  one branch terminates at PRSC and one at DIS. No arrows. */}
               <motion.path
-                d="M 30.5 99 L 39 74 L 43.6 52"
+                className="s5-gov"
+                d="M 68.5 24.4 L 68.5 38 M 50.8 38 L 78.2 38 M 50.8 38 L 50.8 44.4 M 78.2 38 L 78.2 44.4"
                 fill="none"
-                stroke="url(#s5SafeR1)"
-                strokeWidth="1.8"
+                stroke="rgba(196, 216, 232, 0.55)"
+                strokeWidth="1"
                 vectorEffect="non-scaling-stroke"
                 initial={still ? false : { pathLength: 0 }}
                 whileInView={{ pathLength: 1 }}
                 animate={STATIC_REVIEW_MODE ? { pathLength: 1 } : undefined}
                 viewport={{ once: true, amount: 0.4 }}
-                transition={{ duration: 1.5, delay: 0.8, ease: EASE }}
+                transition={{ duration: 1.2, delay: 0.5, ease: EASE }}
+              />
+
+              {/* SAFE: begins at statement 04, crosses into the architecture,
+                  terminates only at DIS. */}
+              <motion.path
+                className="s5-safeline"
+                d="M 42.4 71.5 L 72 71.5 L 78.2 47.4"
+                fill="none"
+                stroke="url(#s5SafeR1)"
+                strokeWidth="1.6"
+                vectorEffect="non-scaling-stroke"
+                initial={still ? false : { pathLength: 0 }}
+                whileInView={{ pathLength: 1 }}
+                animate={STATIC_REVIEW_MODE ? { pathLength: 1 } : undefined}
+                viewport={{ once: true, amount: 0.4 }}
+                transition={{ duration: 1.5, delay: 1.1, ease: EASE }}
               />
             </svg>
 
+            {/* Visible endpoints: branch ends at each sibling; SAFE terminal at DIS. */}
+            <span className="s5-node s5-node--standard" aria-hidden />
+            <span className="s5-node s5-node--branch" aria-hidden />
+            <span className="s5-origin" aria-hidden />
+            <span className="s5-arrow" aria-hidden />
             <motion.span
               className="s5-terminal s5-terminal--r1"
               initial={still ? false : { opacity: 0, scale: 0.4 }}
               whileInView={{ opacity: 1, scale: 1 }}
               animate={STATIC_REVIEW_MODE ? { opacity: 1, scale: 1 } : undefined}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 2.1, ease: EASE }}
+              transition={{ duration: 0.4, delay: 2.3, ease: EASE }}
               aria-hidden
             />
 
@@ -145,6 +169,7 @@ export default function Spread05Structure({ isActive = false }: { isActive?: boo
               </motion.div>
             ))}
           </div>
+
         </div>
       </PageBody>
 
