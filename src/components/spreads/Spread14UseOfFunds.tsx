@@ -89,7 +89,7 @@ export default function Spread14UseOfFunds({ isActive = false }: { isActive?: bo
               <h2 className="fund3-total">$2,500,000</h2>
             </Settle>
             <Settle delay={0.12}>
-              <p className="fund3-head">Capital deployed with discipline — one instrument, seven measured lengths.</p>
+              <p className="fund3-head">Capital deployed with discipline.</p>
             </Settle>
           </div>
 
