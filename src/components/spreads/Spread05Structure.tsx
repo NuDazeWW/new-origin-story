@@ -1,10 +1,11 @@
 /**
  * SPREAD 05 — The Structure That Protects Your Investment
- * CORRECTION PASS 04: left editorial column (investor thesis) + right
- * photographed governed architecture. Every entity annotation is anchored to a
- * real structural feature of the supplied governed-infrastructure image; the
- * independence firewall is the glass plane itself. One luminous SAFE trajectory
- * terminates only at DIS Inc. Exact copy from production brief SLIDE 5.
+ * REFERENCE-MATCH PASS: left editorial column (investor thesis) at reading size
+ * + right side rebuilt as ONE vertical governance architecture: stacked
+ * illuminated glass platforms over the supplied governed-infrastructure plate.
+ * Every line has a defined function and terminates at a labeled structural
+ * point. The SAFE route enters laterally and terminates only at DIS Inc.
+ * Exact copy from production brief SLIDE 5.
  */
 
 import { motion, useReducedMotion } from "framer-motion";
@@ -16,19 +17,16 @@ import { Settle } from "@/components/print/Editorial";
 import { EASE } from "@/components/print/Layers";
 
 /**
- * Entity identifiers and functional labels only — the approved source brief
- * supplies no descriptive copy for these entities, so none is rendered.
- * Each annotation is positioned against a structural feature of the plate:
- * ceiling span (parent), receding portal colonnade (standard), primary steel
- * column (platform), detached far-right glass bay (agency), glass plane
- * (firewall).
+ * Governance platforms, top to bottom. Entity identifiers, category labels and
+ * the approved SAFE terminal note only — no invented governance copy.
  */
-const ENTITIES = [
-  { id: "parent", label: "Parent", title: "NicoleIsNine Holdings" },
-  { id: "standard", label: "The Standard", title: "PRSC LLC" },
-  { id: "platform", label: "The Platform", title: "DIS Inc." },
-  { id: "agency", label: "Arm's-length agency", title: "NuDaze Worldwide" },
-];
+const PLATFORMS = [
+  { id: "parent", title: "NicoleIsNine Holdings", label: "Parent" },
+  { id: "standard", title: "PRSC LLC", label: "The Standard" },
+  { id: "firewall", title: null, label: "Independence Firewall" },
+  { id: "platform", title: "DIS Inc.", label: "The Platform", note: "SAFE converts here" },
+  { id: "agency", title: "NuDaze Worldwide", label: "Arm's-length agency" },
+] as const;
 
 /** Approved investment-protection statements — verbatim, SLIDE 5. */
 const STATEMENTS = [
@@ -41,6 +39,7 @@ const STATEMENTS = [
 export default function Spread05Structure({ isActive = false }: { isActive?: boolean }) {
   void isActive;
   const reduce = useReducedMotion();
+  const still = STATIC_REVIEW_MODE || reduce;
 
   return (
     <Page stock="ink">
@@ -64,7 +63,7 @@ export default function Spread05Structure({ isActive = false }: { isActive?: boo
                 <motion.p
                   key={s}
                   className="s5-claim"
-                  initial={STATIC_REVIEW_MODE || reduce ? false : { opacity: 0, y: 14 }}
+                  initial={still ? false : { opacity: 0, y: 14 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   animate={STATIC_REVIEW_MODE ? { opacity: 1, y: 0 } : undefined}
                   viewport={{ once: true, amount: 0.4 }}
@@ -77,7 +76,7 @@ export default function Spread05Structure({ isActive = false }: { isActive?: boo
             </div>
           </div>
 
-          {/* ---------- RIGHT · governed physical structure ---------- */}
+          {/* ---------- RIGHT · one vertical governance architecture ---------- */}
           <div className="s5-plate">
             <img
               src="/06_governed_infrastructure.png"
@@ -88,84 +87,95 @@ export default function Spread05Structure({ isActive = false }: { isActive?: boo
             <div className="s5-plate__grade" />
             <div className="s5-plate__join" />
 
-            {/* The firewall as a physical threshold: the glass plane and the
-                hard lighting boundary between colonnade and column field. */}
-            <div className="s5-firewall" aria-hidden />
+            {/* Functional connection geometry only. Percent coordinate space. */}
+            <svg className="s5-wire" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden>
+              <defs>
+                <linearGradient id="s5Safe" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stopColor="rgba(30,167,255,0)" />
+                  <stop offset="26%" stopColor="rgba(30,167,255,0.75)" />
+                  <stop offset="100%" stopColor="rgba(0,255,194,0.95)" />
+                </linearGradient>
+              </defs>
 
-            {/* One luminous SAFE trajectory — terminal only at DIS Inc. */}
-            <div className="s5-route" aria-hidden>
-              <svg className="struct-route__svg" viewBox="0 0 800 620" preserveAspectRatio="none">
-                <defs>
-                  <linearGradient id="safeRoute" x1="0" y1="0" x2="1" y2="0">
-                    <stop offset="0%" stopColor="rgba(30,167,255,0)" />
-                    <stop offset="24%" stopColor="rgba(30,167,255,0.7)" />
-                    <stop offset="100%" stopColor="rgba(0,255,194,0.95)" />
-                  </linearGradient>
-                </defs>
-                <motion.path
-                  d="M 8 470 L 300 452 L 470 316"
-                  fill="none"
-                  stroke="url(#safeRoute)"
-                  strokeWidth="1.6"
-                  initial={STATIC_REVIEW_MODE || reduce ? false : { pathLength: 0 }}
-                  whileInView={{ pathLength: 1 }}
-                  animate={STATIC_REVIEW_MODE ? { pathLength: 1 } : undefined}
-                  viewport={{ once: true, amount: 0.4 }}
-                  transition={{ duration: 1.6, delay: 0.6, ease: EASE }}
-                />
-                <motion.circle
-                  cx="470"
-                  cy="316"
-                  r="4.5"
-                  fill="#00FFC2"
-                  initial={STATIC_REVIEW_MODE || reduce ? false : { opacity: 0, scale: 0 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  animate={STATIC_REVIEW_MODE ? { opacity: 1, scale: 1 } : undefined}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: 1.8, ease: EASE }}
-                />
-              </svg>
-            </div>
+              {/* Governance: parent platform → DIS platform (through the standard tier). */}
+              <motion.path
+                d="M 45 13 L 45 65"
+                fill="none"
+                stroke="rgba(107,199,255,0.5)"
+                strokeWidth="0.25"
+                vectorEffect="non-scaling-stroke"
+                initial={still ? false : { pathLength: 0 }}
+                whileInView={{ pathLength: 1 }}
+                animate={STATIC_REVIEW_MODE ? { pathLength: 1 } : undefined}
+                viewport={{ once: true, amount: 0.4 }}
+                transition={{ duration: 1.1, delay: 0.3, ease: EASE }}
+              />
 
-            {ENTITIES.map((e, i) => (
+              {/* Arm's-length: parent → agency, detached down the outer field. */}
+              <motion.path
+                d="M 24 15 L 11 22 L 11 84 L 20 88"
+                fill="none"
+                stroke="rgba(150,140,220,0.42)"
+                strokeWidth="0.22"
+                strokeDasharray="3 4"
+                vectorEffect="non-scaling-stroke"
+                initial={still ? false : { pathLength: 0 }}
+                whileInView={{ pathLength: 1 }}
+                animate={STATIC_REVIEW_MODE ? { pathLength: 1 } : undefined}
+                viewport={{ once: true, amount: 0.4 }}
+                transition={{ duration: 1.4, delay: 0.7, ease: EASE }}
+              />
+
+              {/* SAFE: enters laterally, terminates on the DIS platform only. */}
+              <motion.path
+                d="M 0 78 L 26 78 L 40 67"
+                fill="none"
+                stroke="url(#s5Safe)"
+                strokeWidth="0.45"
+                vectorEffect="non-scaling-stroke"
+                initial={still ? false : { pathLength: 0 }}
+                whileInView={{ pathLength: 1 }}
+                animate={STATIC_REVIEW_MODE ? { pathLength: 1 } : undefined}
+                viewport={{ once: true, amount: 0.4 }}
+                transition={{ duration: 1.6, delay: 0.9, ease: EASE }}
+              />
+            </svg>
+
+            {/* Terminal signal on the DIS platform. */}
+            <motion.span
+              className="s5-terminal"
+              initial={still ? false : { opacity: 0, scale: 0.4 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              animate={STATIC_REVIEW_MODE ? { opacity: 1, scale: 1 } : undefined}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 2.1, ease: EASE }}
+              aria-hidden
+            />
+
+            {/* The stacked structure itself. */}
+            {PLATFORMS.map((p, i) => (
               <motion.div
-                key={e.id}
-                className={`s5-anno s5-anno--${e.id}`}
-                initial={STATIC_REVIEW_MODE || reduce ? false : { opacity: 0, y: 14 }}
+                key={p.id}
+                className={`s5-tier s5-tier--${p.id}`}
+                initial={still ? false : { opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 animate={STATIC_REVIEW_MODE ? { opacity: 1, y: 0 } : undefined}
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ duration: 0.8, delay: 0.2 + i * 0.14, ease: EASE }}
+                viewport={{ once: true, amount: 0.4 }}
+                transition={{ duration: 0.8, delay: 0.2 + i * 0.13, ease: EASE }}
               >
-                <span className="s5-anno__rule" />
-                <span className="s5-anno__label">{e.label}</span>
-                <span className="s5-anno__title">{e.title}</span>
+                <span className="s5-tier__slab" aria-hidden>
+                  <span className="s5-tier__face" />
+                  <span className="s5-tier__edge" />
+                  <span className="s5-tier__glow" />
+                </span>
+                <span className="s5-tier__tie" aria-hidden />
+                <span className="s5-tier__meta">
+                  {p.title ? <span className="s5-tier__title">{p.title}</span> : null}
+                  <span className="s5-tier__label">{p.label}</span>
+                  {"note" in p && p.note ? <span className="s5-tier__note">{p.note}</span> : null}
+                </span>
               </motion.div>
             ))}
-
-            <motion.div
-              className="s5-anno s5-anno--firewall"
-              initial={STATIC_REVIEW_MODE || reduce ? false : { opacity: 0, y: 14 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              animate={STATIC_REVIEW_MODE ? { opacity: 1, y: 0 } : undefined}
-              viewport={{ once: true, amount: 0.5 }}
-              transition={{ duration: 0.8, delay: 0.9, ease: EASE }}
-            >
-              <span className="s5-anno__rule" />
-              <span className="s5-anno__label">Independence Firewall</span>
-            </motion.div>
-
-            {/* Functional SAFE label — used once, at the DIS destination. */}
-            <motion.span
-              className="s5-safe"
-              initial={STATIC_REVIEW_MODE || reduce ? false : { opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              animate={STATIC_REVIEW_MODE ? { opacity: 1, y: 0 } : undefined}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 2, ease: EASE }}
-            >
-              SAFE converts at DIS
-            </motion.span>
           </div>
         </div>
       </PageBody>
