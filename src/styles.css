@@ -5024,15 +5024,11 @@ body {
 /* --- 08 · daylight release --------------------------------- */
 
 .play-field__img {
-  position: absolute;
-  left: -2%;
-  top: 0;
-  width: 215%;
-  max-width: none;
+  width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 0% 58%;
-  filter: saturate(1.02) contrast(1.04) brightness(1.06);
+  object-position: 50% 62%;
+  filter: saturate(1.04) contrast(1.03) brightness(1.04);
 }
 
 .play-field__scrim {
