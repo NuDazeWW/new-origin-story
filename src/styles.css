@@ -6192,3 +6192,7 @@ body {
     linear-gradient(to bottom, transparent 0, #000 8%, #000 94%, transparent 100%);
   mask-composite: intersect;
 }
+
+/* 06 · blend the whole object group (the inner z-index isolated the img). */
+.moat6-object { mix-blend-mode: multiply; }
+.moat6-object__img { mix-blend-mode: normal; }
