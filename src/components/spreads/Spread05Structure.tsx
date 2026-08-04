@@ -93,7 +93,7 @@ export default function Spread05Structure({ isActive = false }: { isActive?: boo
               <ellipse cx="1560" cy="262" rx="230" ry="78" fill="url(#s5shade)" />
               <ellipse cx="1080" cy="505" rx="235" ry="84" fill="url(#s5shade)" />
               <ellipse cx="1570" cy="482" rx="225" ry="74" fill="url(#s5shade)" />
-              <ellipse cx="1500" cy="634" rx="215" ry="50" fill="url(#s5shade)" />
+              <ellipse cx="1620" cy="562" rx="200" ry="44" fill="url(#s5shade)" />
               <ellipse cx="1060" cy="642" rx="215" ry="66" fill="url(#s5shade)" />
               <ellipse cx="1250" cy="912" rx="260" ry="60" fill="url(#s5shade)" />
 
@@ -110,15 +110,15 @@ export default function Spread05Structure({ isActive = false }: { isActive?: boo
               <g transform="rotate(-5 960 528)">
                 <text className="s5o-role s5o-role--std" x="960" y="462">THE STANDARD</text>
                 <text className="s5o-legal" x="960" y="490" filter="url(#s5soft)">PRSC LLC</text>
-                <text className="s5o-ent s5o-ent--std" x="960" y="534" filter="url(#s5soft)">Partnership Readiness</text>
+                <text className="s5o-ent s5o-ent--std s5o-ent--long" x="960" y="534" filter="url(#s5soft)">Partnership Readiness</text>
               </g>
               <g transform="rotate(4 1380 498)">
-                <text className="s5o-ent s5o-ent--std" x="1380" y="498" filter="url(#s5soft)">Standards Council</text>
+                <text className="s5o-ent s5o-ent--std s5o-ent--long" x="1380" y="498" filter="url(#s5soft)">Standards Council</text>
               </g>
 
               {/* ---------- INDEPENDENCE FIREWALL · dark structural band ---------- */}
-              <g transform="rotate(4 1480 636)">
-                <text className="s5o-firewall" x="1480" y="636" filter="url(#s5soft)">INDEPENDENCE FIREWALL</text>
+              <g transform="rotate(4 1620 568)">
+                <text className="s5o-firewall" x="1620" y="568" filter="url(#s5soft)">INDEPENDENCE FIREWALL</text>
               </g>
 
               {/* ---------- THE PLATFORM · illuminated deck beneath the firewall ---------- */}
@@ -128,13 +128,13 @@ export default function Spread05Structure({ isActive = false }: { isActive?: boo
                 <text className="s5o-ent s5o-ent--dis" x="950" y="670" filter="url(#s5violet)">Decision</text>
               </g>
               <g transform="rotate(4 1380 644)">
-                <text className="s5o-ent s5o-ent--dis" x="1380" y="644" filter="url(#s5violet)">Intelligence Systems</text>
+                <text className="s5o-ent s5o-ent--dis s5o-ent--long" x="1380" y="644" filter="url(#s5violet)">Intelligence Systems</text>
               </g>
 
               {/* ---------- Two downward platform indicators ---------- */}
               <g className="s5o-arrow s5o-arrow--down" filter="url(#s5soft)">
                 <path d="M1230 600 L1230 682 M1219 668 L1230 684 L1241 668" />
-                <path d="M1600 566 L1600 648 M1589 634 L1600 650 L1611 634" />
+                <path d="M1790 566 L1790 648 M1779 634 L1790 650 L1801 634" />
               </g>
 
 

@@ -6824,3 +6824,5 @@ body {
     color: rgba(230, 235, 241, 0.86);
   }
 }
+
+.s5-overlay .s5o-ent--long { font-size: 37px; }
