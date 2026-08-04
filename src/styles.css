@@ -5893,3 +5893,12 @@ body {
   filter: brightness(1.12) contrast(1.06);
 }
 .moat4-halo { display: none; }
+
+/* 06 · base contact — facets dissolve into the ice plane */
+.moat4-shard {
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 84%, rgba(0,0,0,0.35) 96%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 84%, rgba(0,0,0,0.35) 96%, transparent 100%);
+}
+.moat4-shard--outcome .moat4-shard__skin {
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.94) 0%, rgba(228, 226, 250, 0.66) 44%, rgba(123, 97, 255, 0.28) 80%, rgba(70, 62, 132, 0.34) 100%);
+}
