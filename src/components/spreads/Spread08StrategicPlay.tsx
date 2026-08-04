@@ -6,6 +6,8 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 
+import section08Field from "@/assets/section08-signal-field.png.asset.json";
+
 import { STATIC_REVIEW_MODE } from "@/reviewMode";
 
 import { Page, PageBody, RunningHead, Folio } from "@/components/print/Page";
