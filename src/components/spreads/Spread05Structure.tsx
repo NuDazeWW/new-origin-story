@@ -131,7 +131,7 @@ export default function Spread05Structure({ isActive = false }: { isActive?: boo
                 </linearGradient>
               </defs>
               <motion.path
-                d="M 280 360 C 500 360, 720 200, 920 220"
+                d="M 250 470 C 470 470, 700 400, 1000 362"
                 fill="none"
                 stroke="url(#safeRoute)"
                 strokeWidth="1.5"
@@ -141,8 +141,8 @@ export default function Spread05Structure({ isActive = false }: { isActive?: boo
                 transition={{ duration: 1.6, delay: 0.6, ease: EASE }}
               />
               <motion.circle
-                cx="920"
-                cy="220"
+                cx="1000"
+                cy="362"
                 r="5"
                 fill="#00FFC2"
                 initial={STATIC_REVIEW_MODE || reduce ? false : { opacity: 0, scale: 0 }}

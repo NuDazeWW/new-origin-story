@@ -34,9 +34,6 @@ export default function Spread09Traction({ isActive = false }: { isActive?: bool
       <PageBody>
         <div className="traction-stage">
           <div className="traction-head">
-            <Settle>
-              <span className="ed-kicker" style={{ color: "var(--dis-steel-blue)" }}>This is not a concept. It is a category being created.</span>
-            </Settle>
             <Settle delay={0.12}>
               <h2 className="traction-hero" style={{ color: "var(--ink-text)" }}>
                 THE FIRST<br />90 DAYS
