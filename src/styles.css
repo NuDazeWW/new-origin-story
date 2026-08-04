@@ -5248,7 +5248,7 @@ body {
 
 .moat3-quote {
   top: 7%;
-  max-width: 30ch;
+  max-width: 34ch;
 }
 
 .moat3-statement {
@@ -5261,8 +5261,8 @@ body {
 }
 
 .moat3-support {
-  margin: 0.85rem 0 0;
-  max-width: 34ch;
+  margin: 0.9rem 0 0;
+  max-width: 40ch;
   font-family: 'Space Grotesk', system-ui, sans-serif;
   font-size: clamp(0.68rem, 0.8vw, 0.86rem);
   line-height: 1.62;
@@ -5274,7 +5274,7 @@ body {
   left: 4.5rem;
   top: 52%;
   z-index: 4;
-  width: 30ch;
+  width: 34ch;
   padding-left: 1.15rem;
   display: flex;
   flex-direction: column;
