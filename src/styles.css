@@ -6487,3 +6487,153 @@ body {
     margin: 0 1.5rem 2rem;
   }
 }
+
+/* ============================================================
+   05 · ENTITY STRUCTURE STAGED INTO THE ARCHITECTURE
+   The building's own floors, bays, structural band and detached
+   platform carry the hierarchy. No diagram geometry remains.
+   ============================================================ */
+
+/* Retire every legacy overlay graphic and floating mark. */
+.s5-stage--plate .s5-route,
+.s5-stage--plate .s5-mark,
+.s5-stage--plate .s5-node,
+.s5-stage--plate .s5-origin,
+.s5-stage--plate .s5-arrow,
+.s5-stage--plate .s5-terminal,
+.s5-stage--plate .s5-terminal--r1 { display: none !important; }
+
+.s5-bay {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 0.14rem;
+  text-shadow: 0 1px 10px rgba(5, 8, 15, 0.92), 0 0 30px rgba(5, 8, 15, 0.7);
+}
+
+.s5-ent {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 1.42rem;
+  font-weight: 400;
+  line-height: 1.06;
+  letter-spacing: -0.012em;
+  white-space: nowrap;
+}
+
+.s5-legal {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.01em;
+  color: color-mix(in oklab, var(--dis-platinum) 88%, transparent);
+}
+
+.s5-role {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+}
+
+/* colour hierarchy */
+.s5-ent--parent { color: #7ED8F0; }
+.s5-role--parent { color: rgba(126, 216, 240, 0.9); }
+.s5-ent--std { color: var(--dis-ice-white); }
+.s5-role--std { color: rgba(110, 196, 240, 0.85); }
+.s5-ent--dis { color: #8E7BFF; }
+.s5-role--dis { color: rgba(142, 123, 255, 0.9); }
+.s5-role--firewall {
+  font-size: 0.62rem;
+  letter-spacing: 0.3em;
+  color: rgba(196, 216, 232, 0.72);
+}
+.s5-ent--agency { color: var(--dis-ice-white); font-size: 1.24rem; }
+.s5-role--agency { color: #B79CF5; }
+
+/* --- placement: registered to the plate's floors at 1280x720 --- */
+
+.s5-bay--parent-role { left: 49.4%; top: 25.6%; }
+.s5-bay--parent-a    { left: 49.4%; top: 28.7%; }
+.s5-bay--parent-b    { left: 73.6%; top: 23.2%; }
+
+.s5-bay--std-role { left: 48.6%; top: 43.4%; }
+.s5-bay--std-a    { left: 48.6%; top: 47.4%; }
+.s5-bay--std-b    { left: 71.4%; top: 41.6%; }
+
+.s5-bay--firewall { left: 48.8%; top: 55.6%; }
+
+.s5-bay--dis-role { left: 48.2%; top: 58.9%; }
+.s5-bay--dis-a    { left: 48.2%; top: 62.2%; }
+.s5-bay--dis-b    { left: 69.8%; top: 56.4%; }
+
+/* one short vertical arrow, pointing up into the centre of the DIS floor */
+.s5-bay--safe { left: 62.5%; top: 68.6%; align-items: center; gap: 0.3rem; }
+
+.s5-safearrow {
+  position: relative;
+  width: 1px;
+  height: 1.5rem;
+  background: linear-gradient(to top, rgba(230, 235, 241, 0.15), rgba(230, 235, 241, 0.9));
+}
+.s5-safearrow::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: -1px;
+  transform: translateX(-50%);
+  border-left: 3.5px solid transparent;
+  border-right: 3.5px solid transparent;
+  border-bottom: 6px solid rgba(230, 235, 241, 0.95);
+}
+
+.s5-safe-note {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--dis-ice-white);
+}
+
+.s5-bay--agency { left: 5.8%; top: 73.4%; }
+
+@media (max-width: 1100px) {
+  .s5-ent { font-size: 1.18rem; }
+  .s5-ent--agency { font-size: 1.06rem; }
+  .s5-role { font-size: 0.55rem; letter-spacing: 0.2em; }
+}
+
+/* mobile: semantic stack — parent, siblings, firewall, SAFE, detached agency */
+@media (max-width: 800px) {
+  .s5-marks {
+    display: flex !important;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+  .s5-bay {
+    position: relative;
+    left: auto !important;
+    top: auto !important;
+    align-items: flex-start !important;
+    text-shadow: none;
+  }
+  .s5-bay--parent-b,
+  .s5-bay--std-b,
+  .s5-bay--dis-b { margin-top: -0.7rem; }
+  .s5-safearrow { display: none; }
+}
+
+/* 05 · optical registration pass — names rest on the leading edge of their own
+   glass floor; role + legal labels read in the dark negative space above. */
+.s5-bay--parent-role { top: 17.5%; }
+.s5-bay--parent-a    { top: 20.6%; }
+.s5-bay--parent-b    { top: 14.9%; }
+
+.s5-bay--std-a       { top: 38.2%; }
+.s5-bay--std-b       { top: 39.6%; }
+
+.s5-bay--firewall    { top: 52.6%; }
+
+.s5-bay--dis-a       { top: 59.9%; }
+.s5-bay--dis-b       { top: 64.2%; }
+
+.s5-bay--safe        { top: 70.4%; }
+.s5-bay--agency      { top: 76.4%; }
