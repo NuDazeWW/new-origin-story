@@ -40,7 +40,7 @@ export default function Spread11WhyUs({ isActive = false }: { isActive?: boolean
           {/* Environmental atmosphere only. Deliberately unlabeled and abstracted. */}
           <div className="why2-atmos" aria-hidden>
             <img
-              src="/06_team_leadership.png"
+              src="/04_executive_decision_team.png"
               alt=""
               className="why2-atmos__img"
               loading="lazy"
