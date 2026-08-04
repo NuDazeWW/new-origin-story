@@ -138,7 +138,31 @@ export default function Spread06Moat({ isActive = false }: { isActive?: boolean 
               ))}
             </div>
           </div>
+
+          {/* Compounding note — glass card grounded in the lower-right field. */}
+          <motion.aside
+            className="moat6-note"
+            initial={still ? false : { opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            animate={STATIC_REVIEW_MODE ? { opacity: 1, y: 0 } : undefined}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.9, delay: 0.8, ease: EASE }}
+          >
+            <span className="moat6-note__glyph" aria-hidden>
+              <svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="7.4" {...S} />
+                <circle cx="12" cy="12" r="3.4" {...S} />
+                <circle cx="12" cy="12" r="1.1" fill="currentColor" stroke="none" />
+                <path d="M12 2.4v2.2M12 19.4v2.2M2.4 12h2.2M19.4 12h2.2" {...S} />
+              </svg>
+            </span>
+            <p className="moat6-note__text">
+              Independence compounds. No single feature creates the moat. Together, they create a
+              standard that cannot be replicated.
+            </p>
+          </motion.aside>
         </div>
+
       </PageBody>
 
       <Folio volume="Vol. I · Decision Intelligence Systems" page="06" />
