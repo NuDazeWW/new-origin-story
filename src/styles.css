@@ -5840,3 +5840,12 @@ body {
   .s5-tier__meta { width: 9rem; }
   .s5-tier__title { font-size: 0.82rem; }
 }
+
+/* mobile reading order: statement → argument → object → index */
+@media (max-width: 800px) {
+  .moat4-col { display: contents; }
+  .moat4-col > * { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .moat4-col > :first-child { order: 0; padding-top: 1.5rem; }
+  .moat4-statement, .moat4-rule, .moat4-support { order: 1; }
+  .moat4-index { order: 3; margin: 1.5rem 1.5rem 2rem; padding-left: 1.1rem; }
+}
