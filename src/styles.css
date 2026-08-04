@@ -6382,3 +6382,20 @@ body {
   stroke-width: 1.5;
   filter: drop-shadow(0 0 4px rgba(5, 8, 15, 1)) drop-shadow(0 1px 2px rgba(5, 8, 15, 1));
 }
+
+/* 05 · mobile: linear semantic order (late override beats desktop widths) */
+@media (max-width: 800px) {
+  .s5-stage--plate .s5-col {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: auto;
+    padding: 1.4rem 1.4rem 0;
+    gap: 1rem;
+  }
+  .s5-stage--plate .s5-head { max-width: none; font-size: 1.2rem; }
+  .s5-stage--plate .s5-claim__text { max-width: none; }
+  .s5-stage--plate .s5-mark--parent,
+  .s5-stage--plate .s5-mark--standard,
+  .s5-stage--plate .s5-mark--platform { width: auto; }
+}
