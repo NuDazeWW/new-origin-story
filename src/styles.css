@@ -6196,3 +6196,165 @@ body {
 /* 06 · blend the whole object group (the inner z-index isolated the img). */
 .moat6-object { mix-blend-mode: multiply; }
 .moat6-object__img { mix-blend-mode: normal; }
+
+/* ============================================================
+   05 · ENTITY-STRUCTURE PLACEMENT (semantic overlay)
+   Marks are anchored to physical architecture: top deck (parent),
+   central institutional deck (PRSC | DIS siblings), central column
+   (independence firewall), detached violet platform (NuDaze).
+   ============================================================ */
+
+.s5-stage--plate .s5-mark {
+  width: 13rem;
+  gap: 0.1rem;
+  padding: 0;
+  text-shadow: 0 1px 8px rgba(5, 8, 15, 0.95), 0 0 22px rgba(5, 8, 15, 0.75);
+}
+
+/* hairline registration tick rises from the text to its structural anchor */
+.s5-stage--plate .s5-mark__rule {
+  width: 1px;
+  height: 0.85rem;
+  margin: 0 0 0.28rem 1px;
+  background: linear-gradient(to bottom, rgba(196, 216, 232, 0.12), rgba(148, 205, 245, 0.8));
+}
+
+.s5-stage--plate .s5-mark__label {
+  font-size: 0.55rem;
+  letter-spacing: 0.24em;
+  color: #7ECBFF;
+}
+
+.s5-stage--plate .s5-mark__title {
+  font-size: 1.02rem;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  color: var(--dis-ice-white);
+}
+
+.s5-stage--plate .s5-mark__note {
+  margin-top: 0.16rem;
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  color: #4FEFD0;
+}
+
+/* parent — uppermost illuminated deck, above both siblings */
+.s5-stage--plate .s5-mark--parent { left: 56.5%; top: 22.2%; width: 15rem; }
+
+/* siblings — one shared institutional baseline, separated by the column */
+.s5-stage--plate .s5-mark--standard { left: 49.6%; top: 45.4%; width: 11rem; }
+.s5-stage--plate .s5-mark--platform { left: 77%;   top: 45.4%; width: 13rem; }
+
+/* firewall — attached to the central column with a horizontal registration rule */
+.s5-stage--plate .s5-mark--firewall {
+  left: auto;
+  right: 32%;
+  top: 59.6%;
+  width: auto;
+  align-items: flex-end;
+  text-align: right;
+}
+.s5-stage--plate .s5-mark--firewall .s5-mark__rule {
+  width: 2.4rem;
+  height: 1px;
+  margin: 0 0 0.3rem 0;
+  background: linear-gradient(to left, rgba(224, 244, 252, 0.9), rgba(224, 244, 252, 0.1));
+}
+.s5-stage--plate .s5-mark--firewall .s5-mark__label {
+  font-size: 0.58rem;
+  color: #DCEFF9;
+}
+
+/* agency — detached far-field platform, violet cue, off the governance spine */
+.s5-stage--plate .s5-mark--agency { left: 6%; top: 76.6%; width: 13rem; }
+.s5-stage--plate .s5-mark--agency .s5-mark__rule {
+  background: linear-gradient(to bottom, rgba(180, 168, 240, 0.1), rgba(180, 168, 240, 0.75));
+}
+.s5-stage--plate .s5-mark--agency .s5-mark__label { color: #B7A9F2; }
+
+/* connector endpoints */
+.s5-node,
+.s5-origin,
+.s5-arrow,
+.s5-stage--plate .s5-terminal--r1 { position: absolute; }
+
+.s5-node {
+  width: 5px;
+  height: 5px;
+  margin: -2.5px 0 0 -2.5px;
+  border-radius: 50%;
+  background: rgba(214, 232, 244, 0.9);
+}
+.s5-node--standard { left: 50.8%; top: 44.4%; }
+.s5-node--branch   { left: 68.5%; top: 38%; }
+
+.s5-origin {
+  left: 42.4%;
+  top: 71.5%;
+  width: 5px;
+  height: 5px;
+  margin: -2.5px 0 0 -2.5px;
+  border-radius: 50%;
+  background: #1EA7FF;
+  box-shadow: 0 0 8px rgba(30, 167, 255, 0.8);
+}
+
+.s5-stage--plate .s5-terminal--r1 {
+  left: 78.2%;
+  top: 44.4%;
+  width: 9px;
+  height: 9px;
+  margin: -4.5px 0 0 -4.5px;
+  border-radius: 50%;
+  background: #00FFC2;
+  box-shadow: 0 0 12px rgba(0, 255, 194, 0.85), 0 0 26px rgba(0, 255, 194, 0.35);
+}
+
+/* single permitted directional signal, pointing into the DIS terminal */
+.s5-arrow {
+  left: 78.2%;
+  top: 47.4%;
+  width: 0;
+  height: 0;
+  margin: -6px 0 0 -4px;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 7px solid #00FFC2;
+  transform: rotate(14deg);
+}
+
+.s5-stage--plate .s5-route { filter: drop-shadow(0 0 5px rgba(5, 8, 15, 0.9)); }
+
+@media (max-width: 1100px) {
+  .s5-stage--plate .s5-mark { width: 11rem; }
+  .s5-stage--plate .s5-mark__title { font-size: 0.9rem; }
+  .s5-stage--plate .s5-mark--parent { left: 55%; width: 13rem; }
+  .s5-stage--plate .s5-mark--standard { left: 48.5%; width: 9.5rem; }
+  .s5-stage--plate .s5-mark--platform { left: 76.5%; width: 11rem; }
+}
+
+/* mobile: compact semantic structure, no absolute coordinates */
+@media (max-width: 800px) {
+  .s5-marks { display: grid !important; grid-template-columns: 1fr 1fr; gap: 0.9rem 1.1rem; }
+  .s5-stage--plate .s5-mark {
+    position: relative;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    width: auto;
+    text-shadow: none;
+  }
+  .s5-stage--plate .s5-mark--parent   { grid-column: 1 / -1; }
+  .s5-stage--plate .s5-mark--standard { grid-column: 1; }
+  .s5-stage--plate .s5-mark--platform { grid-column: 2; }
+  .s5-stage--plate .s5-mark--firewall {
+    grid-column: 1 / -1;
+    align-items: flex-start;
+    text-align: left;
+    order: 3;
+  }
+  .s5-stage--plate .s5-mark--firewall .s5-mark__rule { width: 100%; }
+  .s5-stage--plate .s5-mark--agency { grid-column: 1 / -1; margin-top: 0.6rem; }
+  .s5-node, .s5-origin, .s5-arrow, .s5-stage--plate .s5-terminal--r1 { display: none; }
+}
