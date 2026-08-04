@@ -34,8 +34,8 @@ export default function Spread08StrategicPlay({ isActive = false }: { isActive?:
         <div className="play-stage">
           <div className="play-field">
             <img
-              src="/05_data_at_speed.png"
-              alt="Data at speed atmosphere"
+              src="/04_partnership_hospitality.png"
+              alt="Daylight motorsport signal field"
               className="play-field__img"
               loading="lazy"
             />
