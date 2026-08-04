@@ -91,10 +91,10 @@ export default function Spread05Structure({ isActive = false }: { isActive?: boo
               {/* localized contrast correction — no cards, only air darkening */}
               <ellipse cx="1070" cy="285" rx="230" ry="80" fill="url(#s5shade)" />
               <ellipse cx="1560" cy="262" rx="230" ry="78" fill="url(#s5shade)" />
-              <ellipse cx="1080" cy="540" rx="230" ry="86" fill="url(#s5shade)" />
-              <ellipse cx="1570" cy="515" rx="220" ry="76" fill="url(#s5shade)" />
-              <ellipse cx="1500" cy="630" rx="215" ry="52" fill="url(#s5shade)" />
-              <ellipse cx="1060" cy="668" rx="215" ry="66" fill="url(#s5shade)" />
+              <ellipse cx="1080" cy="505" rx="235" ry="84" fill="url(#s5shade)" />
+              <ellipse cx="1570" cy="482" rx="225" ry="74" fill="url(#s5shade)" />
+              <ellipse cx="1500" cy="634" rx="215" ry="50" fill="url(#s5shade)" />
+              <ellipse cx="1060" cy="642" rx="215" ry="66" fill="url(#s5shade)" />
               <ellipse cx="1250" cy="912" rx="260" ry="60" fill="url(#s5shade)" />
 
               {/* ---------- PARENT · uppermost glass floor ---------- */}
@@ -107,35 +107,36 @@ export default function Spread05Structure({ isActive = false }: { isActive?: boo
               </g>
 
               {/* ---------- THE STANDARD · second illuminated floor ---------- */}
-              <g transform="rotate(-5 960 560)">
-                <text className="s5o-role s5o-role--std" x="960" y="500">THE STANDARD</text>
-                <text className="s5o-legal" x="960" y="528" filter="url(#s5soft)">PRSC LLC</text>
-                <text className="s5o-ent s5o-ent--std" x="960" y="572" filter="url(#s5soft)">Partnership Readiness</text>
+              <g transform="rotate(-5 960 528)">
+                <text className="s5o-role s5o-role--std" x="960" y="462">THE STANDARD</text>
+                <text className="s5o-legal" x="960" y="490" filter="url(#s5soft)">PRSC LLC</text>
+                <text className="s5o-ent s5o-ent--std" x="960" y="534" filter="url(#s5soft)">Partnership Readiness</text>
               </g>
-              <g transform="rotate(4 1395 534)">
-                <text className="s5o-ent s5o-ent--std" x="1395" y="534" filter="url(#s5soft)">Standards Council</text>
+              <g transform="rotate(4 1380 498)">
+                <text className="s5o-ent s5o-ent--std" x="1380" y="498" filter="url(#s5soft)">Standards Council</text>
               </g>
 
               {/* ---------- INDEPENDENCE FIREWALL · dark structural band ---------- */}
-              <g transform="rotate(4 1480 634)">
-                <text className="s5o-firewall" x="1480" y="634" filter="url(#s5soft)">INDEPENDENCE FIREWALL</text>
+              <g transform="rotate(4 1480 636)">
+                <text className="s5o-firewall" x="1480" y="636" filter="url(#s5soft)">INDEPENDENCE FIREWALL</text>
               </g>
 
               {/* ---------- THE PLATFORM · illuminated deck beneath the firewall ---------- */}
-              <g transform="rotate(-5 950 700)">
-                <text className="s5o-role s5o-role--dis" x="950" y="622">THE PLATFORM</text>
-                <text className="s5o-legal" x="950" y="650" filter="url(#s5soft)">DIS Inc.</text>
-                <text className="s5o-ent s5o-ent--dis" x="950" y="700" filter="url(#s5violet)">Decision</text>
+              <g transform="rotate(-5 950 674)">
+                <text className="s5o-role s5o-role--dis" x="950" y="592">THE PLATFORM</text>
+                <text className="s5o-legal" x="950" y="620" filter="url(#s5soft)">DIS Inc.</text>
+                <text className="s5o-ent s5o-ent--dis" x="950" y="670" filter="url(#s5violet)">Decision</text>
               </g>
-              <g transform="rotate(4 1395 676)">
-                <text className="s5o-ent s5o-ent--dis" x="1395" y="676" filter="url(#s5violet)">Intelligence Systems</text>
+              <g transform="rotate(4 1380 644)">
+                <text className="s5o-ent s5o-ent--dis" x="1380" y="644" filter="url(#s5violet)">Intelligence Systems</text>
               </g>
 
               {/* ---------- Two downward platform indicators ---------- */}
               <g className="s5o-arrow s5o-arrow--down" filter="url(#s5soft)">
-                <path d="M1215 616 L1215 688 M1204 674 L1215 690 L1226 674" />
-                <path d="M1690 592 L1690 664 M1679 650 L1690 666 L1701 650" />
+                <path d="M1230 600 L1230 682 M1219 668 L1230 684 L1241 668" />
+                <path d="M1600 566 L1600 648 M1589 634 L1600 650 L1611 634" />
               </g>
+
 
               {/* ---------- SAFE conversion · upward, terminating at DIS only ---------- */}
               <g className="s5o-arrow s5o-arrow--up" filter="url(#s5soft)">
