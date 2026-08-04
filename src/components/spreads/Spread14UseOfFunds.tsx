@@ -19,12 +19,12 @@ import { EASE } from "@/components/print/Layers";
 
 const ALLOCATIONS = [
   { label: "Staffing & Operations", amount: 1050000, pct: 42, color: "#1EA7FF" },
-  { label: "Platform Engineering", amount: 450000, pct: 18, color: "#22D3EE" },
-  { label: "Intelligence & Data", amount: 350000, pct: 14, color: "#7B61FF" },
-  { label: "Beta Program & GTM", amount: 250000, pct: 10, color: "#6B7582" },
-  { label: "Legal & IP", amount: 150000, pct: 6, color: "#A6AFB8" },
-  { label: "Ecosystem Partnerships", amount: 100000, pct: 4, color: "#1B2A3D" },
-  { label: "Strategic Contingency", amount: 150000, pct: 6, color: "#2B3644" },
+  { label: "Platform Engineering", amount: 450000, pct: 18, color: "#0B5B7A" },
+  { label: "Intelligence & Data", amount: 350000, pct: 14, color: "#1B2A3D" },
+  { label: "Beta Program & GTM", amount: 250000, pct: 10, color: "#14243A" },
+  { label: "Legal & IP", amount: 150000, pct: 6, color: "#111A29" },
+  { label: "Ecosystem Partnerships", amount: 100000, pct: 4, color: "#0E1624" },
+  { label: "Strategic Contingency", amount: 150000, pct: 6, color: "#05080F" },
 ];
 
 const TOTAL = 2500000;
@@ -89,7 +89,7 @@ export default function Spread14UseOfFunds({ isActive = false }: { isActive?: bo
               <h2 className="fund3-total">$2,500,000</h2>
             </Settle>
             <Settle delay={0.12}>
-              <p className="fund3-head">Capital deployed with discipline — one instrument, seven measured lengths.</p>
+              <p className="fund3-head">Capital deployed with discipline.</p>
             </Settle>
           </div>
 
