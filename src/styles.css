@@ -5902,3 +5902,6 @@ body {
 .moat4-shard--outcome .moat4-shard__skin {
   background: linear-gradient(150deg, rgba(255, 255, 255, 0.94) 0%, rgba(228, 226, 250, 0.66) 44%, rgba(123, 97, 255, 0.28) 80%, rgba(70, 62, 132, 0.34) 100%);
 }
+
+/* 05 · DIS annotation clears the platform glass edge */
+.s5-tier--platform .s5-tier__meta { transform: translateY(-14px); }
