@@ -5849,3 +5849,39 @@ body {
   .moat4-statement, .moat4-rule, .moat4-support { order: 1; }
   .moat4-index { order: 3; margin: 1.5rem 1.5rem 2rem; padding-left: 1.1rem; }
 }
+
+/* 06 · crystalline refinement — no container edge, brighter facets */
+.moat4-object__sheen { display: none; }
+.moat4-halo { border-color: rgba(5, 8, 15, 0.05); background: none; }
+
+.moat4-shard { background-color: #DCE6F0; }
+
+.moat4-shard__skin {
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.96) 0%, rgba(226, 236, 246, 0.62) 42%, rgba(120, 150, 186, 0.52) 78%, rgba(46, 72, 110, 0.5) 100%);
+}
+
+.moat4-shard__spec {
+  background: linear-gradient(162deg, transparent 30%, rgba(255, 255, 255, 0.96) 46%, transparent 58%);
+  opacity: 0.7;
+}
+
+.moat4-shard__edge {
+  box-shadow: inset 1.5px 0 0 rgba(255, 255, 255, 0.9), inset -1px 0 0 rgba(5, 8, 15, 0.12);
+}
+
+/* chromatic differentiation inside one mass */
+.moat4-shard--governance .moat4-shard__skin {
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.94) 0%, rgba(212, 236, 252, 0.66) 40%, rgba(30, 167, 255, 0.42) 76%, rgba(20, 60, 104, 0.52) 100%);
+}
+.moat4-shard--outcome .moat4-shard__skin {
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.92) 0%, rgba(226, 224, 250, 0.6) 42%, rgba(123, 97, 255, 0.34) 78%, rgba(46, 40, 100, 0.44) 100%);
+}
+.moat4-shard--benchmark .moat4-shard__skin {
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.94) 0%, rgba(224, 234, 244, 0.6) 44%, rgba(90, 130, 170, 0.44) 100%);
+}
+.moat4-shard--b .moat4-shard__skin {
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.9) 0%, rgba(198, 232, 252, 0.5) 50%, rgba(30, 167, 255, 0.28) 100%);
+}
+.moat4-shard--c .moat4-shard__skin {
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.88) 0%, rgba(232, 228, 252, 0.46) 54%, rgba(123, 97, 255, 0.24) 100%);
+}
