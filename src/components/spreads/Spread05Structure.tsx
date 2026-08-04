@@ -17,18 +17,20 @@ import { Settle } from "@/components/print/Editorial";
 import { EASE } from "@/components/print/Layers";
 
 /**
- * Entity labels anchored to deliberate physical locations in the plate:
- * parent level (top glass plane), DIS and PRSC on the two governed levels,
- * the firewall on the physical glass threshold, NuDaze on the detached
- * far-field platform. Coordinates are page-percent over the raster plate.
+ * Entity marks anchored to physical features of the plate: the uppermost
+ * illuminated deck (parent), the central institutional deck (PRSC and DIS as
+ * siblings, left and right of the column), the central column itself (the
+ * independence firewall) and the detached violet far-field platform (NuDaze).
+ * Coordinates are page-percent over the raster plate.
  */
 const MARKS = [
   { id: "parent", label: "Parent", title: "NicoleIsNine Holdings" },
-  { id: "platform", label: "The Platform", title: "DIS Inc.", note: "SAFE converts here" },
   { id: "standard", label: "The Standard", title: "PRSC LLC" },
+  { id: "platform", label: "The Platform", title: "DIS Inc.", note: "SAFE converts here" },
   { id: "firewall", label: "Independence Firewall", title: null },
   { id: "agency", label: "Arm's-length agency", title: "NuDaze Worldwide" },
 ] as const;
+
 
 /** Approved investment-protection statements — verbatim, SLIDE 5. */
 const STATEMENTS = [
