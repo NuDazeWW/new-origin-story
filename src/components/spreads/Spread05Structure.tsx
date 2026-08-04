@@ -56,6 +56,94 @@ export default function Spread05Structure({ isActive = false }: { isActive?: boo
               loading="lazy"
             />
             <div className="s5-plate__grade" />
+
+            {/* ------------------------------------------------------------------
+                ONE registered typography overlay, drawn on the plate's native
+                1920 × 1088 artboard and scaled with mathematically identical
+                cover behaviour (slice = object-fit: cover, xMid/yMid = center).
+                Decorative only — the semantic structure lives below.
+               ------------------------------------------------------------------ */}
+            <svg
+              className="s5-overlay"
+              viewBox="0 0 1920 1088"
+              preserveAspectRatio="xMidYMid slice"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <defs>
+                <radialGradient id="s5shade" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stopColor="#05080F" stopOpacity="0.72" />
+                  <stop offset="100%" stopColor="#05080F" stopOpacity="0" />
+                </radialGradient>
+                <filter id="s5soft" x="-40%" y="-40%" width="180%" height="180%">
+                  <feDropShadow dx="0" dy="2" stdDeviation="3" floodColor="#05080F" floodOpacity="0.95" />
+                </filter>
+                <filter id="s5cyan" x="-60%" y="-60%" width="220%" height="220%">
+                  <feDropShadow dx="0" dy="0" stdDeviation="10" floodColor="#5CC9F5" floodOpacity="0.35" />
+                  <feDropShadow dx="0" dy="2" stdDeviation="3" floodColor="#05080F" floodOpacity="0.9" />
+                </filter>
+                <filter id="s5violet" x="-60%" y="-60%" width="220%" height="220%">
+                  <feDropShadow dx="0" dy="0" stdDeviation="11" floodColor="#8E7BFF" floodOpacity="0.4" />
+                  <feDropShadow dx="0" dy="2" stdDeviation="3" floodColor="#05080F" floodOpacity="0.9" />
+                </filter>
+              </defs>
+
+              {/* localized contrast correction — no cards, only air darkening */}
+              <ellipse cx="1070" cy="285" rx="230" ry="80" fill="url(#s5shade)" />
+              <ellipse cx="1560" cy="262" rx="230" ry="78" fill="url(#s5shade)" />
+              <ellipse cx="1080" cy="540" rx="230" ry="86" fill="url(#s5shade)" />
+              <ellipse cx="1570" cy="515" rx="220" ry="76" fill="url(#s5shade)" />
+              <ellipse cx="1500" cy="630" rx="215" ry="52" fill="url(#s5shade)" />
+              <ellipse cx="1060" cy="668" rx="215" ry="66" fill="url(#s5shade)" />
+              <ellipse cx="1250" cy="912" rx="260" ry="60" fill="url(#s5shade)" />
+
+              {/* ---------- PARENT · uppermost glass floor ---------- */}
+              <g transform="rotate(-5 950 300)">
+                <text className="s5o-role s5o-role--parent" x="950" y="258">PARENT</text>
+                <text className="s5o-ent s5o-ent--parent" x="950" y="304" filter="url(#s5cyan)">NicoleIsNine</text>
+              </g>
+              <g transform="rotate(4 1395 268)">
+                <text className="s5o-ent s5o-ent--parent" x="1395" y="268" filter="url(#s5cyan)">Holdings</text>
+              </g>
+
+              {/* ---------- THE STANDARD · second illuminated floor ---------- */}
+              <g transform="rotate(-5 960 560)">
+                <text className="s5o-role s5o-role--std" x="960" y="500">THE STANDARD</text>
+                <text className="s5o-legal" x="960" y="528" filter="url(#s5soft)">PRSC LLC</text>
+                <text className="s5o-ent s5o-ent--std" x="960" y="572" filter="url(#s5soft)">Partnership Readiness</text>
+              </g>
+              <g transform="rotate(4 1395 534)">
+                <text className="s5o-ent s5o-ent--std" x="1395" y="534" filter="url(#s5soft)">Standards Council</text>
+              </g>
+
+              {/* ---------- INDEPENDENCE FIREWALL · dark structural band ---------- */}
+              <g transform="rotate(4 1480 634)">
+                <text className="s5o-firewall" x="1480" y="634" filter="url(#s5soft)">INDEPENDENCE FIREWALL</text>
+              </g>
+
+              {/* ---------- THE PLATFORM · illuminated deck beneath the firewall ---------- */}
+              <g transform="rotate(-5 950 700)">
+                <text className="s5o-role s5o-role--dis" x="950" y="622">THE PLATFORM</text>
+                <text className="s5o-legal" x="950" y="650" filter="url(#s5soft)">DIS Inc.</text>
+                <text className="s5o-ent s5o-ent--dis" x="950" y="700" filter="url(#s5violet)">Decision</text>
+              </g>
+              <g transform="rotate(4 1395 676)">
+                <text className="s5o-ent s5o-ent--dis" x="1395" y="676" filter="url(#s5violet)">Intelligence Systems</text>
+              </g>
+
+              {/* ---------- Two downward platform indicators ---------- */}
+              <g className="s5o-arrow s5o-arrow--down" filter="url(#s5soft)">
+                <path d="M1215 616 L1215 688 M1204 674 L1215 690 L1226 674" />
+                <path d="M1690 592 L1690 664 M1679 650 L1690 666 L1701 650" />
+              </g>
+
+              {/* ---------- SAFE conversion · upward, terminating at DIS only ---------- */}
+              <g className="s5o-arrow s5o-arrow--up" filter="url(#s5soft)">
+                <path d="M1060 872 L1060 792 M1049 806 L1060 790 L1071 806" />
+                <path d="M1520 872 L1520 792 M1509 806 L1520 790 L1531 806" />
+              </g>
+              <text className="s5o-safe" x="1250" y="918" filter="url(#s5soft)">SAFE CONVERTS AT DIS</text>
+            </svg>
           </div>
 
           {/* ---------- LEFT · investor rule + protection statements ---------- */}
@@ -87,71 +175,25 @@ export default function Spread05Structure({ isActive = false }: { isActive?: boo
             </div>
           </div>
 
-          {/* ---------- Entity typography staged into the architecture ---------- */}
-          <div className="s5-marks" role="group" aria-label="Entity structure">
-            {/* PARENT — uppermost glass deck, staged across its two bays */}
-            <Settle delay={0.18} className="s5-bay s5-bay--parent-role">
-              <span className="s5-role s5-role--parent">Parent</span>
-            </Settle>
-            <Settle delay={0.22} className="s5-bay s5-bay--parent-a">
-              <span className="s5-ent s5-ent--parent">NicoleIsNine</span>
-            </Settle>
-            <Settle delay={0.26} className="s5-bay s5-bay--parent-b">
-              <span className="s5-ent s5-ent--parent">Holdings</span>
-            </Settle>
-
-            {/* PRSC — illuminated deck directly below the parent level */}
-            <Settle delay={0.38} className="s5-bay s5-bay--std-a">
-              <span className="s5-role s5-role--std">The Standard</span>
-              <span className="s5-legal">PRSC LLC</span>
-              <span className="s5-ent s5-ent--std">Partnership Readiness</span>
-            </Settle>
-            <Settle delay={0.42} className="s5-bay s5-bay--std-b">
-              <span className="s5-ent s5-ent--std">Standards Council</span>
-            </Settle>
-
-            {/* FIREWALL — the existing dark structural band is the firewall */}
-            <Settle delay={0.5} className="s5-bay s5-bay--firewall">
-              <span className="s5-role s5-role--firewall">Independence Firewall</span>
-            </Settle>
-
-            {/* DIS — illuminated deck beneath the firewall */}
-            <Settle delay={0.62} className="s5-bay s5-bay--dis-a">
-              <span className="s5-role s5-role--dis">The Platform</span>
-              <span className="s5-legal">DIS Inc.</span>
-              <span className="s5-ent s5-ent--dis">Decision</span>
-            </Settle>
-            <Settle delay={0.66} className="s5-bay s5-bay--dis-b">
-              <span className="s5-ent s5-ent--dis">Intelligence Systems</span>
-            </Settle>
-
-            {/* Two short downward indicators in the dark band above the DIS platform */}
-            <Settle delay={0.7} className="s5-bay s5-bay--drop-a">
-              <span className="s5-downarrow" aria-hidden />
-            </Settle>
-            <Settle delay={0.74} className="s5-bay s5-bay--drop-b">
-              <span className="s5-downarrow" aria-hidden />
-            </Settle>
-
-            {/* SAFE — vertical arrows rising beneath the DIS platform only */}
-            <Settle delay={0.82} className="s5-bay s5-bay--safe">
-              <span className="s5-safe-arrows" aria-hidden>
-                <span className="s5-uparrow" />
-                <span className="s5-uparrow" />
-              </span>
-              <span className="s5-safe-note">SAFE converts at DIS</span>
-            </Settle>
-
-            {/* NUDAZE — detached far-field platform, operationally separated */}
+          {/* ---------- NuDaze · approved detached platform (unchanged) ---------- */}
+          <div className="s5-marks">
             <Settle delay={0.86} className="s5-bay s5-bay--agency">
               <span className="s5-ent s5-ent--agency">NuDaze Worldwide</span>
               <span className="s5-role s5-role--agency">Arm&rsquo;s-length agency</span>
             </Settle>
           </div>
 
-
+          {/* ---------- Screen-reader structure (no second visible copy) ---------- */}
+          <ul className="sr-only">
+            <li>NicoleIsNine Holdings — Parent</li>
+            <li>PRSC LLC — The Standard (Partnership Readiness Standards Council)</li>
+            <li>Independence Firewall — structurally enforced separation</li>
+            <li>DIS Inc. — The Platform (Decision Intelligence Systems); the SAFE converts at DIS</li>
+            <li>NuDaze Worldwide — Arm&rsquo;s-length agency</li>
+          </ul>
         </div>
       </PageBody>
+
 
       <Folio volume="Vol. I · Decision Intelligence Systems" page="05" />
     </Page>
