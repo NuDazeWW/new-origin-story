@@ -5559,7 +5559,7 @@ body {
 .s5-tier--agency .s5-tier__label { color: #B4A8F0; }
 
 /* legacy pass-04 annotations retired */
-.s5-anno, .s5-safe, .s5-firewall, .s5-route { display: none !important; }
+.s5-anno, .s5-safe, .s5-firewall { display: none !important; }
 
 /* --- 06 · dominant crystalline object -------------------- */
 
