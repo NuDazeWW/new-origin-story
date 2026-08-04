@@ -36,8 +36,8 @@ export default function Spread08StrategicPlay({ isActive = false }: { isActive?:
         <div className="play-stage">
           <div className="play-field">
             <img
-              src="/11_daylight_motorsport_signal_field.png"
-              alt="Daylight motorsport signal field"
+              src={section08Field.url}
+              alt="Night pit lane with luminous signal lines across the paddock"
               className="play-field__img"
               loading="lazy"
             />
