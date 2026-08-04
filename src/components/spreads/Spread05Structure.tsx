@@ -125,9 +125,20 @@ export default function Spread05Structure({ isActive = false }: { isActive?: boo
               <span className="s5-ent s5-ent--dis">Intelligence Systems</span>
             </Settle>
 
-            {/* SAFE — one short upward arrow terminating at the DIS floor only */}
-            <Settle delay={0.78} className="s5-bay s5-bay--safe">
-              <span className="s5-safearrow" aria-hidden />
+            {/* Two short downward indicators in the dark band above the DIS platform */}
+            <Settle delay={0.7} className="s5-bay s5-bay--drop-a">
+              <span className="s5-downarrow" aria-hidden />
+            </Settle>
+            <Settle delay={0.74} className="s5-bay s5-bay--drop-b">
+              <span className="s5-downarrow" aria-hidden />
+            </Settle>
+
+            {/* SAFE — vertical arrows rising beneath the DIS platform only */}
+            <Settle delay={0.82} className="s5-bay s5-bay--safe">
+              <span className="s5-safe-arrows" aria-hidden>
+                <span className="s5-uparrow" />
+                <span className="s5-uparrow" />
+              </span>
               <span className="s5-safe-note">SAFE converts at DIS</span>
             </Settle>
 
