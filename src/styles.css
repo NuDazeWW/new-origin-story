@@ -6731,3 +6731,96 @@ body {
 
 /* 05 · arrows read cleanly against the glass without becoming graphic */
 .s5-downarrow, .s5-uparrow { width: 1.5px; filter: drop-shadow(0 0 6px rgba(5,8,15,0.95)); }
+
+/* ============================================================
+   SECTION 05 — FINAL REGISTERED OVERLAY
+   One full-canvas SVG on the plate's native 1920×1088 artboard.
+   Cover behaviour is identical to the image (slice + xMid/yMid),
+   so overlay and photograph scale and crop as one unit.
+   ============================================================ */
+
+.s5-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.s5-overlay text {
+  font-family: var(--font-sans, "Inter", system-ui, sans-serif);
+  fill: var(--dis-ice-white, #E6EBF1);
+}
+
+.s5-overlay .s5o-ent {
+  font-size: 42px;
+  font-weight: 400;
+  letter-spacing: 0.005em;
+  font-family: var(--font-serif, "Instrument Serif", Georgia, serif);
+}
+
+.s5-overlay .s5o-ent--parent { fill: #8FE0F5; }
+.s5-overlay .s5o-ent--std { fill: #EAF2F8; }
+.s5-overlay .s5o-ent--dis { fill: #9C8BFF; }
+
+.s5-overlay .s5o-legal {
+  font-size: 21px;
+  letter-spacing: 0.14em;
+  fill: rgba(230, 235, 241, 0.9);
+}
+
+.s5-overlay .s5o-role {
+  font-size: 15px;
+  letter-spacing: 0.34em;
+  font-weight: 500;
+}
+.s5-overlay .s5o-role--parent { fill: rgba(126, 216, 240, 0.92); }
+.s5-overlay .s5o-role--std { fill: rgba(110, 196, 240, 0.9); }
+.s5-overlay .s5o-role--dis { fill: rgba(156, 139, 255, 0.95); }
+
+.s5-overlay .s5o-firewall {
+  font-size: 17px;
+  letter-spacing: 0.4em;
+  fill: #DCEFF9;
+  text-anchor: middle;
+}
+
+.s5-overlay .s5o-safe {
+  font-size: 19px;
+  letter-spacing: 0.3em;
+  fill: rgba(230, 235, 241, 0.94);
+  text-anchor: middle;
+}
+
+.s5-overlay .s5o-arrow path {
+  fill: none;
+  stroke: rgba(230, 240, 248, 0.9);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.s5-overlay .s5o-arrow--up path { stroke: rgba(214, 232, 246, 0.85); }
+
+/* Mobile: the embedded typography is too small to read inside the plate.
+   Hide the registered overlay and let the semantic list surface instead. */
+@media (max-width: 900px) {
+  .s5-overlay { display: none; }
+  .s5-stage--plate .sr-only {
+    position: static;
+    width: auto;
+    height: auto;
+    clip: auto;
+    clip-path: none;
+    overflow: visible;
+    white-space: normal;
+    margin: 1.25rem 0 0;
+    padding: 0 1.5rem 1.5rem;
+    list-style: none;
+    display: grid;
+    gap: 0.5rem;
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+    color: rgba(230, 235, 241, 0.86);
+  }
+}
