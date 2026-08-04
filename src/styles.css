@@ -5885,3 +5885,11 @@ body {
 .moat4-shard--c .moat4-shard__skin {
   background: linear-gradient(150deg, rgba(255, 255, 255, 0.88) 0%, rgba(232, 228, 252, 0.46) 54%, rgba(123, 97, 255, 0.24) 100%);
 }
+
+/* 06 · facet luminance — white crystal, not grey metal */
+.moat4-shard {
+  background-blend-mode: screen;
+  background-color: #93A6BC;
+  filter: brightness(1.12) contrast(1.06);
+}
+.moat4-halo { display: none; }
