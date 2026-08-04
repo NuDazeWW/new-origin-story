@@ -5559,7 +5559,7 @@ body {
 .s5-tier--agency .s5-tier__label { color: #B4A8F0; }
 
 /* legacy pass-04 annotations retired */
-.s5-anno, .s5-safe, .s5-firewall, .s5-route { display: none !important; }
+.s5-anno, .s5-safe, .s5-firewall { display: none !important; }
 
 /* --- 06 · dominant crystalline object -------------------- */
 
@@ -5905,3 +5905,294 @@ body {
 
 /* 05 · DIS annotation clears the platform glass edge */
 .s5-tier--platform .s5-tier__meta { transform: translate(0.35rem, calc(-50% - 15px)); }
+
+/* ============================================================
+   ASSET-FIRST REBUILD — Sections 05 and 06 only
+   The production plates carry depth, material and refraction.
+   CSS positions live typography over them. No constructed hero art.
+   ============================================================ */
+
+/* --- 05 · full-bleed governance plate ---------------------- */
+
+.s5-stage--plate {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.s5-stage--plate .s5-plate {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.s5-stage--plate .s5-plate__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  filter: saturate(0.94) contrast(1.05) brightness(1.04);
+}
+
+/* Left reading field kept quiet; the architecture stays legible. */
+.s5-stage--plate .s5-plate__grade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(96deg, rgba(5, 8, 15, 0.9) 0%, rgba(5, 8, 15, 0.78) 26%, rgba(5, 8, 15, 0.22) 42%, rgba(5, 8, 15, 0) 56%);
+}
+
+.s5-stage--plate .s5-plate__join,
+.s5-stage--plate .s5-firewall,
+.s5-stage--plate .s5-tier,
+.s5-stage--plate .s5-wire { display: none; }
+
+.s5-stage--plate .s5-col {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 42%;
+  z-index: 4;
+  padding: 4.4% 2.2rem 0 4.5rem;
+  gap: 1.5rem;
+}
+
+.s5-stage--plate .s5-head {
+  font-size: clamp(1.18rem, 1.72vw, 1.72rem);
+  max-width: 23ch;
+}
+
+.s5-stage--plate .s5-claim { padding: 0.72rem 0; }
+.s5-stage--plate .s5-claim__text { font-size: 0.94rem; line-height: 1.45; }
+
+/* --- 05 · anchored labels + SAFE route --------------------- */
+
+.s5-marks {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.s5-route {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.s5-terminal--r1 {
+  left: 43.2%;
+  top: 50.4%;
+  width: 10px;
+  height: 10px;
+}
+
+.s5-mark {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 0.16rem;
+  width: 12rem;
+  text-shadow: 0 1px 10px rgba(5, 8, 15, 0.85);
+}
+
+.s5-mark__rule {
+  width: 1.6rem;
+  height: 1px;
+  margin-bottom: 0.3rem;
+  background: rgba(107, 199, 255, 0.75);
+}
+
+.s5-mark__label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #6BC7FF;
+}
+
+.s5-mark__title {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 0.94rem;
+  line-height: 1.2;
+  color: var(--dis-ice-white);
+}
+
+.s5-mark__note {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.56rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #00FFC2;
+}
+
+.s5-mark--parent   { left: 44.5%; top: 15.5%; }
+.s5-mark--platform { left: 46%;   top: 40%; }
+.s5-mark--standard { left: 46%;   top: 56.5%; }
+.s5-mark--firewall { left: 40%;   top: 76.5%; width: 13rem; }
+.s5-mark--agency   { left: 5.5%;  top: 70.5%; }
+
+.s5-mark--firewall .s5-mark__rule,
+.s5-mark--firewall .s5-mark__label { color: #DCEFF9; }
+.s5-mark--firewall .s5-mark__rule { background: rgba(220, 239, 249, 0.7); }
+
+.s5-mark--agency .s5-mark__label { color: #B4A8F0; }
+.s5-mark--agency .s5-mark__rule { background: rgba(180, 168, 240, 0.6); }
+
+/* --- 06 · crystalline production raster ------------------- */
+
+.moat-stage--plate { position: relative; overflow: hidden; }
+
+.moat-stage--plate .moat4-object { display: none; }
+
+.moat6-object {
+  position: absolute;
+  right: -3%;
+  top: -3%;
+  width: 62%;
+  height: 103%;
+  z-index: 1;
+}
+
+.moat6-object__img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+  mix-blend-mode: darken;
+  filter: contrast(1.04) saturate(1.06);
+}
+
+.moat6-object__glow {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  top: 10%;
+  bottom: 4%;
+  background: radial-gradient(58% 54% at 52% 62%, rgba(30, 167, 255, 0.1) 0%, rgba(123, 97, 255, 0.06) 46%, transparent 74%);
+  pointer-events: none;
+}
+
+.moat-stage--plate .moat4-col { width: 38%; top: 6.5%; }
+
+.moat-stage--plate .moat4-statement {
+  font-size: clamp(1.9rem, 3.35vw, 3.4rem);
+  line-height: 1.02;
+  max-width: 15ch;
+}
+
+.moat-stage--plate .moat4-support { font-size: 0.92rem; line-height: 1.7; }
+.moat-stage--plate .moat4-entry { padding: 0.7rem 0; }
+.moat-stage--plate .moat4-entry__title { font-size: 1.06rem; }
+
+/* --- responsive ------------------------------------------ */
+
+@media (max-width: 1100px) {
+  .s5-stage--plate .s5-col { width: 46%; padding-left: 2.5rem; }
+  .s5-mark { width: 10.5rem; }
+  .s5-mark__title { font-size: 0.86rem; }
+  .moat6-object { width: 58%; }
+}
+
+/* mobile: headline → statements → visual → labels (05);
+   statement → argument → object → index (06) */
+@media (max-width: 800px) {
+  .s5-stage--plate { display: flex; flex-direction: column; overflow-y: auto; height: auto; }
+
+  .s5-stage--plate .s5-col {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: auto;
+    order: 1;
+    padding: 1.5rem 1.5rem 0;
+  }
+
+  .s5-stage--plate .s5-plate {
+    position: relative;
+    inset: auto;
+    order: 2;
+    width: 100%;
+    height: 42vh;
+    margin-top: 1.25rem;
+  }
+
+  .s5-stage--plate .s5-plate__grade { background: linear-gradient(180deg, rgba(5, 8, 15, 0.4) 0%, transparent 40%); }
+
+  .s5-marks {
+    position: relative;
+    inset: auto;
+    order: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    padding: 1.4rem 1.5rem 2rem;
+  }
+
+  .s5-route,
+  .s5-terminal--r1 { display: none; }
+
+  .s5-mark {
+    position: relative;
+    left: auto !important;
+    top: auto !important;
+    width: auto;
+    text-shadow: none;
+  }
+
+  .moat6-object {
+    position: relative;
+    order: 2;
+    right: auto;
+    top: auto;
+    width: 100%;
+    height: 44vh;
+    margin: 1.25rem 0;
+  }
+
+  .moat-stage--plate .moat4-col { width: auto; top: auto; }
+}
+
+/* --- 05/06 · asset-first integration corrections ---------- */
+
+/* 05 · left column resolves above the detached far-field platform. */
+.s5-stage--plate .s5-col { width: 46%; padding: 3.4% 2rem 0 4.5rem; gap: 1.15rem; }
+.s5-stage--plate .s5-head { font-size: clamp(1.06rem, 1.5vw, 1.46rem); max-width: 27ch; }
+.s5-stage--plate .s5-claim { padding: 0.5rem 0; }
+.s5-stage--plate .s5-claim__text { font-size: 0.88rem; line-height: 1.45; max-width: 30rem; }
+
+/* 05 · labels re-anchored to the measured structural features. */
+.s5-mark--parent   { left: 44.5%; top: 23.5%; }
+.s5-mark--platform { left: 46%;   top: 41.5%; }
+.s5-mark--standard { left: 46.5%; top: 57%; }
+.s5-mark--firewall { left: 33.5%; top: 84%; width: 13rem; }
+.s5-mark--agency   { left: 5.5%;  top: 71%; }
+
+/* 06 · the plate's white ground drops out cleanly on the ice stock. */
+.moat6-object__img { mix-blend-mode: multiply; }
+
+/* 05 · marks stay legible where they cross lit glass; route reads as capital. */
+.s5-stage--plate .s5-mark {
+  padding: 0.3rem 0.55rem 0.35rem 0;
+  text-shadow: 0 1px 10px rgba(5, 8, 15, 0.95), 0 0 26px rgba(5, 8, 15, 0.8);
+}
+.s5-stage--plate .s5-route { filter: drop-shadow(0 0 6px rgba(30, 167, 255, 0.55)); }
+.moat6-object__img {
+  mix-blend-mode: multiply;
+  -webkit-mask-image:
+    linear-gradient(to right, transparent 0, #000 9%, #000 91%, transparent 100%),
+    linear-gradient(to bottom, transparent 0, #000 8%, #000 94%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to right, transparent 0, #000 9%, #000 91%, transparent 100%),
+    linear-gradient(to bottom, transparent 0, #000 8%, #000 94%, transparent 100%);
+  mask-composite: intersect;
+}
+
+/* 06 · blend the whole object group (the inner z-index isolated the img). */
+.moat6-object { mix-blend-mode: multiply; }
+.moat6-object__img { mix-blend-mode: normal; }

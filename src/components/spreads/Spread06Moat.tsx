@@ -1,9 +1,10 @@
 /**
  * SPREAD 06 — The Four-Part Moat
- * REFERENCE-MATCH PASS: the engineered object is recomposed and cropped as one
- * dominant crystalline mass at ~58% of the page. The left column carries the
- * approved quotation split into a dominant display statement plus supporting
- * argument, then one disciplined four-part index on a single shared axis.
+ * ASSET-FIRST REBUILD: the crystalline moat object is a single production
+ * raster (`section06-moat-crystal-r1.png`) carrying refraction, internal
+ * density, caustics, contact shadow and ground reflection. CSS only positions,
+ * scales, grounds and integrates it. The left column carries the approved
+ * quotation and one disciplined four-part index.
  * Exact copy from production brief SLIDE 6.
  */
 
@@ -65,9 +66,6 @@ const STRATA = [
   { id: "outcome", label: "In Progress", title: "Outcome Intelligence", accent: "future" },
 ];
 
-/** Secondary crystal facets — the same laminated mass, cropped as one object. */
-const FACETS = ["a", "b", "c"];
-
 export default function Spread06Moat({ isActive = false }: { isActive?: boolean }) {
   void isActive;
   const reduce = useReducedMotion();
@@ -78,34 +76,26 @@ export default function Spread06Moat({ isActive = false }: { isActive?: boolean 
       <RunningHead chapter="06 / The Four-Part Moat" issue="DIS Origin" />
 
       <PageBody>
-        <div className="moat-stage">
-          {/* One dominant crystalline object — rising, cropped, centered mass. */}
-          <div className="moat4-object" aria-hidden>
-            <div className="moat4-halo" />
-            <div className="moat4-object__cast" />
-            {FACETS.map((f) => (
-              <div key={f} className={`moat4-shard moat4-shard--${f}`}>
-                <span className="moat4-shard__skin" />
-                <span className="moat4-shard__spec" />
-              </div>
-            ))}
-            {STRATA.map((s, i) => (
-              <motion.div
-                key={s.id}
-                className={`moat4-shard moat4-shard--${s.id}`}
-                initial={still ? false : { opacity: 0, y: 34 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                animate={STATIC_REVIEW_MODE ? { opacity: 1, y: 0 } : undefined}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.9, delay: 0.15 + i * 0.14, ease: EASE }}
-              >
-                <span className="moat4-shard__skin" />
-                <span className="moat4-shard__spec" />
-                <span className="moat4-shard__edge" />
-              </motion.div>
-            ))}
-            <div className="moat4-object__sheen" />
-          </div>
+        <div className="moat-stage moat-stage--plate">
+          {/* One singular crystalline mass — production raster, not constructed art. */}
+          <motion.div
+            className="moat6-object"
+            initial={still ? false : { opacity: 0, y: 26 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            animate={STATIC_REVIEW_MODE ? { opacity: 1, y: 0 } : undefined}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 1.1, delay: 0.12, ease: EASE }}
+          >
+            <span className="moat6-object__glow" aria-hidden />
+            <img
+              src="/section06-moat-crystal-r1.png"
+              alt="A single crystalline engineered mass of interlocking translucent blades with a dense illuminated core"
+              className="moat6-object__img"
+              width={1536}
+              height={1536}
+              loading="lazy"
+            />
+          </motion.div>
 
           <div className="moat4-col">
             <Settle>
