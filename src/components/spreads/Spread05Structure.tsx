@@ -124,7 +124,7 @@ export default function Spread05Structure({ isActive = false }: { isActive?: boo
                   terminates only at DIS. */}
               <motion.path
                 className="s5-safeline"
-                d="M 42.4 71.5 L 72 71.5 L 78.2 47.4"
+                d="M 43.6 67.6 L 72 67.6 L 78.2 47.4"
                 fill="none"
                 stroke="url(#s5SafeR1)"
                 strokeWidth="1.6"

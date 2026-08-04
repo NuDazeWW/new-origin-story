@@ -6290,8 +6290,8 @@ body {
 .s5-node--branch   { left: 68.5%; top: 38%; }
 
 .s5-origin {
-  left: 42.4%;
-  top: 71.5%;
+  left: 43.6%;
+  top: 67.6%;
   width: 5px;
   height: 5px;
   margin: -2.5px 0 0 -2.5px;
@@ -6357,4 +6357,15 @@ body {
   .s5-stage--plate .s5-mark--firewall .s5-mark__rule { width: 100%; }
   .s5-stage--plate .s5-mark--agency { grid-column: 1 / -1; margin-top: 0.6rem; }
   .s5-node, .s5-origin, .s5-arrow, .s5-stage--plate .s5-terminal--r1 { display: none; }
+}
+
+/* 05 · entity-structure registration refinements */
+.s5-stage--plate .s5-gov { stroke: rgba(206, 226, 242, 0.78) !important; }
+.s5-stage--plate .s5-safeline { stroke-width: 1.8; }
+.s5-stage--plate .s5-mark--parent { top: 20.8%; }
+/* agency hairline descends to the detached platform below the text */
+.s5-stage--plate .s5-mark--agency .s5-mark__rule {
+  order: 3;
+  margin: 0.32rem 0 0 1px;
+  background: linear-gradient(to bottom, rgba(180, 168, 240, 0.75), rgba(180, 168, 240, 0.08));
 }
