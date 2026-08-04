@@ -6156,3 +6156,21 @@ body {
 
   .moat-stage--plate .moat4-col { width: auto; top: auto; }
 }
+
+/* --- 05/06 · asset-first integration corrections ---------- */
+
+/* 05 · left column resolves above the detached far-field platform. */
+.s5-stage--plate .s5-col { width: 46%; padding: 3.4% 2rem 0 4.5rem; gap: 1.15rem; }
+.s5-stage--plate .s5-head { font-size: clamp(1.06rem, 1.5vw, 1.46rem); max-width: 27ch; }
+.s5-stage--plate .s5-claim { padding: 0.5rem 0; }
+.s5-stage--plate .s5-claim__text { font-size: 0.88rem; line-height: 1.45; max-width: 30rem; }
+
+/* 05 · labels re-anchored to the measured structural features. */
+.s5-mark--parent   { left: 44.5%; top: 23.5%; }
+.s5-mark--platform { left: 46%;   top: 41.5%; }
+.s5-mark--standard { left: 46.5%; top: 57%; }
+.s5-mark--firewall { left: 33.5%; top: 84%; width: 13rem; }
+.s5-mark--agency   { left: 5.5%;  top: 71%; }
+
+/* 06 · the plate's white ground drops out cleanly on the ice stock. */
+.moat6-object__img { mix-blend-mode: multiply; }
