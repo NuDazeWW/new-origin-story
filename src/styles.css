@@ -5024,7 +5024,13 @@ body {
 /* --- 08 · daylight release --------------------------------- */
 
 .play-field__img {
-  object-position: 16% 46%;
+  position: absolute;
+  left: -2%;
+  top: 0;
+  width: 215%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 0% 58%;
   filter: saturate(1.02) contrast(1.04) brightness(1.06);
 }
 
