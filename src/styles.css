@@ -4875,25 +4875,33 @@ body {
 .roles2-plane--near::before {
   content: '';
   position: absolute;
-  left: -2.6rem;
-  right: -8%;
-  top: -2rem;
-  bottom: -3.4rem;
+  left: -3.4rem;
+  right: -10%;
+  top: -3rem;
+  bottom: -4.6rem;
   z-index: -1;
-  background: linear-gradient(112deg, rgba(27, 42, 61, 0.18) 0%, rgba(30, 167, 255, 0.12) 46%, rgba(244, 248, 255, 0) 100%);
-  filter: blur(26px);
+  background: radial-gradient(
+    120% 100% at 18% 40%,
+    rgba(27, 42, 61, 0.2) 0%,
+    rgba(30, 167, 255, 0.1) 42%,
+    rgba(244, 248, 255, 0) 78%
+  );
 }
 
 .roles2-plane--far::before {
   content: '';
   position: absolute;
-  left: -10%;
-  right: -2.6rem;
-  top: -1.6rem;
-  bottom: -2.2rem;
+  left: -14%;
+  right: -3.4rem;
+  top: -2.6rem;
+  bottom: -3.6rem;
   z-index: -1;
-  background: linear-gradient(250deg, rgba(11, 91, 122, 0.16) 0%, rgba(166, 175, 184, 0.26) 52%, rgba(244, 248, 255, 0) 100%);
-  filter: blur(26px);
+  background: radial-gradient(
+    120% 100% at 80% 44%,
+    rgba(11, 91, 122, 0.16) 0%,
+    rgba(166, 175, 184, 0.2) 44%,
+    rgba(244, 248, 255, 0) 78%
+  );
 }
 
 .roles2-plane__amount--near { color: var(--dis-steel-blue); }
