@@ -6645,7 +6645,7 @@ body {
 
 /* Entity names read as architecture, not captions. */
 .s5-stage--plate .s5-ent {
-  font-size: clamp(1.15rem, 1.72vw, 1.72rem);
+  font-size: clamp(1.2rem, 2.05vw, 1.9rem);
   font-weight: 300;
   letter-spacing: -0.018em;
 }
