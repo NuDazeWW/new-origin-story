@@ -5082,7 +5082,7 @@ body {
   padding: 3.2% 2.4rem 3.2% 4.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
   gap: 1.5rem;
 }
 
@@ -5220,7 +5220,7 @@ body {
 .s5-anno--parent { left: 5%; top: 5%; }
 .s5-anno--standard { left: 5%; top: 44%; }
 .s5-anno--firewall { left: 39%; top: 76%; max-width: 14ch; }
-.s5-anno--platform { left: 55%; top: 20%; }
+.s5-anno--platform { left: 55%; top: 26%; }
 .s5-anno--agency { right: 4%; bottom: 8%; align-items: flex-end; text-align: right; }
 
 .s5-anno--firewall .s5-anno__rule {
@@ -5232,8 +5232,8 @@ body {
 
 .s5-safe {
   position: absolute;
-  left: 59%;
-  top: 47%;
+  left: 61%;
+  top: 43.5%;
   z-index: 4;
   font-family: 'DM Mono', monospace;
   font-size: 0.5rem;
