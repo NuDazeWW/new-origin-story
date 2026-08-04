@@ -97,7 +97,7 @@ export default function Spread05Structure({ isActive = false }: { isActive?: boo
             <svg className="s5-route" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden>
               <defs>
                 <linearGradient id="s5SafeR1" x1="0" y1="1" x2="0.7" y2="0">
-                  <stop offset="0%" stopColor="rgba(30,167,255,0.05)" />
+                  <stop offset="0%" stopColor="rgba(30,167,255,0.12)" />
                   <stop offset="30%" stopColor="rgba(30,167,255,0.7)" />
                   <stop offset="100%" stopColor="rgba(0,255,194,0.95)" />
                 </linearGradient>
@@ -106,7 +106,7 @@ export default function Spread05Structure({ isActive = false }: { isActive?: boo
                 d="M 30.5 99 L 39 74 L 43.6 52"
                 fill="none"
                 stroke="url(#s5SafeR1)"
-                strokeWidth="0.6"
+                strokeWidth="1.8"
                 vectorEffect="non-scaling-stroke"
                 initial={still ? false : { pathLength: 0 }}
                 whileInView={{ pathLength: 1 }}
