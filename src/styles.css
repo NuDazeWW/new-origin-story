@@ -6719,3 +6719,12 @@ body {
   .s5-bay--parent-b, .s5-bay--std-b, .s5-bay--dis-b,
   .s5-bay--firewall { transform: none; }
 }
+
+/* 05 · tower registration pass 02 — clear air for the downward indicators,
+   NuDaze restored to its approved scale */
+.s5-stage--plate .s5-ent--agency { font-size: 1.24rem; }
+.s5-bay--firewall { top: 51%; }
+.s5-bay--dis-a { top: 55%; }
+.s5-bay--dis-b { top: 58.5%; }
+.s5-bay--drop-a { left: 52.6%; top: 67.2%; }
+.s5-bay--drop-b { left: 79.5%; top: 65.6%; }
