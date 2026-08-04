@@ -5016,9 +5016,9 @@ body {
 
 /* SAFE terminal label sits with the DIS Inc. terminal, mid-right */
 .struct-route__label {
-  right: 20%;
+  right: 17%;
   bottom: auto;
-  top: 54.5%;
+  top: 59%;
 }
 
 /* --- 08 · daylight release --------------------------------- */
