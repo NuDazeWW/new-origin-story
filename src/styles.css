@@ -6174,3 +6174,10 @@ body {
 
 /* 06 · the plate's white ground drops out cleanly on the ice stock. */
 .moat6-object__img { mix-blend-mode: multiply; }
+
+/* 05 · marks stay legible where they cross lit glass; route reads as capital. */
+.s5-stage--plate .s5-mark {
+  padding: 0.3rem 0.55rem 0.35rem 0;
+  text-shadow: 0 1px 10px rgba(5, 8, 15, 0.95), 0 0 26px rgba(5, 8, 15, 0.8);
+}
+.s5-stage--plate .s5-route { filter: drop-shadow(0 0 6px rgba(30, 167, 255, 0.55)); }
