@@ -5904,4 +5904,4 @@ body {
 }
 
 /* 05 · DIS annotation clears the platform glass edge */
-.s5-tier--platform .s5-tier__meta { transform: translateY(-14px); }
+.s5-tier--platform .s5-tier__meta { transform: translate(0.35rem, calc(-50% - 15px)); }
