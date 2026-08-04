@@ -5061,3 +5061,319 @@ body {
   background:
     linear-gradient(90deg, var(--dis-platinum) 0%, rgba(230, 235, 241, 0.82) 12%, rgba(230, 235, 241, 0.24) 34%, rgba(230, 235, 241, 0.06) 60%, transparent 100%);
 }
+
+/* ============================================================
+   CORRECTION PASS 04 — Sections 05 and 06 only
+   05: editorial column + photographed governed architecture.
+   06: object preserved, typography rebuilt as one vertical index.
+   ============================================================ */
+
+/* --- 05 · two-part editorial architecture ------------------ */
+
+.s5-stage {
+  display: grid;
+  grid-template-columns: 38% 62%;
+  align-items: stretch;
+}
+
+.s5-col {
+  position: relative;
+  z-index: 3;
+  padding: 3.2% 2.4rem 3.2% 4.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1.5rem;
+}
+
+.s5-head {
+  margin: 0.5rem 0 0;
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: clamp(1.25rem, 1.85vw, 1.9rem);
+  line-height: 1.18;
+  letter-spacing: -0.01em;
+  color: var(--dis-ice-white);
+  max-width: 24ch;
+}
+
+.s5-claims {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(30, 167, 255, 0.28);
+}
+
+.s5-claim {
+  margin: 0;
+  padding: 0.62rem 0 0.62rem;
+  display: grid;
+  grid-template-columns: 2.1rem 1fr;
+  align-items: start;
+  border-bottom: 1px solid rgba(230, 235, 241, 0.12);
+}
+
+.s5-claim__num {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.52rem;
+  letter-spacing: 0.2em;
+  line-height: 1.9;
+  color: #5FC1FF;
+}
+
+.s5-claim__text {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(0.68rem, 0.78vw, 0.84rem);
+  line-height: 1.55;
+  color: #D3DBE4;
+}
+
+.s5-plate {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.s5-plate__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 46% 56%;
+  filter: saturate(0.52) contrast(1.26) brightness(1.34);
+}
+
+/* Dark cinematic grade — architecture still registers immediately. */
+.s5-plate__grade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(100deg, rgba(5, 8, 15, 0.86) 0%, rgba(5, 8, 15, 0.34) 22%, rgba(5, 8, 15, 0.06) 52%, rgba(5, 8, 15, 0.2) 100%),
+    radial-gradient(90% 80% at 62% 52%, rgba(30, 167, 255, 0.09) 0%, transparent 72%);
+}
+
+/* One controlled transition between thesis and structure. */
+.s5-plate__join {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent 0%, rgba(30, 167, 255, 0.5) 34%, rgba(30, 167, 255, 0.5) 66%, transparent 100%);
+}
+
+/* The independence firewall: a vertical glass seam with a hard light boundary. */
+.s5-firewall {
+  position: absolute;
+  left: 39%;
+  top: 6%;
+  bottom: 6%;
+  width: 12%;
+  z-index: 2;
+  background:
+    linear-gradient(100deg, rgba(198, 226, 240, 0.02) 0%, rgba(198, 226, 240, 0.14) 46%, rgba(198, 226, 240, 0.02) 100%);
+  border-left: 1px solid rgba(198, 226, 240, 0.42);
+  border-right: 1px solid rgba(5, 8, 15, 0.5);
+  backdrop-filter: blur(0.6px);
+  pointer-events: none;
+}
+
+.s5-route {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.s5-anno {
+  position: absolute;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  max-width: 19ch;
+  text-shadow: 0 1px 14px rgba(5, 8, 15, 0.95), 0 0 4px rgba(5, 8, 15, 0.85);
+}
+
+.s5-anno__rule {
+  display: block;
+  width: 2.6rem;
+  height: 1px;
+  margin-bottom: 0.35rem;
+  background: rgba(30, 167, 255, 0.75);
+}
+
+.s5-anno__label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #6BC7FF;
+}
+
+.s5-anno__title {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-weight: 500;
+  font-size: clamp(0.8rem, 0.95vw, 1rem);
+  line-height: 1.2;
+  color: var(--dis-ice-white);
+}
+
+/* Anchored to real structural features of the plate. */
+.s5-anno--parent { left: 5%; top: 5%; }
+.s5-anno--standard { left: 5%; top: 44%; }
+.s5-anno--firewall { left: 39%; top: 76%; max-width: 14ch; }
+.s5-anno--platform { left: 55%; top: 20%; }
+.s5-anno--agency { right: 4%; bottom: 8%; align-items: flex-end; text-align: right; }
+
+.s5-anno--firewall .s5-anno__rule {
+  width: 1.6rem;
+  background: rgba(198, 226, 240, 0.8);
+}
+
+.s5-anno--agency .s5-anno__rule { background: rgba(230, 235, 241, 0.45); }
+
+.s5-safe {
+  position: absolute;
+  left: 59%;
+  top: 47%;
+  z-index: 4;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #7BF3D6;
+  white-space: nowrap;
+  text-shadow: 0 1px 14px rgba(5, 8, 15, 0.95);
+}
+
+/* --- 06 · rebuilt editorial typography -------------------- */
+
+.moat3-quote {
+  top: 7%;
+  max-width: 30ch;
+}
+
+.moat3-statement {
+  margin: 0.6rem 0 0;
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: clamp(1.5rem, 2.5vw, 2.6rem);
+  line-height: 1.06;
+  letter-spacing: -0.015em;
+  color: var(--dis-signal-black);
+}
+
+.moat3-support {
+  margin: 0.85rem 0 0;
+  max-width: 34ch;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(0.68rem, 0.8vw, 0.86rem);
+  line-height: 1.62;
+  color: var(--dis-steel-blue);
+}
+
+.moat3-index {
+  position: absolute;
+  left: 4.5rem;
+  top: 52%;
+  z-index: 4;
+  width: 30ch;
+  padding-left: 1.15rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.moat3-index__axis {
+  position: absolute;
+  left: 0;
+  top: 0.35rem;
+  bottom: 0.35rem;
+  width: 1px;
+  background: rgba(5, 8, 15, 0.28);
+}
+
+.moat3-entry {
+  position: relative;
+  display: grid;
+  grid-template-columns: 2.4rem 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 0.4rem;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid rgba(5, 8, 15, 0.12);
+}
+
+.moat3-entry:last-child { border-bottom: 0; }
+
+.moat3-entry__reg {
+  position: absolute;
+  left: -1.15rem;
+  top: 1.05rem;
+  width: 0.75rem;
+  height: 1px;
+  background: rgba(5, 8, 15, 0.55);
+}
+
+.moat3-entry--spot .moat3-entry__reg { background: #0F7FC4; }
+.moat3-entry--live .moat3-entry__reg { background: #0B5B7A; }
+.moat3-entry--future .moat3-entry__reg { background: #5B45D8; }
+
+.moat3-entry__num {
+  grid-row: 1 / span 2;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  line-height: 1.9;
+  color: #3B4757;
+}
+
+.moat3-entry__title {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: clamp(0.95rem, 1.15vw, 1.2rem);
+  line-height: 1.14;
+  color: var(--dis-signal-black);
+}
+
+.moat3-entry__status {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #3B4757;
+}
+
+/* --- responsive: correction pass 04 ---------------------- */
+
+@media (max-width: 1100px) {
+  .s5-col { padding-left: 2.5rem; }
+  .moat3-index { left: 2.5rem; }
+}
+
+@media (max-width: 800px) {
+  .s5-stage {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+  }
+
+  .s5-col {
+    padding: 1.5rem 1.5rem 0;
+  }
+
+  .s5-plate {
+    min-height: 46vh;
+  }
+
+  .moat3-quote {
+    position: relative;
+    left: auto;
+    top: auto;
+    padding: 1.5rem 1.5rem 0;
+    max-width: none;
+  }
+
+  .moat3-index {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: auto;
+    margin: 1.25rem 1.5rem 2rem;
+    padding-left: 1.15rem;
+  }
+}
