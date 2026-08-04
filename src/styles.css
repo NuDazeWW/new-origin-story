@@ -5082,8 +5082,8 @@ body {
   padding: 3.2% 2.4rem 3.2% 4.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 1.5rem;
+  justify-content: flex-start;
+  gap: 2.4rem;
 }
 
 .s5-head {
@@ -5232,8 +5232,8 @@ body {
 
 .s5-safe {
   position: absolute;
-  left: 61%;
-  top: 43.5%;
+  left: 62.5%;
+  top: 49.5%;
   z-index: 4;
   font-family: 'DM Mono', monospace;
   font-size: 0.5rem;
