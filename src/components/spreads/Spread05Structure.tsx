@@ -108,7 +108,7 @@ export default function Spread05Structure({ isActive = false }: { isActive?: boo
                   one branch terminates at PRSC and one at DIS. No arrows. */}
               <motion.path
                 className="s5-gov"
-                d="M 68.5 24.4 L 68.5 38 M 50.8 38 L 78.2 38 M 50.8 38 L 50.8 44.4 M 78.2 38 L 78.2 44.4"
+                d="M 67.1 25.2 L 67.1 38 M 50.8 38 L 78.2 38 M 50.8 38 L 50.8 44.4 M 78.2 38 L 78.2 44.4"
                 fill="none"
                 stroke="rgba(196, 216, 232, 0.55)"
                 strokeWidth="1"
