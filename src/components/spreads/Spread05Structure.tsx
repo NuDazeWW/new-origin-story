@@ -93,7 +93,7 @@ export default function Spread05Structure({ isActive = false }: { isActive?: boo
               <ellipse cx="1560" cy="262" rx="230" ry="78" fill="url(#s5shade)" />
               <ellipse cx="1080" cy="505" rx="235" ry="84" fill="url(#s5shade)" />
               <ellipse cx="1570" cy="482" rx="225" ry="74" fill="url(#s5shade)" />
-              <ellipse cx="1620" cy="562" rx="200" ry="44" fill="url(#s5shade)" />
+              <ellipse cx="1470" cy="566" rx="205" ry="44" fill="url(#s5shade)" />
               <ellipse cx="1060" cy="642" rx="215" ry="66" fill="url(#s5shade)" />
               <ellipse cx="1250" cy="912" rx="260" ry="60" fill="url(#s5shade)" />
 
@@ -117,8 +117,8 @@ export default function Spread05Structure({ isActive = false }: { isActive?: boo
               </g>
 
               {/* ---------- INDEPENDENCE FIREWALL · dark structural band ---------- */}
-              <g transform="rotate(4 1620 568)">
-                <text className="s5o-firewall" x="1620" y="568" filter="url(#s5soft)">INDEPENDENCE FIREWALL</text>
+              <g transform="rotate(4 1470 572)">
+                <text className="s5o-firewall" x="1470" y="572" filter="url(#s5soft)">INDEPENDENCE FIREWALL</text>
               </g>
 
               {/* ---------- THE PLATFORM · illuminated deck beneath the firewall ---------- */}
@@ -134,7 +134,7 @@ export default function Spread05Structure({ isActive = false }: { isActive?: boo
               {/* ---------- Two downward platform indicators ---------- */}
               <g className="s5o-arrow s5o-arrow--down" filter="url(#s5soft)">
                 <path d="M1230 600 L1230 682 M1219 668 L1230 684 L1241 668" />
-                <path d="M1790 566 L1790 648 M1779 634 L1790 650 L1801 634" />
+                <path d="M1740 566 L1740 648 M1729 634 L1740 650 L1751 634" />
               </g>
 
 
