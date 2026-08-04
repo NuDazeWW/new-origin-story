@@ -6181,3 +6181,14 @@ body {
   text-shadow: 0 1px 10px rgba(5, 8, 15, 0.95), 0 0 26px rgba(5, 8, 15, 0.8);
 }
 .s5-stage--plate .s5-route { filter: drop-shadow(0 0 6px rgba(30, 167, 255, 0.55)); }
+.moat6-object__img {
+  mix-blend-mode: multiply;
+  -webkit-mask-image:
+    linear-gradient(to right, transparent 0, #000 9%, #000 91%, transparent 100%),
+    linear-gradient(to bottom, transparent 0, #000 8%, #000 94%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to right, transparent 0, #000 9%, #000 91%, transparent 100%),
+    linear-gradient(to bottom, transparent 0, #000 8%, #000 94%, transparent 100%);
+  mask-composite: intersect;
+}
