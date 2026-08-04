@@ -17,20 +17,13 @@ import { Settle } from "@/components/print/Editorial";
 import { EASE } from "@/components/print/Layers";
 
 /**
- * Entity marks anchored to physical features of the plate: the uppermost
- * illuminated deck (parent), the central institutional deck (PRSC and DIS as
- * siblings, left and right of the column), the central column itself (the
- * independence firewall) and the detached violet far-field platform (NuDaze).
- * Coordinates are page-percent over the raster plate.
+ * Entity typography is staged directly into the architecture's own negative
+ * space: the uppermost glass deck is the parent, the deck below it is PRSC,
+ * the dark structural band beneath PRSC is the independence firewall, the
+ * illuminated deck under the firewall is DIS, and the detached violet
+ * far-field platform is NuDaze. No diagram geometry is drawn — the only
+ * directional graphic is one short arrow into the DIS floor.
  */
-const MARKS = [
-  { id: "parent", label: "Parent", title: "NicoleIsNine Holdings" },
-  { id: "standard", label: "The Standard", title: "PRSC LLC" },
-  { id: "platform", label: "The Platform", title: "DIS Inc.", note: "SAFE converts here" },
-  { id: "firewall", label: "Independence Firewall", title: null },
-  { id: "agency", label: "Arm's-length agency", title: "NuDaze Worldwide" },
-] as const;
-
 
 /** Approved investment-protection statements — verbatim, SLIDE 5. */
 const STATEMENTS = [
@@ -39,6 +32,7 @@ const STATEMENTS = [
   "The IP originates with the Founder and assigns directly to the Council, never through the agency",
   "The SAFE converts into DIS equity only — clean, unencumbered, no cross-entity complications",
 ];
+
 
 export default function Spread05Structure({ isActive = false }: { isActive?: boolean }) {
   void isActive;
@@ -93,82 +87,57 @@ export default function Spread05Structure({ isActive = false }: { isActive?: boo
             </div>
           </div>
 
-          {/* ---------- Anchored entity structure + single SAFE route ---------- */}
-          <div className="s5-marks">
-            <svg className="s5-route" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden>
-              <defs>
-                <linearGradient id="s5SafeR1" x1="0" y1="1" x2="1" y2="0">
-                  <stop offset="0%" stopColor="rgba(30,167,255,0.35)" />
-                  <stop offset="45%" stopColor="rgba(30,167,255,0.75)" />
-                  <stop offset="100%" stopColor="rgba(0,255,194,0.95)" />
-                </linearGradient>
-              </defs>
+          {/* ---------- Entity typography staged into the architecture ---------- */}
+          <div className="s5-marks" role="group" aria-label="Entity structure">
+            {/* PARENT — uppermost glass deck, staged across its two bays */}
+            <Settle delay={0.18} className="s5-bay s5-bay--parent-role">
+              <span className="s5-role s5-role--parent">Parent</span>
+            </Settle>
+            <Settle delay={0.22} className="s5-bay s5-bay--parent-a">
+              <span className="s5-ent s5-ent--parent">NicoleIsNine</span>
+            </Settle>
+            <Settle delay={0.26} className="s5-bay s5-bay--parent-b">
+              <span className="s5-ent s5-ent--parent">Holdings</span>
+            </Settle>
 
-              {/* Governance connector: parent descends the central column, then
-                  one branch terminates at PRSC and one at DIS. No arrows. */}
-              <motion.path
-                className="s5-gov"
-                d="M 67.1 25.2 L 67.1 38 M 50.8 38 L 78.2 38 M 50.8 38 L 50.8 44.4 M 78.2 38 L 78.2 44.4"
-                fill="none"
-                stroke="rgba(196, 216, 232, 0.55)"
-                strokeWidth="1"
-                vectorEffect="non-scaling-stroke"
-                initial={still ? false : { pathLength: 0 }}
-                whileInView={{ pathLength: 1 }}
-                animate={STATIC_REVIEW_MODE ? { pathLength: 1 } : undefined}
-                viewport={{ once: true, amount: 0.4 }}
-                transition={{ duration: 1.2, delay: 0.5, ease: EASE }}
-              />
+            {/* PRSC — illuminated deck directly below the parent level */}
+            <Settle delay={0.38} className="s5-bay s5-bay--std-a">
+              <span className="s5-role s5-role--std">The Standard</span>
+              <span className="s5-legal">PRSC LLC</span>
+              <span className="s5-ent s5-ent--std">Partnership Readiness</span>
+            </Settle>
+            <Settle delay={0.42} className="s5-bay s5-bay--std-b">
+              <span className="s5-ent s5-ent--std">Standards Council</span>
+            </Settle>
 
-              {/* SAFE: begins at statement 04, crosses into the architecture,
-                  terminates only at DIS. */}
-              <motion.path
-                className="s5-safeline"
-                d="M 43.6 67.6 L 72 67.6 L 78.2 47.4"
-                fill="none"
-                stroke="url(#s5SafeR1)"
-                strokeWidth="1.6"
-                vectorEffect="non-scaling-stroke"
-                initial={still ? false : { pathLength: 0 }}
-                whileInView={{ pathLength: 1 }}
-                animate={STATIC_REVIEW_MODE ? { pathLength: 1 } : undefined}
-                viewport={{ once: true, amount: 0.4 }}
-                transition={{ duration: 1.5, delay: 1.1, ease: EASE }}
-              />
-            </svg>
+            {/* FIREWALL — the existing dark structural band is the firewall */}
+            <Settle delay={0.5} className="s5-bay s5-bay--firewall">
+              <span className="s5-role s5-role--firewall">Independence Firewall</span>
+            </Settle>
 
-            {/* Visible endpoints: branch ends at each sibling; SAFE terminal at DIS. */}
-            <span className="s5-node s5-node--standard" aria-hidden />
-            <span className="s5-node s5-node--branch" aria-hidden />
-            <span className="s5-origin" aria-hidden />
-            <span className="s5-arrow" aria-hidden />
-            <motion.span
-              className="s5-terminal s5-terminal--r1"
-              initial={still ? false : { opacity: 0, scale: 0.4 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              animate={STATIC_REVIEW_MODE ? { opacity: 1, scale: 1 } : undefined}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 2.3, ease: EASE }}
-              aria-hidden
-            />
+            {/* DIS — illuminated deck beneath the firewall */}
+            <Settle delay={0.62} className="s5-bay s5-bay--dis-a">
+              <span className="s5-role s5-role--dis">The Platform</span>
+              <span className="s5-legal">DIS Inc.</span>
+              <span className="s5-ent s5-ent--dis">Decision</span>
+            </Settle>
+            <Settle delay={0.66} className="s5-bay s5-bay--dis-b">
+              <span className="s5-ent s5-ent--dis">Intelligence Systems</span>
+            </Settle>
 
-            {MARKS.map((m, i) => (
-              <motion.div
-                key={m.id}
-                className={`s5-mark s5-mark--${m.id}`}
-                initial={still ? false : { opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                animate={STATIC_REVIEW_MODE ? { opacity: 1, y: 0 } : undefined}
-                viewport={{ once: true, amount: 0.4 }}
-                transition={{ duration: 0.7, delay: 0.3 + i * 0.12, ease: EASE }}
-              >
-                <span className="s5-mark__rule" aria-hidden />
-                <span className="s5-mark__label">{m.label}</span>
-                {m.title ? <span className="s5-mark__title">{m.title}</span> : null}
-                {"note" in m && m.note ? <span className="s5-mark__note">{m.note}</span> : null}
-              </motion.div>
-            ))}
+            {/* SAFE — one short upward arrow terminating at the DIS floor only */}
+            <Settle delay={0.78} className="s5-bay s5-bay--safe">
+              <span className="s5-safearrow" aria-hidden />
+              <span className="s5-safe-note">SAFE converts at DIS</span>
+            </Settle>
+
+            {/* NUDAZE — detached far-field platform, operationally separated */}
+            <Settle delay={0.86} className="s5-bay s5-bay--agency">
+              <span className="s5-ent s5-ent--agency">NuDaze Worldwide</span>
+              <span className="s5-role s5-role--agency">Arm&rsquo;s-length agency</span>
+            </Settle>
           </div>
+
 
         </div>
       </PageBody>
