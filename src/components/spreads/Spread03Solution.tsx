@@ -114,14 +114,14 @@ export default function Spread03Solution({ isActive = false }: { isActive?: bool
 
   return (
     <Page stock="ink">
-      <RunningHead chapter="04 / The Solution" issue="DIS Origin" />
+      <RunningHead chapter="03 / The Readiness Terminal\u2122" issue="DIS Origin" />
 
       <PageBody>
         <div className="term" style={{ ["--edge" as string]: `var(--${active.accent})` }}>
           <div className="term__head">
             <Settle>
               <div className="sec-head">
-                <Eyebrow>The Readiness Terminal</Eyebrow>
+                <Eyebrow>THE READINESS TERMINAL\u2122</Eyebrow>
                 <h2 className="ed-head" style={{ maxWidth: "22ch" }}>
                   An intelligence layer that grows more valuable with every use.
                 </h2>
@@ -131,10 +131,12 @@ export default function Spread03Solution({ isActive = false }: { isActive?: bool
             <Settle delay={0.12}>
               <p
                 className="sec-lede"
-                style={{ maxWidth: "40ch", textAlign: "right", marginLeft: "auto" }}
+                style={{ maxWidth: "46ch", textAlign: "right", marginLeft: "auto" }}
               >
-                Not a marketplace. Not an agency tool. The platform where professionals measure,
-                benchmark, and act on partnership readiness.
+                Decision Intelligence Systems builds and operates the Readiness Terminal\u2122
+                \u2014 the platform layer where the standard becomes usable, subscribable
+                intelligence. Not a marketplace. Not a campaign tool. The platform where
+                professionals measure, benchmark, and act on partnership readiness.
               </p>
             </Settle>
           </div>
