@@ -11,7 +11,7 @@ import { STATIC_REVIEW_MODE } from "@/reviewMode";
 import coverAsset from "@/assets/dis-cover.png.asset.json";
 import lockupAsset from "@/assets/dis-lockup-cover.png.asset.json";
 
-import { Page, Folio } from "@/components/print/Page";
+import { Page } from "@/components/print/Page";
 import { Settle } from "@/components/print/Editorial";
 
 export default function Spread00Cover() {
@@ -34,8 +34,8 @@ export default function Spread00Cover() {
 
       <div style={{ position: "relative", zIndex: 2, display: "flex", flexDirection: "column", height: "100%" }}>
         {/* Magazine masthead — centered DIS lockup */}
-        <div className="pg__margin" style={{ display: "flex", flexDirection: "column", alignItems: "center", paddingTop: "0.6rem" }}>
-          <div style={{ width: "100%", maxWidth: "420px", position: "relative" }}>
+        <div className="pg__margin" style={{ display: "flex", flexDirection: "column", alignItems: "center", paddingTop: "0.4rem" }}>
+          <div style={{ width: "min(58%, 620px)", minWidth: "320px", position: "relative" }}>
             <Settle delay={0.08}>
               <img
                 src={lockupAsset.url}
@@ -52,8 +52,8 @@ export default function Spread00Cover() {
                   textAlign: "center",
                   fontFamily: "'Space Grotesk', sans-serif",
                   textTransform: "uppercase",
-                  letterSpacing: "0.22em",
-                  fontSize: "clamp(0.5rem, 0.62vw, 0.68rem)",
+                  letterSpacing: "0.24em",
+                  fontSize: "clamp(0.62rem, 0.92vw, 1rem)",
                   fontWeight: 400,
                   color: "var(--ink-text)",
                   whiteSpace: "nowrap",
@@ -64,7 +64,7 @@ export default function Spread00Cover() {
             </Settle>
           </div>
 
-          <div style={{ height: "1px", background: "var(--rule)", width: "100%", maxWidth: "420px", margin: "0.8rem 0 0.7rem" }} />
+          <div style={{ height: "1px", background: "var(--rule)", width: "min(58%, 620px)", margin: "0.7rem 0 0.6rem" }} />
           <Settle delay={0.14}>
             <p
               className="ed-body text-readable"
@@ -72,7 +72,7 @@ export default function Spread00Cover() {
                 maxWidth: "46ch",
                 color: "var(--ink-text)",
                 textAlign: "center",
-                fontSize: "clamp(1.1rem, 1.2vw, 1.3rem)",
+                fontSize: "clamp(1rem, 1.05vw, 1.15rem)",
                 lineHeight: 1.6,
               }}
             >
@@ -84,12 +84,15 @@ export default function Spread00Cover() {
         </div>
 
         {/* Display headline — moved up into the dark register */}
-        <div style={{ padding: "0.8rem 4.5rem 0" }}>
+        <div style={{ padding: "0.6rem 4.5rem 0" }}>
           <Settle delay={0.24}>
-            <span className="ed-kicker text-readable">Origin · 01</span>
+            <span className="ed-kicker text-readable">Vol. I</span>
           </Settle>
           <Settle delay={0.32}>
-            <h1 className="ed-head text-readable--strong" style={{ marginTop: "0.5rem", maxWidth: "16ch" }}>
+            <h1
+              className="ed-head text-readable--strong"
+              style={{ marginTop: "0.45rem", maxWidth: "16ch", fontSize: "clamp(2.1rem, 3.1vw, 3.1rem)" }}
+            >
               The Readiness Terminal<span style={{ fontSize: "0.4em", verticalAlign: "super" }}>™</span>
             </h1>
           </Settle>
@@ -98,11 +101,26 @@ export default function Spread00Cover() {
         <div style={{ flex: 1 }} />
 
         <Settle delay={0.42}>
-          <Folio
-            volume="Decision Intelligence Systems, Inc. · Pre-Seed · $2.5M"
-            page="Confidential"
-          />
+          <div className="pg__margin">
+            <div className="folio">
+              <span style={{ display: "flex", alignItems: "baseline", gap: "0.7rem", flexWrap: "wrap" }}>
+                <span
+                  style={{
+                    fontFamily: "'Space Grotesk', sans-serif",
+                    fontSize: "0.86rem",
+                    letterSpacing: "0.2em",
+                    color: "var(--ink-text)",
+                  }}
+                >
+                  Decision Intelligence Systems, Inc.
+                </span>
+                <span>Pre-Seed · $2.5M</span>
+              </span>
+              <span>Confidential</span>
+            </div>
+          </div>
         </Settle>
+
       </div>
     </Page>
   );
