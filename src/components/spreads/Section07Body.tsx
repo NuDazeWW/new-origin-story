@@ -550,6 +550,12 @@ export default function Section07Body() {
             </div>
             <div className="s07b-core__reflection" aria-hidden="true" />
           </div>
+
+          <p className="s07b-core-caption">
+            Every entity scored makes the benchmark more precise.
+            <br />
+            Every benchmark published makes the platform more valuable.
+          </p>
         </div>
       </div>
 
