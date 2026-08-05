@@ -16,7 +16,7 @@ import { Body, Figure, Settle } from "@/components/print/Editorial";
 const MARKS = [
   {
     year: "1956",
-    label: "Founded",
+    label: "FICO FOUNDED",
     detail: "Fair, Isaac and Company is founded to score credit risk statistically.",
     key: false,
   },
