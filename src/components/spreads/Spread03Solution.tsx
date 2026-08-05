@@ -30,8 +30,8 @@ type Feature = {
 const FEATURES: Feature[] = [
   {
     n: "MODULE 01",
-    title: "The Readiness Engine\u2122",
-    text: "Proprietary scoring mathematics \u2014 independently governed by the PRSC Readiness Standard\u2122. Trade secret.",
+    title: "The Readiness Engine™",
+    text: "Proprietary scoring mathematics — independently governed by the PRSC Readiness Standard™. Trade secret.",
     device: "Desktop Terminal",
     accent: "spot",
     x: 38,
@@ -40,8 +40,8 @@ const FEATURES: Feature[] = [
   },
   {
     n: "MODULE 02",
-    title: "The PRSC Readiness Score\u2122",
-    text: "A single 0\u2013100 market-facing number. The score the market negotiates in.",
+    title: "The PRSC Readiness Score™",
+    text: "A single 0–100 market-facing number. The score the market negotiates in.",
     device: "Mobile Score Card",
     accent: "live",
     x: 10,
@@ -51,7 +51,7 @@ const FEATURES: Feature[] = [
   {
     n: "MODULE 03",
     title: "Diagnostic Surfaces",
-    text: "Multi-dimension canvas across all six Readiness Dimensions\u2122 (defined in the PRSC Readiness Standard\u2122).",
+    text: "Multi-dimension canvas across all six Readiness Dimensions™ (defined in the PRSC Readiness Standard™).",
     device: "Tablet Strategy Planner",
     accent: "spot",
     x: 76,
@@ -104,7 +104,7 @@ export default function Spread03Solution({ isActive = false }: { isActive?: bool
       >
         <span className="lbox__lead" aria-hidden />
         <div className="lbox__num">
-          {f.n} \u2014 {f.device}
+          {f.n} — {f.device}
         </div>
         <div className="lbox__title">{f.title}</div>
         <div className="lbox__text">{f.text}</div>
@@ -114,14 +114,14 @@ export default function Spread03Solution({ isActive = false }: { isActive?: bool
 
   return (
     <Page stock="ink">
-      <RunningHead chapter="03 / The Readiness Terminal\u2122" issue="DIS Origin" />
+      <RunningHead chapter="03 / The Readiness Terminal™" issue="DIS Origin" />
 
       <PageBody>
         <div className="term" style={{ ["--edge" as string]: `var(--${active.accent})` }}>
           <div className="term__head">
             <Settle>
               <div className="sec-head">
-                <Eyebrow>THE READINESS TERMINAL\u2122</Eyebrow>
+                <Eyebrow>THE READINESS TERMINAL™</Eyebrow>
                 <h2 className="ed-head" style={{ maxWidth: "22ch" }}>
                   An intelligence layer that grows more valuable with every use.
                 </h2>
@@ -133,8 +133,8 @@ export default function Spread03Solution({ isActive = false }: { isActive?: bool
                 className="sec-lede"
                 style={{ maxWidth: "46ch", textAlign: "right", marginLeft: "auto" }}
               >
-                Decision Intelligence Systems builds and operates the Readiness Terminal\u2122
-                \u2014 the platform layer where the standard becomes usable, subscribable
+                Decision Intelligence Systems builds and operates the Readiness Terminal™
+                — the platform layer where the standard becomes usable, subscribable
                 intelligence. Not a marketplace. Not a campaign tool. The platform where
                 professionals measure, benchmark, and act on partnership readiness.
               </p>
