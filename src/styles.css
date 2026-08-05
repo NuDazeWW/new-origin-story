@@ -6779,8 +6779,8 @@ body {
 .s5-overlay .s5o-role--std { fill: rgba(110, 196, 240, 0.9); }
 .s5-overlay .s5o-role--dis { fill: rgba(156, 139, 255, 0.95); }
 .s5-overlay .s5o-role--long {
-  font-size: 20px;
-  letter-spacing: 0.12em;
+  font-size: 24px;
+  letter-spacing: 0.05em;
   font-weight: 500;
 }
 
