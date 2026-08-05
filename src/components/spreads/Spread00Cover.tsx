@@ -66,20 +66,22 @@ export default function Spread00Cover() {
 
           <div style={{ height: "1px", background: "var(--rule)", width: "min(58%, 620px)", margin: "0.7rem 0 0.6rem" }} />
           <Settle delay={0.14}>
-            <p
-              className="ed-body text-readable"
-              style={{
-                maxWidth: "46ch",
-                color: "var(--ink-text)",
-                textAlign: "center",
-                fontSize: "clamp(1rem, 1.05vw, 1.15rem)",
-                lineHeight: 1.6,
-              }}
-            >
-              Building the intelligence infrastructure layer for the
-              <br />
-              $90B sponsorship market.
-            </p>
+            <div style={{ marginTop: "96px" }}>
+              <p
+                className="ed-body text-readable"
+                style={{
+                  maxWidth: "46ch",
+                  color: "var(--ink-text)",
+                  textAlign: "center",
+                  fontSize: "clamp(1rem, 1.05vw, 1.15rem)",
+                  lineHeight: 1.6,
+                }}
+              >
+                Building the intelligence infrastructure layer for the
+                <br />
+                $90B sponsorship market.
+              </p>
+            </div>
           </Settle>
         </div>
 
