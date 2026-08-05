@@ -266,8 +266,14 @@
     grid-template-columns: minmax(220px, 1fr) minmax(150px, 0.7fr) minmax(220px, 1fr);
   }
   .s07-signal { width: min(24%, 260px); }
+  .s07-flow { padding-inline: clamp(4.2rem, 7vw, 5.5rem); }
   .s07-core { padding: 0.7rem 0.9rem; }
   .s07-core p { font-size: 0.52rem; letter-spacing: 0.16em; }
+}
+
+/* connector geometry only reads cleanly with the wide three-column grid */
+@media (max-width: 949px) {
+  .s07-connectors { display: none; }
 }
 
 /* ---------- mobile ---------- */
@@ -295,7 +301,7 @@
     gap: 1.4rem;
     height: auto;
     min-height: 100%;
-    padding: 1.4rem 1.5rem 2.4rem;
+    padding: 1.4rem 3.4rem 2.4rem;
     border-left: none;
   }
 
