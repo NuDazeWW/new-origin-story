@@ -105,7 +105,11 @@
 
 .s07-connectors {
   position: absolute;
-  inset: 0;
+  left: var(--s07-grid-left, 26%);
+  right: var(--s07-grid-right, 26%);
+  top: 50%;
+  height: 46%;
+  transform: translateY(-50%);
   z-index: 1;
   pointer-events: none;
 }
