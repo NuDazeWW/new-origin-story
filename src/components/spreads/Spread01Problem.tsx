@@ -11,14 +11,14 @@ import { Body, Figure, Lede, Settle, Stat } from "@/components/print/Editorial";
 export default function Spread01Problem({ isActive = false }: { isActive?: boolean }) {
   return (
     <Page stock="paper">
-      <RunningHead chapter="01 / The Problem" issue="DIS Origin" />
+      <RunningHead chapter="01 / The Gap" issue="DIS Origin" />
 
       <PageBody>
         <div className="well">
           {/* Verso — the editorial column */}
           <div className="well__verso">
             <Settle>
-              <span className="ed-kicker">The Market</span>
+              <span className="ed-kicker">THE GAP</span>
             </Settle>
             <Settle delay={0.1}>
               <h2 className="ed-head" style={{ marginTop: "0.6rem", maxWidth: "17ch" }}>
