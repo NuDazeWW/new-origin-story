@@ -45,7 +45,7 @@ function PrecedentTimeline() {
 
   return (
     <div className="tl-plate" ref={ref}>
-      <span className="ed-kicker">The Precedent</span>
+      <span className="ed-kicker">THE PRECEDENT</span>
       <div className="tl">
         <motion.div
           className="tl__axis"
