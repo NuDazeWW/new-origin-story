@@ -5956,17 +5956,17 @@ body {
   top: 0;
   width: 42%;
   z-index: 4;
-  padding: 4.4% 2.2rem 0 4.5rem;
-  gap: 1.5rem;
+  padding: 3.2% 2.2rem 0 4.5rem;
+  gap: 1.0rem;
 }
 
 .s5-stage--plate .s5-head {
-  font-size: clamp(1.18rem, 1.72vw, 1.72rem);
-  max-width: 23ch;
+  font-size: clamp(1.08rem, 1.55vw, 1.55rem);
+  max-width: 25ch;
 }
 
-.s5-stage--plate .s5-claim { padding: 0.72rem 0; }
-.s5-stage--plate .s5-claim__text { font-size: 0.94rem; line-height: 1.45; }
+.s5-stage--plate .s5-claim { padding: 0.55rem 0; }
+.s5-stage--plate .s5-claim__text { font-size: 0.86rem; line-height: 1.42; }
 
 /* --- 05 · anchored labels + SAFE route --------------------- */
 
@@ -6593,7 +6593,7 @@ body {
   color: var(--dis-ice-white);
 }
 
-.s5-bay--agency { left: 5.8%; top: 73.4%; }
+.s5-bay--agency { left: 5.8%; top: 83%; }
 
 @media (max-width: 1100px) {
   .s5-ent { font-size: 1.18rem; }
@@ -6636,7 +6636,7 @@ body {
 .s5-bay--dis-b       { top: 62.1%; }
 
 .s5-bay--safe        { top: 70.4%; }
-.s5-bay--agency      { top: 76.4%; }
+.s5-bay--agency      { top: 86%; }
 
 /* ============================================================
    05 · TOWER TYPOGRAPHY — architectural scale, perspective and
@@ -6778,6 +6778,11 @@ body {
 .s5-overlay .s5o-role--parent { fill: rgba(126, 216, 240, 0.92); }
 .s5-overlay .s5o-role--std { fill: rgba(110, 196, 240, 0.9); }
 .s5-overlay .s5o-role--dis { fill: rgba(156, 139, 255, 0.95); }
+.s5-overlay .s5o-role--long {
+  font-size: 20px;
+  letter-spacing: 0.12em;
+  font-weight: 500;
+}
 
 .s5-overlay .s5o-firewall {
   font-size: 17px;

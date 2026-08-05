@@ -1,11 +1,10 @@
 /**
  * SPREAD 05 — The Structure That Protects Your Investment
- * ASSET-FIRST REBUILD: the governance architecture is carried entirely by the
- * production plate `section05-governance-plate-r1.webp` (photographic depth,
- * material, perspective, reflections). HTML supplies only live typography:
+ * FINAL COPY PASS
+ * The governance architecture is carried by the production plate
+ * `section05-governance-plate-r1.webp`. HTML supplies only live typography:
  * the investor rule, the four protection statements, anchored entity labels,
  * and one restrained SAFE route terminating at DIS.
- * Exact copy from production brief SLIDE 5.
  */
 
 import { motion, useReducedMotion } from "framer-motion";
@@ -18,19 +17,21 @@ import { EASE } from "@/components/print/Layers";
 
 /**
  * Entity typography is staged directly into the architecture's own negative
- * space: the uppermost glass deck is the parent, the deck below it is PRSC,
- * the dark structural band beneath PRSC is the independence firewall, the
- * illuminated deck under the firewall is DIS, and the detached violet
- * far-field platform is NuDaze. No diagram geometry is drawn — the only
- * directional graphic is one short arrow into the DIS floor.
+ * space: the uppermost glass deck is NicoleIsNine Holdings LLC (Parent), the
+ * deck below it is Partnership Readiness Standards Council LLC (The Standard ·
+ * Independence Firewall), the dark structural band beneath it enforces the
+ * separation, the illuminated deck below is Decision Intelligence Systems Inc.
+ * (The Platform · SAFE Converts Here), and the detached violet far-field
+ * platform is NuDaze Worldwide (Arm's-length Agency). No diagram geometry is
+ * drawn — the only directional graphic is one short arrow into the DIS floor.
  */
 
-/** Approved investment-protection statements — verbatim, SLIDE 5. */
+/** Approved investment-protection statements — verbatim, final copy. */
 const STATEMENTS = [
-  "Value accrues cleanly to DIS equity — the platform, the data, the subscriptions",
-  "The independence that makes the score trustworthy is structurally enforced — not promised",
-  "The IP originates with the Founder and assigns directly to the Council, never through the agency",
-  "The SAFE converts into DIS equity only — clean, unencumbered, no cross-entity complications",
+  "Value accrues cleanly to DIS equity — the platform, the data, the subscriptions.",
+  "The independence that makes the score trustworthy is structurally enforced — not promised. PRSC LLC governs the standard and takes no investment; DIS Inc. builds and monetizes the platform. The separation is the product.",
+  "The IP originates with the Founder and assigns directly to the Council (via executed IP assignment agreement), never through the agency.",
+  "The SAFE converts into DIS equity only — clean, unencumbered, no cross-entity complications.",
 ];
 
 
@@ -41,7 +42,7 @@ export default function Spread05Structure({ isActive = false }: { isActive?: boo
 
   return (
     <Page stock="ink">
-      <RunningHead chapter="05 / The Structure" issue="DIS Origin" />
+      <RunningHead chapter="05 / The Structure That Protects Your Investment" issue="DIS Origin" />
 
       <PageBody>
         <div className="struct-stage s5-stage s5-stage--plate">
@@ -97,38 +98,28 @@ export default function Spread05Structure({ isActive = false }: { isActive?: boo
               <ellipse cx="1060" cy="642" rx="215" ry="66" fill="url(#s5shade)" />
               <ellipse cx="1250" cy="912" rx="260" ry="60" fill="url(#s5shade)" />
 
-              {/* ---------- PARENT · uppermost glass floor ---------- */}
+              {/* ---------- PARENT · NicoleIsNine Holdings LLC ---------- */}
               <g transform="rotate(-5 950 300)">
-                <text className="s5o-role s5o-role--parent" x="950" y="258">PARENT</text>
-                <text className="s5o-ent s5o-ent--parent" x="950" y="304" filter="url(#s5cyan)">NicoleIsNine</text>
-              </g>
-              <g transform="rotate(4 1395 268)">
-                <text className="s5o-ent s5o-ent--parent" x="1395" y="268" filter="url(#s5cyan)">Holdings</text>
+                <text className="s5o-ent s5o-ent--parent s5o-ent--long" x="950" y="258" filter="url(#s5cyan)">NicoleIsNine Holdings LLC</text>
+                <text className="s5o-role s5o-role--parent" x="950" y="304">PARENT</text>
               </g>
 
-              {/* ---------- THE STANDARD · second illuminated floor ---------- */}
+              {/* ---------- THE STANDARD · Partnership Readiness Standards Council LLC ---------- */}
               <g transform="rotate(-5 960 528)">
-                <text className="s5o-role s5o-role--std" x="960" y="462">THE STANDARD</text>
-                <text className="s5o-legal" x="960" y="490" filter="url(#s5soft)">PRSC LLC</text>
-                <text className="s5o-ent s5o-ent--std s5o-ent--long" x="960" y="534" filter="url(#s5soft)">Partnership Readiness</text>
+                <text className="s5o-ent s5o-ent--std s5o-ent--long" x="960" y="462" filter="url(#s5soft)">Partnership Readiness</text>
+                <text className="s5o-role s5o-role--std s5o-role--long" x="970" y="540">THE STANDARD · INDEPENDENCE FIREWALL</text>
               </g>
               <g transform="rotate(4 1380 498)">
-                <text className="s5o-ent s5o-ent--std s5o-ent--long" x="1380" y="498" filter="url(#s5soft)">Standards Council</text>
+                <text className="s5o-ent s5o-ent--std s5o-ent--long" x="1380" y="498" filter="url(#s5soft)">Standards Council LLC</text>
               </g>
 
-              {/* ---------- INDEPENDENCE FIREWALL · dark structural band ---------- */}
-              <g transform="rotate(4 1470 572)">
-                <text className="s5o-firewall" x="1470" y="572" filter="url(#s5soft)">INDEPENDENCE FIREWALL</text>
-              </g>
-
-              {/* ---------- THE PLATFORM · illuminated deck beneath the firewall ---------- */}
+              {/* ---------- THE PLATFORM · Decision Intelligence Systems Inc. ---------- */}
               <g transform="rotate(-5 950 674)">
-                <text className="s5o-role s5o-role--dis" x="950" y="592">THE PLATFORM</text>
-                <text className="s5o-legal" x="950" y="620" filter="url(#s5soft)">DIS Inc.</text>
-                <text className="s5o-ent s5o-ent--dis" x="950" y="670" filter="url(#s5violet)">Decision</text>
+                <text className="s5o-ent s5o-ent--dis s5o-ent--long" x="950" y="592" filter="url(#s5violet)">Decision Intelligence</text>
+                <text className="s5o-role s5o-role--dis s5o-role--long" x="960" y="680">THE PLATFORM · SAFE CONVERTS HERE</text>
               </g>
               <g transform="rotate(4 1380 644)">
-                <text className="s5o-ent s5o-ent--dis s5o-ent--long" x="1380" y="644" filter="url(#s5violet)">Intelligence Systems</text>
+                <text className="s5o-ent s5o-ent--dis s5o-ent--long" x="1380" y="644" filter="url(#s5violet)">Systems Inc.</text>
               </g>
 
               {/* ---------- Two downward platform indicators ---------- */}
@@ -136,7 +127,6 @@ export default function Spread05Structure({ isActive = false }: { isActive?: boo
                 <path d="M1230 600 L1230 682 M1219 668 L1230 684 L1241 668" />
                 <path d="M1740 566 L1740 648 M1729 634 L1740 650 L1751 634" />
               </g>
-
 
               {/* ---------- SAFE conversion · upward, terminating at DIS only ---------- */}
               <g className="s5o-arrow s5o-arrow--up" filter="url(#s5soft)">
@@ -176,21 +166,21 @@ export default function Spread05Structure({ isActive = false }: { isActive?: boo
             </div>
           </div>
 
-          {/* ---------- NuDaze · approved detached platform (unchanged) ---------- */}
+          {/* ---------- NuDaze · arm's-length agency ---------- */}
           <div className="s5-marks">
             <Settle delay={0.86} className="s5-bay s5-bay--agency">
               <span className="s5-ent s5-ent--agency">NuDaze Worldwide</span>
-              <span className="s5-role s5-role--agency">Arm&rsquo;s-length agency</span>
+              <span className="s5-role s5-role--agency">ARM'S-LENGTH AGENCY</span>
             </Settle>
           </div>
 
           {/* ---------- Screen-reader structure (no second visible copy) ---------- */}
           <ul className="sr-only">
-            <li>NicoleIsNine Holdings — Parent</li>
-            <li>PRSC LLC — The Standard (Partnership Readiness Standards Council)</li>
-            <li>Independence Firewall — structurally enforced separation</li>
-            <li>DIS Inc. — The Platform (Decision Intelligence Systems); the SAFE converts at DIS</li>
-            <li>NuDaze Worldwide — Arm&rsquo;s-length agency</li>
+            <li>NicoleIsNine Holdings LLC — Parent</li>
+            <li>Partnership Readiness Standards Council LLC — The Standard · Independence Firewall</li>
+            <li>Decision Intelligence Systems Inc. — The Platform · SAFE Converts Here</li>
+            <li>NuDaze Worldwide — Arm's-length Agency</li>
+            <li>SAFE converts at DIS only</li>
           </ul>
         </div>
       </PageBody>
