@@ -580,6 +580,10 @@ export default function Section07Body() {
             />
           ))}
         </ul>
+        <p className="s07b-note">
+          Note: Subscription tiers from individual to enterprise — pricing architecture in
+          development.
+        </p>
       </section>
     </div>
   );
