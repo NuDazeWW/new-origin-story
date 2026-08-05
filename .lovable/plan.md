@@ -1,46 +1,43 @@
-# Section 05 — Layered Tower Asset Integration
+# Section 02 — Final Copy Integration
 
-Replace the current full-bleed governance plate with the supplied isolated tower: one master image plus five registered animation layers, with all typography staying live.
+Replace the current Section 02 copy and running head with the approved final copy, restructure the text register around the new pull quote + two-column body + bridge sentence, and keep the timeline build intact.
 
-## Assets
+## Copy changes
 
-Uploaded via Lovable Assets as CDN pointers in `src/assets/` (no binaries committed):
+- **Running head**: `02 / The Precedent` (was `02 / The Insight`).
+- **Kicker / section label**: `THE PRECEDENT` (timeline plate kicker stays uppercase).
+- **Timeline anchor**: update the first mark to `1956 — FICO FOUNDED` (was `Founded`). Keep the 1995 and Today marks as the approved precedent narrative, but let the 1956 anchor drive the left-to-right build.
+- **Pull quote** (full-width, top of text register):  
+  “Credit has FICO. Public markets have ratings agencies. Real estate has the appraisal. Partnership readiness has nothing.”
+- **Body — Left**:  
+  Every mature market converges on one trusted measure. The first credible, neutral body to define the score sets the reference everyone else quotes — and the platform that operationalizes it captures the recurring value.
+- **Body — Right**:  
+  We are building the FICO score for that market. FICO did not reach a $20B+ market cap by being a software company; it got there by becoming infrastructure the entire market depends on.
+- **Bridge sentence** (new, full-width below the two-column body):  
+  The mechanism that makes this possible is structural independence — a governance model that separates the standard from the platform, and the platform from the commercial interests of any single actor. That structure is already in place.
+- **Image caption**: `Every mature market converges on one trusted measure.` (unchanged).
 
-- `section05_tower_master.png` — static and reduced-motion image
-- `section05_tower_01_parent.png`
-- `section05_tower_02_standard.png`
-- `section05_tower_03_platform.png`
-- `section05_tower_04_firewall.png`
-- `section05_tower_05_agency.png`
+## Layout changes
 
-The QA composite `section05_tower_layers_reconstructed.png` is used for verification only and is not shipped.
+- Image + timeline overlay: unchanged composition and left-to-right animation. The timeline still starts at 1956 and ends at Today.
+- Text register below the image is reorganized from the current “quote left / body right” split into a stacked magazine sequence:
+  1. Full-width pull quote (large, class `ed-quote`).
+  2. Two-column body grid: `BODY — LEFT` on the left, `BODY — RIGHT` on the right, separated by a vertical rule or column gap.
+  3. Full-width bridge sentence with a subtle top rule (`border-top`) to set it apart from the body and lead the eye toward Section 03/05.
+- Keep the same `PageBody` padding and `ink` stock; no changes to the global color system or other spreads.
 
-## Composition
+## Motion changes
 
-- One tower stage element sized to the shared 1154 × 1363 canvas, centered on the existing Signal Black ground, with generous padding and no cropping at any breakpoint.
-- Every layer is absolutely positioned at identical `inset: 0`, identical width/height, and identical `transform-origin`. No per-floor scale, crop, offset, rotation, or skew. No 3D transforms and no perspective animation.
-- The master sits beneath the layers as the base plate; layers reveal on top in registration so the composite matches the master.
+- Preserve the existing `Settle` staggers and `PrecedentTimeline` left-to-right build.
+- Pull quote, left body, right body, and bridge sentence each get their own `Settle` stagger so the text register reads in sequence after the image/timeline build.
+- No new complex animation; `STATIC_REVIEW_MODE` / `prefers-reduced-motion` still renders final state instantly.
 
-## Motion
+## File changes
 
-- Reveal order: Parent → Standard → Platform → Firewall → Agency.
-- Per layer: short opacity fade plus at most 12 px downward settle, easing to rest.
-- A brief brightness lift at that floor's physical seam, returning to normal — implemented as a seam highlight element inside the same registered stage, not a transform on the floor.
-- `prefers-reduced-motion: reduce` (and static review mode): master image only, all live labels visible, no layer animation.
-
-## Typography and overlay
-
-- All entity names, role labels, the INDEPENDENCE FIREWALL band label, and the SAFE conversion arrow remain live HTML/SVG. Nothing is baked into the render.
-- The registered SVG overlay's `viewBox` and `preserveAspectRatio` are re-derived to the tower's 1154 × 1363 artboard so type scales exactly with the object; label coordinates are re-anchored to the new floor geometry (PARENT on the top volume, THE STANDARD on the second, THE PLATFORM on the third, the firewall label in the recessed dark band, NuDaze on the base volume).
-- The SAFE arrow runs once and terminates only at the DIS / Platform floor.
-- Approved copy is unchanged: investor rule headline, the four protection statements, the NuDaze arm's-length mark, screen-reader entity list, running head `05 / The Structure`, folio `05`.
-
-## Technical notes
-
-- `src/components/spreads/Spread05Structure.tsx` is rewritten around the layered stage; Section 05 CSS stays section-scoped in `src/styles.css` so no other spread is affected. Framer Motion drives the reveal; only the active spread animates.
-- The old `/section05-governance-plate-r1.webp` reference is removed once the new composition verifies.
-- Responsive: 1280 × 720 desktop reference preserved; tablet and mobile scale the whole stage as a unit and drop peripheral annotations first — the tower is never recomposed.
+- Edit `src/components/spreads/Spread02Insight.tsx` only.
+- No new assets, no CSS file changes, no other spread changes.
 
 ## Verification
 
-Playwright sweep at 1280 × 720, large desktop, tablet landscape/portrait, and mobile, plus reduced motion: layer registration matches the master (no seams or ghosting), no cropping, labels land on their correct floors, SAFE terminates at the Platform floor, no overflow or collisions. Nothing outside Section 05 changes.
+- Typecheck / build passes.
+- Playwright screenshot at 1280 × 720: running head reads `02 / The Precedent`, kicker reads `THE PRECEDENT`, timeline starts with `1956 — FICO FOUNDED`, body is two columns, bridge sentence sits below as a full-width line with a top rule, no overflow or collisions, reduced-motion still renders final state.
