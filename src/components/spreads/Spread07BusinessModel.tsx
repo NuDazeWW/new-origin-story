@@ -214,12 +214,12 @@ function SignalField() {
  * so no DOM measurement or ResizeObserver is required.
  */
 function FlowConnectorLayer() {
-  const CORE_L = 430;
-  const CORE_R = 570;
-  const CORE_Y = 300;
+  const CORE_L = 442;
+  const CORE_R = 558;
+  const CORE_Y = 226;
 
-  const supplyAnchors = [341, 382, 422, 458];
-  const demandAnchors = [299, 335, 367];
+  const supplyAnchors = [259, 292, 320, 349];
+  const demandAnchors = [214, 243, 271];
 
   return (
     <svg
@@ -231,12 +231,12 @@ function FlowConnectorLayer() {
     >
       <g className="s07-c--supply">
         {supplyAnchors.map((y) => (
-          <path key={y} d={`M320 ${y} C 375 ${y}, 385 ${CORE_Y}, ${CORE_L} ${CORE_Y}`} />
+          <path key={y} d={`M338 ${y} C 392 ${y}, 400 ${CORE_Y}, ${CORE_L} ${CORE_Y}`} />
         ))}
       </g>
       <g className="s07-c--demand">
         {demandAnchors.map((y) => (
-          <path key={y} d={`M${CORE_R} ${CORE_Y} C 625 ${CORE_Y}, 635 ${y}, 700 ${y}`} />
+          <path key={y} d={`M${CORE_R} ${CORE_Y} C 640 ${CORE_Y}, 700 ${y}, 786 ${y}`} />
         ))}
       </g>
     </svg>
