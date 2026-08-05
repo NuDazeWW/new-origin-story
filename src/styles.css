@@ -2446,23 +2446,23 @@ body {
   grid-column: 1 / -1;
   margin-top: 0.3rem;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
   align-items: center;
-  min-height: 80px;
+  min-height: 0;
   border-top: 1px solid rgba(230, 235, 241, 0.3);
   border-bottom: 1px solid rgba(230, 235, 241, 0.3);
 }
 
 .fly__quote p {
-  padding: 0.8rem 1.7rem;
+  padding: 0.65rem 1.7rem;
   font-family: 'DM Serif Display', Georgia, serif;
-  font-size: clamp(1.2rem, 1.6vw, 1.42rem);
-  line-height: 1.44;
+  font-size: clamp(1.05rem, 1.4vw, 1.32rem);
+  line-height: 1.36;
   color: var(--ink-text);
   text-align: center;
 }
 
-.fly__quote p + p { border-left: 1px solid rgba(230, 235, 241, 0.2); }
+.fly__quote p + p { display: none; }
 
 /* --- responsive ------------------------------------------- */
 
@@ -2486,8 +2486,8 @@ body {
   .fly__obj, .fly__caps { left: 50%; top: 50%; }
   .fly__rail { max-width: none; padding-left: 0; }
   .fly__quote { grid-template-columns: 1fr; min-height: 0; }
-  .fly__quote p { padding: 0.9rem 0.4rem; }
-  .fly__quote p + p { border-left: 0; border-top: 1px solid rgba(230, 235, 241, 0.14); }
+  .fly__quote p { padding: 0.75rem 0.4rem; font-size: clamp(1rem, 1.5vw, 1.2rem); }
+  .fly__quote p + p { display: none; }
   .fly__cap { width: 5rem; min-height: 3.6rem; padding: 0.34rem; }
   .fly__cap--wide { width: 6rem; }
   .fly__cap-name { font-size: 0.56rem; }

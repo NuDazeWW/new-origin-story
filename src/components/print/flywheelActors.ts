@@ -76,8 +76,8 @@ export const ACTORS: FlywheelActor[] = [
   },
   {
     index: "05",
-    label: "Partnership Ecosystem Operators\u2122",
-    lines: ["Partnership Ecosystem", "Operators\u2122"],
+    label: "Partnership Ecosystem Operators™",
+    lines: ["Partnership Ecosystem", "Operators™"],
     angle: 240,
     accent: "spot",
     gain: "A credibility tool and a new revenue layer — evidence-based counsel no competitor can match.",

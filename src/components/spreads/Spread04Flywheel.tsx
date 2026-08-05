@@ -13,7 +13,7 @@ import { STATIC_REVIEW_MODE } from "@/reviewMode";
 
 import { Page, PageBody, RunningHead, Folio } from "@/components/print/Page";
 import { Settle } from "@/components/print/Editorial";
-import { EASE } from "@/components/print/Layers";
+import { EASE, Eyebrow } from "@/components/print/Layers";
 import { useParallax } from "@/components/print/parallax";
 import FlywheelObject from "@/components/print/FlywheelObject";
 import { ACTORS } from "@/components/print/flywheelActors";
@@ -69,7 +69,7 @@ export default function Spread04Flywheel({ isActive = false }: { isActive?: bool
 
   return (
     <Page stock="ink" className="fly-pg">
-      <RunningHead chapter="04 / The Solution" issue="DIS Origin" />
+      <RunningHead chapter="04 / The Ecosystem Flywheel" issue="DIS Origin" />
 
       <PageBody>
         <div className={`fly${isActive ? " is-live" : ""}`}>
@@ -85,20 +85,18 @@ export default function Spread04Flywheel({ isActive = false }: { isActive?: bool
           {/* ---------- left editorial column ---------- */}
           <header className="fly__lead">
             <Settle>
-              <h2 className="fly__title">
-                The Ecosystem
-                <br />
-                Flywheel
-              </h2>
+              <div className="sec-head">
+                <Eyebrow>THE ECOSYSTEM FLYWHEEL</Eyebrow>
+                <h2 className="fly__title">
+                  Every Actor.
+                  <br />
+                  One Standard.
+                  <br />
+                  Compounding Value.
+                </h2>
+              </div>
             </Settle>
             <Settle delay={0.14}>
-              <p className="fly__stack">
-                <span>Every Actor.</span>
-                <span>One Standard.</span>
-                <span>Compounding Value.</span>
-              </p>
-            </Settle>
-            <Settle delay={0.26}>
               <p className="fly__lede">
                 The PRSC Readiness Score™ is not a product any single actor could build. It is
                 infrastructure the entire ecosystem builds together — and depends on together.
@@ -210,9 +208,10 @@ export default function Spread04Flywheel({ isActive = false }: { isActive?: bool
             animate={{ opacity: lit || reduce ? 1 : 0 }}
             transition={{ duration: 1, delay: reduce ? 0 : 1.7, ease: EASE }}
           >
-            <p>The flywheel does not require universal adoption to start.</p>
-            <p>It requires one credible anchor.</p>
-            <p>Then gravity does the rest.</p>
+            <p>
+              The flywheel does not require universal adoption to start. It requires one credible
+              anchor. Then gravity does the rest.
+            </p>
           </motion.div>
         </div>
       </PageBody>
