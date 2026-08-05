@@ -10,8 +10,8 @@
   --s07-text: #e6ebf1;
   --s07-fog: #a6afb8;
   --s07-curve: 1;
-  --s07-grid-left: 28%;
-  --s07-grid-right: 28%;
+  --s07-grid-left: 34%;
+  --s07-grid-right: 26%;
 
   position: relative;
   width: 100%;
@@ -110,7 +110,7 @@
   left: var(--s07-grid-left, 26%);
   right: var(--s07-grid-right, 26%);
   top: 50%;
-  height: 46%;
+  height: 30%;
   transform: translateY(-50%);
   z-index: 1;
   pointer-events: none;
@@ -269,15 +269,15 @@
 @media (max-width: 1099px) {
   .s07 {
     --s07-curve: 0.55;
-    --s07-grid-left: 32%;
-    --s07-grid-right: 32%;
+    --s07-grid-left: 36%;
+    --s07-grid-right: 30%;
   }
   .s07-flow {
     grid-template-columns: minmax(220px, 1fr) minmax(150px, 0.7fr) minmax(220px, 1fr);
   }
   .s07-signal { width: min(24%, 260px); }
   .s07-flow { padding-inline: clamp(4.2rem, 7vw, 5.5rem); }
-  .s07-connectors { height: 34%; }
+  .s07-connectors { height: 24%; }
   .s07-core { padding: 0.7rem 0.9rem; }
   .s07-core p { font-size: 0.52rem; letter-spacing: 0.16em; }
 }
