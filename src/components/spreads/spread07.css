@@ -274,7 +274,7 @@
 /* connector geometry only reads cleanly with the wide three-column grid */
 @media (max-width: 949px) {
   .s07-connectors { display: none; }
-  .s07-flow { padding-inline: 4.8rem; }
+  .s07-flow { padding-inline: 5.6rem; }
 }
 
 /* ---------- mobile ---------- */
