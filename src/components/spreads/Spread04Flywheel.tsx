@@ -13,7 +13,7 @@ import { STATIC_REVIEW_MODE } from "@/reviewMode";
 
 import { Page, PageBody, RunningHead, Folio } from "@/components/print/Page";
 import { Settle } from "@/components/print/Editorial";
-import { EASE } from "@/components/print/Layers";
+import { EASE, Eyebrow } from "@/components/print/Layers";
 import { useParallax } from "@/components/print/parallax";
 import FlywheelObject from "@/components/print/FlywheelObject";
 import { ACTORS } from "@/components/print/flywheelActors";
