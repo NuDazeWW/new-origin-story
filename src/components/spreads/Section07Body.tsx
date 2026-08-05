@@ -33,7 +33,7 @@ const supplyItems: RevenueItem[] = [
   {
     id: "subscriptions",
     label: "Demand-side subscriptions",
-    sub: "(brands, investors, agencies, series)",
+    sub: "brands, investors (evaluating sponsorship assets in portfolio companies), agencies, and series",
     icon: Users,
   },
   { id: "modules", label: "Intelligence layer module access", icon: Layers },
