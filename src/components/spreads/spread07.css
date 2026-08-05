@@ -119,13 +119,13 @@
   display: block;
   width: 2.5rem;
   height: 1px;
-  margin-top: 2rem;
+  margin-top: 1.25rem;
   transform-origin: left center;
   background: rgba(var(--s07-steel), 0.4);
 }
 
 .s07b-revhead {
-  margin: 1.75rem 0 0;
+  margin: 1.1rem 0 0;
   font-family: var(--font-mono, ui-monospace, monospace);
   font-size: 10px;
   font-weight: 400;
@@ -144,8 +144,8 @@
   list-style: none;
 }
 
-.s07b-list--supply { margin-top: 1.5rem; gap: 18px; }
-.s07b-list--demand { margin-top: 2rem; gap: 30px; }
+.s07b-list--supply { margin-top: 1rem; gap: 12px; }
+.s07b-list--demand { margin-top: 1.75rem; gap: 26px; }
 
 .s07b-row {
   position: relative;
