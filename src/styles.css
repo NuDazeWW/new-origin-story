@@ -2486,8 +2486,8 @@ body {
   .fly__obj, .fly__caps { left: 50%; top: 50%; }
   .fly__rail { max-width: none; padding-left: 0; }
   .fly__quote { grid-template-columns: 1fr; min-height: 0; }
-  .fly__quote p { padding: 0.9rem 0.4rem; }
-  .fly__quote p + p { border-left: 0; border-top: 1px solid rgba(230, 235, 241, 0.14); }
+  .fly__quote p { padding: 0.75rem 0.4rem; font-size: clamp(1rem, 1.5vw, 1.2rem); }
+  .fly__quote p + p { display: none; }
   .fly__cap { width: 5rem; min-height: 3.6rem; padding: 0.34rem; }
   .fly__cap--wide { width: 6rem; }
   .fly__cap-name { font-size: 0.56rem; }
