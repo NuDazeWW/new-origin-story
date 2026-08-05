@@ -208,9 +208,10 @@ export default function Spread04Flywheel({ isActive = false }: { isActive?: bool
             animate={{ opacity: lit || reduce ? 1 : 0 }}
             transition={{ duration: 1, delay: reduce ? 0 : 1.7, ease: EASE }}
           >
-            <p>The flywheel does not require universal adoption to start.</p>
-            <p>It requires one credible anchor.</p>
-            <p>Then gravity does the rest.</p>
+            <p>
+              The flywheel does not require universal adoption to start. It requires one credible
+              anchor. Then gravity does the rest.
+            </p>
           </motion.div>
         </div>
       </PageBody>
