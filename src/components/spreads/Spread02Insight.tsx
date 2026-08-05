@@ -85,7 +85,7 @@ export default function Spread02Insight({ isActive = false }: { isActive?: boole
 
   return (
     <Page stock="ink">
-      <RunningHead chapter="02 / The Insight" issue="DIS Origin" />
+      <RunningHead chapter="02 / The Precedent" issue="DIS Origin" />
 
       <PageBody>
         <div style={{ display: "flex", flexDirection: "column", width: "100%", minHeight: 0 }}>
@@ -106,33 +106,56 @@ export default function Spread02Insight({ isActive = false }: { isActive?: boole
           <div
             style={{
               flex: "0 0 auto",
-              display: "grid",
-              gridTemplateColumns: "1fr 1fr",
-              gap: "3.5rem",
+              display: "flex",
+              flexDirection: "column",
+              gap: "1.2rem",
               padding: "1.3rem 4.5rem 0",
-              alignItems: "start",
               borderTop: "1px solid var(--rule)",
               marginTop: "1.2rem",
             }}
           >
             <Settle>
-              <p className="ed-quote" style={{ fontSize: "clamp(1.25rem, 2vw, 2.05rem)" }}>
+              <p className="ed-quote" style={{ fontSize: "clamp(1.25rem, 2vw, 2.05rem)", maxWidth: "none" }}>
                 “Credit has FICO. Public markets have ratings agencies. Real estate has the
                 appraisal. Partnership readiness has nothing.”
               </p>
             </Settle>
 
             <Settle delay={0.12}>
-              <Body>
-                The first credible, neutral body to define the score sets the reference everyone
-                else quotes — and the platform that operationalizes it captures the recurring
-                value.
-              </Body>
-              <Body>
-                We are building the FICO score for that market. FICO did not reach a $20B+ market
-                cap by being a software company; it got there by becoming infrastructure the entire
-                market depends on.
-              </Body>
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "1fr 1fr",
+                  gap: "3.5rem",
+                  alignItems: "start",
+                }}
+              >
+                <Body>
+                  Every mature market converges on one trusted measure. The first credible, neutral
+                  body to define the score sets the reference everyone else quotes — and the platform
+                  that operationalizes it captures the recurring value.
+                </Body>
+                <Body>
+                  We are building the FICO score for that market. FICO did not reach a $20B+ market
+                  cap by being a software company; it got there by becoming infrastructure the
+                  entire market depends on.
+                </Body>
+              </div>
+            </Settle>
+
+            <Settle delay={0.24}>
+              <div
+                style={{
+                  borderTop: "1px solid var(--rule)",
+                  paddingTop: "1.1rem",
+                }}
+              >
+                <Body>
+                  The mechanism that makes this possible is structural independence — a governance
+                  model that separates the standard from the platform, and the platform from the
+                  commercial interests of any single actor. That structure is already in place.
+                </Body>
+              </div>
             </Settle>
           </div>
         </div>
