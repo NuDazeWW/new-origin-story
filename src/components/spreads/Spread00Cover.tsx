@@ -11,7 +11,7 @@ import { STATIC_REVIEW_MODE } from "@/reviewMode";
 import coverAsset from "@/assets/dis-cover.png.asset.json";
 import lockupAsset from "@/assets/dis-lockup-cover.png.asset.json";
 
-import { Page, Folio } from "@/components/print/Page";
+import { Page } from "@/components/print/Page";
 import { Settle } from "@/components/print/Editorial";
 
 export default function Spread00Cover() {
