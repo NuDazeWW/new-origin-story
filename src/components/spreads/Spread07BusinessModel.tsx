@@ -218,8 +218,8 @@ function FlowConnectorLayer() {
   const CORE_R = 570;
   const CORE_Y = 300;
 
-  const supplyAnchors = [372, 412, 452, 492];
-  const demandAnchors = [212, 262, 306];
+  const supplyAnchors = [341, 382, 422, 458];
+  const demandAnchors = [299, 335, 367];
 
   return (
     <svg
@@ -231,12 +231,12 @@ function FlowConnectorLayer() {
     >
       <g className="s07-c--supply">
         {supplyAnchors.map((y) => (
-          <path key={y} d={`M300 ${y} C 370 ${y}, 380 ${CORE_Y}, ${CORE_L} ${CORE_Y}`} />
+          <path key={y} d={`M320 ${y} C 375 ${y}, 385 ${CORE_Y}, ${CORE_L} ${CORE_Y}`} />
         ))}
       </g>
       <g className="s07-c--demand">
         {demandAnchors.map((y) => (
-          <path key={y} d={`M${CORE_R} ${CORE_Y} C 640 ${CORE_Y}, 650 ${y}, 720 ${y}`} />
+          <path key={y} d={`M${CORE_R} ${CORE_Y} C 625 ${CORE_Y}, 635 ${y}, 700 ${y}`} />
         ))}
       </g>
     </svg>
