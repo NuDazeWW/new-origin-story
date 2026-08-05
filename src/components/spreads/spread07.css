@@ -10,6 +10,8 @@
   --s07-text: #e6ebf1;
   --s07-fog: #a6afb8;
   --s07-curve: 1;
+  --s07-grid-left: 28%;
+  --s07-grid-right: 28%;
 
   position: relative;
   width: 100%;
