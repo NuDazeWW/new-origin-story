@@ -267,12 +267,17 @@
 /* ---------- tablet ---------- */
 
 @media (max-width: 1099px) {
-  .s07 { --s07-curve: 0.55; }
+  .s07 {
+    --s07-curve: 0.55;
+    --s07-grid-left: 32%;
+    --s07-grid-right: 32%;
+  }
   .s07-flow {
     grid-template-columns: minmax(220px, 1fr) minmax(150px, 0.7fr) minmax(220px, 1fr);
   }
   .s07-signal { width: min(24%, 260px); }
   .s07-flow { padding-inline: clamp(4.2rem, 7vw, 5.5rem); }
+  .s07-connectors { height: 34%; }
   .s07-core { padding: 0.7rem 0.9rem; }
   .s07-core p { font-size: 0.52rem; letter-spacing: 0.16em; }
 }
