@@ -69,7 +69,7 @@ export default function Spread04Flywheel({ isActive = false }: { isActive?: bool
 
   return (
     <Page stock="ink" className="fly-pg">
-      <RunningHead chapter="04 / The Solution" issue="DIS Origin" />
+      <RunningHead chapter="04 / The Ecosystem Flywheel" issue="DIS Origin" />
 
       <PageBody>
         <div className={`fly${isActive ? " is-live" : ""}`}>
@@ -85,20 +85,18 @@ export default function Spread04Flywheel({ isActive = false }: { isActive?: bool
           {/* ---------- left editorial column ---------- */}
           <header className="fly__lead">
             <Settle>
-              <h2 className="fly__title">
-                The Ecosystem
-                <br />
-                Flywheel
-              </h2>
+              <div className="sec-head">
+                <Eyebrow>THE ECOSYSTEM FLYWHEEL</Eyebrow>
+                <h2 className="fly__title">
+                  Every Actor.
+                  <br />
+                  One Standard.
+                  <br />
+                  Compounding Value.
+                </h2>
+              </div>
             </Settle>
             <Settle delay={0.14}>
-              <p className="fly__stack">
-                <span>Every Actor.</span>
-                <span>One Standard.</span>
-                <span>Compounding Value.</span>
-              </p>
-            </Settle>
-            <Settle delay={0.26}>
               <p className="fly__lede">
                 The PRSC Readiness Score™ is not a product any single actor could build. It is
                 infrastructure the entire ecosystem builds together — and depends on together.
