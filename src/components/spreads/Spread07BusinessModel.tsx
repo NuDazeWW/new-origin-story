@@ -209,17 +209,17 @@ function SignalField() {
 }
 
 /**
- * One decorative SVG. Coordinates are defined against a stable 1000 × 600
- * viewBox that stretches with the flow container (preserveAspectRatio="none"),
- * so no DOM measurement or ResizeObserver is required.
+ * One decorative SVG. It is positioned as a centred band whose vertical middle
+ * is the intelligence core, so the fan converges symmetrically on the core at
+ * every viewport width — no DOM measurement or ResizeObserver required.
  */
 function FlowConnectorLayer() {
-  const CORE_L = 442;
-  const CORE_R = 558;
-  const CORE_Y = 226;
+  const CORE_L = 430;
+  const CORE_R = 570;
+  const CORE_Y = 300;
 
-  const supplyAnchors = [259, 292, 320, 349];
-  const demandAnchors = [214, 243, 271];
+  const supplyAnchors = [120, 240, 360, 480];
+  const demandAnchors = [150, 300, 450];
 
   return (
     <svg
@@ -231,12 +231,12 @@ function FlowConnectorLayer() {
     >
       <g className="s07-c--supply">
         {supplyAnchors.map((y) => (
-          <path key={y} d={`M338 ${y} C 392 ${y}, 400 ${CORE_Y}, ${CORE_L} ${CORE_Y}`} />
+          <path key={y} d={`M0 ${y} C 200 ${y}, 260 ${CORE_Y}, ${CORE_L} ${CORE_Y}`} />
         ))}
       </g>
       <g className="s07-c--demand">
         {demandAnchors.map((y) => (
-          <path key={y} d={`M${CORE_R} ${CORE_Y} C 640 ${CORE_Y}, 700 ${y}, 786 ${y}`} />
+          <path key={y} d={`M${CORE_R} ${CORE_Y} C 740 ${CORE_Y}, 800 ${y}, 1000 ${y}`} />
         ))}
       </g>
     </svg>
