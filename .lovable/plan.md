@@ -1,22 +1,46 @@
-# Section 05 — Isolated Glass Tower Asset
+# Section 05 — Layered Tower Asset Integration
 
-Generate the approved tower as a standalone premium product render on flat chroma-magenta, key it to transparency, and swap it into Section 05 in place of the current full-bleed governance plate.
+Replace the current full-bleed governance plate with the supplied isolated tower: one master image plus five registered animation layers, with all typography staying live.
 
-## Steps
+## Assets
 
-1. **Generate the render** using the supplied prompt verbatim (premium quality tier, 1536×1536 for full silhouette with padding): three tightly stacked glass volumes with shared envelope and continuous mullions, recessed dark-glass firewall band, wider illuminated base, approved three-quarter perspective, optical/smoked glass with brushed platinum edges, restrained cyan seams and violet foundation light, flat solid chroma-magenta background, no text or scenery.
-2. **Review the render** visually. Reject and regenerate if it reads as stacked cards, wireframe, infographic, is cropped, or the magenta is not flat.
-3. **Key out the magenta** to a transparent PNG (tolerance-based chroma key with edge de-fringe so no magenta spill remains in glass reflections), saved as the Section 05 tower asset.
-4. **Integrate into Section 05**: the tower becomes the object in the composition on the existing dark ground; the registered SVG typography overlay is re-anchored to the new tower geometry so PARENT / THE STANDARD / INDEPENDENCE FIREWALL / THE PLATFORM and the single SAFE route still land on their correct physical floors. Left column copy (investor rule + four protection statements), NuDaze arm's-length mark, screen-reader structure, running head and folio stay exactly as approved.
-5. **Verify** with Playwright at 1280×720, large desktop, tablet, and mobile: no cropping, no magenta fringe, labels registered to floors, no overflow or collisions.
+Uploaded via Lovable Assets as CDN pointers in `src/assets/` (no binaries committed):
+
+- `section05_tower_master.png` — static and reduced-motion image
+- `section05_tower_01_parent.png`
+- `section05_tower_02_standard.png`
+- `section05_tower_03_platform.png`
+- `section05_tower_04_firewall.png`
+- `section05_tower_05_agency.png`
+
+The QA composite `section05_tower_layers_reconstructed.png` is used for verification only and is not shipped.
+
+## Composition
+
+- One tower stage element sized to the shared 1154 × 1363 canvas, centered on the existing Signal Black ground, with generous padding and no cropping at any breakpoint.
+- Every layer is absolutely positioned at identical `inset: 0`, identical width/height, and identical `transform-origin`. No per-floor scale, crop, offset, rotation, or skew. No 3D transforms and no perspective animation.
+- The master sits beneath the layers as the base plate; layers reveal on top in registration so the composite matches the master.
+
+## Motion
+
+- Reveal order: Parent → Standard → Platform → Firewall → Agency.
+- Per layer: short opacity fade plus at most 12 px downward settle, easing to rest.
+- A brief brightness lift at that floor's physical seam, returning to normal — implemented as a seam highlight element inside the same registered stage, not a transform on the floor.
+- `prefers-reduced-motion: reduce` (and static review mode): master image only, all live labels visible, no layer animation.
+
+## Typography and overlay
+
+- All entity names, role labels, the INDEPENDENCE FIREWALL band label, and the SAFE conversion arrow remain live HTML/SVG. Nothing is baked into the render.
+- The registered SVG overlay's `viewBox` and `preserveAspectRatio` are re-derived to the tower's 1154 × 1363 artboard so type scales exactly with the object; label coordinates are re-anchored to the new floor geometry (PARENT on the top volume, THE STANDARD on the second, THE PLATFORM on the third, the firewall label in the recessed dark band, NuDaze on the base volume).
+- The SAFE arrow runs once and terminates only at the DIS / Platform floor.
+- Approved copy is unchanged: investor rule headline, the four protection statements, the NuDaze arm's-length mark, screen-reader entity list, running head `05 / The Structure`, folio `05`.
 
 ## Technical notes
 
-- Asset saved under `src/assets/` and wired through the existing `*.asset.json` import pattern; the old `/section05-governance-plate-r1.webp` reference is removed only after the new composition verifies.
-- Overlay stays one SVG with a fixed `viewBox` and cover-matched `preserveAspectRatio` so type and object scale together; coordinates are re-derived from the new tower, not reused.
-- Motion unchanged in kind: slow parallax on the object, annotations sequencing in, one single-run SAFE move; reduced motion renders static.
-- No new copy. Nothing outside Section 05 is touched.
+- `src/components/spreads/Spread05Structure.tsx` is rewritten around the layered stage; Section 05 CSS stays section-scoped in `src/styles.css` so no other spread is affected. Framer Motion drives the reveal; only the active spread animates.
+- The old `/section05-governance-plate-r1.webp` reference is removed once the new composition verifies.
+- Responsive: 1280 × 720 desktop reference preserved; tablet and mobile scale the whole stage as a unit and drop peripheral annotations first — the tower is never recomposed.
 
-## Open dependency
+## Verification
 
-If the render cannot hit the brief after a second attempt, I will report it rather than ship a weaker object or fall back to CSS geometry.
+Playwright sweep at 1280 × 720, large desktop, tablet landscape/portrait, and mobile, plus reduced motion: layer registration matches the master (no seams or ghosting), no cropping, labels land on their correct floors, SAFE terminates at the Platform floor, no overflow or collisions. Nothing outside Section 05 changes.
