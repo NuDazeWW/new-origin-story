@@ -33,7 +33,7 @@ const supplyItems: RevenueItem[] = [
   {
     id: "subscriptions",
     label: "Demand-side subscriptions",
-    sub: "(brands, investors, agencies, series)",
+    sub: "brands, investors (evaluating sponsorship assets in portfolio companies), agencies, and series",
     icon: Users,
   },
   { id: "modules", label: "Intelligence layer module access", icon: Layers },
@@ -488,12 +488,13 @@ export default function Section07Body() {
         <h2 id="s07b-supply-heading" className="s07b-eyebrow s07b-eyebrow--supply">
           Free Supply
         </h2>
+        <h3 className="s07b-headline">Free supply. Paid demand. Compounding intelligence.</h3>
         <p ref={narrativeRef} className="s07b-narrative">
           The model mirrors how every durable rating network monetizes: supply side scored free to
-          drive ubiquity; demand side pays for intelligence that de-risks capital.
+          drive ubiquity; demand side pays for the intelligence that de-risks capital.
         </p>
         <span className="s07b-divider" aria-hidden="true" />
-        <h3 className="s07b-revhead">DIS Platform Revenue</h3>
+        <h3 className="s07b-revhead">DIS Platform Revenue (Paid Demand)</h3>
         <ul ref={supplyListRef} className="s07b-list s07b-list--supply">
           {supplyItems.map((item, i) => (
             <Row
@@ -549,6 +550,12 @@ export default function Section07Body() {
             </div>
             <div className="s07b-core__reflection" aria-hidden="true" />
           </div>
+
+          <p className="s07b-core-caption">
+            Every entity scored makes the benchmark more precise.
+            <br />
+            Every benchmark published makes the platform more valuable.
+          </p>
         </div>
       </div>
 
@@ -573,6 +580,10 @@ export default function Section07Body() {
             />
           ))}
         </ul>
+        <p className="s07b-note">
+          Note: Subscription tiers from individual to enterprise — pricing architecture in
+          development.
+        </p>
       </section>
     </div>
   );
