@@ -10,4 +10,4 @@
  * prefers-reduced-motion handling is intentionally kept separate: static review
  * mode is an internal review tool, not an accessibility substitute.
  */
-export const STATIC_REVIEW_MODE = true;
+export const STATIC_REVIEW_MODE = false;
