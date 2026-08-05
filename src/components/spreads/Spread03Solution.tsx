@@ -104,7 +104,7 @@ export default function Spread03Solution({ isActive = false }: { isActive?: bool
       >
         <span className="lbox__lead" aria-hidden />
         <div className="lbox__num">
-          {f.n} · {f.device}
+          {f.n} \u2014 {f.device}
         </div>
         <div className="lbox__title">{f.title}</div>
         <div className="lbox__text">{f.text}</div>
