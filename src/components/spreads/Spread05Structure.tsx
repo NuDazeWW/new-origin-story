@@ -107,7 +107,8 @@ export default function Spread05Structure({ isActive = false }: { isActive?: boo
               {/* ---------- THE STANDARD · Partnership Readiness Standards Council LLC ---------- */}
               <g transform="rotate(-5 960 528)">
                 <text className="s5o-ent s5o-ent--std s5o-ent--long" x="960" y="462" filter="url(#s5soft)">Partnership Readiness</text>
-                <text className="s5o-role s5o-role--std s5o-role--long" x="970" y="540">THE STANDARD · INDEPENDENCE FIREWALL</text>
+                <text className="s5o-role s5o-role--std s5o-role--long" x="970" y="510">THE STANDARD</text>
+                <text className="s5o-role s5o-role--std s5o-role--long" x="970" y="540">INDEPENDENCE FIREWALL</text>
               </g>
               <g transform="rotate(4 1380 498)">
                 <text className="s5o-ent s5o-ent--std s5o-ent--long" x="1380" y="498" filter="url(#s5soft)">Standards Council LLC</text>
@@ -116,7 +117,8 @@ export default function Spread05Structure({ isActive = false }: { isActive?: boo
               {/* ---------- THE PLATFORM · Decision Intelligence Systems Inc. ---------- */}
               <g transform="rotate(-5 950 674)">
                 <text className="s5o-ent s5o-ent--dis s5o-ent--long" x="950" y="592" filter="url(#s5violet)">Decision Intelligence</text>
-                <text className="s5o-role s5o-role--dis s5o-role--long" x="960" y="680">THE PLATFORM · SAFE CONVERTS HERE</text>
+                <text className="s5o-role s5o-role--dis s5o-role--long" x="960" y="640">THE PLATFORM</text>
+                <text className="s5o-role s5o-role--dis s5o-role--long" x="960" y="670">SAFE CONVERTS HERE</text>
               </g>
               <g transform="rotate(4 1380 644)">
                 <text className="s5o-ent s5o-ent--dis s5o-ent--long" x="1380" y="644" filter="url(#s5violet)">Systems Inc.</text>
