@@ -97,7 +97,7 @@ export default function Spread06Moat({ isActive = false }: { isActive?: boolean 
 
   return (
     <Page stock="platinum">
-      <RunningHead chapter="06 / The Four-Part Moat" issue="DIS Origin" />
+      <RunningHead chapter="06 / Defensibility That Compounds" issue="DIS Origin" />
 
       <PageBody>
         <div className="moat-stage moat-stage--plate">
