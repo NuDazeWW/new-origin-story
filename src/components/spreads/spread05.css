@@ -270,8 +270,8 @@
 /* ---------------- SAFE annotation ---------------- */
 .s05b__safe {
   position: absolute;
-  top: 57%;
-  right: 100%;
+  top: 57.5%;
+  right: 88%;
   transform: translateY(-50%);
   display: flex;
   align-items: center;
@@ -308,7 +308,7 @@
     gap: clamp(0.6rem, 1.6vw, 1.4rem);
   }
   .s05b__safe {
-    right: 92%;
+    right: 86%;
   }
   .s05b__safe span { font-size: 1.7cqw; }
   .s05b__safe svg { width: 6cqw; }
