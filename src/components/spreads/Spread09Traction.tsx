@@ -14,13 +14,18 @@ import { Settle } from "@/components/print/Editorial";
 import { EASE } from "@/components/print/Layers";
 
 const ROWS = [
-  { label: "PRSC Readiness Score dashboard", status: "LIVE", color: "teal" },
-  { label: "Readiness Terminal front-end prototype", status: "LIVE", color: "teal" },
-  { label: "Founding Vanguard™ cohort", status: "UNDERWAY AT WATKINS GLEN", color: "blue" },
-  { label: "Vanguard Participation Agreement", status: "EXECUTED", color: "teal" },
-  { label: "Trademark filings", status: "FILED", color: "blue" },
-  { label: "Four-entity governance structure", status: "IN PLACE", color: "blue" },
-  { label: "Allen Bestwick advisory relationship", status: "CONFIRMED", color: "purple" },
+  { label: "Legal entity formation (NicoleIsNine Holdings, PRSC LLC, DIS Inc)", status: "IN PLACE", color: "blue", why: "" },
+  { label: "Four-entity governance structure", status: "IN PLACE", color: "blue", why: "" },
+  { label: "Trademark filings", status: "FILED", color: "blue", why: "" },
+  { label: "PRSC Readiness Score dashboard", status: "LIVE", color: "teal", why: "" },
+  { label: "Readiness Terminal front-end prototype", status: "LIVE", color: "teal", why: "" },
+  { label: "Platform development — Sprint 1 initiated", status: "IN PROGRESS", color: "blue", why: "" },
+  { label: "Vanguard Participation Agreement", status: "EXECUTED", color: "teal", why: "" },
+  { label: "The Readiness Vanguard™ cohort", status: "UNDERWAY", color: "blue", why: "" },
+  { label: "The Methodology Committee Chair", status: "IN PROGRESS", color: "blue", why: "" },
+  { label: "Data partner negotiations underway — semantic intelligence, audience profiling, media measurement; Prxy AI under NDA", status: "IN NEGOTIATION", color: "purple", why: "" },
+  { label: "Field presence: Trans Am Series: Road Atlanta · Sonoma · Indianapolis Motor Speedway · Watkins Glen · 4 Hours of Barcelona · ADAC Ravenol 24h Nürburgring", status: "ONGOING", color: "teal", why: "" },
+  { label: "SAFE instrument structured", status: "READY", color: "teal", why: "" },
 ];
 
 export default function Spread09Traction({ isActive = false }: { isActive?: boolean }) {
@@ -59,6 +64,7 @@ export default function Spread09Traction({ isActive = false }: { isActive?: bool
                 <span className="traction-row__line" />
                 <span className="traction-row__label">{r.label}</span>
                 <span className={`traction-row__status traction-row__status--${r.color}`}>{r.status}</span>
+                {r.why ? <span className="traction-row__why">{r.why}</span> : null}
               </motion.div>
             ))}
           </div>
