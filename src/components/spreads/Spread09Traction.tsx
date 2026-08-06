@@ -25,6 +25,7 @@ const ROWS = [
   { label: "The Methodology Committee Chair", status: "IN PROGRESS", color: "blue", why: "" },
   { label: "Data partner negotiations underway — semantic intelligence, audience profiling, media measurement; Prxy AI under NDA", status: "IN NEGOTIATION", color: "purple", why: "" },
   { label: "Field presence: Trans Am Series: Road Atlanta · Sonoma · Indianapolis Motor Speedway · Watkins Glen · 4 Hours of Barcelona · ADAC Ravenol 24h Nürburgring", status: "ONGOING", color: "teal", why: "" },
+  { label: "~150 Motorsport Stakeholder, Thought Leader, Ecosystem Builder & Early Adopter Conversations", status: "ONGOING", color: "teal", why: "" },
   { label: "SAFE instrument structured", status: "READY", color: "teal", why: "" },
 ];
 
