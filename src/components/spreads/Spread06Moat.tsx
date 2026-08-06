@@ -60,10 +60,34 @@ const ICONS: Record<string, ReactNode> = {
 
 /** Approved moat labels and statuses only — SLIDE 6. No generated descriptions. */
 const STRATA = [
-  { id: "methodology", label: "In Place", title: "Trade-Secret Methodology", accent: "spot" },
-  { id: "governance", label: "In Place", title: "Independent Governance", accent: "live" },
-  { id: "benchmark", label: "Building via Vanguard", title: "Benchmark Database", accent: "future" },
-  { id: "outcome", label: "In Progress", title: "Outcome Intelligence", accent: "future" },
+  {
+    id: "methodology",
+    label: "In Place",
+    title: "Trade-Secret Methodology",
+    body: "The Readiness Engine™ weighting and calibration mathematics — never trademarked, never disclosed. Backed by an active IP and trademark portfolio.",
+    accent: "spot",
+  },
+  {
+    id: "governance",
+    label: "In Place",
+    title: "Independent Governance",
+    body: "The four-entity separation that makes independence enforceable, not promised.",
+    accent: "live",
+  },
+  {
+    id: "benchmark",
+    label: "Building via Vanguard",
+    title: "Benchmark Database",
+    body: "A proprietary comparison set that grows more valuable with every entity rated.",
+    accent: "future",
+  },
+  {
+    id: "outcome",
+    label: "Post-Vanguard · Year 2",
+    title: "Outcome Intelligence",
+    body: "Linking readiness scores to real commercial outcomes — the data that makes the standard indispensable and the platform irreplaceable.",
+    accent: "future",
+  },
 ];
 
 export default function Spread06Moat({ isActive = false }: { isActive?: boolean }) {
