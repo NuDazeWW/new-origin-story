@@ -64,6 +64,7 @@ export default function Spread09Traction({ isActive = false }: { isActive?: bool
                 <span className="traction-row__line" />
                 <span className="traction-row__label">{r.label}</span>
                 <span className={`traction-row__status traction-row__status--${r.color}`}>{r.status}</span>
+                {r.why ? <span className="traction-row__why">{r.why}</span> : null}
               </motion.div>
             ))}
           </div>
