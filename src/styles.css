@@ -6086,18 +6086,28 @@ body {
   pointer-events: none;
 }
 
-.moat-stage--plate .moat4-col { width: 38%; top: 6.5%; }
+.moat-stage--plate .moat4-col { width: 42%; top: 4.5%; bottom: 3%; }
 
 .moat-stage--plate .moat4-statement {
-  font-size: clamp(1.9rem, 3.35vw, 3.4rem);
-  line-height: 1.02;
-  max-width: 15ch;
+  font-size: clamp(1.5rem, 2.35vw, 2.3rem);
+  line-height: 1.04;
+  max-width: 18ch;
+  margin-top: 0.4rem;
 }
 
-.moat-stage--plate .moat4-support { font-size: 0.92rem; line-height: 1.7; }
-.moat-stage--plate .moat4-entry { padding: 0.55rem 0; }
-.moat-stage--plate .moat4-entry__title { font-size: 1.02rem; }
-.moat-stage--plate .moat4-entry__desc { font-size: 0.72rem; line-height: 1.45; }
+.moat-stage--plate .moat4-rule { margin-top: 0.85rem; }
+.moat-stage--plate .moat4-support {
+  font-size: 0.78rem;
+  line-height: 1.5;
+  margin-top: 0.8rem;
+  max-width: 46ch;
+}
+.moat-stage--plate .moat4-index { margin-top: 1.1rem; }
+.moat-stage--plate .moat4-entry { padding: 0.42rem 0; column-gap: 0.6rem; grid-template-columns: 2rem 2.1rem 1fr; }
+.moat-stage--plate .moat4-entry__title { font-size: 0.94rem; }
+.moat-stage--plate .moat4-entry__desc { font-size: 0.68rem; line-height: 1.38; max-width: 44ch; margin: 0.12rem 0 0.2rem; }
+.moat-stage--plate .moat4-entry__status { font-size: 0.55rem; }
+
 
 /* --- responsive ------------------------------------------ */
 
