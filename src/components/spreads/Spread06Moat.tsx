@@ -156,6 +156,7 @@ export default function Spread06Moat({ isActive = false }: { isActive?: boolean 
                   <span className="moat4-entry__glyph">{ICONS[s.id]}</span>
                   <span className="moat4-entry__body">
                     <span className="moat4-entry__title">{s.title}</span>
+                    <span className="moat4-entry__desc">{s.body}</span>
                     <span className="moat4-entry__status">{s.label}</span>
                   </span>
                 </motion.div>
