@@ -3016,14 +3016,14 @@ body {
 .traction-head {
   position: absolute;
   left: 4.5rem;
-  top: 12%;
+  top: 7%;
   z-index: 2;
 }
 
 .traction-hero {
   margin-top: 0.6rem;
   font-family: 'DM Serif Display', Georgia, serif;
-  font-size: clamp(4rem, 10vw, 9rem);
+  font-size: clamp(3.4rem, 8.5vw, 7.5rem);
   line-height: 0.9;
   letter-spacing: -0.03em;
   color: var(--ink-text);
