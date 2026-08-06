@@ -6095,8 +6095,9 @@ body {
 }
 
 .moat-stage--plate .moat4-support { font-size: 0.92rem; line-height: 1.7; }
-.moat-stage--plate .moat4-entry { padding: 0.7rem 0; }
-.moat-stage--plate .moat4-entry__title { font-size: 1.06rem; }
+.moat-stage--plate .moat4-entry { padding: 0.55rem 0; }
+.moat-stage--plate .moat4-entry__title { font-size: 1.02rem; }
+.moat-stage--plate .moat4-entry__desc { font-size: 0.72rem; line-height: 1.45; }
 
 /* --- responsive ------------------------------------------ */
 
