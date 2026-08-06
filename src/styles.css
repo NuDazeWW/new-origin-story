@@ -6102,10 +6102,10 @@ body {
   margin-top: 0.65rem;
   max-width: 46ch;
 }
-.moat-stage--plate .moat4-index { margin-top: 0.9rem; margin-bottom: auto; }
-.moat-stage--plate .moat4-entry { padding: 0.3rem 0; column-gap: 0.6rem; grid-template-columns: 2rem 2.1rem 1fr; }
+.moat-stage--plate .moat4-index { margin-top: 0.55rem; margin-bottom: auto; }
+.moat-stage--plate .moat4-entry { padding: 0.2rem 0; column-gap: 0.6rem; grid-template-columns: 2rem 2.1rem 1fr; }
 .moat-stage--plate .moat4-entry__title { font-size: 0.94rem; }
-.moat-stage--plate .moat4-entry__desc { font-size: 0.68rem; line-height: 1.38; max-width: 44ch; margin: 0.12rem 0 0.2rem; }
+.moat-stage--plate .moat4-entry__desc { font-size: 0.68rem; line-height: 1.3; max-width: 44ch; margin: 0.12rem 0 0.2rem; }
 .moat-stage--plate .moat4-entry__status { font-size: 0.55rem; }
 
 
