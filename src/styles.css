@@ -4031,149 +4031,293 @@ body {
 .moat2-anno--benchmark { left: 8.7rem; top: 75%; }
 .moat2-anno--outcome { left: 10.8rem; top: 87%; }
 
-/* --- SECTION 10 · sculptural formation + final copy -------- */
+/* --- SECTION 10 · the living dataset ----------------------- */
 
-.van2-horizon {
+.van3 {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 41%) minmax(0, 59%);
+  align-items: stretch;
+  gap: 1.25rem;
+  padding: 1.8% 3.2% 2.2%;
+  overflow: hidden;
+}
+
+
+.van3__atmos {
   position: absolute;
   inset: 0;
   z-index: 0;
-  background:
-    radial-gradient(120% 70% at 62% 78%, rgba(30, 167, 255, 0.2) 0%, transparent 66%),
-    radial-gradient(90% 60% at 20% 20%, rgba(123, 97, 255, 0.16) 0%, transparent 70%),
-    linear-gradient(180deg, rgba(5, 8, 15, 0.6) 0%, transparent 55%);
-}
-
-.van2-field {
-  position: absolute;
-  left: 30%;
-  right: 3%;
-  top: 22%;
-  bottom: 6%;
-  z-index: 1;
-  perspective: 900px;
-}
-
-.van2-node {
-  position: absolute;
-  display: block;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  border: 1px solid rgba(244, 248, 255, 0.66);
-  background:
-    radial-gradient(circle at 30% 26%, rgba(244, 248, 255, 0.92) 0%, rgba(200, 214, 228, 0.42) 34%, rgba(27, 42, 61, 0.5) 72%, rgba(5, 8, 15, 0.6) 100%),
-    radial-gradient(circle at 74% 82%, rgba(34, 211, 238, 0.4) 0%, transparent 52%),
-    radial-gradient(circle at 84% 22%, rgba(123, 97, 255, 0.3) 0%, transparent 46%);
-  box-shadow:
-    inset 0 -3px 10px rgba(5, 8, 15, 0.6),
-    inset 0 2px 6px rgba(244, 248, 255, 0.28),
-    0 10px 22px rgba(5, 8, 15, 0.55);
-}
-
-.van2-editorial {
-  position: absolute;
-  left: 4.5rem;
-  right: 70%;
-  top: 9%;
-  bottom: 5%;
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
   pointer-events: none;
+  background:
+    radial-gradient(58% 62% at 72% 50%, rgba(30, 167, 255, 0.22) 0%, transparent 70%),
+    radial-gradient(46% 46% at 20% 18%, rgba(123, 97, 255, 0.14) 0%, transparent 72%);
 }
 
-.van2-header {
+.van3__col {
   position: relative;
-  left: auto;
-  top: auto;
-  max-width: none;
-}
-
-.van2-header .ed-head {
-  font-size: 1.45rem;
-  line-height: 1.16;
-  max-width: 26ch;
-}
-
-.van2-body {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-size: 0.85rem;
-  line-height: 1.45;
-  color: var(--ink-body);
-  max-width: 36ch;
-}
-
-.van2-tranches {
-  margin-top: auto;
+  z-index: 2;
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 0.6rem;
+  min-height: 0;
+  justify-content: center;
 }
 
-.van2-tranche {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-  padding: 0.4rem 0;
-  border-top: 1px solid var(--rule);
-  max-width: 36ch;
-}
-
-.van2-tranche__meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 0.5rem;
-}
-
-.van2-tranche__num {
+.van3__kicker {
+  display: block;
   font-family: 'DM Mono', monospace;
-  font-size: 0.55rem;
-  letter-spacing: 0.2em;
+  font-size: 0.58rem;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: var(--dis-aurora-blue);
+  color: #4FDCEE;
+  margin-bottom: 0.4rem;
 }
 
-.van2-tranche__amount {
-  font-family: 'DM Mono', monospace;
-  font-size: 0.52rem;
-  letter-spacing: 0.05em;
-  color: var(--ink-muted);
-  white-space: nowrap;
-}
-
-.van2-tranche__question {
+.van3__head {
   font-family: 'DM Serif Display', Georgia, serif;
-  font-style: italic;
-  font-size: 0.95rem;
-  line-height: 1.2;
-  color: var(--ink-body);
+  font-size: clamp(1.05rem, 1.55vw, 1.45rem);
+  line-height: 1.14;
+  letter-spacing: -0.01em;
+  color: var(--dis-ice-white);
+  max-width: 24ch;
+  margin: 0;
 }
 
-.van2-tranche__list {
-  list-style: none;
-  padding: 0;
-  margin: 0.05rem 0 0;
+.van3__body {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.7rem;
+  line-height: 1.45;
+  color: #B7C2CE;
+  max-width: 46ch;
+  margin: 0;
+}
+
+.van3__tranches {
+  display: flex;
+  flex-direction: column;
+  gap: 0.42rem;
+  margin-top: 0.25rem;
+}
+
+
+.van3-tranche {
+  display: flex;
+  flex-direction: column;
+  gap: 0.32rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(230, 235, 241, 0.14);
+  --tone: #4FDCEE;
+}
+
+.van3-tranche--blue { --tone: var(--dis-electric-blue); }
+.van3-tranche--violet { --tone: var(--dis-data-purple); }
+
+.van3-tranche__row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.6rem;
+}
+
+.van3-tranche__id {
   display: flex;
   flex-direction: column;
   gap: 0.1rem;
 }
 
-.van2-tranche__item {
-  position: relative;
-  padding-left: 0.85rem;
-  font-family: 'Inter', system-ui, sans-serif;
-  font-size: 0.7rem;
-  line-height: 1.3;
-  color: var(--ink-body);
+.van3-tranche__num,
+.van3-tranche__title {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
 
-.van2-tranche__item::before {
-  content: "—";
-  position: absolute;
-  left: 0;
-  color: var(--dis-aurora-blue);
+.van3-tranche__num { color: var(--dis-ice-white); }
+.van3-tranche__title { color: var(--tone); }
+
+.van3-tranche__amount {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.06em;
+  color: #94A0AC;
+  white-space: nowrap;
 }
+
+.van3-tranche__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.14em;
+  color: var(--tone);
+  white-space: nowrap;
+}
+
+.van3-tranche__dot {
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: var(--tone);
+  box-shadow: 0 0 8px color-mix(in oklab, var(--tone) 70%, transparent);
+}
+
+.van3-tranche__track {
+  position: relative;
+  height: 3px;
+  border-radius: 2px;
+  background: rgba(230, 235, 241, 0.1);
+  overflow: hidden;
+  max-width: 62%;
+}
+
+.van3-tranche__fill {
+  display: block;
+  height: 100%;
+  border-radius: 2px;
+  background: linear-gradient(90deg, color-mix(in oklab, var(--tone) 55%, transparent), var(--tone));
+}
+
+.van3-tranche__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.van3-tranche__question {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-style: italic;
+  font-size: 0.82rem;
+  color: #D5DDE6;
+}
+
+.van3-tranche__bullets {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.63rem;
+  line-height: 1.35;
+  color: #8E9AA6;
+}
+
+/* ── living dataset field ── */
+
+.van3__dataset {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 100%;
+}
+
+.van3-field {
+  position: relative;
+  width: 100%;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.van3-field__plane {
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  top: 12%;
+  bottom: 8%;
+  border-radius: 50%;
+  background:
+    radial-gradient(closest-side, rgba(30, 167, 255, 0.16) 0%, transparent 78%);
+  box-shadow: inset 0 0 60px rgba(30, 167, 255, 0.12);
+}
+
+.van3-core {
+  position: absolute;
+  left: 50%;
+  top: 52%;
+  width: 30%;
+  aspect-ratio: 1.9 / 1;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  z-index: 60;
+}
+
+.van3-core__ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(79, 220, 238, 0.5);
+}
+
+.van3-core__ring--inner {
+  inset: 14%;
+  border-color: rgba(79, 220, 238, 0.28);
+  background: radial-gradient(closest-side, rgba(9, 20, 34, 0.9), rgba(5, 8, 15, 0.35));
+  box-shadow: 0 0 40px rgba(30, 167, 255, 0.25);
+}
+
+.van3-core__label {
+  position: relative;
+  text-align: center;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.16em;
+  line-height: 1.5;
+  color: var(--dis-ice-white);
+}
+
+.van3-pin {
+  position: absolute;
+  display: block;
+  width: 1px;
+  transform: translate(-50%, -100%);
+  transform-origin: bottom center;
+  background: linear-gradient(180deg, rgba(79, 220, 238, 0.85), rgba(30, 167, 255, 0.05));
+}
+
+.van3-pin__head {
+  position: absolute;
+  top: -3px;
+  left: 50%;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle at 34% 30%, #FFFFFF 0%, #8FE6F5 42%, #1EA7FF 100%);
+  box-shadow: 0 0 10px rgba(79, 220, 238, 0.8), 0 0 22px rgba(30, 167, 255, 0.4);
+}
+
+.van3__caption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  text-align: center;
+}
+
+.van3__captionHead {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #4FDCEE;
+}
+
+.van3__captionSub {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.72rem;
+  color: #B7C2CE;
+}
+
+@media (max-width: 900px) {
+  .van3 {
+    grid-template-columns: 1fr;
+  }
+  .van3__dataset { display: none; }
+}
+
 
 
 /* --- SECTION 11 · typography-led founder spread ------------ */
