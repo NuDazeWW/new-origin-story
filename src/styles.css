@@ -7188,3 +7188,15 @@ body {
   .why3-grid { grid-template-columns: 1fr; gap: 1.2rem; }
   .why3-col + .why3-col { padding-left: 0; border-left: 0; border-top: 1px solid rgba(27, 42, 61, 0.16); padding-top: 1rem; }
 }
+
+/* Section 11 — keep the photograph as atmosphere only; typography stays legible. */
+.why3-stage .why2-atmos { width: 58%; }
+.why3-stage .why2-atmos__img {
+  object-position: 58% 40%;
+  filter: grayscale(0.9) contrast(1.02) brightness(1.12) blur(2px);
+  opacity: 0.3;
+}
+.why3-stage .why2-atmos__wash {
+  background:
+    linear-gradient(90deg, var(--dis-platinum) 0%, rgba(230, 235, 241, 0.94) 30%, rgba(230, 235, 241, 0.86) 70%, rgba(230, 235, 241, 0.78) 100%);
+}
