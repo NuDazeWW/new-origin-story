@@ -145,7 +145,11 @@ export default function FlywheelObject({
       <div className="fly__hub" style={{ "--edge": `var(--${active.accent})` } as V}>
         <span className="fly__hub-rear" aria-hidden />
         <span className="fly__hub-metal" aria-hidden />
+        <span className="fly__hub-chrome fly__hub-chrome--1" aria-hidden />
+        <span className="fly__hub-chrome fly__hub-chrome--2" aria-hidden />
+        <span className="fly__hub-chrome fly__hub-chrome--3" aria-hidden />
         <span className="fly__hub-groove" aria-hidden />
+
         <span className="fly__hub-bevel" aria-hidden />
         <span className="fly__hub-glass" aria-hidden />
         <motion.span
