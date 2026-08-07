@@ -4671,17 +4671,16 @@ body {
 
 @media (max-width: 1100px) {
   .moat2-quote,
-  .van2-header,
+  .van2-editorial,
   .roles2-header,
   .ask2-head,
   .fund3-header { left: 2.5rem; }
 
   .roles2-plane--near { left: 2.5rem; }
   .roles2-plane--far { right: 2.5rem; }
-  .van2-movement--1 { left: 2.5rem; }
-  .van2-movement--3 { right: 2.5rem; }
   .ask2-band, .ask2-statement { left: 2.5rem; right: 2.5rem; }
 }
+
 
 @media (max-width: 800px) {
   .moat2-object,
