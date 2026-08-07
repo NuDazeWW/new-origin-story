@@ -23,7 +23,7 @@ const ROWS = [
   { label: "PRSC Readiness Score dashboard", status: "LIVE", color: "teal", why: "" },
   { label: "Readiness Terminal front-end prototype", status: "LIVE", color: "teal", why: "" },
   { label: "Platform development — Sprint 1 initiated", status: "IN PROGRESS", color: "blue", why: "" },
-  { label: "Vanguard Participation Agreement", status: "EXECUTED", color: "teal", why: "" },
+  { label: "Vanguard Participation Agreement", status: "IN PREPARATION", color: "blue", why: "" },
   { label: "The Readiness Vanguard™ cohort", status: "UNDERWAY", color: "blue", why: "" },
   { label: "The Methodology Committee Chair", status: "IN PROGRESS", color: "blue", why: "" },
   { label: "Data partner negotiations underway — semantic intelligence, audience profiling, media measurement; Prxy AI under NDA", status: "IN NEGOTIATION", color: "purple", why: "" },
