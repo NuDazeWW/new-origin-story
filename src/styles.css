@@ -2225,7 +2225,7 @@ body {
   mix-blend-mode: normal;
 }
 
-.fly__hub-chrome--1 {
+.fly__hub > span.fly__hub-chrome--1 {
   inset: 2%;
   background: conic-gradient(
     from -46deg,
@@ -2243,7 +2243,7 @@ body {
     0 1px 0 rgba(255, 255, 255, 0.16);
 }
 
-.fly__hub-chrome--2 {
+.fly__hub > span.fly__hub-chrome--2 {
   inset: 7.5%;
   background: conic-gradient(
     from 128deg,
@@ -2261,7 +2261,7 @@ body {
     inset 0 0 8px rgba(0, 0, 0, 0.55);
 }
 
-.fly__hub-chrome--3 {
+.fly__hub > span.fly__hub-chrome--3 {
   inset: 13.5%;
   background: conic-gradient(
     from -14deg,
