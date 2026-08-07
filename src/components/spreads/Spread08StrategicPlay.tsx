@@ -110,9 +110,11 @@ export default function Spread08StrategicPlay({ isActive = false }: { isActive?:
           >
             <span className="play-pipeline__label">Anchor Pipeline</span>
             {ANCHORS.map((a, i) => (
-              <span key={a} className="play-pipeline__item">{a}</span>
+              <span key={a} style={{ display: "contents" }}>
+                {i > 0 ? <span className="play-pipeline__divider" /> : null}
+                <span className="play-pipeline__item">{a}</span>
+              </span>
             ))}
-            {ANCHORS.map((a, i) => i < ANCHORS.length - 1 && <span key={i} className="play-pipeline__divider" />)}
           </motion.div>
         </div>
       </PageBody>
