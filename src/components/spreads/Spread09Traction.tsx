@@ -7,7 +7,10 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 
+import section09Roadmap from "@/assets/section09-roadmap.png.asset.json";
+
 import { STATIC_REVIEW_MODE } from "@/reviewMode";
+
 
 import { Page, PageBody, RunningHead, Folio } from "@/components/print/Page";
 import { Settle } from "@/components/print/Editorial";
@@ -39,7 +42,20 @@ export default function Spread09Traction({ isActive = false }: { isActive?: bool
 
       <PageBody>
         <div className="traction-stage">
+          <motion.div
+            className="traction-terrain"
+            aria-hidden
+            initial={STATIC_REVIEW_MODE || reduce ? false : { opacity: 0, scale: 1.04 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            animate={STATIC_REVIEW_MODE ? { opacity: 1, scale: 1 } : undefined}
+            viewport={{ once: true }}
+            transition={{ duration: 1.6, ease: EASE }}
+          >
+            <img src={section09Roadmap.url} alt="" className="traction-terrain__img" loading="lazy" />
+          </motion.div>
+
           <div className="traction-head">
+
             <Settle delay={0.12}>
               <h2 className="traction-hero" style={{ color: "var(--ink-text)" }}>
                 THE FIRST<br />90 DAYS
