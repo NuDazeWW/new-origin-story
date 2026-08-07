@@ -2065,6 +2065,114 @@ body {
   50% { opacity: 1; }
 }
 
+/* --- volumetric aura: the object lights the air around itself --- */
+.fly__aura {
+  position: absolute;
+  inset: -22%;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(circle closest-side at 50% 50%, rgba(30, 167, 255, 0.2), rgba(30, 167, 255, 0.06) 58%, transparent 74%),
+    radial-gradient(circle closest-side at 62% 32%, rgba(190, 230, 255, 0.16), transparent 52%);
+  filter: blur(26px);
+  mix-blend-mode: screen;
+  animation: fly-breathe 7.5s ease-in-out infinite;
+}
+
+/* --- rotating specular sweep riding the machined frame --- */
+.fly__sweep {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 3;
+  mix-blend-mode: screen;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(255, 255, 255, 0.06) 6deg,
+    rgba(255, 255, 255, 0.85) 13deg,
+    rgba(170, 220, 255, 0.35) 19deg,
+    transparent 30deg,
+    transparent 360deg
+  );
+  filter: blur(2.5px);
+  mask: radial-gradient(circle closest-side at 50% 50%, transparent 0 78%, #000 82% 99.2%, transparent 100%);
+  animation: fly-orbit 9s linear infinite;
+}
+
+/* --- comet head leading the outer light trail --- */
+.fly__comet {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 3;
+  mix-blend-mode: screen;
+  animation: fly-orbit 34s linear infinite;
+}
+
+.fly__comet::before,
+.fly__comet::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 13.4%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+.fly__comet::before {
+  width: 46px;
+  height: 46px;
+  background: radial-gradient(circle at center, rgba(224, 245, 255, 0.55), rgba(56, 178, 255, 0.22) 42%, transparent 72%);
+  filter: blur(6px);
+}
+
+.fly__comet::after {
+  width: 7px;
+  height: 7px;
+  background: radial-gradient(circle at center, #ffffff 0 38%, rgba(190, 232, 255, 0.9) 60%, transparent 100%);
+  box-shadow: 0 0 12px 3px rgba(140, 210, 255, 0.75);
+}
+
+/* --- caustic glints skating across the hub face --- */
+.fly__hub > span.fly__hub-caustic {
+  position: absolute;
+  inset: 15%;
+  border-radius: 50%;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  background:
+    radial-gradient(ellipse 34% 8% at 36% 28%, rgba(255, 255, 255, 0.5), transparent 70%),
+    radial-gradient(ellipse 22% 5% at 66% 72%, rgba(196, 228, 255, 0.34), transparent 72%);
+  filter: blur(3px);
+  animation: fly-caustic 11s ease-in-out infinite;
+}
+
+@keyframes fly-breathe {
+  0%, 100% { opacity: 0.62; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.035); }
+}
+
+@keyframes fly-caustic {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); opacity: 0.55; }
+  50% { transform: translate3d(2%, -1.5%, 0) rotate(8deg); opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fly__aura,
+  .fly__sweep,
+  .fly__comet,
+  .fly__arc,
+  .fly__sparkle,
+  .fly__hub-caustic {
+    animation: none !important;
+  }
+}
+
+
 
 .fly__particles {
   position: absolute;
