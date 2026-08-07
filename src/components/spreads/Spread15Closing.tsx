@@ -77,11 +77,19 @@ export default function Spread15Closing({ isActive = false }: { isActive?: boole
 
           </div>
 
-          {/*
-            Contact block intentionally not rendered: the approved brief supplies
-            only unresolved tokens ([DIS Contact Info], [Confidential Notice]).
-            See src/content/unresolved.ts.
-          */}
+          <motion.div
+            className="close-footer"
+            initial={STATIC_REVIEW_MODE || reduce ? false : { opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            animate={STATIC_REVIEW_MODE ? { opacity: 1, y: 0 } : undefined}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.8, delay: 0.65, ease: EASE }}
+          >
+            <span className="close-footer__confidential">Confidential</span>
+            <span>Decision Intelligence Systems, Inc.</span>
+            <span>Not for distribution.</span>
+          </motion.div>
+
         </div>
       </PageBody>
 
