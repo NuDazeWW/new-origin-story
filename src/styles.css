@@ -1962,6 +1962,110 @@ body {
   mask: radial-gradient(circle closest-side at 50% 50%, transparent 0 79%, #000 81% 93%, transparent 100%);
 }
 
+/* --- luminous orbital arcs: light trails sweeping inside the glass --- */
+.fly__arc,
+.fly__sparkle {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.fly__arc {
+  mix-blend-mode: screen;
+  transform-origin: 50% 50%;
+}
+
+/* outer trail — cool electric blue, broken into two long strokes */
+.fly__arc--a {
+  background: conic-gradient(
+    from 168deg,
+    transparent 0deg,
+    rgba(56, 178, 255, 0.06) 8deg,
+    rgba(120, 205, 255, 0.85) 46deg,
+    rgba(210, 238, 255, 0.95) 62deg,
+    rgba(56, 178, 255, 0.14) 96deg,
+    transparent 118deg,
+    transparent 196deg,
+    rgba(98, 207, 195, 0.1) 214deg,
+    rgba(140, 235, 220, 0.7) 254deg,
+    rgba(230, 255, 250, 0.85) 268deg,
+    rgba(98, 207, 195, 0.1) 300deg,
+    transparent 322deg
+  );
+  mask: radial-gradient(circle closest-side at 50% 50%, transparent 0 70.5%, #000 72% 75.4%, transparent 76.8%);
+  filter: blur(1.4px);
+  animation: fly-orbit 34s linear infinite;
+}
+
+/* mid trail — warm platinum/gold accent, shorter */
+.fly__arc--b {
+  background: conic-gradient(
+    from 20deg,
+    transparent 0deg,
+    rgba(207, 174, 114, 0.1) 12deg,
+    rgba(255, 230, 178, 0.72) 40deg,
+    rgba(255, 246, 226, 0.9) 52deg,
+    rgba(207, 174, 114, 0.12) 82deg,
+    transparent 100deg,
+    transparent 250deg,
+    rgba(147, 169, 255, 0.12) 268deg,
+    rgba(178, 200, 255, 0.6) 300deg,
+    rgba(224, 234, 255, 0.8) 312deg,
+    transparent 344deg
+  );
+  mask: radial-gradient(circle closest-side at 50% 50%, transparent 0 61%, #000 62.4% 65%, transparent 66.6%);
+  filter: blur(1.8px);
+  animation: fly-orbit-rev 46s linear infinite;
+}
+
+/* soft bloom bed under both trails, so light spills into the glass volume */
+.fly__arc--c {
+  background: conic-gradient(
+    from 168deg,
+    transparent 0deg,
+    rgba(56, 178, 255, 0.4) 56deg,
+    transparent 122deg,
+    transparent 210deg,
+    rgba(98, 207, 195, 0.32) 262deg,
+    transparent 326deg
+  );
+  mask: radial-gradient(circle closest-side at 50% 50%, transparent 0 56%, #000 62% 78%, transparent 84%);
+  filter: blur(16px);
+  opacity: 0.62;
+  animation: fly-orbit 34s linear infinite;
+}
+
+/* dust of sparks caught in the trails */
+.fly__sparkle {
+  background-image:
+    radial-gradient(circle 1.1px at 20% 34%, rgba(255, 255, 255, 0.9), transparent 100%),
+    radial-gradient(circle 1px at 31% 71%, rgba(190, 232, 255, 0.85), transparent 100%),
+    radial-gradient(circle 1.3px at 68% 22%, rgba(255, 244, 220, 0.9), transparent 100%),
+    radial-gradient(circle 1px at 79% 58%, rgba(190, 250, 235, 0.8), transparent 100%),
+    radial-gradient(circle 1.1px at 52% 12%, rgba(255, 255, 255, 0.8), transparent 100%),
+    radial-gradient(circle 1px at 44% 88%, rgba(200, 226, 255, 0.75), transparent 100%),
+    radial-gradient(circle 1.2px at 12% 55%, rgba(255, 255, 255, 0.7), transparent 100%),
+    radial-gradient(circle 1px at 88% 40%, rgba(255, 238, 205, 0.75), transparent 100%);
+  mask: radial-gradient(circle closest-side at 50% 50%, transparent 0 55%, #000 60% 80%, transparent 88%);
+  animation: fly-orbit 62s linear infinite, fly-twinkle 5.5s ease-in-out infinite;
+}
+
+@keyframes fly-orbit {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fly-orbit-rev {
+  to { transform: rotate(-360deg); }
+}
+
+@keyframes fly-twinkle {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+
 .fly__particles {
   position: absolute;
   inset: 0;
