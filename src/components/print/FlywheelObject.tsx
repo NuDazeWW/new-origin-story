@@ -165,6 +165,7 @@ export default function FlywheelObject({
           transition={{ duration: 1.1, ease: "easeOut" }}
         />
         <span className="fly__hub-spec" aria-hidden />
+        <span className="fly__hub-caustic" aria-hidden />
         <svg className="fly__hub-etch" viewBox="0 0 200 200" aria-hidden>
           <circle cx="100" cy="100" r="72" />
           <circle cx="100" cy="100" r="88" />
