@@ -4826,37 +4826,42 @@ body {
   position: absolute;
   left: 4.5rem;
   right: 4.5rem;
-  bottom: 2.3rem;
+  bottom: 2.2rem;
   z-index: 4;
   display: flex;
   flex-direction: column;
-  gap: 0.55rem;
+  gap: 0.45rem;
+  padding: 0.6rem 0.9rem 0.5rem;
+  background: rgba(244, 248, 255, 0.86);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(5, 8, 15, 0.08);
+  border-radius: 4px;
 }
 
 .fund3-ledger__grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0.35rem 1.6rem;
+  gap: 0.25rem 1.4rem;
 }
 
 .fund3-ledger__item {
   display: flex;
   flex-direction: column;
-  gap: 0.05rem;
-  padding: 0.25rem 0;
-  border-top: 1px solid rgba(5, 8, 15, 0.10);
+  gap: 0.02rem;
+  padding: 0.2rem 0;
+  border-top: 1px solid rgba(5, 8, 15, 0.08);
 }
 
 .fund3-ledger__row {
   display: flex;
   align-items: baseline;
-  gap: 0.55rem;
+  gap: 0.5rem;
 }
 
 .fund3-ledger__label {
   flex: 1 1 auto;
   font-family: 'Space Grotesk', system-ui, sans-serif;
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 500;
   letter-spacing: 0.02em;
   color: var(--dis-signal-black);
@@ -4864,7 +4869,7 @@ body {
 
 .fund3-ledger__amt {
   font-family: 'DM Mono', monospace;
-  font-size: 0.68rem;
+  font-size: 0.64rem;
   letter-spacing: 0.04em;
   color: var(--dis-steel-blue);
   white-space: nowrap;
@@ -4872,18 +4877,18 @@ body {
 
 .fund3-ledger__pct {
   font-family: 'DM Mono', monospace;
-  font-size: 0.68rem;
+  font-size: 0.64rem;
   letter-spacing: 0.04em;
   color: var(--dis-electric-blue);
-  min-width: 2.2rem;
+  min-width: 2.1rem;
   text-align: right;
 }
 
 .fund3-ledger__desc {
   margin: 0;
   font-family: 'Space Grotesk', system-ui, sans-serif;
-  font-size: 0.62rem;
-  line-height: 1.4;
+  font-size: 0.58rem;
+  line-height: 1.35;
   color: var(--dis-arctic-gray);
   max-width: 42ch;
 }
@@ -4891,14 +4896,14 @@ body {
 .fund3-ledger__total {
   display: flex;
   align-items: baseline;
-  gap: 0.75rem;
-  padding-top: 0.45rem;
-  border-top: 1px solid rgba(5, 8, 15, 0.22);
+  gap: 0.65rem;
+  padding-top: 0.35rem;
+  border-top: 1px solid rgba(5, 8, 15, 0.18);
 }
 
 .fund3-ledger__total-label {
   font-family: 'Space Grotesk', system-ui, sans-serif;
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -4907,17 +4912,18 @@ body {
 
 .fund3-ledger__total-figure {
   font-family: 'DM Serif Display', Georgia, serif;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   letter-spacing: -0.01em;
   color: var(--dis-signal-black);
 }
 
 .fund3-ledger__total-note {
   font-family: 'Space Grotesk', system-ui, sans-serif;
-  font-size: 0.62rem;
+  font-size: 0.58rem;
   letter-spacing: 0.04em;
   color: var(--dis-arctic-gray);
 }
+
 
 @media print {
   .fund3-table {
