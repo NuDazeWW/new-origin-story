@@ -45,6 +45,9 @@ export default function FlywheelObject({
       animate={{ opacity: on ? 1 : 0.08 }}
       transition={{ duration: 2, ease: [0.22, 0.61, 0.36, 1] }}
     >
+      {/* volumetric aura the object throws into the surrounding air */}
+      <span className="fly__aura" aria-hidden />
+
       {/* contact + cast shadow, then the pool of light the object throws down */}
       <span className="fly__cast" aria-hidden />
       <motion.span
@@ -105,6 +108,7 @@ export default function FlywheelObject({
         transition={{ duration: 2, delay: 0.7 }}
       />
       <span className="fly__sparkle" aria-hidden />
+      {running && !reduce ? <span className="fly__comet" aria-hidden /> : null}
 
       {/* ---- outer glass assembly ---- */}
       <span className="fly__rear" aria-hidden />
@@ -114,6 +118,7 @@ export default function FlywheelObject({
       <span className="fly__edge fly__edge--out" aria-hidden />
       <span className="fly__edge fly__edge--in" aria-hidden />
       <span className="fly__ringgrain" aria-hidden />
+      {running && !reduce ? <span className="fly__sweep" aria-hidden /> : null}
 
       <motion.span
         className="fly__spec"
@@ -160,6 +165,7 @@ export default function FlywheelObject({
           transition={{ duration: 1.1, ease: "easeOut" }}
         />
         <span className="fly__hub-spec" aria-hidden />
+        <span className="fly__hub-caustic" aria-hidden />
         <svg className="fly__hub-etch" viewBox="0 0 200 200" aria-hidden>
           <circle cx="100" cy="100" r="72" />
           <circle cx="100" cy="100" r="88" />
