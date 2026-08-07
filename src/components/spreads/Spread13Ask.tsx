@@ -50,7 +50,7 @@ export default function Spread13Ask({ isActive = false }: { isActive?: boolean }
         <div className="ask-stage ask2-stage">
           <div className="ask2-head">
             <Settle>
-              <span className="ed-kicker" style={{ color: "var(--dis-electric-blue)" }}>The Ask</span>
+              <span className="ed-kicker" style={{ color: "var(--dis-electric-blue)" }}>THE ASK</span>
               <h2 className="ask2-hero">$2.5M</h2>
               <p className="ask2-lede">
                 Investors fund a sequence of increasingly valuable proofs — not 24 months of uncertainty in one leap.
@@ -99,6 +99,9 @@ export default function Spread13Ask({ isActive = false }: { isActive?: boolean }
           >
             <span className="ask2-band__terms">
               TERMS: YC Post-Money SAFE · $15M post-money cap · 15% discount · Rule 506(b) · SAFE converts to DIS equity only.
+            </span>
+            <span className="ask2-band__note">
+              Confirm all terms with counsel before external distribution. Terms are subject to definitive documents.
             </span>
           </motion.div>
 
