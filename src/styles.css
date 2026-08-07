@@ -3011,7 +3011,31 @@ body {
 
 .traction-stage {
   background: var(--dis-ice-white);
+  position: relative;
+  overflow: hidden;
 }
+
+.traction-terrain {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 62%;
+  max-height: 82%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.traction-terrain__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  opacity: 0.95;
+  mask-image: linear-gradient(to right, #000 0%, #000 72%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, #000 0%, #000 72%, transparent 100%);
+}
+
 
 .traction-head {
   position: absolute;
