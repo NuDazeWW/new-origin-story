@@ -2218,6 +2218,68 @@ body {
   opacity: 0.97;
 }
 
+/* --- layered chrome rings around the hub face --------------- */
+/* Each is a thin machined band with its own light axis, so the stack reads as
+   turned chrome: bright / dark / bright as the eye moves inward. */
+.fly__hub-chrome {
+  mix-blend-mode: normal;
+}
+
+.fly__hub-chrome--1 {
+  inset: 2%;
+  background: conic-gradient(
+    from -46deg,
+    rgba(255, 252, 244, 0.92),
+    rgba(120, 134, 152, 0.28) 14%,
+    rgba(6, 10, 18, 0.9) 30%,
+    rgba(196, 222, 250, 0.75) 48%,
+    rgba(8, 13, 22, 0.92) 66%,
+    rgba(158, 186, 216, 0.5) 84%,
+    rgba(255, 252, 244, 0.92) 100%
+  );
+  mask: radial-gradient(circle closest-side at 50% 50%, transparent 0 88%, #000 90% 99%, transparent 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 0, 0, 0.6),
+    0 1px 0 rgba(255, 255, 255, 0.16);
+}
+
+.fly__hub-chrome--2 {
+  inset: 7.5%;
+  background: conic-gradient(
+    from 128deg,
+    rgba(226, 238, 252, 0.8),
+    rgba(4, 7, 13, 0.94) 18%,
+    rgba(150, 176, 208, 0.42) 34%,
+    rgba(255, 248, 232, 0.85) 52%,
+    rgba(6, 10, 18, 0.92) 72%,
+    rgba(120, 152, 190, 0.35) 88%,
+    rgba(226, 238, 252, 0.8) 100%
+  );
+  mask: radial-gradient(circle closest-side at 50% 50%, transparent 0 86%, #000 89% 99.2%, transparent 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 0 8px rgba(0, 0, 0, 0.55);
+}
+
+.fly__hub-chrome--3 {
+  inset: 13.5%;
+  background: conic-gradient(
+    from -14deg,
+    rgba(255, 255, 255, 0.85),
+    rgba(96, 118, 146, 0.24) 12%,
+    rgba(5, 9, 16, 0.9) 28%,
+    rgba(186, 214, 245, 0.62) 46%,
+    rgba(7, 11, 20, 0.9) 64%,
+    rgba(255, 250, 238, 0.7) 82%,
+    rgba(255, 255, 255, 0.85) 100%
+  );
+  mask: radial-gradient(circle closest-side at 50% 50%, transparent 0 92%, #000 94% 99.4%, transparent 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 0, 0, 0.55),
+    0 0 10px -4px color-mix(in oklab, var(--edge) 45%, transparent);
+}
+
+
 /* narrow inset groove — dark ring separating housing from the inner assembly */
 .fly__hub-groove {
   inset: 6%;
