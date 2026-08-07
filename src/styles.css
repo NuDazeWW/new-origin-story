@@ -4970,7 +4970,8 @@ body {
   .ask2-band,
   .ask2-statement,
   .fund3-header,
-  .fund3-object {
+  .fund3-object,
+  .fund3-ledger {
     position: relative;
     left: auto;
     right: auto;
@@ -4985,9 +4986,12 @@ body {
   .why2-content { max-width: none; padding: 2rem 1.5rem; }
   .why2-support { margin-left: 0; }
   .fund3-object { height: 55vh; }
+  .fund3-ledger { margin-top: 0.5rem; }
+  .fund3-ledger__grid { grid-template-columns: 1fr; }
   .roles2-plane--far { text-align: left; }
   .roles2-plane--far .roles2-plane__list { align-items: flex-start; }
   .ask2-progression { height: 60vh; }
+
 }
 
 /* ============================================================
