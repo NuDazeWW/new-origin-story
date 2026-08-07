@@ -185,10 +185,10 @@ export default function Spread10Vanguard({ isActive = false }: { isActive?: bool
                   key={p.key}
                   className="van3-pin"
                   style={{
-                    left: `${p.x}%`,
-                    top: `${p.y}%`,
-                    height: `${p.stem}px`,
-                    opacity: 0.4 + p.depth * 0.6,
+                    left: `${p.x.toFixed(4)}%`,
+                    top: `${p.y.toFixed(4)}%`,
+                    height: `${p.stem.toFixed(4)}px`,
+                    opacity: Number((0.4 + p.depth * 0.6).toFixed(4)),
                     zIndex: Math.round(p.depth * 100),
                   }}
                   initial={still ? false : { opacity: 0, scaleY: 0.2 }}
