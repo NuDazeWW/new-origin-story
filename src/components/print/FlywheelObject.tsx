@@ -118,6 +118,7 @@ export default function FlywheelObject({
       <span className="fly__edge fly__edge--out" aria-hidden />
       <span className="fly__edge fly__edge--in" aria-hidden />
       <span className="fly__ringgrain" aria-hidden />
+      {running && !reduce ? <span className="fly__sweep" aria-hidden /> : null}
 
       <motion.span
         className="fly__spec"
