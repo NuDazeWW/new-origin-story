@@ -22,7 +22,13 @@ const STEPS = [
   { num: "5", label: "Publish benchmarks", detail: "Extend horizontally", done: false, left: "78%", top: "26%" },
 ];
 
-const ANCHORS = ["Trans Am Series (active)", "Racing Team Alliance (pending)", "IMSA WeatherTech (in progress)"];
+const ANCHORS = [
+  "Trans Am Series (active)",
+  "Formula Drift (active)",
+  "Racing Team Alliance (in progress)",
+  "IMSA WeatherTech (in progress)",
+  "SRO (pipeline)",
+];
 
 export default function Spread08StrategicPlay({ isActive = false }: { isActive?: boolean }) {
   void isActive;
@@ -104,9 +110,11 @@ export default function Spread08StrategicPlay({ isActive = false }: { isActive?:
           >
             <span className="play-pipeline__label">Anchor Pipeline</span>
             {ANCHORS.map((a, i) => (
-              <span key={a} className="play-pipeline__item">{a}</span>
+              <span key={a} style={{ display: "contents" }}>
+                {i > 0 ? <span className="play-pipeline__divider" /> : null}
+                <span className="play-pipeline__item">{a}</span>
+              </span>
             ))}
-            {ANCHORS.map((a, i) => i < ANCHORS.length - 1 && <span key={i} className="play-pipeline__divider" />)}
           </motion.div>
         </div>
       </PageBody>
