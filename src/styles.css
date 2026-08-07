@@ -2281,7 +2281,7 @@ body {
 
 
 /* narrow inset groove — dark ring separating housing from the inner assembly */
-.fly__hub-groove {
+.fly__hub > span.fly__hub-groove {
   inset: 6%;
   background: radial-gradient(circle at 44% 30%, rgba(120, 140, 166, 0.24), rgba(3, 6, 11, 1) 62%);
   box-shadow:
@@ -2291,7 +2291,7 @@ body {
 }
 
 /* second machined ring + polished bevel immediately around the face */
-.fly__hub-bevel {
+.fly__hub > span.fly__hub-bevel {
   inset: 12.5%;
   background: conic-gradient(
     from -34deg,
@@ -2309,8 +2309,8 @@ body {
 }
 
 /* illuminated score face — platinum with real tonal variation, not flat pale */
-.fly__hub-glass {
-  inset: 17.5%;
+.fly__hub > span.fly__hub-glass {
+  inset: 14%;
   background:
     radial-gradient(circle at 38% 22%, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0) 46%),
     radial-gradient(circle at 72% 84%, rgba(126, 154, 188, 0.5), rgba(126, 154, 188, 0) 52%),
@@ -2337,7 +2337,7 @@ body {
 }
 
 /* internal lamp — localized falloff from the face into the housing */
-.fly__hub-lamp {
+.fly__hub > span.fly__hub-lamp {
   inset: 10%;
   background: radial-gradient(
     circle at 48% 40%,
@@ -2349,7 +2349,7 @@ body {
 }
 
 /* one crisp white specular interruption across the face and its bezel */
-.fly__hub-spec {
+.fly__hub > span.fly__hub-spec {
   inset: 13%;
   background: conic-gradient(
     from -80deg,
@@ -2373,7 +2373,7 @@ body {
 
 .fly__hub-type {
   position: absolute;
-  inset: 22%;
+  inset: 23%;
   z-index: 2;
   display: flex;
   flex-direction: column;
