@@ -45,6 +45,9 @@ export default function FlywheelObject({
       animate={{ opacity: on ? 1 : 0.08 }}
       transition={{ duration: 2, ease: [0.22, 0.61, 0.36, 1] }}
     >
+      {/* volumetric aura the object throws into the surrounding air */}
+      <span className="fly__aura" aria-hidden />
+
       {/* contact + cast shadow, then the pool of light the object throws down */}
       <span className="fly__cast" aria-hidden />
       <motion.span
