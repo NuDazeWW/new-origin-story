@@ -4831,13 +4831,14 @@ body {
   z-index: 4;
   display: flex;
   flex-direction: column;
-  gap: 0.45rem;
-  padding: 0.6rem 0.9rem 0.5rem;
+  gap: 0.4rem;
+  padding: 0.55rem 0.8rem 0.45rem;
   background: rgba(244, 248, 255, 0.86);
   backdrop-filter: blur(8px);
   border: 1px solid rgba(5, 8, 15, 0.08);
   border-radius: 4px;
 }
+
 
 .fund3-ledger__grid {
   display: grid;
