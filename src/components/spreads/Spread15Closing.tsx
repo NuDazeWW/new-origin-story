@@ -85,10 +85,15 @@ export default function Spread15Closing({ isActive = false }: { isActive?: boole
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.8, delay: 0.65, ease: EASE }}
           >
-            <span className="close-footer__confidential">Confidential</span>
-            <span>Decision Intelligence Systems, Inc.</span>
-            <span>Not for distribution.</span>
+            <span>
+              <span className="close-footer__confidential">Confidential</span>
+              {" — "}
+              Decision Intelligence Systems, Inc.
+              {" — "}
+              Not for distribution.
+            </span>
           </motion.div>
+
 
         </div>
       </PageBody>
