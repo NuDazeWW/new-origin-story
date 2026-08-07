@@ -4820,6 +4820,104 @@ body {
   border: 0;
 }
 
+/* Allocation ledger — visible editorial reference below the capital object. */
+.fund3-ledger {
+  position: absolute;
+  left: 4.5rem;
+  right: 4.5rem;
+  bottom: 2.3rem;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.fund3-ledger__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.35rem 1.6rem;
+}
+
+.fund3-ledger__item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.05rem;
+  padding: 0.25rem 0;
+  border-top: 1px solid rgba(5, 8, 15, 0.10);
+}
+
+.fund3-ledger__row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.55rem;
+}
+
+.fund3-ledger__label {
+  flex: 1 1 auto;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--dis-signal-black);
+}
+
+.fund3-ledger__amt {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  color: var(--dis-steel-blue);
+  white-space: nowrap;
+}
+
+.fund3-ledger__pct {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  color: var(--dis-electric-blue);
+  min-width: 2.2rem;
+  text-align: right;
+}
+
+.fund3-ledger__desc {
+  margin: 0;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 0.62rem;
+  line-height: 1.4;
+  color: var(--dis-arctic-gray);
+  max-width: 42ch;
+}
+
+.fund3-ledger__total {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding-top: 0.45rem;
+  border-top: 1px solid rgba(5, 8, 15, 0.22);
+}
+
+.fund3-ledger__total-label {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--dis-signal-black);
+}
+
+.fund3-ledger__total-figure {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 1.1rem;
+  letter-spacing: -0.01em;
+  color: var(--dis-signal-black);
+}
+
+.fund3-ledger__total-note {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+  color: var(--dis-arctic-gray);
+}
+
 @media print {
   .fund3-table {
     position: static;
@@ -4830,7 +4928,13 @@ body {
     white-space: normal;
     border-collapse: collapse;
   }
+
+  .fund3-ledger {
+    position: static;
+    margin-top: 1rem;
+  }
 }
+
 
 
 /* --- responsive: correction pass 02 ----------------------- */
