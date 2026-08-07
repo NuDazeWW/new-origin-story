@@ -1962,6 +1962,110 @@ body {
   mask: radial-gradient(circle closest-side at 50% 50%, transparent 0 79%, #000 81% 93%, transparent 100%);
 }
 
+/* --- luminous orbital arcs: light trails sweeping inside the glass --- */
+.fly__arc,
+.fly__sparkle {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.fly__arc {
+  mix-blend-mode: screen;
+  transform-origin: 50% 50%;
+}
+
+/* outer trail — cool electric blue, broken into two long strokes */
+.fly__arc--a {
+  background: conic-gradient(
+    from 168deg,
+    transparent 0deg,
+    rgba(56, 178, 255, 0.06) 8deg,
+    rgba(120, 205, 255, 0.85) 46deg,
+    rgba(210, 238, 255, 0.95) 62deg,
+    rgba(56, 178, 255, 0.14) 96deg,
+    transparent 118deg,
+    transparent 196deg,
+    rgba(98, 207, 195, 0.1) 214deg,
+    rgba(140, 235, 220, 0.7) 254deg,
+    rgba(230, 255, 250, 0.85) 268deg,
+    rgba(98, 207, 195, 0.1) 300deg,
+    transparent 322deg
+  );
+  mask: radial-gradient(circle closest-side at 50% 50%, transparent 0 70.5%, #000 72% 75.4%, transparent 76.8%);
+  filter: blur(1.4px) brightness(1.35);
+  animation: fly-orbit 34s linear infinite;
+}
+
+/* mid trail — warm platinum/gold accent, shorter */
+.fly__arc--b {
+  background: conic-gradient(
+    from 20deg,
+    transparent 0deg,
+    rgba(207, 174, 114, 0.1) 12deg,
+    rgba(255, 230, 178, 0.72) 40deg,
+    rgba(255, 246, 226, 0.9) 52deg,
+    rgba(207, 174, 114, 0.12) 82deg,
+    transparent 100deg,
+    transparent 250deg,
+    rgba(147, 169, 255, 0.12) 268deg,
+    rgba(178, 200, 255, 0.6) 300deg,
+    rgba(224, 234, 255, 0.8) 312deg,
+    transparent 344deg
+  );
+  mask: radial-gradient(circle closest-side at 50% 50%, transparent 0 61%, #000 62.4% 65%, transparent 66.6%);
+  filter: blur(1.8px) brightness(1.3);
+  animation: fly-orbit-rev 46s linear infinite;
+}
+
+/* soft bloom bed under both trails, so light spills into the glass volume */
+.fly__arc--c {
+  background: conic-gradient(
+    from 168deg,
+    transparent 0deg,
+    rgba(56, 178, 255, 0.4) 56deg,
+    transparent 122deg,
+    transparent 210deg,
+    rgba(98, 207, 195, 0.32) 262deg,
+    transparent 326deg
+  );
+  mask: radial-gradient(circle closest-side at 50% 50%, transparent 0 56%, #000 62% 78%, transparent 84%);
+  filter: blur(16px);
+  opacity: 0.85;
+  animation: fly-orbit 34s linear infinite;
+}
+
+/* dust of sparks caught in the trails */
+.fly__sparkle {
+  background-image:
+    radial-gradient(circle 1.1px at 20% 34%, rgba(255, 255, 255, 0.9), transparent 100%),
+    radial-gradient(circle 1px at 31% 71%, rgba(190, 232, 255, 0.85), transparent 100%),
+    radial-gradient(circle 1.3px at 68% 22%, rgba(255, 244, 220, 0.9), transparent 100%),
+    radial-gradient(circle 1px at 79% 58%, rgba(190, 250, 235, 0.8), transparent 100%),
+    radial-gradient(circle 1.1px at 52% 12%, rgba(255, 255, 255, 0.8), transparent 100%),
+    radial-gradient(circle 1px at 44% 88%, rgba(200, 226, 255, 0.75), transparent 100%),
+    radial-gradient(circle 1.2px at 12% 55%, rgba(255, 255, 255, 0.7), transparent 100%),
+    radial-gradient(circle 1px at 88% 40%, rgba(255, 238, 205, 0.75), transparent 100%);
+  mask: radial-gradient(circle closest-side at 50% 50%, transparent 0 55%, #000 60% 80%, transparent 88%);
+  animation: fly-orbit 62s linear infinite, fly-twinkle 5.5s ease-in-out infinite;
+}
+
+@keyframes fly-orbit {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fly-orbit-rev {
+  to { transform: rotate(-360deg); }
+}
+
+@keyframes fly-twinkle {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+
 .fly__particles {
   position: absolute;
   inset: 0;
@@ -2114,8 +2218,70 @@ body {
   opacity: 0.97;
 }
 
+/* --- layered chrome rings around the hub face --------------- */
+/* Each is a thin machined band with its own light axis, so the stack reads as
+   turned chrome: bright / dark / bright as the eye moves inward. */
+.fly__hub-chrome {
+  mix-blend-mode: normal;
+}
+
+.fly__hub > span.fly__hub-chrome--1 {
+  inset: 2%;
+  background: conic-gradient(
+    from -46deg,
+    rgba(255, 252, 244, 0.92),
+    rgba(120, 134, 152, 0.28) 14%,
+    rgba(6, 10, 18, 0.9) 30%,
+    rgba(196, 222, 250, 0.75) 48%,
+    rgba(8, 13, 22, 0.92) 66%,
+    rgba(158, 186, 216, 0.5) 84%,
+    rgba(255, 252, 244, 0.92) 100%
+  );
+  mask: radial-gradient(circle closest-side at 50% 50%, transparent 0 80%, #000 83.5% 99%, transparent 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 0, 0, 0.6),
+    0 1px 0 rgba(255, 255, 255, 0.16);
+}
+
+.fly__hub > span.fly__hub-chrome--2 {
+  inset: 7.5%;
+  background: conic-gradient(
+    from 128deg,
+    rgba(226, 238, 252, 0.8),
+    rgba(4, 7, 13, 0.94) 18%,
+    rgba(150, 176, 208, 0.42) 34%,
+    rgba(255, 248, 232, 0.85) 52%,
+    rgba(6, 10, 18, 0.92) 72%,
+    rgba(120, 152, 190, 0.35) 88%,
+    rgba(226, 238, 252, 0.8) 100%
+  );
+  mask: radial-gradient(circle closest-side at 50% 50%, transparent 0 78%, #000 82% 99.2%, transparent 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 0 8px rgba(0, 0, 0, 0.55);
+}
+
+.fly__hub > span.fly__hub-chrome--3 {
+  inset: 13.5%;
+  background: conic-gradient(
+    from -14deg,
+    rgba(255, 255, 255, 0.85),
+    rgba(96, 118, 146, 0.24) 12%,
+    rgba(5, 9, 16, 0.9) 28%,
+    rgba(186, 214, 245, 0.62) 46%,
+    rgba(7, 11, 20, 0.9) 64%,
+    rgba(255, 250, 238, 0.7) 82%,
+    rgba(255, 255, 255, 0.85) 100%
+  );
+  mask: radial-gradient(circle closest-side at 50% 50%, transparent 0 84%, #000 88% 99.4%, transparent 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 0, 0, 0.55),
+    0 0 10px -4px color-mix(in oklab, var(--edge) 45%, transparent);
+}
+
+
 /* narrow inset groove — dark ring separating housing from the inner assembly */
-.fly__hub-groove {
+.fly__hub > span.fly__hub-groove {
   inset: 6%;
   background: radial-gradient(circle at 44% 30%, rgba(120, 140, 166, 0.24), rgba(3, 6, 11, 1) 62%);
   box-shadow:
@@ -2125,7 +2291,7 @@ body {
 }
 
 /* second machined ring + polished bevel immediately around the face */
-.fly__hub-bevel {
+.fly__hub > span.fly__hub-bevel {
   inset: 12.5%;
   background: conic-gradient(
     from -34deg,
@@ -2143,8 +2309,8 @@ body {
 }
 
 /* illuminated score face — platinum with real tonal variation, not flat pale */
-.fly__hub-glass {
-  inset: 17.5%;
+.fly__hub > span.fly__hub-glass {
+  inset: 14%;
   background:
     radial-gradient(circle at 38% 22%, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0) 46%),
     radial-gradient(circle at 72% 84%, rgba(126, 154, 188, 0.5), rgba(126, 154, 188, 0) 52%),
@@ -2171,7 +2337,7 @@ body {
 }
 
 /* internal lamp — localized falloff from the face into the housing */
-.fly__hub-lamp {
+.fly__hub > span.fly__hub-lamp {
   inset: 10%;
   background: radial-gradient(
     circle at 48% 40%,
@@ -2183,7 +2349,7 @@ body {
 }
 
 /* one crisp white specular interruption across the face and its bezel */
-.fly__hub-spec {
+.fly__hub > span.fly__hub-spec {
   inset: 13%;
   background: conic-gradient(
     from -80deg,
@@ -2207,7 +2373,7 @@ body {
 
 .fly__hub-type {
   position: absolute;
-  inset: 22%;
+  inset: 26%;
   z-index: 2;
   display: flex;
   flex-direction: column;
@@ -2219,7 +2385,7 @@ body {
 
 .fly__hub-mark {
   font-family: 'DM Serif Display', Georgia, serif;
-  font-size: clamp(0.88rem, 1.16vw, 1.18rem);
+  font-size: clamp(0.8rem, 1.02vw, 1.04rem);
   line-height: 1.12;
   color: #0a1220;
 }
@@ -2230,7 +2396,7 @@ body {
   line-height: 1.44;
   letter-spacing: 0.01em;
   color: rgba(18, 32, 52, 0.72);
-  max-width: 20ch;
+  max-width: 17ch;
 }
 
 /* --- actor capsules --------------------------------------- */

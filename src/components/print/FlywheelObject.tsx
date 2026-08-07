@@ -82,6 +82,30 @@ export default function FlywheelObject({
         })}
       </div>
 
+      {/* ---- luminous orbital arcs inside the glass (light trails) ---- */}
+      <motion.span
+        className="fly__arc fly__arc--a"
+        aria-hidden
+        initial={STATIC_REVIEW_MODE || reduce ? false : { opacity: 0 }}
+        animate={{ opacity: on ? 1 : 0 }}
+        transition={{ duration: 1.6, delay: 0.4 }}
+      />
+      <motion.span
+        className="fly__arc fly__arc--b"
+        aria-hidden
+        initial={STATIC_REVIEW_MODE || reduce ? false : { opacity: 0 }}
+        animate={{ opacity: on ? 1 : 0 }}
+        transition={{ duration: 1.8, delay: 0.55 }}
+      />
+      <motion.span
+        className="fly__arc fly__arc--c"
+        aria-hidden
+        initial={STATIC_REVIEW_MODE || reduce ? false : { opacity: 0 }}
+        animate={{ opacity: on ? 1 : 0 }}
+        transition={{ duration: 2, delay: 0.7 }}
+      />
+      <span className="fly__sparkle" aria-hidden />
+
       {/* ---- outer glass assembly ---- */}
       <span className="fly__rear" aria-hidden />
       <span className="fly__refract" aria-hidden />
@@ -90,6 +114,7 @@ export default function FlywheelObject({
       <span className="fly__edge fly__edge--out" aria-hidden />
       <span className="fly__edge fly__edge--in" aria-hidden />
       <span className="fly__ringgrain" aria-hidden />
+
       <motion.span
         className="fly__spec"
         aria-hidden
@@ -120,7 +145,11 @@ export default function FlywheelObject({
       <div className="fly__hub" style={{ "--edge": `var(--${active.accent})` } as V}>
         <span className="fly__hub-rear" aria-hidden />
         <span className="fly__hub-metal" aria-hidden />
+        <span className="fly__hub-chrome fly__hub-chrome--1" aria-hidden />
+        <span className="fly__hub-chrome fly__hub-chrome--2" aria-hidden />
+        <span className="fly__hub-chrome fly__hub-chrome--3" aria-hidden />
         <span className="fly__hub-groove" aria-hidden />
+
         <span className="fly__hub-bevel" aria-hidden />
         <span className="fly__hub-glass" aria-hidden />
         <motion.span
