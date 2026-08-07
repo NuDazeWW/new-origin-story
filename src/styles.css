@@ -4686,6 +4686,17 @@ body {
   color: var(--ink-muted);
 }
 
+.ask2-band__note {
+  display: block;
+  margin-top: 0.4rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.52rem;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+  color: var(--ink-muted);
+  opacity: 0.72;
+}
+
 .ask2-statement {
   position: absolute;
   left: 4.5rem;
@@ -5162,6 +5173,7 @@ body {
 .ask2-threshold--3 .ask2-threshold__label { color: #B79BFF; }
 .ask2-threshold__riser { opacity: 0.9; }
 .ask2-band__terms { color: #B6C0CB; font-size: 0.62rem; }
+.ask2-band__note { color: #8B97A6; font-size: 0.56rem; opacity: 0.75; }
 .ask2-statement { color: var(--dis-ice-white); }
 
 /* --- 14 · capital slab ------------------------------------- */
