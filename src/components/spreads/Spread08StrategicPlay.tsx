@@ -22,7 +22,13 @@ const STEPS = [
   { num: "5", label: "Publish benchmarks", detail: "Extend horizontally", done: false, left: "78%", top: "26%" },
 ];
 
-const ANCHORS = ["Trans Am Series (active)", "Racing Team Alliance (pending)", "IMSA WeatherTech (in progress)"];
+const ANCHORS = [
+  "Trans Am Series (active)",
+  "Formula Drift (active)",
+  "Racing Team Alliance (in progress)",
+  "IMSA WeatherTech (in progress)",
+  "SRO (pipeline)",
+];
 
 export default function Spread08StrategicPlay({ isActive = false }: { isActive?: boolean }) {
   void isActive;
