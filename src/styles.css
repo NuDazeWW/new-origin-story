@@ -7072,3 +7072,141 @@ body {
 }
 
 .s5-overlay .s5o-ent--long { font-size: 37px; }
+
+/* ============================================================
+   SECTION 11 — FINAL COPY: founder column + two editorial indexes
+   ============================================================ */
+
+.why3-stage { position: relative; overflow: hidden; }
+
+.why3-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  padding: 2.4rem 3rem 2rem;
+  max-width: none;
+}
+
+.why3-head-row {
+  display: flex;
+  align-items: baseline;
+  gap: 1.4rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--dis-electric-blue);
+}
+
+.why2-head.why3-head {
+  margin-top: 0;
+  font-size: clamp(1.25rem, 1.85vw, 1.75rem);
+  max-width: none;
+}
+
+.why3-grid {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 1.15fr 0.92fr 1fr;
+  gap: 1.6rem;
+}
+
+.why3-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  min-width: 0;
+}
+
+.why3-col + .why3-col {
+  padding-left: 1.5rem;
+  border-left: 1px solid rgba(27, 42, 61, 0.16);
+}
+
+.why3-col__label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--dis-electric-blue);
+}
+
+.why3-founder__name {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: clamp(1.4rem, 2.1vw, 2rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--dis-signal-black);
+}
+
+.why3-founder__role {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--dis-steel-blue);
+}
+
+.why3-founder__bio {
+  margin-top: 0.35rem;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(0.5rem, 0.62vw, 0.63rem);
+  line-height: 1.5;
+  color: #33414F;
+}
+
+.why3-entry { display: block; }
+
+.why3-entry__name {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: clamp(0.82rem, 1.02vw, 1rem);
+  line-height: 1.1;
+  color: var(--dis-signal-black);
+}
+
+.why3-entry__role {
+  display: block;
+  margin-top: 0.08rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.44rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--dis-steel-blue);
+}
+
+.why3-entry__bio {
+  margin-top: 0.22rem;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(0.48rem, 0.58vw, 0.6rem);
+  line-height: 1.48;
+  color: #3B4757;
+}
+
+@media (max-width: 900px) {
+  .why3-content { padding: 1.6rem 1.4rem; overflow-y: auto; }
+  .why3-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+  .why3-col + .why3-col { padding-left: 0; border-left: 0; border-top: 1px solid rgba(27, 42, 61, 0.16); padding-top: 1rem; }
+}
+
+/* Section 11 — keep the photograph as atmosphere only; typography stays legible. */
+.why3-stage .why2-atmos { width: 58%; }
+.why3-stage .why2-atmos__img {
+  object-position: 58% 40%;
+  filter: grayscale(0.9) contrast(1.02) brightness(1.12) blur(2px);
+  opacity: 0.3;
+}
+.why3-stage .why2-atmos__wash {
+  background:
+    linear-gradient(90deg, var(--dis-platinum) 0%, rgba(230, 235, 241, 0.94) 30%, rgba(230, 235, 241, 0.86) 70%, rgba(230, 235, 241, 0.78) 100%);
+}
+
+/* Section 11 — clear the nav control and fill the column height. */
+.why3-content { padding: 2.4rem 4.4rem 2rem 4.6rem; gap: 1.1rem; }
+.why3-col { gap: 0.7rem; }
+.why3-founder__bio { font-size: clamp(0.6rem, 0.72vw, 0.76rem); line-height: 1.62; margin-top: 0.5rem; }
+.why3-entry__name { font-size: clamp(0.92rem, 1.12vw, 1.1rem); }
+.why3-entry__role { font-size: 0.48rem; }
+.why3-entry__bio { font-size: clamp(0.56rem, 0.68vw, 0.72rem); line-height: 1.58; margin-top: 0.28rem; }
+.why3-founder__name { font-size: clamp(1.6rem, 2.4vw, 2.3rem); }
+.why3-founder__role { font-size: 0.54rem; }
