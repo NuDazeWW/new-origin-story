@@ -70,7 +70,11 @@ export default function Spread15Closing({ isActive = false }: { isActive?: boole
               >
                 PRSCSTANDARDS.COM
               </a>
+              <p className="close-contact" style={{ color: "var(--dis-fog)" }}>
+                [DIS Contact Information]
+              </p>
             </Settle>
+
           </div>
 
           {/*
