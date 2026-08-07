@@ -5174,6 +5174,7 @@ body {
 .ask2-threshold__riser { opacity: 0.9; }
 .ask2-band__terms { color: #B6C0CB; font-size: 0.62rem; }
 .ask2-band__note { color: #8B97A6; font-size: 0.56rem; opacity: 0.75; }
+.ask2-statement { color: var(--dis-ice-white); }
 
 /* --- 14 · capital slab ------------------------------------- */
 
