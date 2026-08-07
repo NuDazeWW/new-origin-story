@@ -7,7 +7,10 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 
+import section09Roadmap from "@/assets/section09-roadmap.png.asset.json";
+
 import { STATIC_REVIEW_MODE } from "@/reviewMode";
+
 
 import { Page, PageBody, RunningHead, Folio } from "@/components/print/Page";
 import { Settle } from "@/components/print/Editorial";
