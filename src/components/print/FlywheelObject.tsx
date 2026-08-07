@@ -108,6 +108,7 @@ export default function FlywheelObject({
         transition={{ duration: 2, delay: 0.7 }}
       />
       <span className="fly__sparkle" aria-hidden />
+      {running && !reduce ? <span className="fly__comet" aria-hidden /> : null}
 
       {/* ---- outer glass assembly ---- */}
       <span className="fly__rear" aria-hidden />
