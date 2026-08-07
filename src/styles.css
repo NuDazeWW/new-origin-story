@@ -4036,12 +4036,13 @@ body {
 .van3 {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 40%) minmax(0, 60%);
-  align-items: center;
-  gap: 1.5rem;
-  padding: 2.2% 3.5% 3%;
+  grid-template-columns: minmax(0, 41%) minmax(0, 59%);
+  align-items: stretch;
+  gap: 1.25rem;
+  padding: 1.8% 3.2% 2.2%;
   overflow: hidden;
 }
+
 
 .van3__atmos {
   position: absolute;
