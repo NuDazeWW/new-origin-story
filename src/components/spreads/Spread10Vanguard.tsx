@@ -1,9 +1,8 @@
 /**
  * SPREAD 10 — The Founding Vanguard™
- * CORRECTION PASS 02: the 25 positions are arranged as a sculptural sweeping
- * formation in perspective — varying scale, depth, overlap and atmospheric
- * falloff. No rows, no columns, no status implied. Every position is neutral.
- * Exact copy from production brief SLIDE 10.
+ * Final copy: 25 founding participants, cohort definition, and the three
+ * de-risking tranches. The 25 positions remain a sculptural sweeping field
+ * in perspective; copy lives in a registered left column.
  */
 
 import { motion, useReducedMotion } from "framer-motion";
@@ -15,9 +14,35 @@ import { Settle } from "@/components/print/Editorial";
 import { EASE } from "@/components/print/Layers";
 
 const TRANCHES = [
-  { num: "Tranche 1", title: "Build & Benchmark", question: "Can readiness be measured?" },
-  { num: "Tranche 2", title: "Validate & Correlate", question: "Does readiness predict outcomes?" },
-  { num: "Tranche 3", title: "Standardize & Monetize", question: "Will organizations pay for it?" },
+  {
+    label: "TRANCHE 1 — BUILD & BENCHMARK",
+    amount: "[Initial Close · $850K]",
+    question: "Can readiness be measured?",
+    bullets: [
+      "Terminal in production.",
+      "First motorsport readiness benchmark.",
+      "First score distribution model.",
+    ],
+  },
+  {
+    label: "TRANCHE 2 — VALIDATE & CORRELATE",
+    amount: "[Second Close · $900K]",
+    question: "Does readiness predict outcomes?",
+    bullets: [
+      "First readiness-improvement dataset.",
+      "First readiness-to-outcome dataset.",
+    ],
+  },
+  {
+    label: "TRANCHE 3 — STANDARDIZE & MONETIZE",
+    amount: "[Final Close · $750K]",
+    question: "Will organizations pay for it?",
+    bullets: [
+      "First certifications issued.",
+      "First benchmark reports published.",
+      "First paid conversions.",
+    ],
+  },
 ];
 
 /**
@@ -45,7 +70,7 @@ export default function Spread10Vanguard({ isActive = false }: { isActive?: bool
 
   return (
     <Page stock="ink">
-      <RunningHead chapter="10 / The Founding Vanguard" issue="DIS Origin" />
+      <RunningHead chapter="10 / The Founding Vanguard™" issue="DIS Origin" />
 
       <PageBody>
         <div className="van-stage">
@@ -78,34 +103,52 @@ export default function Spread10Vanguard({ isActive = false }: { isActive?: bool
             ))}
           </div>
 
-          <div className="van2-header">
-            <Settle>
-              <span className="ed-kicker" style={{ color: "var(--dis-electric-blue)" }}>
-                The Founding Vanguard™
-              </span>
-              <h2 className="ed-head" style={{ color: "var(--ink-text)" }}>
-                25 founding participants. The first readiness benchmark. The first readiness-to-outcome dataset.
-              </h2>
-            </Settle>
-          </div>
+          <div className="van2-editorial">
+            <div className="van2-header">
+              <Settle>
+                <span className="ed-kicker" style={{ color: "var(--dis-electric-blue)" }}>
+                  The Founding Vanguard™
+                </span>
+                <h2 className="ed-head" style={{ color: "var(--ink-text)" }}>
+                  25 founding participants. The first readiness benchmark. The first readiness-to-outcome dataset.
+                </h2>
+              </Settle>
+            </div>
 
-          {/* Three tranches as editorial movements around the field — not a legend. */}
-          <div className="van2-movements">
-            {TRANCHES.map((t, i) => (
-              <motion.div
-                key={t.num}
-                className={`van2-movement van2-movement--${i + 1}`}
-                initial={STATIC_REVIEW_MODE || reduce ? false : { opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                animate={STATIC_REVIEW_MODE ? { opacity: 1, y: 0 } : undefined}
-                viewport={{ once: true, amount: 0.4 }}
-                transition={{ duration: 0.7, delay: 0.4 + i * 0.15, ease: EASE }}
-              >
-                <span className="van2-movement__num">{t.num}</span>
-                <span className="van2-movement__title">{t.title}</span>
-                <span className="van2-movement__question">{t.question}</span>
-              </motion.div>
-            ))}
+            <p className="van2-body">
+              The Founding Vanguard™ is the 25-slot founding cohort — ecosystem participants
+              across teams, brands, and series — whose scores generate the first readiness
+              benchmark and the first readiness-to-outcome dataset. Each tranche of capital
+              retires a specific, binary risk. Investors are not betting on a vision; they are
+              funding a sequence of de-risking milestones.
+            </p>
+
+            <div className="van2-tranches">
+              {TRANCHES.map((t, i) => (
+                <motion.div
+                  key={t.label}
+                  className="van2-tranche"
+                  initial={STATIC_REVIEW_MODE || reduce ? false : { opacity: 0, y: 18 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  animate={STATIC_REVIEW_MODE ? { opacity: 1, y: 0 } : undefined}
+                  viewport={{ once: true, amount: 0.4 }}
+                  transition={{ duration: 0.7, delay: 0.4 + i * 0.15, ease: EASE }}
+                >
+                  <div className="van2-tranche__meta">
+                    <span className="van2-tranche__num">{t.label}</span>
+                    <span className="van2-tranche__amount">{t.amount}</span>
+                  </div>
+                  <span className="van2-tranche__question">{t.question}</span>
+                  <ul className="van2-tranche__list">
+                    {t.bullets.map((b) => (
+                      <li key={b} className="van2-tranche__item">
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </PageBody>
